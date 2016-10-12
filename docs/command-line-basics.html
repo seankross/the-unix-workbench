@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>The Unix Workbench</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="The Unix Workbench">
+  <meta name="generator" content="bookdown 0.1 and GitBook 2.6.7">
+
+  <meta property="og:title" content="The Unix Workbench" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://github.com/seankross/the_unix_workbench" />
+  
+  
+  <meta name="github-repo" content="seankross/the_unix_workbench" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="The Unix Workbench" />
+  
+  
+  
+
+<meta name="author" content="Sean Kross">
+
+<meta name="date" content="2016-10-12">
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="getting-unix.html">
+
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">The Unix Workbench</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="1" data-path="what-is-unix.html"><a href="what-is-unix.html"><i class="fa fa-check"></i><b>1</b> What is Unix?</a></li>
+<li class="chapter" data-level="2" data-path="getting-unix.html"><a href="getting-unix.html"><i class="fa fa-check"></i><b>2</b> Getting Unix</a><ul>
+<li class="chapter" data-level="2.1" data-path="getting-unix.html"><a href="getting-unix.html#mac-ubuntu-users"><i class="fa fa-check"></i><b>2.1</b> Mac &amp; Ubuntu Users</a></li>
+<li class="chapter" data-level="2.2" data-path="getting-unix.html"><a href="getting-unix.html#windows"><i class="fa fa-check"></i><b>2.2</b> Windows</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="command-line-basics.html"><a href="command-line-basics.html"><i class="fa fa-check"></i><b>3</b> Command Line Basics</a><ul>
+<li class="chapter" data-level="3.1" data-path="command-line-basics.html"><a href="command-line-basics.html#navigating-the-command-line"><i class="fa fa-check"></i><b>3.1</b> Navigating the Command Line</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The Unix Workbench</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="command-line-basics" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Command Line Basics</h1>
+<p>If you opened up Terminal or Git Bash then you should see a window that looks something like this:</p>
+<div class="figure">
+<img src="img/shell1.png" alt="" />
+
+</div>
+<p>What you’re looking at is the bash shell! Your shell will surely look different than mine, but all bash shells have the same essential parts. As you can see in my shell it says <code>seans-air:~ sean$</code>. This string of characters is called the <strong>prompt</strong>. You type command line commands after the prompt. The prompt is just there to let you know that the shell is ready for you to type in a command. Press <code>Enter</code> on your keyboard a few times to see what happens with the prompt. Your shell should now look like this:</p>
+<div class="figure">
+<img src="img/shell2.png" alt="" />
+
+</div>
+<p>If you don’t type anything after the prompt and you press enter then nothing happens, and you get a new prompt under the old prompt. The white rectangle after the prompt is just a cursor that allows you to edit what you’ve typed into the shell. Your cursor might look like a rectangle, a line, or an underscore, but all cursors behave the same way. After typing something into the command line you can move the cursor back and forth with the left and right arrow keys.</p>
+<p>Don’t you think your shell looks messy with all of those old prompts? Don’t worry, you’re about to learn your first shell command which will clean your shell up! Type <code>clean</code> at the prompt and then hit enter. Voila! Your command line is back to how you started.</p>
+<p>Every command line command is actually a little computer program, even commands as simple as <code>clean</code>. These commands all tend to have the following structure:</p>
+<pre><code>[commnd] [options] [arguments]</code></pre>
+<p>Some simple commands like <code>clean</code> don’t require any options or arguments. Options are usually preceded by a hyphen (<code>-</code>) and they tweak the behavior of the command. Arguments can be names of files, raw data, or other options that the command requires. A simple command that has an argument is <code>echo</code>. The <code>echo</code> command prints a phrase to the console. Enter <code>echo &quot;Hello World!&quot;</code> into the command line so see what happens:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">echo</span> <span class="st">&quot;Hello World!&quot;</span></code></pre></div>
+<pre><code>## Hello World!</code></pre>
+<p>We’ll be using the above syntax for the rest of the book, where on one line there will be a command that I’ve entered into the command line, and then below that command the console output of the command will appear (if there is any console output). You can use <code>echo</code> to print any phase surrounded by double quotes (<code>&quot;&quot;</code>) to the console.</p>
+<div id="navigating-the-command-line" class="section level2">
+<h2><span class="header-section-number">3.1</span> Navigating the Command Line</h2>
+<p>You’ve learned two command line commands which is pretty good! Before you learn more commands we need to discuss how files and folders are organized on your computer.</p>
+<p>Computers are organized in a hierarchy of folders, where a folder can contain many folders and files. People who use Unix often refer to folders as directories and these terms are interchangeable. This directory hierarchy forms a tree, like the diagram below. We can use the command line to navigate these trees on your computer.</p>
+<div class="figure">
+<img src="img/musictree1.png" alt="" />
+
+</div>
+<p>As you can see in the image below, my Debussy directory is contained in my Music directory. This is the simplest case of how directories are structured.</p>
+<div class="figure">
+<img src="img/musictree2.png" alt="" />
+
+</div>
+<p>The directory structure on most computers is much more complicated, but the structure on your computer probably looks something like this:</p>
+<div class="figure">
+<img src="img/bigtree1.png" alt="" />
+
+</div>
+<p>There are a few special directories that you should be aware of on your computer. The directory at the top of this tree is called the root directory. The root directory contains all other directories, and is represented by a slash (<code>/</code>).</p>
+<p>The home directory is another special directory that is represented by a tilde (<code>~</code>). Your home directory contains your personal files, like your photos, documents, and the contents of your desktop. When you first open up your shell you usually start off in your home directory. Imagine tracing all of the directories from your root directory to the directory you’re currently in. This squence of directories is called a “path.” The diagram below illustrates the path from a hypothetical root directory to the home directory.</p>
+<div class="figure">
+<img src="img/redtree.png" alt="" />
+
+</div>
+<p>This path can be written as <code>/Users/sean</code></p>
+<p>Open the command line if you closed it (either <strong>Terminal</strong> or <strong>Git Bash</strong>). Your shell starts in your home directory. Whatever directory your shell is in is called the <strong>workig directory</strong>. Enter the <code>pwd</code> command into your shell to <strong>p</strong>rint the <strong>w</strong>orking <strong>d</strong>irectory.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">pwd</span></code></pre></div>
+<pre><code>## /Users/sean</code></pre>
+<p>You can change your working directory using the <code>cd</code> command. If you use the <code>cd</code> command without any arguments then your home working directory is changed to your home directory.</p>
+<p>Enter <code>cd</code> into the command line and then enter <code>pwd</code>.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span>
+<span class="kw">pwd</span></code></pre></div>
+<pre><code>## /Users/sean</code></pre>
+
+<div id="refs" class="references">
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="getting-unix.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

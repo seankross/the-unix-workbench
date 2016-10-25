@@ -16,7 +16,7 @@ Your shell should now look like this:
 ![](img/shell2.png)
 
 If you don't type anything after the prompt and you press enter then nothing
-happens, and you get a new prompt under the old prompt. The white rectangle 
+happens and you get a new prompt under the old prompt. The white rectangle 
 after the prompt is just a cursor that allows you to edit what you've typed
 into the shell. Your cursor might look like a rectangle, a line, or an
 underscore, but all cursors behave the same way. After typing something into
@@ -25,8 +25,8 @@ arrow keys.
 
 Don't you think your shell looks messy with all of those old prompts? Don't
 worry, you're about to learn your first shell command which will clean your
-shell up! Type `clean` at the prompt and then hit enter. Voila! Your command
-line is back to how you started.
+shell up! Type `clean` at the prompt and then hit enter. Voila! Your shell
+is back to how you started.
 
 Every command line command is actually a little computer program, even commands
 as simple as `clean`. These commands all tend to have the following structure:
@@ -54,14 +54,15 @@ quotes (`""`) to the console.
 
 ## Navigating the Command Line
 
-You've learned two command line commands which is pretty good! Before you learn
+You've learned two command line commands (`clear` and `echo`) which is pretty
+good! Before you learn
 more commands we need to discuss how files and folders are organized on your
 computer.
 
 Computers are organized in a hierarchy of folders, where a folder can contain 
 many folders and files. People who use Unix often refer to folders as 
 directories and these terms are interchangeable. This directory hierarchy forms 
-a tree, like the diagram below. We can use the command line to navigate these
+a tree, like the diagram below. You can use the command line to navigate these
 trees on your computer.
 
 ![](img/musictree1.png)
@@ -106,7 +107,7 @@ pwd
 ```
 
 You can change your working directory using the `cd` command. If you use the
-`cd` command without any arguments then your home working directory is changed
+`cd` command without any arguments then your working directory is changed
 to your home directory.
 
 Enter `cd` into the command line and then enter `pwd`.
@@ -115,3 +116,9 @@ Enter `cd` into the command line and then enter `pwd`.
 cd
 pwd
 ```
+
+You were in your wokring directory to start, and by entering `cd` into the
+command line you did technically **c**hange **d**irectory, you just changed it
+to your home directory (the directory you were in to begin with). To use `cd` to
+change your working directory to a directory other than your home directory, you
+need to provide

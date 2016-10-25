@@ -125,8 +125,8 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <div class="figure">
 <img src="img/shell2.png" />
 </div>
-<p>If you don’t type anything after the prompt and you press enter then nothing happens, and you get a new prompt under the old prompt. The white rectangle after the prompt is just a cursor that allows you to edit what you’ve typed into the shell. Your cursor might look like a rectangle, a line, or an underscore, but all cursors behave the same way. After typing something into the command line you can move the cursor back and forth with the left and right arrow keys.</p>
-<p>Don’t you think your shell looks messy with all of those old prompts? Don’t worry, you’re about to learn your first shell command which will clean your shell up! Type <code>clean</code> at the prompt and then hit enter. Voila! Your command line is back to how you started.</p>
+<p>If you don’t type anything after the prompt and you press enter then nothing happens and you get a new prompt under the old prompt. The white rectangle after the prompt is just a cursor that allows you to edit what you’ve typed into the shell. Your cursor might look like a rectangle, a line, or an underscore, but all cursors behave the same way. After typing something into the command line you can move the cursor back and forth with the left and right arrow keys.</p>
+<p>Don’t you think your shell looks messy with all of those old prompts? Don’t worry, you’re about to learn your first shell command which will clean your shell up! Type <code>clean</code> at the prompt and then hit enter. Voila! Your shell is back to how you started.</p>
 <p>Every command line command is actually a little computer program, even commands as simple as <code>clean</code>. These commands all tend to have the following structure:</p>
 <pre><code>[commnd] [options] [arguments]</code></pre>
 <p>Some simple commands like <code>clean</code> don’t require any options or arguments. Options are usually preceded by a hyphen (<code>-</code>) and they tweak the behavior of the command. Arguments can be names of files, raw data, or other options that the command requires. A simple command that has an argument is <code>echo</code>. The <code>echo</code> command prints a phrase to the console. Enter <code>echo &quot;Hello World!&quot;</code> into the command line so see what happens:</p>
@@ -135,8 +135,8 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>We’ll be using the above syntax for the rest of the book, where on one line there will be a command that I’ve entered into the command line, and then below that command the console output of the command will appear (if there is any console output). You can use <code>echo</code> to print any phase surrounded by double quotes (<code>&quot;&quot;</code>) to the console.</p>
 <div id="navigating-the-command-line" class="section level2">
 <h2><span class="header-section-number">3.1</span> Navigating the Command Line</h2>
-<p>You’ve learned two command line commands which is pretty good! Before you learn more commands we need to discuss how files and folders are organized on your computer.</p>
-<p>Computers are organized in a hierarchy of folders, where a folder can contain many folders and files. People who use Unix often refer to folders as directories and these terms are interchangeable. This directory hierarchy forms a tree, like the diagram below. We can use the command line to navigate these trees on your computer.</p>
+<p>You’ve learned two command line commands (<code>clear</code> and <code>echo</code>) which is pretty good! Before you learn more commands we need to discuss how files and folders are organized on your computer.</p>
+<p>Computers are organized in a hierarchy of folders, where a folder can contain many folders and files. People who use Unix often refer to folders as directories and these terms are interchangeable. This directory hierarchy forms a tree, like the diagram below. You can use the command line to navigate these trees on your computer.</p>
 <div class="figure">
 <img src="img/musictree1.png" />
 </div>
@@ -157,11 +157,12 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>Open the command line if you closed it (either <strong>Terminal</strong> or <strong>Git Bash</strong>). Your shell starts in your home directory. Whatever directory your shell is in is called the <strong>workig directory</strong>. Enter the <code>pwd</code> command into your shell to <strong>p</strong>rint the <strong>w</strong>orking <strong>d</strong>irectory.</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">pwd</span></code></pre>
 <pre><code>## /Users/sean</code></pre>
-<p>You can change your working directory using the <code>cd</code> command. If you use the <code>cd</code> command without any arguments then your home working directory is changed to your home directory.</p>
+<p>You can change your working directory using the <code>cd</code> command. If you use the <code>cd</code> command without any arguments then your working directory is changed to your home directory.</p>
 <p>Enter <code>cd</code> into the command line and then enter <code>pwd</code>.</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span>
 <span class="kw">pwd</span></code></pre>
 <pre><code>## /Users/sean</code></pre>
+<p>You were in your wokring directory to start, and by entering <code>cd</code> into the command line you did technically <strong>c</strong>hange <strong>d</strong>irectory, you just changed it to your home directory (the directory you were in to begin with). To use <code>cd</code> to change your working directory to a directory other than your home directory, you need to provide</p>
 
 
 

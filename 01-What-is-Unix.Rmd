@@ -7,9 +7,11 @@ movies: an elite computer hacker sits in front of a black screen with green
 glowing text, furiously typing in commands and saying something like 
 "Spike them!" Using the command line interface you enter lines of code into
 a shell (also called a console) and that code instructs your computer to
-perform a specific task.
+perform a specific task. Throughout this book I may use the terms command line,
+shell, and console interchangeably. You'll learn about using the command line in
+the Command Line Basics chapter.
 
-Using a shell is a very direct and powerful way to manipulate a computer. You
+The shell is a very direct and powerful way to manipulate a computer. You
 can produce wonderful creations that help thousands of people, or you can wreak
 havoc on yourself and on others. Like
 [Benjamin Parker](https://en.wikipedia.org/wiki/Uncle_Ben) once 

@@ -1,7 +1,7 @@
 --- 
 title: "The Unix Workbench"
 author: "Sean Kross"
-date: "2016-10-13"
+date: "2016-10-30"
 site: bookdown::bookdown_site
 output:
  bookdown::html_chapters:
@@ -12,8 +12,8 @@ documentclass: book
 bibliography: [book.bib]
 biblio-style: apalike
 link-citations: yes
-github-repo: seankross/the_unix_workbench
-url: 'https\://github.com/seankross/the_unix_workbench'
+github-repo: seankross/the-unix-workbench
+url: 'https\://github.com/seankross/the-unix-workbench'
 description: ""
 ---
 
@@ -27,7 +27,8 @@ essential and simple set of tools in a distraction-free environment. My goal
 for this book is to help you get started with Unix by writing the book I would
 have wanted when I was first learning Unix. If you have any additions,
 corrections, or comments for this book please open an issue or send a pull
-request to: https://github.com/seankross/the_unix_workbench
+request to: https://github.com/seankross/the-unix-workbench. If you're unsure
+what a pull request is you'll find out in this book!
 
 **Cover Image**
 

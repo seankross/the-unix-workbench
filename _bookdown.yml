@@ -1,6 +1,6 @@
-book_filename: "the_unix_workbench"
+book_filename: "the-unix-workbench"
 chapter_name: "Chapter "
-repo: https://github.com/seankross/the_unix_workbench
+repo: https://github.com/seankross/the-unix-workbench
 output_dir: docs
 rmd_files: ["index.Rmd", "01-What-is-Unix.Rmd", "02-Getting-Unix.Rmd", "03-Command-Line-Basics.Rmd"]
 clean: [packages.bib, bookdown.bbl]

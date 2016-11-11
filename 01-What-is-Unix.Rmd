@@ -17,4 +17,5 @@ havoc on yourself and on others. Like
 [Benjamin Parker](https://en.wikipedia.org/wiki/Uncle_Ben) once 
 said: "With great power comes great responsibility."
 
-There are several popular shell programs but in this book we'll be using a shell called Bash because it's the default shell program on on Mac and Ubuntu.
+There are several popular shell programs but in this book we'll be using a shell 
+called Bash because it's the default shell program on Mac and Ubuntu.

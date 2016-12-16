@@ -1,7 +1,7 @@
 # Command Line Basics
 
-If you opened up Terminal or Git Bash then you should see a window that looks
-something like this:
+Once you have opened up Terminal or Git Bash then you should see a window that 
+looks something like this:
 
 ![](img/shell1.png)
 
@@ -40,7 +40,7 @@ Options are usually preceded by a hyphen (`-`) and they tweak the behavior
 of the command. Arguments can be names of files, raw data, or other options
 that the command requires. A simple command that has an argument is `echo`.
 The `echo` command prints a phrase to the console. Enter `echo "Hello World!"`
-into the command line so see what happens:
+into the command line to see what happens:
 
 
 ```bash
@@ -60,9 +60,8 @@ quotes (`""`) to the console.
 ## Navigating the Command Line
 
 You've learned two command line commands (`clear` and `echo`) which is pretty
-good! Before you learn
-more commands we need to discuss how files and folders are organized on your
-computer.
+good! Before you learn more commands we need to discuss how files and folders 
+are organized on your computer.
 
 Computers are organized in a hierarchy of folders, where a folder can contain 
 many folders and files. People who use Unix often refer to folders as 
@@ -72,7 +71,8 @@ trees on your computer.
 
 ![](img/musictree1.png)
 
-As you can see in the image below, my Debussy directory is contained in my Music directory. This is the simplest case of how directories are structured.
+As you can see in the image below, my Debussy directory is contained in my Music 
+directory. This is the simplest case of how directories are structured.
 
 ![](img/musictree2.png)
 
@@ -100,7 +100,7 @@ This path can be written as `/Users/sean`
 
 Open the command line if you closed it (either **Terminal** or **Git Bash**).
 Your shell starts in your home directory. Whatever directory your shell is in
-is called the **workig directory**. Enter the `pwd` command into your shell
+is called the **working directory**. Enter the `pwd` command into your shell
 to **p**rint the **w**orking **d**irectory.
 
 
@@ -128,7 +128,7 @@ pwd
 ## /Users/sean
 ```
 
-You were in your wokring directory to start, and by entering `cd` into the
+You were in your working directory to start, and by entering `cd` into the
 command line you did technically **c**hange **d**irectory, you just changed it
 to your home directory (the directory you were in to begin with). To use `cd` to
 change your working directory to a directory other than your home directory, you

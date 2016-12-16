@@ -117,7 +117,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
             <section class="normal" id="section-">
 <div id="command-line-basics" class="section level1">
 <h1><span class="header-section-number">Chapter 3</span> Command Line Basics</h1>
-<p>If you opened up Terminal or Git Bash then you should see a window that looks something like this:</p>
+<p>Once you have opened up Terminal or Git Bash then you should see a window that looks something like this:</p>
 <div class="figure">
 <img src="img/shell1.png" />
 </div>
@@ -129,7 +129,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>Don’t you think your shell looks messy with all of those old prompts? Don’t worry, you’re about to learn your first shell command which will clean your shell up! Type <code>clean</code> at the prompt and then hit enter. Voila! Your shell is back to how you started.</p>
 <p>Every command line command is actually a little computer program, even commands as simple as <code>clean</code>. These commands all tend to have the following structure:</p>
 <pre><code>[commnd] [options] [arguments]</code></pre>
-<p>Some simple commands like <code>clean</code> don’t require any options or arguments. Options are usually preceded by a hyphen (<code>-</code>) and they tweak the behavior of the command. Arguments can be names of files, raw data, or other options that the command requires. A simple command that has an argument is <code>echo</code>. The <code>echo</code> command prints a phrase to the console. Enter <code>echo &quot;Hello World!&quot;</code> into the command line so see what happens:</p>
+<p>Some simple commands like <code>clean</code> don’t require any options or arguments. Options are usually preceded by a hyphen (<code>-</code>) and they tweak the behavior of the command. Arguments can be names of files, raw data, or other options that the command requires. A simple command that has an argument is <code>echo</code>. The <code>echo</code> command prints a phrase to the console. Enter <code>echo &quot;Hello World!&quot;</code> into the command line to see what happens:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">echo</span> <span class="st">&quot;Hello World!&quot;</span></code></pre>
 <pre><code>## Hello World!</code></pre>
 <p>We’ll be using the above syntax for the rest of the book, where on one line there will be a command that I’ve entered into the command line, and then below that command the console output of the command will appear (if there is any console output). You can use <code>echo</code> to print any phase surrounded by double quotes (<code>&quot;&quot;</code>) to the console.</p>
@@ -154,7 +154,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <img src="img/redtree.png" />
 </div>
 <p>This path can be written as <code>/Users/sean</code></p>
-<p>Open the command line if you closed it (either <strong>Terminal</strong> or <strong>Git Bash</strong>). Your shell starts in your home directory. Whatever directory your shell is in is called the <strong>workig directory</strong>. Enter the <code>pwd</code> command into your shell to <strong>p</strong>rint the <strong>w</strong>orking <strong>d</strong>irectory.</p>
+<p>Open the command line if you closed it (either <strong>Terminal</strong> or <strong>Git Bash</strong>). Your shell starts in your home directory. Whatever directory your shell is in is called the <strong>working directory</strong>. Enter the <code>pwd</code> command into your shell to <strong>p</strong>rint the <strong>w</strong>orking <strong>d</strong>irectory.</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">pwd</span></code></pre>
 <pre><code>## /Users/sean</code></pre>
 <p>You can change your working directory using the <code>cd</code> command. If you use the <code>cd</code> command without any arguments then your working directory is changed to your home directory.</p>
@@ -162,7 +162,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span>
 <span class="kw">pwd</span></code></pre>
 <pre><code>## /Users/sean</code></pre>
-<p>You were in your wokring directory to start, and by entering <code>cd</code> into the command line you did technically <strong>c</strong>hange <strong>d</strong>irectory, you just changed it to your home directory (the directory you were in to begin with). To use <code>cd</code> to change your working directory to a directory other than your home directory, you need to provide</p>
+<p>You were in your working directory to start, and by entering <code>cd</code> into the command line you did technically <strong>c</strong>hange <strong>d</strong>irectory, you just changed it to your home directory (the directory you were in to begin with). To use <code>cd</code> to change your working directory to a directory other than your home directory, you need to provide</p>
 
 
 

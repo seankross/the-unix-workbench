@@ -1,7 +1,7 @@
 --- 
 title: "The Unix Workbench"
 author: "Sean Kross"
-date: "2016-10-30"
+date: "2016-12-16"
 site: bookdown::bookdown_site
 output:
  bookdown::html_chapters:
@@ -23,7 +23,9 @@ Software can't be mined out of the ground, nor can software seeds be planted in
 spring to harvest by autumn. Software isn't produced in factories on an
 assembly line. Software is a hand-made, often bespoke good. If a software
 developer is an artisan, then Unix is their workbench. Unix provides an
-essential and simple set of tools in a distraction-free environment. My goal
+essential and simple set of tools in a distraction-free environment. Even if
+you're not a software developer learning Unix can open you up to new methods
+of thinking and novel ways to scale your ideas. My goal
 for this book is to help you get started with Unix by writing the book I would
 have wanted when I was first learning Unix. If you have any additions,
 corrections, or comments for this book please open an issue or send a pull

@@ -16,4 +16,4 @@ For a full Unix experience you should download
 [VirtualBox](https://www.virtualbox.org/) and then set up the latest version of
 Ubuntu with VirtualBox. Instructions for doing this tend to change slightly
 over time, so I suggest using Google to search for "how to install Ubunutu on
-windows with VirtualBox" and then you can follow the instructions that you find.
+Windows with VirtualBox" and then you can follow the instructions that you find.

@@ -32,7 +32,7 @@ Every command line command is actually a little computer program, even commands
 as simple as `clean`. These commands all tend to have the following structure:
 
 ```
-[commnd] [options] [arguments]
+[command] [options] [arguments]
 ```
 
 Some simple commands like `clean` don't require any options or arguments.
@@ -86,12 +86,12 @@ The home directory is another special directory that is represented by a tilde
 documents, and the contents of your desktop. When you first open up your shell
 you usually start off in your home directory. Imagine tracing all of the 
 directories from your root directory to the directory you're currently in. This
-squence of directories is called a "path." The diagram below illustrates the
+squence of directories is called a **path**. The diagram below illustrates the
 path from a hypothetical root directory to the home directory.
 
 ![](img/redtree.png)
 
-This path can be written as `/Users/sean`
+This path can be written as `/Users/sean`.
 
 Open the command line if you closed it (either **Terminal** or **Git Bash**).
 Your shell starts in your home directory. Whatever directory your shell is in
@@ -121,4 +121,77 @@ You were in your working directory to start, and by entering `cd` into the
 command line you did technically **c**hange **d**irectory, you just changed it
 to your home directory (the directory you were in to begin with). To use `cd` to
 change your working directory to a directory other than your home directory, you
-need to provide
+need to provide `cd` with the path to another directory as an argument. You can
+specify a path as either a path that is **relative** to your current directory,
+or you can specify the **absolute** path to a directory starting from the root
+of your computer. Let's say we simply want to change the working directory to
+one of the folder that is inside our home directory. First we need to be able to
+see which folders are in our working directory. You can list the files and
+folders in a directory using the `ls` command. Let's use the `ls` command in our
+home directory to list the files and folders contained within it.
+
+```{r, engine='bash', eval=FALSE}
+ls
+```
+
+```
+## Desktop
+## Documents
+## Photos
+## Music
+## todo.txt
+```
+
+It looks like I have four folders and one text file in my home directory. Now
+let's switch into the Music directory:
+
+```{r, engine='bash', eval=FALSE}
+cd Music
+```
+
+As you can see the path to the current working directory has changed:
+
+```{r, engine='bash', eval=FALSE}
+pwd
+```
+
+```
+## /Users/sean/Music
+```
+
+I specified a **relative** path when I entered `cd Music`. The path to the 
+Music directory is just `Music/` relative to my current working directory.
+I can go back to `/Users/sean/` with the command `cd ..` which changes the
+working directory to the folder above the current working directory:
+
+```{r, engine='bash', eval=FALSE}
+cd ..
+pwd
+```
+
+```
+## /Users/sean
+```
+
+Notice that `..` is also a relative path, since it specifies the directory above
+your current working directory. Similarly `.` is the path to your current
+working directory. Therefore since my current working directory is `/Users/sean`
+then `cd Music` is the same as `cd ./Music`.
+
+I can `cd` to any folder as long as I know the **absolute** path to that folder.
+For example I can `cd` to `/Users/sean/Music` by entering the following into 
+the shell:
+
+```{r, engine='bash', eval=FALSE}
+cd ~/Music
+pwd
+```
+
+```
+## /Users/sean/Music
+```
+
+It doesn't matter what directory I'm in since I'm using a absolue path, I can
+jump straight to that directory. Remember that `~` is a shortcut for the path to
+your home folder.
+

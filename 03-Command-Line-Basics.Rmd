@@ -160,7 +160,7 @@ pwd
 ```
 
 I specified a **relative** path when I entered `cd Music`. The path to the 
-Music directory is just `Music/` relative to my current working directory.
+Music directory is just `Music/` relative to my previous working directory.
 I can go back to `/Users/sean/` with the command `cd ..` which changes the
 working directory to the folder above the current working directory:
 
@@ -192,6 +192,48 @@ pwd
 ```
 
 It doesn't matter what directory I'm in since I'm using a absolue path, I can
-jump straight to that directory. Remember that `~` is a shortcut for the path to
-your home folder.
+jump straight to that directory (Remember that `~` is a shortcut for the path to
+your home folder). Of course you shouldn't expect yourself to have every
+absolute path on your computer memorized! You can use a terminal feature called
+**tab completion** in order to speed up typing paths and other commands. Enter
+the following into your shell, and then try pressing the `Tab` key (on some
+machines) you need to press it twice):
+
+```{r, engine='bash', eval=FALSE}
+cd ~/
+```
+
+(press `Tab`)
+
+```
+## Desktop
+## Documents
+## Photos
+## Music
+## todo.txt
+```
+
+Pressing tab shows you a list of all files and folders inside of the `~/`
+directory. Now I'm going to type `~/D` into my terminal and you can see what
+happens when I press tab again:
+
+```{r, engine='bash', eval=FALSE}
+cd ~/D
+```
+
+(press tab)
+
+```
+## Desktop
+## Documents
+```
+
+Since I added a "D" to the path, only folders with names that start with a "D"
+are listed. If I type `cd ~/De` into the console and then press `Tab` then the
+command will autocomplete to `cd ~/Desktop/`. If I press tab again, the console
+will list all of the files and folders on my desktop! 
+
+
+
+Make sure to pause and try this yourself in your own terminal!
 

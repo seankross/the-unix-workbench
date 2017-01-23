@@ -1,5 +1,7 @@
 # Command Line Basics
 
+## Hello Terminal!
+
 Once you have opened up Terminal or Git Bash then you should see a window that 
 looks something like this:
 
@@ -51,6 +53,11 @@ will be a command that I've entered into the command line, and then below that
 command the console output of the command will appear (if there is any
 console output). You can use `echo` to print any phase surrounded by double
 quotes (`""`) to the console.
+
+### Exercises
+
+1. Print your name to the terminal.
+2. Clean up your terminal after completing #1.
 
 ## Navigating the Command Line
 
@@ -125,7 +132,7 @@ need to provide `cd` with the path to another directory as an argument. You can
 specify a path as either a path that is **relative** to your current directory,
 or you can specify the **absolute** path to a directory starting from the root
 of your computer. Let's say we simply want to change the working directory to
-one of the folder that is inside our home directory. First we need to be able to
+one of the folders that is inside our home directory. First we need to be able to
 see which folders are in our working directory. You can list the files and
 folders in a directory using the `ls` command. Let's use the `ls` command in our
 home directory to list the files and folders contained within it.
@@ -197,7 +204,7 @@ your home folder). Of course you shouldn't expect yourself to have every
 absolute path on your computer memorized! You can use a terminal feature called
 **tab completion** in order to speed up typing paths and other commands. Enter
 the following into your shell, and then try pressing the `Tab` key (on some
-machines) you need to press it twice):
+machines you need to press it twice):
 
 ```{r, engine='bash', eval=FALSE}
 cd ~/
@@ -221,7 +228,7 @@ happens when I press tab again:
 cd ~/D
 ```
 
-(press tab)
+(press `Tab`)
 
 ```
 ## Desktop
@@ -231,9 +238,65 @@ cd ~/D
 Since I added a "D" to the path, only folders with names that start with a "D"
 are listed. If I type `cd ~/De` into the console and then press `Tab` then the
 command will autocomplete to `cd ~/Desktop/`. If I press tab again, the console
-will list all of the files and folders on my desktop! 
+will list all of the files and folders on my desktop.
 
+Make sure to pause and try this yourself in your own terminal! You won't have
+the same files or folders that I do, but you should try using `cd` and tab 
+completion with directories and files that start with the same letters.
 
+### Exercises
 
-Make sure to pause and try this yourself in your own terminal!
+1. Set your working directory to the root directory.
+2. Set your working directory to your home directory using three different 
+commands.
+3. Find a folder on your computer using your file and folder browser, and then
+set your working dorectory to that folder using the terminal.
+4. List all od the files and folders in the directory you navigated to in #3.
 
+## Creation, Migration, Inspection, and Destruction
+
+Now that you can fluidly use your terminal to bound between directories all
+over your computer I'll show you some actions you can perform on folders and
+files. One of the first actions you'll probably want to take when opening up a
+fresh terminal is to create a new folder or file. You can **m**a**k**e a 
+**dir**ectory with the `mkdir` command, followed by the path to the new
+directory. First let's look at the contents of my home directory:
+
+```{r, engine='bash', eval=FALSE}
+cd
+ls
+```
+
+```
+## Desktop
+## Documents
+## Photos
+## Music
+## todo.txt
+```
+
+I want to create a new directory to store some code files I'm going to write
+later, so I'll use `mkdir` to create a new directory called `Code`:
+
+```{r, engine='bash', eval=FALSE}
+mkdir Code
+ls
+```
+
+```
+## Desktop
+## Documents
+## Photos
+## Music
+## todo.txt
+## Code
+```
+
+It worked! Notice that the argument `Code` to `mkdir` is a relative path, 
+however I could have specified an absolute path. In general you should
+expect Unix tools that take paths as arguments to accept both relative and
+absolute paths.
+
+### Exercises
+
+1. Create and remove the same directory using three different path arguments.

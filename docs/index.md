@@ -1,14 +1,14 @@
 --- 
 title: "The Unix Workbench"
 author: "Sean Kross"
-date: "2016-12-31"
+date: "2017-01-23"
 site: bookdown::bookdown_site
 output:
  bookdown::html_chapters:
    includes:
      in_header: style.css
 documentclass: book
-#cover-image: "cover-image.png"
+cover-image: "img/cover.png"
 bibliography: [book.bib]
 biblio-style: apalike
 link-citations: yes
@@ -17,7 +17,21 @@ url: 'https\://github.com/seankross/the-unix-workbench'
 description: ""
 ---
 
+# Title Page {-}
+
+<img src="img/cover.png" width="350" height="560" alt="Cover image" />
+
+*A Goldsmith in his Shop* by Petrus Christus
+
 # Introduction {-}
+
+This book is intented for folks who are new to programming and new to Unix-like
+operating systems like macOS and Linux distributions like Ubuntu. Command line 
+interfaces can seem alien at first, so this book
+attemps to draw parallels between using the command line and actions that you
+would normally take while using your computer's graphical interface.
+To get the most out of using Unix tools, this book will show you how to write
+little pieces of software. 
 
 Software can't be mined out of the ground, nor can software seeds be planted in
 spring to harvest by autumn. Software isn't produced in factories on an
@@ -31,8 +45,3 @@ have wanted when I was first learning Unix. If you have any additions,
 corrections, or comments for this book please open an issue or send a pull
 request to: https://github.com/seankross/the-unix-workbench. If you're unsure
 what a pull request is you'll find out in this book!
-
-**Cover Image**
-
-*A Goldsmith in his Shop* by Petrus Christus
-

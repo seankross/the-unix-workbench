@@ -13,7 +13,7 @@
   <meta property="og:title" content="The Unix Workbench" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://github.com/seankross/the-unix-workbench" />
-  
+  <meta property="og:image" content="https://github.com/seankross/the-unix-workbenchimg/cover.png" />
   
   <meta name="github-repo" content="seankross/the-unix-workbench" />
 
@@ -21,11 +21,11 @@
   <meta name="twitter:title" content="The Unix Workbench" />
   
   
-  
+  <meta name="twitter:image" content="https://github.com/seankross/the-unix-workbenchimg/cover.png" />
 
 <meta name="author" content="Sean Kross">
 
-<meta name="date" content="2016-12-31">
+<meta name="date" content="2017-01-23">
 
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -104,14 +104,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="./">The Unix Workbench</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Title Page</a></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a></li>
 <li class="chapter" data-level="1" data-path="what-is-unix.html"><a href="what-is-unix.html"><i class="fa fa-check"></i><b>1</b> What is Unix?</a></li>
 <li class="chapter" data-level="2" data-path="getting-unix.html"><a href="getting-unix.html"><i class="fa fa-check"></i><b>2</b> Getting Unix</a><ul>
 <li class="chapter" data-level="2.1" data-path="getting-unix.html"><a href="getting-unix.html#mac-ubuntu-users"><i class="fa fa-check"></i><b>2.1</b> Mac &amp; Ubuntu Users</a></li>
 <li class="chapter" data-level="2.2" data-path="getting-unix.html"><a href="getting-unix.html#windows"><i class="fa fa-check"></i><b>2.2</b> Windows</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="command-line-basics.html"><a href="command-line-basics.html"><i class="fa fa-check"></i><b>3</b> Command Line Basics</a><ul>
-<li class="chapter" data-level="3.1" data-path="command-line-basics.html"><a href="command-line-basics.html#navigating-the-command-line"><i class="fa fa-check"></i><b>3.1</b> Navigating the Command Line</a></li>
+<li class="chapter" data-level="3.1" data-path="command-line-basics.html"><a href="command-line-basics.html#hello-terminal"><i class="fa fa-check"></i><b>3.1</b> Hello Terminal!</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="command-line-basics.html"><a href="command-line-basics.html#exercises"><i class="fa fa-check"></i><b>3.1.1</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="command-line-basics.html"><a href="command-line-basics.html#navigating-the-command-line"><i class="fa fa-check"></i><b>3.2</b> Navigating the Command Line</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="command-line-basics.html"><a href="command-line-basics.html#exercises-1"><i class="fa fa-check"></i><b>3.2.1</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="command-line-basics.html"><a href="command-line-basics.html#creation-migration-inspection-and-destruction"><i class="fa fa-check"></i><b>3.3</b> Creation, Migration, Inspection, and Destruction</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="command-line-basics.html"><a href="command-line-basics.html#exercises-2"><i class="fa fa-check"></i><b>3.3.1</b> Exercises</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -135,6 +144,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="command-line-basics" class="section level1">
 <h1><span class="header-section-number">Chapter 3</span> Command Line Basics</h1>
+<div id="hello-terminal" class="section level2">
+<h2><span class="header-section-number">3.1</span> Hello Terminal!</h2>
 <p>Once you have opened up Terminal or Git Bash then you should see a window that looks something like this:</p>
 <div class="figure">
 <img src="img/shell1.png" />
@@ -153,8 +164,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">echo</span> <span class="st">&quot;Hello World!&quot;</span></code></pre></div>
 <pre><code>## Hello World!</code></pre>
 <p>We’ll be using the above syntax for the rest of the book, where on one line there will be a command that I’ve entered into the command line, and then below that command the console output of the command will appear (if there is any console output). You can use <code>echo</code> to print any phase surrounded by double quotes (<code>&quot;&quot;</code>) to the console.</p>
+<div id="exercises" class="section level3">
+<h3><span class="header-section-number">3.1.1</span> Exercises</h3>
+<ol style="list-style-type: decimal">
+<li>Print your name to the terminal.</li>
+<li>Clean up your terminal after completing #1.</li>
+</ol>
+</div>
+</div>
 <div id="navigating-the-command-line" class="section level2">
-<h2><span class="header-section-number">3.1</span> Navigating the Command Line</h2>
+<h2><span class="header-section-number">3.2</span> Navigating the Command Line</h2>
 <p>You’ve learned two command line commands (<code>clear</code> and <code>echo</code>) which is pretty good! Before you learn more commands we need to discuss how files and folders are organized on your computer.</p>
 <p>Computers are organized in a hierarchy of folders, where a folder can contain many folders and files. People who use Unix often refer to folders as directories and these terms are interchangeable. This directory hierarchy forms a tree, like the diagram below. You can use the command line to navigate these trees on your computer.</p>
 <div class="figure">
@@ -186,7 +205,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span>
 <span class="kw">pwd</span></code></pre></div>
 <pre><code>## /Users/sean</code></pre>
-<p>You were in your working directory to start, and by entering <code>cd</code> into the command line you did technically <strong>c</strong>hange <strong>d</strong>irectory, you just changed it to your home directory (the directory you were in to begin with). To use <code>cd</code> to change your working directory to a directory other than your home directory, you need to provide <code>cd</code> with the path to another directory as an argument. You can specify a path as either a path that is <strong>relative</strong> to your current directory, or you can specify the <strong>absolute</strong> path to a directory starting from the root of your computer. Let’s say we simply want to change the working directory to one of the folder that is inside our home directory. First we need to be able to see which folders are in our working directory. You can list the files and folders in a directory using the <code>ls</code> command. Let’s use the <code>ls</code> command in our home directory to list the files and folders contained within it.</p>
+<p>You were in your working directory to start, and by entering <code>cd</code> into the command line you did technically <strong>c</strong>hange <strong>d</strong>irectory, you just changed it to your home directory (the directory you were in to begin with). To use <code>cd</code> to change your working directory to a directory other than your home directory, you need to provide <code>cd</code> with the path to another directory as an argument. You can specify a path as either a path that is <strong>relative</strong> to your current directory, or you can specify the <strong>absolute</strong> path to a directory starting from the root of your computer. Let’s say we simply want to change the working directory to one of the folders that is inside our home directory. First we need to be able to see which folders are in our working directory. You can list the files and folders in a directory using the <code>ls</code> command. Let’s use the <code>ls</code> command in our home directory to list the files and folders contained within it.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ls</span></code></pre></div>
 <pre><code>## Desktop
 ## Documents
@@ -198,7 +217,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>As you can see the path to the current working directory has changed:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">pwd</span></code></pre></div>
 <pre><code>## /Users/sean/Music</code></pre>
-<p>I specified a <strong>relative</strong> path when I entered <code>cd Music</code>. The path to the Music directory is just <code>Music/</code> relative to my current working directory. I can go back to <code>/Users/sean/</code> with the command <code>cd ..</code> which changes the working directory to the folder above the current working directory:</p>
+<p>I specified a <strong>relative</strong> path when I entered <code>cd Music</code>. The path to the Music directory is just <code>Music/</code> relative to my previous working directory. I can go back to <code>/Users/sean/</code> with the command <code>cd ..</code> which changes the working directory to the folder above the current working directory:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span> ..
 <span class="kw">pwd</span></code></pre></div>
 <pre><code>## /Users/sean</code></pre>
@@ -207,8 +226,58 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span> ~/Music
 <span class="kw">pwd</span></code></pre></div>
 <pre><code>## /Users/sean/Music</code></pre>
-<p>It doesn’t matter what directory I’m in since I’m using a absolue path, I can jump straight to that directory. Remember that <code>~</code> is a shortcut for the path to your home folder.</p>
+<p>It doesn’t matter what directory I’m in since I’m using a absolue path, I can jump straight to that directory (Remember that <code>~</code> is a shortcut for the path to your home folder). Of course you shouldn’t expect yourself to have every absolute path on your computer memorized! You can use a terminal feature called <strong>tab completion</strong> in order to speed up typing paths and other commands. Enter the following into your shell, and then try pressing the <code>Tab</code> key (on some machines you need to press it twice):</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span> ~/</code></pre></div>
+<p>(press <code>Tab</code>)</p>
+<pre><code>## Desktop
+## Documents
+## Photos
+## Music
+## todo.txt</code></pre>
+<p>Pressing tab shows you a list of all files and folders inside of the <code>~/</code> directory. Now I’m going to type <code>~/D</code> into my terminal and you can see what happens when I press tab again:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span> ~/D</code></pre></div>
+<p>(press <code>Tab</code>)</p>
+<pre><code>## Desktop
+## Documents</code></pre>
+<p>Since I added a “D” to the path, only folders with names that start with a “D” are listed. If I type <code>cd ~/De</code> into the console and then press <code>Tab</code> then the command will autocomplete to <code>cd ~/Desktop/</code>. If I press tab again, the console will list all of the files and folders on my desktop.</p>
+<p>Make sure to pause and try this yourself in your own terminal! You won’t have the same files or folders that I do, but you should try using <code>cd</code> and tab completion with directories and files that start with the same letters.</p>
+<div id="exercises-1" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Exercises</h3>
+<ol style="list-style-type: decimal">
+<li>Set your working directory to the root directory.</li>
+<li>Set your working directory to your home directory using three different commands.</li>
+<li>Find a folder on your computer using your file and folder browser, and then set your working dorectory to that folder using the terminal.</li>
+<li>List all od the files and folders in the directory you navigated to in #3.</li>
+</ol>
+</div>
+</div>
+<div id="creation-migration-inspection-and-destruction" class="section level2">
+<h2><span class="header-section-number">3.3</span> Creation, Migration, Inspection, and Destruction</h2>
+<p>Now that you can fluidly use your terminal to bound between directories all over your computer I’ll show you some actions you can perform on folders and files. One of the first actions you’ll probably want to take when opening up a fresh terminal is to create a new folder or file. You can <strong>m</strong>a<strong>k</strong>e a <strong>dir</strong>ectory with the <code>mkdir</code> command, followed by the path to the new directory. First let’s look at the contents of my home directory:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span>
+<span class="kw">ls</span></code></pre></div>
+<pre><code>## Desktop
+## Documents
+## Photos
+## Music
+## todo.txt</code></pre>
+<p>I want to create a new directory to store some code files I’m going to write later, so I’ll use <code>mkdir</code> to create a new directory called <code>Code</code>:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">mkdir</span> Code
+<span class="kw">ls</span></code></pre></div>
+<pre><code>## Desktop
+## Documents
+## Photos
+## Music
+## todo.txt
+## Code</code></pre>
+<p>It worked! Notice that the argument <code>Code</code> to <code>mkdir</code> is a relative path, however I could have specified an absolute path. In general you should expect Unix tools that take paths as arguments to accept both relative and absolute paths.</p>
+<div id="exercises-2" class="section level3">
+<h3><span class="header-section-number">3.3.1</span> Exercises</h3>
+<ol style="list-style-type: decimal">
+<li>Create and remove the same directory using three different path arguments.</li>
+</ol>
 
+</div>
 </div>
 </div>
             </section>

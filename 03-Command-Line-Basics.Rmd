@@ -26,18 +26,18 @@ the command line you can move the cursor back and forth with the left and right
 arrow keys.
 
 Don't you think your shell looks messy with all of those old prompts? Don't
-worry, you're about to learn your first shell command which will clean your
-shell up! Type `clean` at the prompt and then hit enter. Voila! Your shell
+worry, you're about to learn your first shell command which will clear up your
+shell! Type `clear` at the prompt and then hit enter. Voila! Your shell
 is back to how you started.
 
 Every command line command is actually a little computer program, even commands
-as simple as `clean`. These commands all tend to have the following structure:
+as simple as `clear`. These commands all tend to have the following structure:
 
 ```
 [command] [options] [arguments]
 ```
 
-Some simple commands like `clean` don't require any options or arguments.
+Some simple commands like `clear` don't require any options or arguments.
 Options are usually preceded by a hyphen (`-`) and they tweak the behavior
 of the command. Arguments can be names of files, raw data, or other options
 that the command requires. A simple command that has an argument is `echo`.
@@ -57,7 +57,7 @@ quotes (`""`) to the console.
 ### Exercises
 
 1. Print your name to the terminal.
-2. Clean up your terminal after completing #1.
+2. Clear your terminal after completing #1.
 
 ## Navigating the Command Line
 
@@ -296,6 +296,29 @@ It worked! Notice that the argument `Code` to `mkdir` is a relative path,
 however I could have specified an absolute path. In general you should
 expect Unix tools that take paths as arguments to accept both relative and
 absolute paths.
+
+There are a few different ways to create a new file on the command line. The
+most simple way to create a blank file is to use the `touch` command, followed
+by the path to the file you want to create. In this example I'm going to create
+a new journal entry using touch:
+
+```{r, engine='bash', eval=FALSE}
+touch journal-2017-01-24
+ls
+```
+
+```
+## Desktop
+## Documents
+## Photos
+## Music
+## todo.txt
+## Code
+## journal-2017-01-24
+```
+
+My new file has been created!
+
 
 ### Exercises
 

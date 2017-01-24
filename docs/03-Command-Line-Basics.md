@@ -271,7 +271,7 @@ commands.
 set your working dorectory to that folder using the terminal.
 4. List all od the files and folders in the directory you navigated to in #3.
 
-## Creation, Migration, Inspection, and Destruction
+## Creation and Inspection
 
 Now that you can fluidly use your terminal to bound between directories all
 over your computer I'll show you some actions you can perform on folders and
@@ -324,7 +324,7 @@ a new journal entry using touch:
 
 
 ```bash
-touch journal-2017-01-24
+touch journal-2017-01-24.txt
 ls
 ```
 
@@ -335,12 +335,233 @@ ls
 ## Music
 ## todo.txt
 ## Code
-## journal-2017-01-24
+## journal-2017-01-24.txt
 ```
 
-My new file has been created!
+A new file has been created! I've been using `ls` to list the files and folders
+in the current directory, but using `ls` alone doesn't differentiate between
+which of the listed items are folders and which are files. Thankfully you can
+use the `-l` option with `ls` in order to get a **l**ong listing of files in
+a directory.
 
+
+```bash
+ls -l
+```
+
+```
+## drwxr-xr-x  2 sean  staff  68 Jan 24 12:31 Code
+## drwxr-xr-x  2 sean  staff  94 Jan 20 12:44 Desktop
+## drwxr-xr-x  2 sean  staff  24 Jan 20 12:44 Documents
+## drwxr-xr-x  2 sean  staff  68 Jan 20 12:36 Music
+## drwxr-xr-x  2 sean  staff  68 Jan 20 12:35 Photos
+## -rw-r--r--  1 sean  staff  90 Jan 24 11:33 journal-2017-01-24.txt
+## -rw-r--r--  1 sean  staff  70 Jan 24 10:58 todo.txt
+```
+
+There is a row in the resulting table for each file or folder. If the entry in the
+first column is a `d`, then the row in the table corresponds to a **d**irectory,
+otherwise the information in the row corresponds to a file. As you can see in my
+home directory there are five directories and two files. The string of
+characters following the `d` in the case of a directory or following the first
+`-` in the case of a file represent the permissions for that file or directory.
+We'll cover permissions in a later section. The columns of this table also show
+who created the file, the group that the creator of the file belongs to (we'll
+cover grouos later when we cover permissions), the size of the file, the time
+and date when the file was last modified, and then finally the name of the file.
+
+Now that we've created a file there are a few different ways that we can inspect
+and edit this file. First let's use the `wc` command to view the **w**ord
+**c**ount and other information about the file:
+
+
+```bash
+wc todo.txt
+```
+
+```
+##       3      14      70 todo.txt
+```
+
+The `wc` command displays the number of lines in a file followed by the number
+of words and then the number of characters. Since this file looks pretty small
+(only three lines) let's try printing it to the console using the `cat` command.
+
+
+```bash
+cat todo.txt
+```
+
+```
+## - email Jeff
+## - write letter to Aunt Marie
+## - get groceries for Shabbat
+```
+
+The `cat` command is often used to print text files to the terminal, despite
+the fact that it's really meant to con**cat**enate files. You can see this
+concatination in action in the following example:
+
+
+```bash
+cat todo.txt todo.txt
+```
+
+```
+## - email Jeff
+## - write letter to Aunt Marie
+## - get groceries for Shabbat
+## - email Jeff
+## - write letter to Aunt Marie
+## - get groceries for Shabbat
+```
+
+Let's take a look at how we could view a larger file. Let's take a look inside
+the Documents directory:
+
+
+```bash
+ls Documents
+```
+
+```
+## a-tale-of-two-cities.txt
+```
+
+Let's examine this file to see if it's reasonable to read it with `cat`:
+
+
+```bash
+wc Documents/a-tale-of-two-cities.txt
+```
+
+```
+##      17    1005    5799 Documents/a-tale-of-two-cities.txt
+```
+
+Wow, over 1000 words! If we use `cat` on this file it's liable to take up our
+entire terminal. Instead of using `cat` for this large file we should use
+`less`, which is a program designed for viewing multi-page files. Let's try
+using `less`:
+
+
+```bash
+less Documents/a-tale-of-two-cities.txt
+```
+
+```
+I. The Period
+
+It was the best of times,
+it was the worst of times,
+it was the age of wisdom,
+it was the age of foolishness,
+it was the epoch of belief,
+it was the epoch of incredulity,
+it was the season of Light,
+it was the season of Darkness,
+it was the spring of hope,
+it was the winter of despair,
+we had everything before us, we had nothing before us, we were all going direct
+Documents/a-tale-of-two-cities.txt
+```
+
+You can scroll up and down the file line-by-line using the up and down arrow 
+keys, and if you want to scroll faster you can use the `spacebar` to go to the
+next page and the `b` key to go to the previous page. In order to quit `less`
+and go back to the prompt press the `q` key.
+
+As you can see the `less` program is a kind of Unix tool with behavior that we
+haven't seen before because it "takes over" your terminal. There are a few
+programs like this that we'll discuss throughout this book.
+
+We've now gone over a few tools for inspecting files, folders, and their
+contents including `ls`, `wc`, `cat`, and `less`. Before the end of this section
+we should discuss a few more techniques for creating and also editing files. One
+easy way to create a file is using **output redirection**. Output redirection
+stores text that would be normally printed to the command line in a text file.
+You can use output redirection by typing the greater-than sign (`>`) at the end
+of a command followed by the name of the new file that will contain the output
+from the proceeding command. Let's try an example using `echo`:
+
+
+```bash
+echo "I'm in the terminal."
+echo "I'm in the file." > echo-out.txt
+```
+
+```
+## I'm in the terminal.
+```
+
+Only the first command printed output to the terminal. Let's see if the second
+command worked:
+
+
+```bash
+ls
+```
+
+```
+## Desktop
+## Documents
+## Photos
+## Music
+## todo.txt
+## Code
+## journal-2017-01-24.txt
+## echo-out.txt
+```
+
+
+```bash
+cat echo-out.txt
+```
+
+```
+## I'm in the file.
+```
+
+Looks like it worked! You can also **append** text to the end of a file using
+two greater-than signs (`>>`). Let's try this feature out:
+
+
+```bash
+echo "I have been appended." >> echo-out.txt
+cat echo-out.txt
+```
+
+```
+## I'm in the file.
+## I have been appended.
+```
+
+Now for a **word of warning**. Imagine that I want to append another line to 
+the end of `echo-out.txt`, so typed `echo "A third line." > echo-out.txt` into
+the terminal when really I meant to type `echo "A third line." >> echo-out.txt`
+(notice I used `>` when I meant to use `>>`). Let's see what happens:
+
+
+```bash
+echo "A third line." > echo-out.txt
+cat echo-out.txt
+```
+
+```
+## A third line.
+```
+
+Unfortunately I have unintentionally overwritten what was already contained in
+`echo-out.txt`. There's no undo button in Unix so I'll have to live with this
+mistake. This is the first of several lessons demonstrating the damage that you
+should avoid inflicting with Unix.
+
+- be careful before you execute a command
+- we'll learn later how to protect yourself and how to go back/undo (with git)
 
 ### Exercises
 
 1. Create and remove the same directory using three different path arguments.
+2. Create, move, and remove a file.
+
+## Migration and Destruction

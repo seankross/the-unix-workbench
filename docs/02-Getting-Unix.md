@@ -8,11 +8,11 @@ Windows.
 
 ## Windows
 
-If you're using Windows you should
-download a program called [Git Bash](https://git-scm.com/downloads),
-then open up Git Bash. Git Bash is not able to access all of the features of
-Unix so some of the topics discussed in this book may not work with Git Bash.
-For a full Unix experience you should download 
+If you're using the latest version of Windows 10 you should enable and install
+Bash on Ubuntu on Windows. You can find the installation guide from Microsoft
+[here](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide).
+
+If you don't have the latest version of Windows 10 you should download 
 [VirtualBox](https://www.virtualbox.org/) and then set up the latest version of
 Ubuntu with VirtualBox. Instructions for doing this tend to change slightly
 over time, so I suggest using Google to search for "how to install Ubunutu on

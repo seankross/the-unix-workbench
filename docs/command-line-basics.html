@@ -26,7 +26,7 @@
 <meta name="author" content="Sean Kross">
 
 
-<meta name="date" content="2017-01-24">
+<meta name="date" content="2017-01-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -113,15 +113,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="3" data-path="command-line-basics.html"><a href="command-line-basics.html"><i class="fa fa-check"></i><b>3</b> Command Line Basics</a><ul>
 <li class="chapter" data-level="3.1" data-path="command-line-basics.html"><a href="command-line-basics.html#hello-terminal"><i class="fa fa-check"></i><b>3.1</b> Hello Terminal!</a><ul>
-<li class="chapter" data-level="3.1.1" data-path="command-line-basics.html"><a href="command-line-basics.html#exercises"><i class="fa fa-check"></i><b>3.1.1</b> Exercises</a></li>
+<li class="chapter" data-level="3.1.1" data-path="command-line-basics.html"><a href="command-line-basics.html#summary"><i class="fa fa-check"></i><b>3.1.1</b> Summary</a></li>
+<li class="chapter" data-level="3.1.2" data-path="command-line-basics.html"><a href="command-line-basics.html#exercises"><i class="fa fa-check"></i><b>3.1.2</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="command-line-basics.html"><a href="command-line-basics.html#navigating-the-command-line"><i class="fa fa-check"></i><b>3.2</b> Navigating the Command Line</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="command-line-basics.html"><a href="command-line-basics.html#exercises-1"><i class="fa fa-check"></i><b>3.2.1</b> Exercises</a></li>
+<li class="chapter" data-level="3.2.1" data-path="command-line-basics.html"><a href="command-line-basics.html#summary-1"><i class="fa fa-check"></i><b>3.2.1</b> Summary</a></li>
+<li class="chapter" data-level="3.2.2" data-path="command-line-basics.html"><a href="command-line-basics.html#exercises-1"><i class="fa fa-check"></i><b>3.2.2</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="command-line-basics.html"><a href="command-line-basics.html#creation-and-inspection"><i class="fa fa-check"></i><b>3.3</b> Creation and Inspection</a><ul>
-<li class="chapter" data-level="3.3.1" data-path="command-line-basics.html"><a href="command-line-basics.html#exercises-2"><i class="fa fa-check"></i><b>3.3.1</b> Exercises</a></li>
+<li class="chapter" data-level="3.3.1" data-path="command-line-basics.html"><a href="command-line-basics.html#summary-2"><i class="fa fa-check"></i><b>3.3.1</b> Summary</a></li>
+<li class="chapter" data-level="3.3.2" data-path="command-line-basics.html"><a href="command-line-basics.html#exercises-2"><i class="fa fa-check"></i><b>3.3.2</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="command-line-basics.html"><a href="command-line-basics.html#migration-and-destruction"><i class="fa fa-check"></i><b>3.4</b> Migration and Destruction</a></li>
+<li class="chapter" data-level="3.4" data-path="command-line-basics.html"><a href="command-line-basics.html#migration-and-destruction"><i class="fa fa-check"></i><b>3.4</b> Migration and Destruction</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="command-line-basics.html"><a href="command-line-basics.html#summary-3"><i class="fa fa-check"></i><b>3.4.1</b> Summary</a></li>
+<li class="chapter" data-level="3.4.2" data-path="command-line-basics.html"><a href="command-line-basics.html#exercises-3"><i class="fa fa-check"></i><b>3.4.2</b> Exercises</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -147,7 +153,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1><span class="header-section-number">Chapter 3</span> Command Line Basics</h1>
 <div id="hello-terminal" class="section level2">
 <h2><span class="header-section-number">3.1</span> Hello Terminal!</h2>
-<p>Once you have opened up Terminal or Git Bash then you should see a window that looks something like this:</p>
+<p>Once you have opened up Terminal then you should see a window that looks something like this:</p>
 <div class="figure">
 <img src="img/shell1.png" />
 
@@ -165,8 +171,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">echo</span> <span class="st">&quot;Hello World!&quot;</span></code></pre></div>
 <pre><code>## Hello World!</code></pre>
 <p>We’ll be using the above syntax for the rest of the book, where on one line there will be a command that I’ve entered into the command line, and then below that command the console output of the command will appear (if there is any console output). You can use <code>echo</code> to print any phase surrounded by double quotes (<code>&quot;&quot;</code>) to the console.</p>
+<p>If you want to see the last command press the <code>Up</code> arrow key. You can press <code>Up</code> and <code>Down</code> in order to scroll through the history of commands that you’ve entered. If you want to re-execute a past command, you can scroll to that command then press <code>Enter</code>. Try getting back to the <code>echo &quot;Hello World!&quot;</code> command and execute it again.</p>
+<div id="summary" class="section level3">
+<h3><span class="header-section-number">3.1.1</span> Summary</h3>
+<ul>
+<li>You type command line commands after the prompt.</li>
+<li><code>clear</code> will clean up your terminal.</li>
+<li><code>echo</code> prints text to your terminal.</li>
+<li>You can scroll through your command history with the <code>Up</code> and <code>Down</code> arrow keys.</li>
+</ul>
+</div>
 <div id="exercises" class="section level3">
-<h3><span class="header-section-number">3.1.1</span> Exercises</h3>
+<h3><span class="header-section-number">3.1.2</span> Exercises</h3>
 <ol style="list-style-type: decimal">
 <li>Print your name to the terminal.</li>
 <li>Clear your terminal after completing #1.</li>
@@ -198,7 +214,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 </div>
 <p>This path can be written as <code>/Users/sean</code>.</p>
-<p>Open the command line if you closed it (either <strong>Terminal</strong> or <strong>Git Bash</strong>). Your shell starts in your home directory. Whatever directory your shell is in is called the <strong>working directory</strong>. Enter the <code>pwd</code> command into your shell to <strong>p</strong>rint the <strong>w</strong>orking <strong>d</strong>irectory.</p>
+<p>Open the command line if you closed it. Your shell starts in your home directory. Whatever directory your shell is in is called the <strong>working directory</strong>. Enter the <code>pwd</code> command into your shell to <strong>p</strong>rint the <strong>w</strong>orking <strong>d</strong>irectory.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">pwd</span></code></pre></div>
 <pre><code>## /Users/sean</code></pre>
 <p>You can change your working directory using the <code>cd</code> command. If you use the <code>cd</code> command without any arguments then your working directory is changed to your home directory.</p>
@@ -227,7 +243,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span> ~/Music
 <span class="kw">pwd</span></code></pre></div>
 <pre><code>## /Users/sean/Music</code></pre>
-<p>It doesn’t matter what directory I’m in since I’m using a absolue path, I can jump straight to that directory (Remember that <code>~</code> is a shortcut for the path to your home folder). Of course you shouldn’t expect yourself to have every absolute path on your computer memorized! You can use a terminal feature called <strong>tab completion</strong> in order to speed up typing paths and other commands. Enter the following into your shell, and then try pressing the <code>Tab</code> key (on some machines you need to press it twice):</p>
+<p>It doesn’t matter what directory I’m in since I’m using an absolute path, I can jump straight to that directory (Remember that <code>~</code> is a shortcut for the path to your home folder). Of course you shouldn’t expect yourself to have every absolute path on your computer memorized! You can use a terminal feature called <strong>tab completion</strong> in order to speed up typing paths and other commands. Enter the following into your shell, and then try pressing the <code>Tab</code> key (on some machines you need to press it twice):</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span> ~/</code></pre></div>
 <p>(press <code>Tab</code>)</p>
 <pre><code>## Desktop
@@ -242,8 +258,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## Documents</code></pre>
 <p>Since I added a “D” to the path, only folders with names that start with a “D” are listed. If I type <code>cd ~/De</code> into the console and then press <code>Tab</code> then the command will autocomplete to <code>cd ~/Desktop/</code>. If I press tab again, the console will list all of the files and folders on my desktop.</p>
 <p>Make sure to pause and try this yourself in your own terminal! You won’t have the same files or folders that I do, but you should try using <code>cd</code> and tab completion with directories and files that start with the same letters.</p>
+<div id="summary-1" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Summary</h3>
+<ul>
+<li>You can identify a specific file or folder by its path.</li>
+<li>The root directory (<code>/</code>) contains all of the folders and files on your computer.</li>
+<li>Your home directory (<code>~</code>) is the directory where your terminal always starts.</li>
+<li>Use the <code>cd</code> command to <strong>c</strong>hange your working <strong>d</strong>irectory.</li>
+<li>The <code>pwd</code> command will <strong>p</strong>rint the <strong>w</strong>orking <strong>d</strong>irectory.</li>
+<li>The <code>ls</code> command will <strong>l</strong>i<strong>s</strong>t files and folders in a directory.</li>
+</ul>
+</div>
 <div id="exercises-1" class="section level3">
-<h3><span class="header-section-number">3.2.1</span> Exercises</h3>
+<h3><span class="header-section-number">3.2.2</span> Exercises</h3>
 <ol style="list-style-type: decimal">
 <li>Set your working directory to the root directory.</li>
 <li>Set your working directory to your home directory using three different commands.</li>
@@ -291,7 +318,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## drwxr-xr-x  2 sean  staff  68 Jan 20 12:35 Photos
 ## -rw-r--r--  1 sean  staff  90 Jan 24 11:33 journal-2017-01-24.txt
 ## -rw-r--r--  1 sean  staff  70 Jan 24 10:58 todo.txt</code></pre>
-<p>There is a row in the resulting table for each file or folder. If the entry in the first column is a <code>d</code>, then the row in the table corresponds to a <strong>d</strong>irectory, otherwise the information in the row corresponds to a file. As you can see in my home directory there are five directories and two files. The string of characters following the <code>d</code> in the case of a directory or following the first <code>-</code> in the case of a file represent the permissions for that file or directory. We’ll cover permissions in a later section. The columns of this table also show who created the file, the group that the creator of the file belongs to (we’ll cover grouos later when we cover permissions), the size of the file, the time and date when the file was last modified, and then finally the name of the file.</p>
+<p>There is a row in the resulting table for each file or folder. If the entry in the first column is a <code>d</code>, then the row in the table corresponds to a <strong>d</strong>irectory, otherwise the information in the row corresponds to a file. As you can see in my home directory there are five directories and two files. The string of characters following the <code>d</code> in the case of a directory or following the first <code>-</code> in the case of a file represent the permissions for that file or directory. We’ll cover permissions in a later section. The columns of this table also show who created the file, the group that the creator of the file belongs to (we’ll cover groups later when we cover permissions), the size of the file, the time and date when the file was last modified, and then finally the name of the file.</p>
 <p>Now that we’ve created a file there are a few different ways that we can inspect and edit this file. First let’s use the <code>wc</code> command to view the <strong>w</strong>ord <strong>c</strong>ount and other information about the file:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">wc</span> todo.txt</code></pre></div>
 <pre><code>##       3      14      70 todo.txt</code></pre>
@@ -308,7 +335,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## - email Jeff
 ## - write letter to Aunt Marie
 ## - get groceries for Shabbat</code></pre>
-<p>Let’s take a look at how we could view a larger file. Let’s take a look inside the Documents directory:</p>
+<p>The <code>cat</code> command will combine every text file that is provided as an argument.</p>
+<p>Let’s take a look at how we could view a larger file. There’s a file inside the Documents directory:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ls</span> Documents</code></pre></div>
 <pre><code>## a-tale-of-two-cities.txt</code></pre>
 <p>Let’s examine this file to see if it’s reasonable to read it with <code>cat</code>:</p>
@@ -332,10 +360,40 @@ we had everything before us, we had nothing before us, we were all going direct
 Documents/a-tale-of-two-cities.txt</code></pre>
 <p>You can scroll up and down the file line-by-line using the up and down arrow keys, and if you want to scroll faster you can use the <code>spacebar</code> to go to the next page and the <code>b</code> key to go to the previous page. In order to quit <code>less</code> and go back to the prompt press the <code>q</code> key.</p>
 <p>As you can see the <code>less</code> program is a kind of Unix tool with behavior that we haven’t seen before because it “takes over” your terminal. There are a few programs like this that we’ll discuss throughout this book.</p>
-<p>We’ve now gone over a few tools for inspecting files, folders, and their contents including <code>ls</code>, <code>wc</code>, <code>cat</code>, and <code>less</code>. Before the end of this section we should discuss a few more techniques for creating and also editing files. One easy way to create a file is using <strong>output redirection</strong>. Output redirection stores text that would be normally printed to the command line in a text file. You can use output redirection by typing the greater-than sign (<code>&gt;</code>) at the end of a command followed by the name of the new file that will contain the output from the proceeding command. Let’s try an example using <code>echo</code>:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">echo</span> <span class="st">&quot;I&#39;m in the terminal.&quot;</span>
-<span class="kw">echo</span> <span class="st">&quot;I&#39;m in the file.&quot;</span> <span class="kw">&gt;</span> echo-out.txt</code></pre></div>
+<p>There are also two easy to remember programs for glimpsing the beginning or end of a text file: <code>head</code> and <code>tail</code>. Let’s quickly use <code>head</code> and <code>tail</code> on <code>a-tale-of-two-cities.txt</code>:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">head</span> Documents/a-tale-of-two-cities.txt</code></pre></div>
+<pre><code>## I. The Period
+## 
+## It was the best of times,
+## it was the worst of times,
+## it was the age of wisdom,
+## it was the age of foolishness,
+## it was the epoch of belief,
+## it was the epoch of incredulity,
+## it was the season of Light,
+## it was the season of Darkness,</code></pre>
+<p>As you can see <code>head</code> prints the first ten lines of the file to the terminal. You can specify the number of lines printed with the <code>-n</code> option followed by the number of lines you’d like to see:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">head</span> -n 4 Documents/a-tale-of-two-cities.txt</code></pre></div>
+<pre><code>## I. The Period
+## 
+## It was the best of times,
+## it was the worst of times,</code></pre>
+<p>The <code>tail</code> program works exactly the same way:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">tail</span> Documents/a-tale-of-two-cities.txt</code></pre></div>
+<pre><code>of an atrocious murderer, and to-morrow of a wretched pilferer who had robbed a
+farmer’s boy of sixpence.
+All these things, and a thousand like them, came to pass in and close upon the
+dear old year one thousand seven hundred and seventy-five. Environed by them,
+while the Woodman and the Farmer worked unheeded, those two of the large jaws,
+and those other two of the plain and the fair faces, trod with stir enough,
+and carried their divine rights with a high hand. Thus did the year one
+thousand seven hundred and seventy-five conduct their Greatnesses, and myriads
+of small creatures—the creatures of this chronicle among the rest—along the
+roads that lay before them.</code></pre>
+<p>We’ve now gone over a few tools for inspecting files, folders, and their contents including <code>ls</code>, <code>wc</code>, <code>cat</code>, <code>less</code>, <code>head</code>, and <code>tail</code>. Before the end of this section we should discuss a few more techniques for creating and also editing files. One easy way to create a file is using <strong>output redirection</strong>. Output redirection stores text that would be normally printed to the command line in a text file. You can use output redirection by typing the greater-than sign (<code>&gt;</code>) at the end of a command followed by the name of the new file that will contain the output from the proceeding command. Let’s try an example using <code>echo</code>:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">echo</span> <span class="st">&quot;I&#39;m in the terminal.&quot;</span></code></pre></div>
 <pre><code>## I&#39;m in the terminal.</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">echo</span> <span class="st">&quot;I&#39;m in the file.&quot;</span> <span class="kw">&gt;</span> echo-out.txt</code></pre></div>
 <p>Only the first command printed output to the terminal. Let’s see if the second command worked:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ls</span></code></pre></div>
 <pre><code>## Desktop
@@ -357,22 +415,168 @@ Documents/a-tale-of-two-cities.txt</code></pre>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">echo</span> <span class="st">&quot;A third line.&quot;</span> <span class="kw">&gt;</span> echo-out.txt
 <span class="kw">cat</span> echo-out.txt</code></pre></div>
 <pre><code>## A third line.</code></pre>
-<p>Unfortunately I have unintentionally overwritten what was already contained in <code>echo-out.txt</code>. There’s no undo button in Unix so I’ll have to live with this mistake. This is the first of several lessons demonstrating the damage that you should avoid inflicting with Unix.</p>
+<p>Unfortunately I have unintentionally overwritten what was already contained in <code>echo-out.txt</code>. There’s no undo button in Unix so I’ll have to live with this mistake. This is the first of several lessons demonstrating the damage that you should try to avoid inflicting with Unix. Make sure to take extra care when executing commands that can modify or delete a file, a typo in the command can be potentially devastating. Thankfully there are a few strategies for protecting yourself from mistakes, including managing permissions for files, and tracking versions of your files with Git, which we will discuss thoroughly in a later chapter.</p>
+<p>Finally we should discuss how to edit text files. There are several file editors that are available for your terminal including <a href="https://en.wikipedia.org/wiki/Vim_(text_editor)"><code>vim</code></a> and <a href="https://en.wikipedia.org/wiki/Emacs"><code>emacs</code></a>. Entire books have been written about how to use both of these text editors, and if you’re interested in one of them you should look for resources online about how to use them. The one text editor we will discuss using is called <code>nano</code>. Just like <code>less</code>, <code>nano</code> uses your entire terminal window. Let’s edit <code>todo.txt</code> using <code>nano</code>:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">nano</span> todo.txt</code></pre></div>
+<pre><code>  GNU nano 2.0.6                File: todo.txt
+
+- email Jeff
+- write letter to Aunt Marie
+- get groceries for Shabbat
+
+
+
+^G Get Help   ^O WriteOut   ^R Read File  ^Y Prev Page  ^K Cut Text   ^C Cur Pos
+^X Exit       ^J Justify    ^W Where Is   ^V Next Page  ^U UnCut Text ^T To Spell</code></pre>
+<p>Once you’ve started <code>nano</code> you can start editing the text file. The top line of the <code>nano</code> editor shows the file you’re currently working on, and the bottom two lines show a few commands that you can use in <code>nano</code>. The carrot character (<code>^</code>) represents the <code>Control</code> key on your keyboard, so you can for example type <code>Control</code> + <code>O</code> in order to save the changes you’ve made to the text file, or <code>Control</code> + <code>X</code> in order to exit <code>nano</code> and go back to the prompt.</p>
+<p><code>nano</code> is a good editor for beginners because it works similarly to word processors you’ve used before. You can use the arrow keys in order to move your cursor around the file, and the rest of the keys on your keyboard work as expected. Let’s add an item to my todo list and then I’ll save and exit <code>nano</code> by typing <code>Control</code> + <code>O</code> followed by <code>Control</code> + <code>X</code>.</p>
+<pre><code>  GNU nano 2.0.6                File: todo.txt
+
+- email Jeff
+- write letter to Aunt Marie
+- get groceries for Shabbat
+- write final section of &quot;command line basics&quot;
+
+
+^G Get Help   ^O WriteOut   ^R Read File  ^Y Prev Page  ^K Cut Text   ^C Cur Pos
+^X Exit       ^J Justify    ^W Where Is   ^V Next Page  ^U UnCut Text ^T To Spell</code></pre>
+<p>Now let’s quickly check if those changes were saved correctly:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cat</span> todo.txt</code></pre></div>
+<pre><code>## - email Jeff
+## - write letter to Aunt Marie
+## - get groceries for Shabbat
+## - write final section of &quot;command line basics&quot;</code></pre>
+<p>You can also create new text files with <code>nano</code>. Instead of using an existing path to a file as the argument to <code>nano</code>, use a path to a file that does not yet exist and then save your changes to that file.</p>
+<div id="summary-2" class="section level3">
+<h3><span class="header-section-number">3.3.1</span> Summary</h3>
 <ul>
-<li>be careful before you execute a command</li>
-<li>we’ll learn later how to protect yourself and how to go back/undo (with git)</li>
+<li>Use <code>mkdir</code> to create new directories.</li>
+<li>The <code>touch</code> command creates empty files.</li>
+<li>You can use <code>&gt;</code> to redirect the output of a command into a file.</li>
+<li><code>&gt;&gt;</code> will append command output to the end of a file.</li>
+<li>Print a text file to the commdna line using <code>cat</code>.</li>
+<li>Inspect properties of a text file with <code>wc</code>.</li>
+<li>Peak at the beginning and end of a text file with <code>head</code> and <code>tail</code>.</li>
+<li>Scroll through a large text file with <code>less</code>.</li>
+<li><code>nano</code> is simple text editor.</li>
 </ul>
+</div>
 <div id="exercises-2" class="section level3">
-<h3><span class="header-section-number">3.3.1</span> Exercises</h3>
+<h3><span class="header-section-number">3.3.2</span> Exercises</h3>
 <ol style="list-style-type: decimal">
-<li>Create and remove the same directory using three different path arguments.</li>
-<li>Create, move, and remove a file.</li>
+<li>Create a new directory called <code>workbench</code> in your home directory.</li>
+<li>Without changing directories create a file called <code>readme.txt</code> inside of <code>workbench</code>.</li>
+<li>Append the numbers 1, 2, and 3 to <code>readme.txt</code> so that each number appears on it’s own line.</li>
+<li>Print <code>readme.txt</code> to the command line.</li>
+<li>Use output redirection to create a new file in the <code>workbench</code> directory called <code>list.txt</code> which lists the files and folders in your home directory.</li>
+<li>Find out how many characters are in <code>list.txt</code> without opening the file or printing it to the command line.</li>
 </ol>
 </div>
 </div>
 <div id="migration-and-destruction" class="section level2">
 <h2><span class="header-section-number">3.4</span> Migration and Destruction</h2>
+<p>In this section we’ll discuss moving, renaming, copying, and deleting files and folders. First let’s revisit the contents of our current working directory:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ls</span></code></pre></div>
+<pre><code>Code
+Documents
+Photos
+Desktop
+Music
+echo-out.txt
+journal-2017-01-24.txt
+todo.txt</code></pre>
+<p>It’s gotten a little sloppy, so let’s clean this directory up. First I want to make a new directory to store all of my journal entires in called <code>Journal</code>. We already know how to do that:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">mkdir</span> Journal</code></pre></div>
+<p>Now I want to move my journal entry <code>journal-2017-01-24.txt</code> into the <code>Journal</code> directory. We can <strong>m</strong>o<strong>v</strong>e it using the <code>mv</code> command. <code>mv</code> takes two arguments: first the path to the file or folder that you wish to move followed by the destination folder. Let’s try using <code>mv</code> now:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">mv</span> journal-2017-01-24.txt Journal
+<span class="kw">ls</span></code></pre></div>
+<pre><code>Code
+Documents
+Journal
+Photos
+Desktop
+Music
+echo-out.txt
+todo.txt</code></pre>
+<p>Looks like it worked! I just realized however that I want to move the <code>Journal</code> directory into the <code>Documents</code> folder. Thankfully we can do this with <code>mv</code> in the same way:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">mv</span> Journal Documents
+<span class="kw">ls</span></code></pre></div>
+<pre><code>Code
+Documents
+Photos
+Desktop
+Music
+echo-out.txt
+todo.txt</code></pre>
+<p>Let’s just make sure it ended up in the right place:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ls</span> Documents</code></pre></div>
+<pre><code>Journal
+a-tale-of-two-cities.txt</code></pre>
+<p>Looks good! Another hidden use of the <code>mv</code> command is that you can use it to rename files and folders. The first argument is the path to the folder or file that you want to rename, and the second argument is a path with the new name for the file or folder. Let’s rename <code>todo.txt</code> so it includes today’s date:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">mv</span> todo.txt todo-2017-01-24.txt
+<span class="kw">ls</span></code></pre></div>
+<pre><code>Code
+Documents
+Photos
+Desktop
+Music
+echo-out.txt
+todo-2017-01-24.txt</code></pre>
+<p>Looks like it worked nicely. Similar to the <code>mv</code> command, the <code>cp</code> command <strong>c</strong>o<strong>p</strong>ies a file or folder from one location to another. As you can see <code>cp</code> is used exactly like <code>mv</code> when copying files, the file or folder you wish to copy is the first argument, followed by the patht to the folder where you want the copy to be made:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cp</span> echo-out.txt Desktop
+<span class="kw">ls</span></code></pre></div>
+<pre><code>Code
+Documents
+Photos
+Desktop
+Music
+echo-out.txt
+todo-2017-01-24.txt</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ls</span> Desktop</code></pre></div>
+<pre><code>echo-out.txt</code></pre>
+<p>Be aware that there is one difference between copying files and folders, when copying folders you need to specify the <code>-r</code> option, which is short for <em>recursive</em>. This ensures that the underlying directorty structure of the directory you wish to copy remains intact. Let’s try copying my <code>Documents</code> directory into the <code>Desktop</code> directory:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cp</span> -r Documents Desktop
+<span class="kw">ls</span> Desktop</code></pre></div>
+<pre><code>Documents
+echo-out.txt</code></pre>
+<p>Finally, let’s discuss how to delete files and folders with the command line. <strong>A word of extreme caution:</strong> in general I don’t recommend deleting files or folders on the command line because as we’ve discussed before there is <strong><em>no undo button</em></strong> on the command line. If you delete a file that is critical to your computer functioning you may cause irreperable damage. I <em>highly</em> recommend moving files or folders to a designated trash folder and then deleting them the way you would normally delete files and folders outside of the command line (The path to the Trash Bin on Mac is <code>~/.Trash</code>).</p>
+<p>TODO: find where trash is on ubuntu</p>
+<p>If you decide to delete a file or folder on your computer make absolutely sure that the command you’ve typed is correct before you press <code>Enter</code>. If you do delete a file or folder by accident stop using your computer immediately and consult with a computer professional or your IT department so they can try to recover the file.</p>
+<p>Now that you’ve been warned, let’s discuss <code>rm</code>, the <a href="http://en.wikipedia.org/wiki/List_of_spells_in_Harry_Potter">Avada Kedavra</a> of command line programs. When <strong>r</strong>e<strong>m</strong>oving files <code>rm</code> only requires the path to a file in order to delete it. Let’s test its destructive power on <code>echo-out.txt</code>:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">rm</span> echo-out.txt
+<span class="kw">ls</span></code></pre></div>
+<pre><code>Code
+Documents
+Photos
+Desktop
+Music
+todo-2017-01-24.txt</code></pre>
+<p>TODO: insert obi wan quote about alderaan being blown up</p>
+<p>The file <code>echo-out.txt</code> is gone forever. Remember when we copied the entire <code>Documents</code> directory into <code>Desktop</code>? Let’s get rid of that directory now. Just like when we were using <code>cp</code> the <code>rm</code> command requires you to use the <code>-r</code> option when deleting entire directories. Let’s test this battle station:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ls</span> Desktop</code></pre></div>
+<pre><code>Documents
+echo-out.txt</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">rm</span> -r Desktop/Documents
+<span class="kw">ls</span> Desktop</code></pre></div>
+<pre><code>echo-out.txt</code></pre>
+<p>Now that the awesome destructive power of <code>rm</code> is on your side, you’ve leared the basics of the command line! See you in the next chapter for a discussion of more advanced command line topics.</p>
+<div id="summary-3" class="section level3">
+<h3><span class="header-section-number">3.4.1</span> Summary</h3>
+<ul>
+<li><code>mv</code> can be used for moving or renaming files or folders.</li>
+<li><code>cp</code> can copy files or folders.</li>
+<li>You should try to aviod using <code>rm</code> which permanently removes files or folders.</li>
+</ul>
+</div>
+<div id="exercises-3" class="section level3">
+<h3><span class="header-section-number">3.4.2</span> Exercises</h3>
+<ol style="list-style-type: decimal">
+<li>Create a file called <code>message.txt</code> in your home directory and move it into another directory.</li>
+<li>Copy the <code>message.txt</code> you just moved into your home directory.</li>
+<li>Delete both copies of <code>message.txt</code>. Try to do this without using <code>rm</code>.</li>
+</ol>
 
+</div>
 </div>
 </div>
             </section>

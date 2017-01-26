@@ -107,7 +107,7 @@ The home directory is another special directory that is represented by a tilde
 documents, and the contents of your desktop. When you first open up your shell
 you usually start off in your home directory. Imagine tracing all of the 
 directories from your root directory to the directory you're currently in. This
-squence of directories is called a **path**. The diagram below illustrates the
+sequence of directories is called a **path**. The diagram below illustrates the
 path from a hypothetical root directory to the home directory.
 
 ![](img/redtree.png)
@@ -275,7 +275,7 @@ computer.
 commands.
 3. Find a folder on your computer using your file and folder browser, and then
 set your working dorectory to that folder using the terminal.
-4. List all od the files and folders in the directory you navigated to in #3.
+4. List all of the files and folders in the directory you navigated to in #3.
 
 ## Creation and Inspection
 
@@ -809,7 +809,7 @@ todo-2017-01-24.txt
 Looks like it worked nicely. Similar to the `mv` command, the `cp` command
 **c**o**p**ies a file or folder from one location to another. As you can see `cp` is
 used exactly like `mv` when copying files, the file or folder you wish to copy
-is the first argument, followed by the patht to the folder where you want the
+is the first argument, followed by the path to the folder where you want the
 copy to be made:
 
 ```{r, engine='bash', eval=FALSE}
@@ -837,7 +837,7 @@ echo-out.txt
 
 Be aware that there is one difference between copying files and folders, when
 copying folders you need to specify the `-r` option, which is short for
-*recursive*. This ensures that the underlying directorty structure of the
+*recursive*. This ensures that the underlying directory structure of the
 directory you wish to copy remains intact. Let's try copying my `Documents`
 directory into the `Desktop` directory:
 
@@ -855,7 +855,7 @@ Finally, let's discuss how to delete files and folders with the command line.
 **A word of extreme caution:** in general I don't recommend deleting files or
 folders on the command line because as we've discussed before there is 
 ***no undo button*** on the command line. If you delete a file that is critical
-to your computer functioning you may cause irreperable damage. I *highly* 
+to your computer functioning you may cause irreparable damage. I *highly* 
 recommend moving files or folders to a designated trash folder and then deleting
 them the way you would normally delete files and folders outside of the command
 line (The path to the Trash Bin is `~/.Trash` on Mac and `~/.local/share/Trash`
@@ -918,7 +918,7 @@ more advanced command line topics.
 
 - `mv` can be used for moving or renaming files or folders.
 - `cp` can copy files or folders.
-- You should try to aviod using `rm` which permanently removes files or folders.
+- You should try to avoid using `rm` which permanently removes files or folders.
 
 ### Exercises
 

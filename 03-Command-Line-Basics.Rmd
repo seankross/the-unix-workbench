@@ -858,11 +858,8 @@ folders on the command line because as we've discussed before there is
 to your computer functioning you may cause irreperable damage. I *highly* 
 recommend moving files or folders to a designated trash folder and then deleting
 them the way you would normally delete files and folders outside of the command
-line (The path to the Trash Bin on Mac is `~/.Trash`).
-
-TODO: find where trash is on ubuntu
-
-If you decide to delete 
+line (The path to the Trash Bin is `~/.Trash` on Mac and `~/.local/share/Trash`
+on Ubuntu). If you decide to delete 
 a file or folder on your computer make absolutely
 sure that the command you've typed is correct before you press `Enter`. If you do
 delete a file or folder by accident stop using your computer immediately and
@@ -888,7 +885,7 @@ Music
 todo-2017-01-24.txt
 ```
 
-TODO: insert obi wan quote about alderaan being blown up
+> I felt a great disturbance in the Force, as if millions of voices suddenly cried out in terror, and were suddenly silenced. - *Obi-wan Kenobi*
 
 The file `echo-out.txt` is gone forever. Remember when we copied the entire
 `Documents` directory into `Desktop`? Let's get rid of that directory now. Just

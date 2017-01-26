@@ -539,9 +539,7 @@ todo-2017-01-24.txt</code></pre>
 <span class="kw">ls</span> Desktop</code></pre></div>
 <pre><code>Documents
 echo-out.txt</code></pre>
-<p>Finally, let’s discuss how to delete files and folders with the command line. <strong>A word of extreme caution:</strong> in general I don’t recommend deleting files or folders on the command line because as we’ve discussed before there is <strong><em>no undo button</em></strong> on the command line. If you delete a file that is critical to your computer functioning you may cause irreperable damage. I <em>highly</em> recommend moving files or folders to a designated trash folder and then deleting them the way you would normally delete files and folders outside of the command line (The path to the Trash Bin on Mac is <code>~/.Trash</code>).</p>
-<p>TODO: find where trash is on ubuntu</p>
-<p>If you decide to delete a file or folder on your computer make absolutely sure that the command you’ve typed is correct before you press <code>Enter</code>. If you do delete a file or folder by accident stop using your computer immediately and consult with a computer professional or your IT department so they can try to recover the file.</p>
+<p>Finally, let’s discuss how to delete files and folders with the command line. <strong>A word of extreme caution:</strong> in general I don’t recommend deleting files or folders on the command line because as we’ve discussed before there is <strong><em>no undo button</em></strong> on the command line. If you delete a file that is critical to your computer functioning you may cause irreperable damage. I <em>highly</em> recommend moving files or folders to a designated trash folder and then deleting them the way you would normally delete files and folders outside of the command line (The path to the Trash Bin is <code>~/.Trash</code> on Mac and <code>~/.local/share/Trash</code> on Ubuntu). If you decide to delete a file or folder on your computer make absolutely sure that the command you’ve typed is correct before you press <code>Enter</code>. If you do delete a file or folder by accident stop using your computer immediately and consult with a computer professional or your IT department so they can try to recover the file.</p>
 <p>Now that you’ve been warned, let’s discuss <code>rm</code>, the <a href="http://en.wikipedia.org/wiki/List_of_spells_in_Harry_Potter">Avada Kedavra</a> of command line programs. When <strong>r</strong>e<strong>m</strong>oving files <code>rm</code> only requires the path to a file in order to delete it. Let’s test its destructive power on <code>echo-out.txt</code>:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">rm</span> echo-out.txt
 <span class="kw">ls</span></code></pre></div>
@@ -551,7 +549,9 @@ Photos
 Desktop
 Music
 todo-2017-01-24.txt</code></pre>
-<p>TODO: insert obi wan quote about alderaan being blown up</p>
+<blockquote>
+<p>I felt a great disturbance in the Force, as if millions of voices suddenly cried out in terror, and were suddenly silenced. - <em>Obi-wan Kenobi</em></p>
+</blockquote>
 <p>The file <code>echo-out.txt</code> is gone forever. Remember when we copied the entire <code>Documents</code> directory into <code>Desktop</code>? Let’s get rid of that directory now. Just like when we were using <code>cp</code> the <code>rm</code> command requires you to use the <code>-r</code> option when deleting entire directories. Let’s test this battle station:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ls</span> Desktop</code></pre></div>
 <pre><code>Documents

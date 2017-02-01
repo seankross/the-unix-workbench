@@ -33,8 +33,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="what-is-unix.html">
-<link rel="next" href="command-line-basics.html">
+<link rel="prev" href="command-line-basics.html">
+<link rel="next" href="bash-programming.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -161,16 +161,51 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="getting-unix" class="section level1">
-<h1><span class="header-section-number">Chapter 2</span> Getting Unix</h1>
-<div id="mac-ubuntu-users" class="section level2">
-<h2><span class="header-section-number">2.1</span> Mac &amp; Ubuntu Users</h2>
-<p>If you’re using a Mac or you’re using the Ubuntu operating system find a program called <strong>Terminal</strong> and open it. You can skip the next section about Windows.</p>
+<div id="working-with-unix" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Working with Unix</h1>
+<div id="self-help" class="section level2">
+<h2><span class="header-section-number">4.1</span> Self-Help</h2>
+<p>Each of the commands that we’ve discussed so far are thoroughly documented, and you can view their documentation using the <code>man</code> command, where the first argument to <code>man</code> is the command you’re curious about. Let’s take a look at the documentation for <code>ls</code>:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">man</span> ls</code></pre></div>
+<pre><code>LS(1)                     BSD General Commands Manual                    LS(1)
+
+NAME
+     ls -- list directory contents
+
+SYNOPSIS
+     ls [-ABCFGHLOPRSTUW@abcdefghiklmnopqrstuwx1] [file ...]
+
+DESCRIPTION
+     For each operand that names a file of a type other than directory, ls
+     displays its name as well as any requested, associated information.  For
+:</code></pre>
+<p>The controls for navigating <code>man</code> pages are the same as they are for <code>less</code>. I often use <code>man</code> pages for quickly seraching for an option that I’ve forgotten. Let’s say that I forgot how to get <code>ls</code> to print a long list. After typring <code>man ls</code> to open the page, type <code>/</code> in order to start a search. Then type the word or phrase that you’re searching for, in this case type in <code>long list</code> and then press <code>Enter</code>. The page jumps to this entry:</p>
+<pre><code>     -l      (The lowercase letter ``ell&#39;&#39;.)  List in long format.  (See below.)
+             If the output is to a terminal, a total sum for all the file sizes is
+             output on a line before the long listing.</code></pre>
+<p>Press the <code>n</code> key in order to search for the next occurance of the word, and if you want to go the previous occurance type <code>Shift</code> + <code>n</code>. This method of searching also works with <code>less</code>. When you’re finished looking at a <code>man</code> page type <code>q</code> to get back to the prompt.</p>
+<p>The <code>man</code> command works wonderfully when you know which command you want to look up, but what if you’ve forgotten the name of the command you’re looking for? You can use <code>apropos</code> to search all of the available commands and their descriptions. For example let’s pretend that I forgot the name of my favorite command line text editor. You could type <code>apropos editor</code> into the command line which will print a list of results:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">apropos</span> editor</code></pre></div>
+<pre><code>## ed(1), red(1)            - text editor
+## nano(1)                  - Nano&#39;s ANOther editor, an enhanced free Pico clone
+## sed(1)                   - stream editor
+## vim(1)                   - Vi IMproved, a programmers text editor</code></pre>
+<p>The second result is <code>nano</code> which was just on the tip of my tounge! Both <code>man</code> and <code>apropos</code> are useful when a search is only a few keystrokes away, but if you’re looking for detailed exmaples and explanations you’re better off using a search engine if you have access to a web browser.</p>
 </div>
-<div id="windows" class="section level2">
-<h2><span class="header-section-number">2.2</span> Windows</h2>
-<p>If you’re using the latest version of Windows 10 you should enable and install Bash on Ubuntu on Windows. You can find the installation guide from Microsoft <a href="https://msdn.microsoft.com/en-us/commandline/wsl/install_guide">here</a>.</p>
-<p>If you don’t have the latest version of Windows 10 you should download <a href="https://www.virtualbox.org/">VirtualBox</a> and then set up the latest version of Ubuntu with VirtualBox. Instructions for doing this tend to change slightly over time, so I suggest using Google to search for “how to install Ubunutu on Windows with VirtualBox” and then you can follow the instructions that you find.</p>
+<div id="get-wild" class="section level2">
+<h2><span class="header-section-number">4.2</span> Get Wild</h2>
+</div>
+<div id="search" class="section level2">
+<h2><span class="header-section-number">4.3</span> Search</h2>
+</div>
+<div id="make" class="section level2">
+<h2><span class="header-section-number">4.4</span> Make</h2>
+</div>
+<div id="control" class="section level2">
+<h2><span class="header-section-number">4.5</span> Control</h2>
+</div>
+<div id="configure" class="section level2">
+<h2><span class="header-section-number">4.6</span> Configure</h2>
 
 </div>
 </div>
@@ -179,8 +214,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="what-is-unix.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="command-line-basics.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="command-line-basics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="bash-programming.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>

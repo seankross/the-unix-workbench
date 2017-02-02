@@ -28,7 +28,7 @@ DESCRIPTION
 
 The controls for navigating `man` pages are the same as they are for `less`.
 I often use `man` pages for quickly seraching for an option that I've forgotten.
-Let's say that I forgot how to get `ls` to print a long list. After typring
+Let's say that I forgot how to get `ls` to print a long list. After typing
 `man ls` to open the page, type `/` in order to start a search. Then type the
 word or phrase that you're searching for, in this case type in `long list` and
 then press `Enter`. The page jumps to this entry:
@@ -39,8 +39,8 @@ then press `Enter`. The page jumps to this entry:
              output on a line before the long listing.
 ```
 
-Press the `n` key in order to search for the next occurance of the word, and if
-you want to go the previous occurance type `Shift` + `n`. This method of
+Press the `n` key in order to search for the next occurrence of the word, and if
+you want to go the previous occurrence type `Shift` + `n`. This method of
 searching also works with `less`. When you're finished looking at a `man` page
 type `q` to get back to the prompt.
 
@@ -62,9 +62,9 @@ apropos editor
 ## vim(1)                   - Vi IMproved, a programmers text editor
 ```
 
-The second result is `nano` which was just on the tip of my tounge! Both `man`
+The second result is `nano` which was just on the tip of my tongue! Both `man`
 and `apropos` are useful when a search is only a few keystrokes away, but if 
-you're looking for detailed exmaples and explanations you're better off using 
+you're looking for detailed examples and explanations you're better off using 
 a search engine if you have access to a web browser.
 
 ## Get Wild

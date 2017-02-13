@@ -67,7 +67,62 @@ and `apropos` are useful when a search is only a few keystrokes away, but if
 you're looking for detailed examples and explanations you're better off using 
 a search engine if you have access to a web browser.
 
+### Summary
+
+- Use `man` to look up the documentation for a command.
+- If you can't think of the name of a command use `apropos` to search for a word
+associated with that command.
+- If you have access to a web browser, using a search engine might be better
+than `man` or `apropos`.
+
+### Exercises
+
+1. Use `man` to look up the flag for human-readable output from `ls`.
+2. Get help with `man` by typing `man man` into the console.
+3. Wouldn't it be nice if there was a calendar command? Use `apropos` to look
+for such a command, then use `man` to read about how that command works.
+
 ## Get Wild
+
+Let's go into my `Photos` folder in my home directory and take a look around:
+
+```{r, engine='bash', eval=FALSE}
+pwd
+```
+
+```
+/Users/sean
+```
+
+```{r, engine='bash', eval=FALSE}
+ls
+```
+
+```
+Code
+Documents
+Photos
+Desktop
+Music
+todo-2017-01-24.txt
+```
+
+```{r, engine='bash', eval=FALSE}
+cd Photos
+ls
+```
+
+```
+2016-06-20-datasci01.png
+2016-06-20-datasci02.png
+2016-06-20-datasci03.png
+2016-06-21-lab01.jpg
+2016-06-21-lab02.jpg
+2017-01-02-hiking01.jpg
+2017-01-02-hiking02.jpg
+2017-02-10-hiking01.jpg
+2017-02-10-hiking02.jpg
+```
 
 ## Search
 

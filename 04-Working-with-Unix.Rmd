@@ -124,6 +124,13 @@ ls
 2017-02-10-hiking02.jpg
 ```
 
+I've just been dumping pictures and figures into this folder without organizing
+them at all! Thankfully (in the words of Dr. Jenny Bryan) [I have an unwavering 
+commitment to the ISO 8601 date
+standard](https://twitter.com/JennyBryan/status/816143967695687684) so at least
+I know when these photos were taken! First I'd really like to organize these
+photos by year.
+
 ## Search
 
 ## Make
@@ -131,3 +138,5 @@ ls
 ## Control
 
 ## Configure
+
+## Connect

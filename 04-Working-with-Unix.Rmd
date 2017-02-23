@@ -128,15 +128,251 @@ I've just been dumping pictures and figures into this folder without organizing
 them at all! Thankfully (in the words of Dr. Jenny Bryan) [I have an unwavering 
 commitment to the ISO 8601 date
 standard](https://twitter.com/JennyBryan/status/816143967695687684) so at least
-I know when these photos were taken! First I'd really like to organize these
-photos by year.
+I know when these photos were taken. Instead of using `mv` to move around each
+individual photo I can select groups of photos using the `*` wildcard. A 
+**wildcard** is a character that represents other characters, much like how
+joker in a deck of cards can represent other cards in the deck. Wildcards are
+a subset of metacharacters, a topic which we will discuss in detail later on in
+this chpater. The `*` ("star") wildcard represents *zero or more of any
+character*, and it can be used to match names of files and folders in the command
+line. For example if I wanted list all of the files in my Photos directory which
+have a name that starts with "2017" I could do the following:
+
+```{r, engine='bash', eval=FALSE}
+ls 2017*
+```
+
+```
+2017-01-02-hiking01.jpg
+2017-01-02-hiking02.jpg
+2017-02-10-hiking01.jpg
+2017-02-10-hiking02.jpg
+```
+
+Only the files starting with "2017" are listed! The command `ls 2017*` literally
+means: list the files that start with "2017" followed by zero or more of any
+character. As you can imagine using wildcards
+is a powerful tool for working with groups of files that are similarly named.
+
+Let's walk through a few other examples of using the star wildcard. We could
+only list the photos starting with "2016":
+
+```{r, engine='bash', eval=FALSE}
+ls 2016*
+```
+
+```
+2016-06-20-datasci01.png
+2016-06-20-datasci02.png
+2016-06-20-datasci03.png
+2016-06-21-lab01.jpg
+2016-06-21-lab02.jpg
+```
+
+We could list only the files with names ending in `.jpg`:
+
+```{r, engine='bash', eval=FALSE}
+ls *.jpg
+```
+
+```
+2016-06-21-lab01.jpg
+2016-06-21-lab02.jpg
+2017-01-02-hiking01.jpg
+2017-01-02-hiking02.jpg
+2017-02-10-hiking01.jpg
+2017-02-10-hiking02.jpg
+```
+
+In the case above the file name can start with a sequence of zero or more of 
+any character, but the file name must end in `.jpg`.
+Or we could also list only the first photos from each set of photos:
+
+```{r, engine='bash', eval=FALSE}
+ls *01.*
+```
+
+```
+2016-06-20-datasci01.png
+2016-06-21-lab01.jpg
+2017-01-02-hiking01.jpg
+2017-02-10-hiking01.jpg
+```
+
+All of the files above have names that are composed a sequence of characters,
+followed by the adjacent characters `01.`, followed by another sequence of
+characters.
+Notice that if I had entered `ls *01*` into the console every file would have
+been listed since `01` is a part of all of the file names in my Photos
+directory.
+
+Let's organize these photos by year. First let's create one directory for
+each year of photos:
+
+```{r, engine='bash', eval=FALSE}
+mkdir 2016
+mkdir 2017
+```
+
+Now we can move the photos using wildcards:
+
+```{r, engine='bash', eval=FALSE}
+mv 2017-* 2017/
+ls
+```
+
+```
+2016
+2016-06-20-datasci01.png
+2016-06-20-datasci02.png
+2016-06-20-datasci03.png
+2016-06-21-lab01.jpg
+2016-06-21-lab02.jpg
+2017
+```
+
+Notice that I've moved all files that start with "2017-" into the 2017 folder!
+Now let's do the same thing for files with names starting with "2016-":
+
+```{r, engine='bash', eval=FALSE}
+mv 2016-* 2016/
+ls
+```
+
+```
+2016
+2017
+```
+
+Finally my photos are somewhat organizaed! Let's list the file in each directory
+just to make sure all was moved as planned:
+
+```{r, engine='bash', eval=FALSE}
+ls 2016/
+```
+
+```
+2016-06-20-datasci01.png
+2016-06-20-datasci02.png
+2016-06-20-datasci03.png
+2016-06-21-lab01.jpg
+2016-06-21-lab02.jpg
+```
+
+```{r, engine='bash', eval=FALSE}
+ls 2017/
+```
+
+```
+2017-01-02-hiking01.jpg
+2017-01-02-hiking02.jpg
+2017-02-10-hiking01.jpg
+2017-02-10-hiking02.jpg
+```
+
+Looks good! There are a few more wildcards beyond the star wildcard which we'll
+discuss in the next section where searching file names gets a little more
+advanced.
+
+### Summary
+
+- Wildcards can represent many kinds and numbers of characters.
+- The star wildcard (`*`) represents zero or more of any character.
+- You can use wildcards on the command line in order to work with multiple files
+and folders.
+
+### Exercises
+
+1. Before I organized the photos by year, what command would have listed all of
+the photos of type `.png`?
+2. Before I organized the photos by year, what command would have deleted all of
+my hiking photos?
+3. What series of commands would you use in order to put my figures for a data
+science course and the pictures I took in the lab into their own folders?
 
 ## Search
+
+The ability to search through files and folders can greatly improve your
+productivity using Unix. First we'll cover searching through text files.
+I recently downloaded a list of the names of the states in the US. Let's take a
+look at this file:
+
+```{r, engine='bash', eval=FALSE}
+cd ~/Documents
+ls
+```
+
+```
+a-tale-of-two-cities.txt
+canada.txt
+states.txt
+```
+
+```{r, engine='bash', eval=FALSE}
+wc states.txt
+```
+
+```
+50      60     472 states.txt
+```
+
+Makes sense that there are 50 lines, but it's interesting that there are 60
+total words. Let's a take a peak at the beginning fo the file:
+
+```{r, engine='bash', eval=FALSE}
+head states.txt
+```
+
+```
+Alabama
+Alaska
+Arizona
+Arkansas
+California
+Colorado
+Connecticut
+Delaware
+Florida
+Georgia
+```
+
+This file looks basically how you would expect it to look! You may recall from
+chapter 3 that the kind of shell that we're using is the bash shell. Bash
+treats different kinds of data differently, and we'll dive deeper into data
+types in chapter 5. For now all you need to know is that text data are
+called **strings**. A string could be a word, a sentence, a book, or a file or 
+folder name. One of the most effective ways to search through strings is to use
+**regular expressions**. Regular expressions are strings that define patterns
+in other strings. You can use regular expressions to search for a sub-string
+contained within a larger string, or to replace one part of a string with
+another string.
+
+One of the most popular tools for searching through text files is `grep`.
+
+-n line number
+-x exact
+-i ignore case
+-v invert match
+
+
+
+
+
 
 ## Make
 
 ## Control
 
+- chmod
+
 ## Configure
 
+- .bash_profile, .bash_history, alias, PATH and other env vars
+
+## Differentiate
+
+- diff, md5, sha1
+
 ## Connect
+
+- pipes, input redirection

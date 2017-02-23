@@ -1,7 +1,7 @@
 --- 
 title: "The Unix Workbench"
 author: "Sean Kross"
-date: "2017-02-01"
+date: "2017-02-23"
 site: bookdown::bookdown_site
 output:
  bookdown::html_chapters:
@@ -30,10 +30,10 @@ This work by [Sean Kross](http://seankross.com) is licensed
 
 # Introduction {-}
 
-This book is intented for folks who are new to programming and new to Unix-like
+This book is intended for folks who are new to programming and new to Unix-like
 operating systems like macOS and Linux distributions like Ubuntu. Command line 
 interfaces can seem alien at first, so this book
-attemps to draw parallels between using the command line and actions that you
+attempts to draw parallels between using the command line and actions that you
 would normally take while using your computer's graphical interface.
 To get the most out of using Unix tools, this book will show you how to write
 little pieces of software. 

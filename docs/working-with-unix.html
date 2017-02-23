@@ -26,7 +26,7 @@
 <meta name="author" content="Sean Kross">
 
 
-<meta name="date" content="2017-02-01">
+<meta name="date" content="2017-02-23">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -130,12 +130,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="working-with-unix.html"><a href="working-with-unix.html"><i class="fa fa-check"></i><b>4</b> Working with Unix</a><ul>
-<li class="chapter" data-level="4.1" data-path="working-with-unix.html"><a href="working-with-unix.html#self-help"><i class="fa fa-check"></i><b>4.1</b> Self-Help</a></li>
-<li class="chapter" data-level="4.2" data-path="working-with-unix.html"><a href="working-with-unix.html#get-wild"><i class="fa fa-check"></i><b>4.2</b> Get Wild</a></li>
+<li class="chapter" data-level="4.1" data-path="working-with-unix.html"><a href="working-with-unix.html#self-help"><i class="fa fa-check"></i><b>4.1</b> Self-Help</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="working-with-unix.html"><a href="working-with-unix.html#summary-4"><i class="fa fa-check"></i><b>4.1.1</b> Summary</a></li>
+<li class="chapter" data-level="4.1.2" data-path="working-with-unix.html"><a href="working-with-unix.html#exercises-4"><i class="fa fa-check"></i><b>4.1.2</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="working-with-unix.html"><a href="working-with-unix.html#get-wild"><i class="fa fa-check"></i><b>4.2</b> Get Wild</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="working-with-unix.html"><a href="working-with-unix.html#summary-5"><i class="fa fa-check"></i><b>4.2.1</b> Summary</a></li>
+<li class="chapter" data-level="4.2.2" data-path="working-with-unix.html"><a href="working-with-unix.html#exercises-5"><i class="fa fa-check"></i><b>4.2.2</b> Exercises</a></li>
+</ul></li>
 <li class="chapter" data-level="4.3" data-path="working-with-unix.html"><a href="working-with-unix.html#search"><i class="fa fa-check"></i><b>4.3</b> Search</a></li>
 <li class="chapter" data-level="4.4" data-path="working-with-unix.html"><a href="working-with-unix.html#make"><i class="fa fa-check"></i><b>4.4</b> Make</a></li>
 <li class="chapter" data-level="4.5" data-path="working-with-unix.html"><a href="working-with-unix.html#control"><i class="fa fa-check"></i><b>4.5</b> Control</a></li>
 <li class="chapter" data-level="4.6" data-path="working-with-unix.html"><a href="working-with-unix.html#configure"><i class="fa fa-check"></i><b>4.6</b> Configure</a></li>
+<li class="chapter" data-level="4.7" data-path="working-with-unix.html"><a href="working-with-unix.html#differentiate"><i class="fa fa-check"></i><b>4.7</b> Differentiate</a></li>
+<li class="chapter" data-level="4.8" data-path="working-with-unix.html"><a href="working-with-unix.html#connect"><i class="fa fa-check"></i><b>4.8</b> Connect</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="bash-programming.html"><a href="bash-programming.html"><i class="fa fa-check"></i><b>5</b> Bash Programming</a></li>
 <li class="chapter" data-level="6" data-path="git-and-github.html"><a href="git-and-github.html"><i class="fa fa-check"></i><b>6</b> Git and GitHub</a></li>
@@ -179,33 +187,187 @@ DESCRIPTION
      For each operand that names a file of a type other than directory, ls
      displays its name as well as any requested, associated information.  For
 :</code></pre>
-<p>The controls for navigating <code>man</code> pages are the same as they are for <code>less</code>. I often use <code>man</code> pages for quickly seraching for an option that I’ve forgotten. Let’s say that I forgot how to get <code>ls</code> to print a long list. After typring <code>man ls</code> to open the page, type <code>/</code> in order to start a search. Then type the word or phrase that you’re searching for, in this case type in <code>long list</code> and then press <code>Enter</code>. The page jumps to this entry:</p>
+<p>The controls for navigating <code>man</code> pages are the same as they are for <code>less</code>. I often use <code>man</code> pages for quickly seraching for an option that I’ve forgotten. Let’s say that I forgot how to get <code>ls</code> to print a long list. After typing <code>man ls</code> to open the page, type <code>/</code> in order to start a search. Then type the word or phrase that you’re searching for, in this case type in <code>long list</code> and then press <code>Enter</code>. The page jumps to this entry:</p>
 <pre><code>     -l      (The lowercase letter ``ell&#39;&#39;.)  List in long format.  (See below.)
              If the output is to a terminal, a total sum for all the file sizes is
              output on a line before the long listing.</code></pre>
-<p>Press the <code>n</code> key in order to search for the next occurance of the word, and if you want to go the previous occurance type <code>Shift</code> + <code>n</code>. This method of searching also works with <code>less</code>. When you’re finished looking at a <code>man</code> page type <code>q</code> to get back to the prompt.</p>
+<p>Press the <code>n</code> key in order to search for the next occurrence of the word, and if you want to go the previous occurrence type <code>Shift</code> + <code>n</code>. This method of searching also works with <code>less</code>. When you’re finished looking at a <code>man</code> page type <code>q</code> to get back to the prompt.</p>
 <p>The <code>man</code> command works wonderfully when you know which command you want to look up, but what if you’ve forgotten the name of the command you’re looking for? You can use <code>apropos</code> to search all of the available commands and their descriptions. For example let’s pretend that I forgot the name of my favorite command line text editor. You could type <code>apropos editor</code> into the command line which will print a list of results:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">apropos</span> editor</code></pre></div>
 <pre><code>## ed(1), red(1)            - text editor
 ## nano(1)                  - Nano&#39;s ANOther editor, an enhanced free Pico clone
 ## sed(1)                   - stream editor
 ## vim(1)                   - Vi IMproved, a programmers text editor</code></pre>
-<p>The second result is <code>nano</code> which was just on the tip of my tounge! Both <code>man</code> and <code>apropos</code> are useful when a search is only a few keystrokes away, but if you’re looking for detailed exmaples and explanations you’re better off using a search engine if you have access to a web browser.</p>
+<p>The second result is <code>nano</code> which was just on the tip of my tongue! Both <code>man</code> and <code>apropos</code> are useful when a search is only a few keystrokes away, but if you’re looking for detailed examples and explanations you’re better off using a search engine if you have access to a web browser.</p>
+<div id="summary-4" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> Summary</h3>
+<ul>
+<li>Use <code>man</code> to look up the documentation for a command.</li>
+<li>If you can’t think of the name of a command use <code>apropos</code> to search for a word associated with that command.</li>
+<li>If you have access to a web browser, using a search engine might be better than <code>man</code> or <code>apropos</code>.</li>
+</ul>
+</div>
+<div id="exercises-4" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> Exercises</h3>
+<ol style="list-style-type: decimal">
+<li>Use <code>man</code> to look up the flag for human-readable output from <code>ls</code>.</li>
+<li>Get help with <code>man</code> by typing <code>man man</code> into the console.</li>
+<li>Wouldn’t it be nice if there was a calendar command? Use <code>apropos</code> to look for such a command, then use <code>man</code> to read about how that command works.</li>
+</ol>
+</div>
 </div>
 <div id="get-wild" class="section level2">
 <h2><span class="header-section-number">4.2</span> Get Wild</h2>
+<p>Let’s go into my <code>Photos</code> folder in my home directory and take a look around:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">pwd</span></code></pre></div>
+<pre><code>/Users/sean</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ls</span></code></pre></div>
+<pre><code>Code
+Documents
+Photos
+Desktop
+Music
+todo-2017-01-24.txt</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span> Photos
+<span class="kw">ls</span></code></pre></div>
+<pre><code>2016-06-20-datasci01.png
+2016-06-20-datasci02.png
+2016-06-20-datasci03.png
+2016-06-21-lab01.jpg
+2016-06-21-lab02.jpg
+2017-01-02-hiking01.jpg
+2017-01-02-hiking02.jpg
+2017-02-10-hiking01.jpg
+2017-02-10-hiking02.jpg</code></pre>
+<p>I’ve just been dumping pictures and figures into this folder without organizing them at all! Thankfully (in the words of Dr. Jenny Bryan) <a href="https://twitter.com/JennyBryan/status/816143967695687684">I have an unwavering commitment to the ISO 8601 date standard</a> so at least I know when these photos were taken. Instead of using <code>mv</code> to move around each individual photo I can select groups of photos using the <code>*</code> wildcard. A <strong>wildcard</strong> is a character that represents other characters, much like how joker in a deck of cards can represent other cards in the deck. Wildcards are a subset of metacharacters, a topic which we will discuss in detail later on in this chpater. The <code>*</code> (“star”) wildcard represents <em>zero or more of any character</em>, and it can be used to match names of files and folders in the command line. For example if I wanted list all of the files in my Photos directory which have a name that starts with “2017” I could do the following:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ls</span> 2017*</code></pre></div>
+<pre><code>2017-01-02-hiking01.jpg
+2017-01-02-hiking02.jpg
+2017-02-10-hiking01.jpg
+2017-02-10-hiking02.jpg</code></pre>
+<p>Only the files starting with “2017” are listed! The command <code>ls 2017*</code> literally means: list the files that start with “2017” followed by zero or more of any character. As you can imagine using wildcards is a powerful tool for working with groups of files that are similarly named.</p>
+<p>Let’s walk through a few other examples of using the star wildcard. We could only list the photos starting with “2016”:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ls</span> 2016*</code></pre></div>
+<pre><code>2016-06-20-datasci01.png
+2016-06-20-datasci02.png
+2016-06-20-datasci03.png
+2016-06-21-lab01.jpg
+2016-06-21-lab02.jpg</code></pre>
+<p>We could list only the files with names ending in <code>.jpg</code>:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ls</span> *.jpg</code></pre></div>
+<pre><code>2016-06-21-lab01.jpg
+2016-06-21-lab02.jpg
+2017-01-02-hiking01.jpg
+2017-01-02-hiking02.jpg
+2017-02-10-hiking01.jpg
+2017-02-10-hiking02.jpg</code></pre>
+<p>In the case above the file name can start with a sequence of zero or more of any character, but the file name must end in <code>.jpg</code>. Or we could also list only the first photos from each set of photos:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ls</span> *01.*</code></pre></div>
+<pre><code>2016-06-20-datasci01.png
+2016-06-21-lab01.jpg
+2017-01-02-hiking01.jpg
+2017-02-10-hiking01.jpg</code></pre>
+<p>All of the files above have names that are composed a sequence of characters, followed by the adjacent characters <code>01.</code>, followed by another sequence of characters. Notice that if I had entered <code>ls *01*</code> into the console every file would have been listed since <code>01</code> is a part of all of the file names in my Photos directory.</p>
+<p>Let’s organize these photos by year. First let’s create one directory for each year of photos:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">mkdir</span> 2016
+<span class="kw">mkdir</span> 2017</code></pre></div>
+<p>Now we can move the photos using wildcards:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">mv</span> 2017-* 2017/
+<span class="kw">ls</span></code></pre></div>
+<pre><code>2016
+2016-06-20-datasci01.png
+2016-06-20-datasci02.png
+2016-06-20-datasci03.png
+2016-06-21-lab01.jpg
+2016-06-21-lab02.jpg
+2017</code></pre>
+<p>Notice that I’ve moved all files that start with “2017-” into the 2017 folder! Now let’s do the same thing for files with names starting with “2016-”:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">mv</span> 2016-* 2016/
+<span class="kw">ls</span></code></pre></div>
+<pre><code>2016
+2017</code></pre>
+<p>Finally my photos are somewhat organizaed! Let’s list the file in each directory just to make sure all was moved as planned:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ls</span> 2016/</code></pre></div>
+<pre><code>2016-06-20-datasci01.png
+2016-06-20-datasci02.png
+2016-06-20-datasci03.png
+2016-06-21-lab01.jpg
+2016-06-21-lab02.jpg</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ls</span> 2017/</code></pre></div>
+<pre><code>2017-01-02-hiking01.jpg
+2017-01-02-hiking02.jpg
+2017-02-10-hiking01.jpg
+2017-02-10-hiking02.jpg</code></pre>
+<p>Looks good! There are a few more wildcards beyond the star wildcard which we’ll discuss in the next section where searching file names gets a little more advanced.</p>
+<div id="summary-5" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> Summary</h3>
+<ul>
+<li>Wildcards can represent many kinds and numbers of characters.</li>
+<li>The star wildcard (<code>*</code>) represents zero or more of any character.</li>
+<li>You can use wildcards on the command line in order to work with multiple files and folders.</li>
+</ul>
+</div>
+<div id="exercises-5" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Exercises</h3>
+<ol style="list-style-type: decimal">
+<li>Before I organized the photos by year, what command would have listed all of the photos of type <code>.png</code>?</li>
+<li>Before I organized the photos by year, what command would have deleted all of my hiking photos?</li>
+<li>What series of commands would you use in order to put my figures for a data science course and the pictures I took in the lab into their own folders?</li>
+</ol>
+</div>
 </div>
 <div id="search" class="section level2">
 <h2><span class="header-section-number">4.3</span> Search</h2>
+<p>The ability to search through files and folders can greatly improve your productivity using Unix. First we’ll cover searching through text files. I recently downloaded a list of the names of the states in the US. Let’s take a look at this file:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span> ~/Documents
+<span class="kw">ls</span></code></pre></div>
+<pre><code>a-tale-of-two-cities.txt
+canada.txt
+states.txt</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">wc</span> states.txt</code></pre></div>
+<pre><code>50      60     472 states.txt</code></pre>
+<p>Makes sense that there are 50 lines, but it’s interesting that there are 60 total words. Let’s a take a peak at the beginning fo the file:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">head</span> states.txt</code></pre></div>
+<pre><code>Alabama
+Alaska
+Arizona
+Arkansas
+California
+Colorado
+Connecticut
+Delaware
+Florida
+Georgia</code></pre>
+<p>This file looks basically how you would expect it to look! You may recall from chapter 3 that the kind of shell that we’re using is the bash shell. Bash treats different kinds of data differently, and we’ll dive deeper into data types in chapter 5. For now all you need to know is that text data are called <strong>strings</strong>. A string could be a word, a sentence, a book, or a file or folder name. One of the most effective ways to search through strings is to use <strong>regular expressions</strong>. Regular expressions are strings that define patterns in other strings. You can use regular expressions to search for a sub-string contained within a larger string, or to replace one part of a string with another string.</p>
+<p>One of the most popular tools for searching through text files is <code>grep</code>.</p>
+<p>-n line number -x exact -i ignore case -v invert match</p>
 </div>
 <div id="make" class="section level2">
 <h2><span class="header-section-number">4.4</span> Make</h2>
 </div>
 <div id="control" class="section level2">
 <h2><span class="header-section-number">4.5</span> Control</h2>
+<ul>
+<li>chmod</li>
+</ul>
 </div>
 <div id="configure" class="section level2">
 <h2><span class="header-section-number">4.6</span> Configure</h2>
+<ul>
+<li>.bash_profile, .bash_history, alias, PATH and other env vars</li>
+</ul>
+</div>
+<div id="differentiate" class="section level2">
+<h2><span class="header-section-number">4.7</span> Differentiate</h2>
+<ul>
+<li>diff, md5, sha1</li>
+</ul>
+</div>
+<div id="connect" class="section level2">
+<h2><span class="header-section-number">4.8</span> Connect</h2>
+<ul>
+<li>pipes, input redirection</li>
+</ul>
 
 </div>
 </div>

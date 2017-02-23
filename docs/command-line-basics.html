@@ -26,7 +26,7 @@
 <meta name="author" content="Sean Kross">
 
 
-<meta name="date" content="2017-02-01">
+<meta name="date" content="2017-02-23">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -130,12 +130,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="working-with-unix.html"><a href="working-with-unix.html"><i class="fa fa-check"></i><b>4</b> Working with Unix</a><ul>
-<li class="chapter" data-level="4.1" data-path="working-with-unix.html"><a href="working-with-unix.html#self-help"><i class="fa fa-check"></i><b>4.1</b> Self-Help</a></li>
-<li class="chapter" data-level="4.2" data-path="working-with-unix.html"><a href="working-with-unix.html#get-wild"><i class="fa fa-check"></i><b>4.2</b> Get Wild</a></li>
+<li class="chapter" data-level="4.1" data-path="working-with-unix.html"><a href="working-with-unix.html#self-help"><i class="fa fa-check"></i><b>4.1</b> Self-Help</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="working-with-unix.html"><a href="working-with-unix.html#summary-4"><i class="fa fa-check"></i><b>4.1.1</b> Summary</a></li>
+<li class="chapter" data-level="4.1.2" data-path="working-with-unix.html"><a href="working-with-unix.html#exercises-4"><i class="fa fa-check"></i><b>4.1.2</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="working-with-unix.html"><a href="working-with-unix.html#get-wild"><i class="fa fa-check"></i><b>4.2</b> Get Wild</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="working-with-unix.html"><a href="working-with-unix.html#summary-5"><i class="fa fa-check"></i><b>4.2.1</b> Summary</a></li>
+<li class="chapter" data-level="4.2.2" data-path="working-with-unix.html"><a href="working-with-unix.html#exercises-5"><i class="fa fa-check"></i><b>4.2.2</b> Exercises</a></li>
+</ul></li>
 <li class="chapter" data-level="4.3" data-path="working-with-unix.html"><a href="working-with-unix.html#search"><i class="fa fa-check"></i><b>4.3</b> Search</a></li>
 <li class="chapter" data-level="4.4" data-path="working-with-unix.html"><a href="working-with-unix.html#make"><i class="fa fa-check"></i><b>4.4</b> Make</a></li>
 <li class="chapter" data-level="4.5" data-path="working-with-unix.html"><a href="working-with-unix.html#control"><i class="fa fa-check"></i><b>4.5</b> Control</a></li>
 <li class="chapter" data-level="4.6" data-path="working-with-unix.html"><a href="working-with-unix.html#configure"><i class="fa fa-check"></i><b>4.6</b> Configure</a></li>
+<li class="chapter" data-level="4.7" data-path="working-with-unix.html"><a href="working-with-unix.html#differentiate"><i class="fa fa-check"></i><b>4.7</b> Differentiate</a></li>
+<li class="chapter" data-level="4.8" data-path="working-with-unix.html"><a href="working-with-unix.html#connect"><i class="fa fa-check"></i><b>4.8</b> Connect</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="bash-programming.html"><a href="bash-programming.html"><i class="fa fa-check"></i><b>5</b> Bash Programming</a></li>
 <li class="chapter" data-level="6" data-path="git-and-github.html"><a href="git-and-github.html"><i class="fa fa-check"></i><b>6</b> Git and GitHub</a></li>
@@ -220,7 +228,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 </div>
 <p>There are a few special directories that you should be aware of on your computer. The directory at the top of this tree is called the root directory. The root directory contains all other directories, and is represented by a slash (<code>/</code>).</p>
-<p>The home directory is another special directory that is represented by a tilde (<code>~</code>). Your home directory contains your personal files, like your photos, documents, and the contents of your desktop. When you first open up your shell you usually start off in your home directory. Imagine tracing all of the directories from your root directory to the directory you’re currently in. This squence of directories is called a <strong>path</strong>. The diagram below illustrates the path from a hypothetical root directory to the home directory.</p>
+<p>The home directory is another special directory that is represented by a tilde (<code>~</code>). Your home directory contains your personal files, like your photos, documents, and the contents of your desktop. When you first open up your shell you usually start off in your home directory. Imagine tracing all of the directories from your root directory to the directory you’re currently in. This sequence of directories is called a <strong>path</strong>. The diagram below illustrates the path from a hypothetical root directory to the home directory.</p>
 <div class="figure">
 <img src="img/redtree.png" />
 
@@ -287,7 +295,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Set your working directory to the root directory.</li>
 <li>Set your working directory to your home directory using three different commands.</li>
 <li>Find a folder on your computer using your file and folder browser, and then set your working dorectory to that folder using the terminal.</li>
-<li>List all od the files and folders in the directory you navigated to in #3.</li>
+<li>List all of the files and folders in the directory you navigated to in #3.</li>
 </ol>
 </div>
 </div>
@@ -534,7 +542,7 @@ Desktop
 Music
 echo-out.txt
 todo-2017-01-24.txt</code></pre>
-<p>Looks like it worked nicely. Similar to the <code>mv</code> command, the <code>cp</code> command <strong>c</strong>o<strong>p</strong>ies a file or folder from one location to another. As you can see <code>cp</code> is used exactly like <code>mv</code> when copying files, the file or folder you wish to copy is the first argument, followed by the patht to the folder where you want the copy to be made:</p>
+<p>Looks like it worked nicely. Similar to the <code>mv</code> command, the <code>cp</code> command <strong>c</strong>o<strong>p</strong>ies a file or folder from one location to another. As you can see <code>cp</code> is used exactly like <code>mv</code> when copying files, the file or folder you wish to copy is the first argument, followed by the path to the folder where you want the copy to be made:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cp</span> echo-out.txt Desktop
 <span class="kw">ls</span></code></pre></div>
 <pre><code>Code
@@ -546,12 +554,12 @@ echo-out.txt
 todo-2017-01-24.txt</code></pre>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ls</span> Desktop</code></pre></div>
 <pre><code>echo-out.txt</code></pre>
-<p>Be aware that there is one difference between copying files and folders, when copying folders you need to specify the <code>-r</code> option, which is short for <em>recursive</em>. This ensures that the underlying directorty structure of the directory you wish to copy remains intact. Let’s try copying my <code>Documents</code> directory into the <code>Desktop</code> directory:</p>
+<p>Be aware that there is one difference between copying files and folders, when copying folders you need to specify the <code>-r</code> option, which is short for <em>recursive</em>. This ensures that the underlying directory structure of the directory you wish to copy remains intact. Let’s try copying my <code>Documents</code> directory into the <code>Desktop</code> directory:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cp</span> -r Documents Desktop
 <span class="kw">ls</span> Desktop</code></pre></div>
 <pre><code>Documents
 echo-out.txt</code></pre>
-<p>Finally, let’s discuss how to delete files and folders with the command line. <strong>A word of extreme caution:</strong> in general I don’t recommend deleting files or folders on the command line because as we’ve discussed before there is <strong><em>no undo button</em></strong> on the command line. If you delete a file that is critical to your computer functioning you may cause irreperable damage. I <em>highly</em> recommend moving files or folders to a designated trash folder and then deleting them the way you would normally delete files and folders outside of the command line (The path to the Trash Bin is <code>~/.Trash</code> on Mac and <code>~/.local/share/Trash</code> on Ubuntu). If you decide to delete a file or folder on your computer make absolutely sure that the command you’ve typed is correct before you press <code>Enter</code>. If you do delete a file or folder by accident stop using your computer immediately and consult with a computer professional or your IT department so they can try to recover the file.</p>
+<p>Finally, let’s discuss how to delete files and folders with the command line. <strong>A word of extreme caution:</strong> in general I don’t recommend deleting files or folders on the command line because as we’ve discussed before there is <strong><em>no undo button</em></strong> on the command line. If you delete a file that is critical to your computer functioning you may cause irreparable damage. I <em>highly</em> recommend moving files or folders to a designated trash folder and then deleting them the way you would normally delete files and folders outside of the command line (The path to the Trash Bin is <code>~/.Trash</code> on Mac and <code>~/.local/share/Trash</code> on Ubuntu). If you decide to delete a file or folder on your computer make absolutely sure that the command you’ve typed is correct before you press <code>Enter</code>. If you do delete a file or folder by accident stop using your computer immediately and consult with a computer professional or your IT department so they can try to recover the file.</p>
 <p>Now that you’ve been warned, let’s discuss <code>rm</code>, the <a href="http://en.wikipedia.org/wiki/List_of_spells_in_Harry_Potter">Avada Kedavra</a> of command line programs. When <strong>r</strong>e<strong>m</strong>oving files <code>rm</code> only requires the path to a file in order to delete it. Let’s test its destructive power on <code>echo-out.txt</code>:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">rm</span> echo-out.txt
 <span class="kw">ls</span></code></pre></div>
@@ -577,7 +585,7 @@ echo-out.txt</code></pre>
 <ul>
 <li><code>mv</code> can be used for moving or renaming files or folders.</li>
 <li><code>cp</code> can copy files or folders.</li>
-<li>You should try to aviod using <code>rm</code> which permanently removes files or folders.</li>
+<li>You should try to avoid using <code>rm</code> which permanently removes files or folders.</li>
 </ul>
 </div>
 <div id="exercises-3" class="section level3">

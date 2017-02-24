@@ -347,7 +347,32 @@ in other strings. You can use regular expressions to search for a sub-string
 contained within a larger string, or to replace one part of a string with
 another string.
 
-One of the most popular tools for searching through text files is `grep`.
+One of the most popular tools for searching through text files is `grep`. The
+simplest use of `grep` requires two arguments: a regular expression and a text
+file to search. Let's see an simple example of `grep` in action and then I'll
+explain how it works:
+
+```{r, engine='bash', eval=FALSE}
+grep "x" states.txt
+```
+
+```
+New Mexico
+Texas
+```
+
+In the command above, the first argument to `grep` is the regular expression
+`"x"`. The `"x"` regular expression represents one instance of the letter "x".
+Every line of the `states.txt` file that contains at least one instance of the
+letter "x" is printed to the console. As you can see, only two state names
+contain the letter "x", New Mexico and Texas. Let's try searching for the letter
+"q" in all of the state names using `grep`:
+
+```{r, engine='bash', eval=FALSE}
+grep "q" states.txt
+```
+
+Nothing happens!
 
 -n line number
 -x exact

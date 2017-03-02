@@ -318,7 +318,6 @@ ls
 ```
 
 ```
-a-tale-of-two-cities.txt
 canada.txt
 states.txt
 ```
@@ -332,8 +331,8 @@ wc states.txt
 50      60     472 states.txt
 ```
 
-Makes sense that there are 50 lines, but it's interesting that there are 60
-total words. Let's a take a peak at the beginning fo the file:
+It makes sense that there are 50 lines, but it's interesting that there are 60
+total words. Let's a take a peak at the beginning of the file:
 
 
 ```bash
@@ -354,9 +353,9 @@ Georgia
 ```
 
 This file looks basically how you would expect it to look! You may recall from
-chapter 3 that the kind of shell that we're using is the bash shell. Bash
+Chapter 3 that the kind of shell that we're using is the bash shell. Bash
 treats different kinds of data differently, and we'll dive deeper into data
-types in chapter 5. For now all you need to know is that text data are
+types in Chapter 5. For now all you need to know is that text data are
 called **strings**. A string could be a word, a sentence, a book, or a file or 
 folder name. One of the most effective ways to search through strings is to use
 **regular expressions**. Regular expressions are strings that define patterns
@@ -364,7 +363,120 @@ in other strings. You can use regular expressions to search for a sub-string
 contained within a larger string, or to replace one part of a string with
 another string.
 
-One of the most popular tools for searching through text files is `grep`.
+One of the most popular tools for searching through text files is `grep`. The
+simplest use of `grep` requires two arguments: a regular expression and a text
+file to search. Let's see a simple example of `grep` in action and then I'll
+explain how it works:
+
+
+```bash
+grep "x" states.txt
+```
+
+```
+New Mexico
+Texas
+```
+
+In the command above, the first argument to `grep` is the regular expression
+`"x"`. The `"x"` regular expression represents one instance of the letter "x".
+Every line of the `states.txt` file that contains at least one instance of the
+letter "x" is printed to the console. As you can see New Mexico and Texas are
+the only two state names that contain the letter "x". Let's try searching for 
+the letter "q" in all of the state names using `grep`:
+
+
+```bash
+grep "q" states.txt
+```
+
+Nothing is printned to the console because the letter "q" isn't in any of the
+state names. We can search for more than individual characters though. For
+example the following command will search for the state names that contain the
+word "New":
+
+
+```bash
+grep "New" states.txt
+```
+
+```
+New Hampshire
+New Jersey
+New Mexico
+New York
+```
+
+In the previous case the regular expression we used was simply `"New"`, which
+represents an occurrence of the string "New". Regular expressions are not
+limitted to just being indiviual characters or words, they can also represent
+parts of words. For example I could search all of the state names that contain
+the string "nia" with the following command:
+
+
+```bash
+grep "nia" states.txt
+```
+
+```
+California
+Pennsylvania
+Virginia
+West Virginia
+```
+
+All of the state name above happen to end with the string "nia".
+
+Regular expressions aren't just limitted to searching with characters and
+strings, the real power of regular expressions come from using
+**metacharacters**. Remember that metacharacters are characters that can be used
+to represent other characters. To take full advantage of all of the metacharacters
+we should use `grep`'s cousin `egrep`, which just extends `grep`'s capabilities.
+The first metacharacter we should discuss is the
+`"."` (period) metacharacter, which represents *any* character. If for example I wanted to
+search `states.txt` for the character "i", followed by any character, followed
+by the character "g" I could do so with the following command:
+
+
+```bash
+egrep "i.g" states.txt
+```
+
+```
+Virginia
+Washington
+West Virginia
+Wyoming
+```
+
+The regular expression "i.g" matches the sub-string "irg" in V*irg*inia, and
+West V*irg*inia, and it matches the sub-string "ing" in Wash*ing*ton and
+Wyom*ing*. The period metacharacter is a stand-in for the "r" in "irg" and the
+"n" in "ing" in the example above. The period metacharacter is extremely liberal,
+for example the command `egrep "." states.txt` would return every line of
+states.txt since the regular expression `"."` would match one occurrence of any
+character on every line (there's at least one character on every line). 
+
+Besides characters that can represent other
+characters, there are also metacharacters called **quantifiers** which allow you
+to specify the number of times a regular expressions should appear in string.
+One of the most basic quantifiers is `"+"` (plus) which represents one or more
+occurrences of the proceeding expression. For example the regular expression
+"s+as" means: one or more "s" followed by "as". Let's see if any of the state
+names match this expression:
+
+
+```bash
+egrep "s+as" states.txt
+```
+
+```
+Arkansas
+Kansas
+```
+
+
+
 
 -n line number
 -x exact
@@ -378,9 +490,6 @@ One of the most popular tools for searching through text files is `grep`.
 
 ## Make
 
-## Control
-
-- chmod
 
 ## Configure
 

@@ -274,7 +274,7 @@ computer.
 2. Set your working directory to your home directory using three different 
 commands.
 3. Find a folder on your computer using your file and folder browser, and then
-set your working dorectory to that folder using the terminal.
+set your working directory to that folder using the terminal.
 4. List all of the files and folders in the directory you navigated to in #3.
 
 ## Creation and Inspection
@@ -400,7 +400,7 @@ cat todo.txt
 
 The `cat` command is often used to print text files to the terminal, despite
 the fact that it's really meant to con**cat**enate files. You can see this
-concatination in action in the following example:
+concatenation in action in the following example:
 
 ```{r, engine='bash', eval=FALSE}
 cat todo.txt todo.txt
@@ -649,7 +649,7 @@ represents the `Control` key on your keyboard, so you can for example type
 `nano` is a good editor for beginners because it works similarly to word 
 processors you've used before. You can use the arrow keys in order to move your
 cursor around the file, and the rest of the keys on your keyboard work as
-expected. Let's add an item to my todo list and then I'll save and exit `nano`
+expected. Let's add an item to my to-do list and then I'll save and exit `nano`
 by typing `Control` + `O` followed by `Control` + `X`.
 
 ```
@@ -688,7 +688,7 @@ yet exist and then save your changes to that file.
 - The `touch` command creates empty files.
 - You can use `>` to redirect the output of a command into a file.
 - `>>` will append command output to the end of a file.
-- Print a text file to the commdna line using `cat`.
+- Print a text file to the command line using `cat`.
 - Inspect properties of a text file with `wc`.
 - Peak at the beginning and end of a text file with `head` and `tail`.
 - Scroll through a large text file with `less`.
@@ -728,7 +728,7 @@ todo.txt
 ```
 
 It's gotten a little sloppy, so let's clean this directory up. First I want to
-make a new directory to store all of my journal entires in called `Journal`. We
+make a new directory to store all of my journal entries in called `Journal`. We
 already know how to do that:
 
 ```{r, engine='bash', eval=FALSE}
@@ -910,7 +910,7 @@ ls Desktop
 echo-out.txt
 ```
 
-Now that the awesome destructive power of `rm` is on your side, you've leared
+Now that the awesome destructive power of `rm` is on your side, you've learned
 the basics of the command line! See you in the next chapter for a discussion of
 more advanced command line topics.
 

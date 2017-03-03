@@ -27,7 +27,7 @@ DESCRIPTION
 ```
 
 The controls for navigating `man` pages are the same as they are for `less`.
-I often use `man` pages for quickly seraching for an option that I've forgotten.
+I often use `man` pages for quickly searching for an option that I've forgotten.
 Let's say that I forgot how to get `ls` to print a long list. After typing
 `man ls` to open the page, type `/` in order to start a search. Then type the
 word or phrase that you're searching for, in this case type in `long list` and
@@ -40,7 +40,7 @@ then press `Enter`. The page jumps to this entry:
 ```
 
 Press the `n` key in order to search for the next occurrence of the word, and if
-you want to go the previous occurrence type `Shift` + `n`. This method of
+you want to go to the previous occurrence type `Shift` + `n`. This method of
 searching also works with `less`. When you're finished looking at a `man` page
 type `q` to get back to the prompt.
 
@@ -133,7 +133,7 @@ individual photo I can select groups of photos using the `*` wildcard. A
 **wildcard** is a character that represents other characters, much like how
 joker in a deck of cards can represent other cards in the deck. Wildcards are
 a subset of metacharacters, a topic which we will discuss in detail later on in
-this chpater. The `*` ("star") wildcard represents *zero or more of any
+this chapter. The `*` ("star") wildcard represents *zero or more of any
 character*, and it can be used to match names of files and folders in the command
 line. For example if I wanted list all of the files in my Photos directory which
 have a name that starts with "2017" I could do the following:
@@ -199,7 +199,7 @@ ls *01.*
 2017-02-10-hiking01.jpg
 ```
 
-All of the files above have names that are composed a sequence of characters,
+All of the files above have names that are composed of a sequence of characters,
 followed by the adjacent characters `01.`, followed by another sequence of
 characters.
 Notice that if I had entered `ls *01*` into the console every file would have
@@ -244,7 +244,7 @@ ls
 2017
 ```
 
-Finally my photos are somewhat organizaed! Let's list the file in each directory
+Finally my photos are somewhat organized! Let's list the file in each directory
 just to make sure all was moved as planned:
 
 ```{r, engine='bash', eval=FALSE}
@@ -371,7 +371,7 @@ the letter "q" in all of the state names using `grep`:
 grep "q" states.txt
 ```
 
-Nothing is printned to the console because the letter "q" isn't in any of the
+Nothing is printed to the console because the letter "q" isn't in any of the
 state names. We can search for more than individual characters though. For
 example the following command will search for the state names that contain the
 word "New":
@@ -389,7 +389,7 @@ New York
 
 In the previous case the regular expression we used was simply `"New"`, which
 represents an occurrence of the string "New". Regular expressions are not
-limitted to just being indiviual characters or words, they can also represent
+limited to just being individual characters or words, they can also represent
 parts of words. For example I could search all of the state names that contain
 the string "nia" with the following command:
 
@@ -404,17 +404,17 @@ Virginia
 West Virginia
 ```
 
-All of the state name above happen to end with the string "nia".
+All of the state names above happen to end with the string "nia".
 
-Regular expressions aren't just limitted to searching with characters and
+Regular expressions aren't just limited to searching with characters and
 strings, the real power of regular expressions come from using
 **metacharacters**. Remember that metacharacters are characters that can be used
 to represent other characters. To take full advantage of all of the metacharacters
 we should use `grep`'s cousin `egrep`, which just extends `grep`'s capabilities.
-The first metacharacter we should discuss is the
-`"."` (period) metacharacter, which represents *any* character. If for example I wanted to
-search `states.txt` for the character "i", followed by any character, followed
-by the character "g" I could do so with the following command:
+The first metacharacter we should discuss is the `"."` (period) metacharacter, 
+which represents *any* character. If for example I wanted to search `states.txt` 
+for the character "i", followed by any character, followed by the character "g" 
+I could do so with the following command:
 
 ```{r, engine='bash', eval=FALSE}
 egrep "i.g" states.txt
@@ -437,11 +437,11 @@ character on every line (there's at least one character on every line).
 
 Besides characters that can represent other
 characters, there are also metacharacters called **quantifiers** which allow you
-to specify the number of times a regular expressions should appear in string.
-One of the most basic quantifiers is `"+"` (plus) which represents one or more
-occurrences of the proceeding expression. For example the regular expression
-"s+as" means: one or more "s" followed by "as". Let's see if any of the state
-names match this expression:
+to specify the number of times a particular regular expression should appear in 
+a string. One of the most basic quantifiers is `"+"` (plus) which represents one 
+or more occurrences of the proceeding expression. For example the regular 
+expression "s+as" means: one or more "s" followed by "as". Let's see if any of 
+the state names match this expression:
 
 ```{r, engine='bash', eval=FALSE}
 egrep "s+as" states.txt
@@ -471,7 +471,7 @@ Texas
 Washington
 ```
 
-As you can see the star metacharacter is much more liberal with repect to
+As you can see the star metacharacter is much more liberal with respect to
 matching since many more state names are matched by `"s*as"`. There are more
 specific quantifies you can use beyond "zero or more" or "one or more"
 occurrences of an expression. You can use curly brackets (`{ }`) to specify an
@@ -523,7 +523,7 @@ egrep "(iss){2}" states.txt
 Mississippi
 ```
 
-We could combine mroe quantifiers and capturing groups to dream up even more
+We could combine more quantifiers and capturing groups to dream up even more
 complicated regular expressions. For example, the following regular expression
 describes three occurrences of an "i" followed by two of any character:
 

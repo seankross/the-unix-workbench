@@ -26,7 +26,7 @@
 <meta name="author" content="Sean Kross">
 
 
-<meta name="date" content="2017-02-27">
+<meta name="date" content="2017-03-07">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -138,7 +138,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.2.1" data-path="working-with-unix.html"><a href="working-with-unix.html#summary-5"><i class="fa fa-check"></i><b>4.2.1</b> Summary</a></li>
 <li class="chapter" data-level="4.2.2" data-path="working-with-unix.html"><a href="working-with-unix.html#exercises-5"><i class="fa fa-check"></i><b>4.2.2</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="working-with-unix.html"><a href="working-with-unix.html#search"><i class="fa fa-check"></i><b>4.3</b> Search</a></li>
+<li class="chapter" data-level="4.3" data-path="working-with-unix.html"><a href="working-with-unix.html#search"><i class="fa fa-check"></i><b>4.3</b> Search</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="working-with-unix.html"><a href="working-with-unix.html#regular-expressions"><i class="fa fa-check"></i><b>4.3.1</b> Regular Expressions</a></li>
+<li class="chapter" data-level="4.3.2" data-path="working-with-unix.html"><a href="working-with-unix.html#metacharacters"><i class="fa fa-check"></i><b>4.3.2</b> Metacharacters</a></li>
+<li class="chapter" data-level="4.3.3" data-path="working-with-unix.html"><a href="working-with-unix.html#character-sets"><i class="fa fa-check"></i><b>4.3.3</b> Character Sets</a></li>
+<li class="chapter" data-level="4.3.4" data-path="working-with-unix.html"><a href="working-with-unix.html#escaping-anchors-odds-and-ends"><i class="fa fa-check"></i><b>4.3.4</b> Escaping, Anchors, Odds, and Ends</a></li>
+<li class="chapter" data-level="4.3.5" data-path="working-with-unix.html"><a href="working-with-unix.html#find"><i class="fa fa-check"></i><b>4.3.5</b> <code>find</code></a></li>
+<li class="chapter" data-level="4.3.6" data-path="working-with-unix.html"><a href="working-with-unix.html#summary-6"><i class="fa fa-check"></i><b>4.3.6</b> Summary</a></li>
+<li class="chapter" data-level="4.3.7" data-path="working-with-unix.html"><a href="working-with-unix.html#exercises-6"><i class="fa fa-check"></i><b>4.3.7</b> Exercises</a></li>
+</ul></li>
 <li class="chapter" data-level="4.4" data-path="working-with-unix.html"><a href="working-with-unix.html#make"><i class="fa fa-check"></i><b>4.4</b> Make</a></li>
 <li class="chapter" data-level="4.5" data-path="working-with-unix.html"><a href="working-with-unix.html#configure"><i class="fa fa-check"></i><b>4.5</b> Configure</a></li>
 <li class="chapter" data-level="4.6" data-path="working-with-unix.html"><a href="working-with-unix.html#differentiate"><i class="fa fa-check"></i><b>4.6</b> Differentiate</a></li>
@@ -186,11 +194,11 @@ DESCRIPTION
      For each operand that names a file of a type other than directory, ls
      displays its name as well as any requested, associated information.  For
 :</code></pre>
-<p>The controls for navigating <code>man</code> pages are the same as they are for <code>less</code>. I often use <code>man</code> pages for quickly seraching for an option that I’ve forgotten. Let’s say that I forgot how to get <code>ls</code> to print a long list. After typing <code>man ls</code> to open the page, type <code>/</code> in order to start a search. Then type the word or phrase that you’re searching for, in this case type in <code>long list</code> and then press <code>Enter</code>. The page jumps to this entry:</p>
+<p>The controls for navigating <code>man</code> pages are the same as they are for <code>less</code>. I often use <code>man</code> pages for quickly searching for an option that I’ve forgotten. Let’s say that I forgot how to get <code>ls</code> to print a long list. After typing <code>man ls</code> to open the page, type <code>/</code> in order to start a search. Then type the word or phrase that you’re searching for, in this case type in <code>long list</code> and then press <code>Enter</code>. The page jumps to this entry:</p>
 <pre><code>     -l      (The lowercase letter ``ell&#39;&#39;.)  List in long format.  (See below.)
              If the output is to a terminal, a total sum for all the file sizes is
              output on a line before the long listing.</code></pre>
-<p>Press the <code>n</code> key in order to search for the next occurrence of the word, and if you want to go the previous occurrence type <code>Shift</code> + <code>n</code>. This method of searching also works with <code>less</code>. When you’re finished looking at a <code>man</code> page type <code>q</code> to get back to the prompt.</p>
+<p>Press the <code>n</code> key in order to search for the next occurrence of the word, and if you want to go to the previous occurrence type <code>Shift</code> + <code>n</code>. This method of searching also works with <code>less</code>. When you’re finished looking at a <code>man</code> page type <code>q</code> to get back to the prompt.</p>
 <p>The <code>man</code> command works wonderfully when you know which command you want to look up, but what if you’ve forgotten the name of the command you’re looking for? You can use <code>apropos</code> to search all of the available commands and their descriptions. For example let’s pretend that I forgot the name of my favorite command line text editor. You could type <code>apropos editor</code> into the command line which will print a list of results:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">apropos</span> editor</code></pre></div>
 <pre><code>## ed(1), red(1)            - text editor
@@ -238,7 +246,7 @@ todo-2017-01-24.txt</code></pre>
 2017-01-02-hiking02.jpg
 2017-02-10-hiking01.jpg
 2017-02-10-hiking02.jpg</code></pre>
-<p>I’ve just been dumping pictures and figures into this folder without organizing them at all! Thankfully (in the words of Dr. Jenny Bryan) <a href="https://twitter.com/JennyBryan/status/816143967695687684">I have an unwavering commitment to the ISO 8601 date standard</a> so at least I know when these photos were taken. Instead of using <code>mv</code> to move around each individual photo I can select groups of photos using the <code>*</code> wildcard. A <strong>wildcard</strong> is a character that represents other characters, much like how joker in a deck of cards can represent other cards in the deck. Wildcards are a subset of metacharacters, a topic which we will discuss in detail later on in this chpater. The <code>*</code> (“star”) wildcard represents <em>zero or more of any character</em>, and it can be used to match names of files and folders in the command line. For example if I wanted list all of the files in my Photos directory which have a name that starts with “2017” I could do the following:</p>
+<p>I’ve just been dumping pictures and figures into this folder without organizing them at all! Thankfully (in the words of Dr. Jenny Bryan) <a href="https://twitter.com/JennyBryan/status/816143967695687684">I have an unwavering commitment to the ISO 8601 date standard</a> so at least I know when these photos were taken. Instead of using <code>mv</code> to move around each individual photo I can select groups of photos using the <code>*</code> wildcard. A <strong>wildcard</strong> is a character that represents other characters, much like how joker in a deck of cards can represent other cards in the deck. Wildcards are a subset of metacharacters, a topic which we will discuss in detail later on in this chapter. The <code>*</code> (“star”) wildcard represents <em>zero or more of any character</em>, and it can be used to match names of files and folders in the command line. For example if I wanted list all of the files in my Photos directory which have a name that starts with “2017” I could do the following:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ls</span> 2017*</code></pre></div>
 <pre><code>2017-01-02-hiking01.jpg
 2017-01-02-hiking02.jpg
@@ -266,7 +274,7 @@ todo-2017-01-24.txt</code></pre>
 2016-06-21-lab01.jpg
 2017-01-02-hiking01.jpg
 2017-02-10-hiking01.jpg</code></pre>
-<p>All of the files above have names that are composed a sequence of characters, followed by the adjacent characters <code>01.</code>, followed by another sequence of characters. Notice that if I had entered <code>ls *01*</code> into the console every file would have been listed since <code>01</code> is a part of all of the file names in my Photos directory.</p>
+<p>All of the files above have names that are composed of a sequence of characters, followed by the adjacent characters <code>01.</code>, followed by another sequence of characters. Notice that if I had entered <code>ls *01*</code> into the console every file would have been listed since <code>01</code> is a part of all of the file names in my Photos directory.</p>
 <p>Let’s organize these photos by year. First let’s create one directory for each year of photos:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">mkdir</span> 2016
 <span class="kw">mkdir</span> 2017</code></pre></div>
@@ -285,7 +293,7 @@ todo-2017-01-24.txt</code></pre>
 <span class="kw">ls</span></code></pre></div>
 <pre><code>2016
 2017</code></pre>
-<p>Finally my photos are somewhat organizaed! Let’s list the file in each directory just to make sure all was moved as planned:</p>
+<p>Finally my photos are somewhat organized! Let’s list the file in each directory just to make sure all was moved as planned:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ls</span> 2016/</code></pre></div>
 <pre><code>2016-06-20-datasci01.png
 2016-06-20-datasci02.png
@@ -317,6 +325,8 @@ todo-2017-01-24.txt</code></pre>
 </div>
 <div id="search" class="section level2">
 <h2><span class="header-section-number">4.3</span> Search</h2>
+<div id="regular-expressions" class="section level3">
+<h3><span class="header-section-number">4.3.1</span> Regular Expressions</h3>
 <p>The ability to search through files and folders can greatly improve your productivity using Unix. First we’ll cover searching through text files. I recently downloaded a list of the names of the states in the US. Let’s take a look at this file:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span> ~/Documents
 <span class="kw">ls</span></code></pre></div>
@@ -343,31 +353,325 @@ Georgia</code></pre>
 Texas</code></pre>
 <p>In the command above, the first argument to <code>grep</code> is the regular expression <code>&quot;x&quot;</code>. The <code>&quot;x&quot;</code> regular expression represents one instance of the letter “x”. Every line of the <code>states.txt</code> file that contains at least one instance of the letter “x” is printed to the console. As you can see New Mexico and Texas are the only two state names that contain the letter “x”. Let’s try searching for the letter “q” in all of the state names using <code>grep</code>:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">grep</span> <span class="st">&quot;q&quot;</span> states.txt</code></pre></div>
-<p>Nothing is printned to the console because the letter “q” isn’t in any of the state names. We can search for more than individual characters though. For example the following command will search for the state names that contain the word “New”:</p>
+<p>Nothing is printed to the console because the letter “q” isn’t in any of the state names. We can search for more than individual characters though. For example the following command will search for the state names that contain the word “New”:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">grep</span> <span class="st">&quot;New&quot;</span> states.txt</code></pre></div>
 <pre><code>New Hampshire
 New Jersey
 New Mexico
 New York</code></pre>
-<p>In the previous case the regular expression we used was simply <code>&quot;New&quot;</code>, which represents an occurrence of the string “New”. Regular expressions are not limitted to just being indiviual characters or words, they can also represent parts of words. For example I could search all of the state names that contain the string “nia” with the following command:</p>
+<p>In the previous case the regular expression we used was simply <code>&quot;New&quot;</code>, which represents an occurrence of the string “New”. Regular expressions are not limited to just being individual characters or words, they can also represent parts of words. For example I could search all of the state names that contain the string “nia” with the following command:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">grep</span> <span class="st">&quot;nia&quot;</span> states.txt</code></pre></div>
 <pre><code>California
 Pennsylvania
 Virginia
 West Virginia</code></pre>
-<p>All of the state name above happen to end with the string “nia”.</p>
-<p>Regular expressions aren’t just limitted to searching with characters and strings, the real power of regular expressions come from using <strong>metacharacters</strong>. Remember that metacharacters are characters that can be used to represent other characters. To take full advantage of all of the metacharacters we should use <code>grep</code>’s cousin <code>egrep</code>, which just extends <code>grep</code>’s capabilities. The first metacharacter we should discuss is the <code>&quot;.&quot;</code> (period) metacharacter, which represents <em>any</em> character. If for example I wanted to search <code>states.txt</code> for the character “i”, followed by any character, followed by the character “g” I could do so with the following command:</p>
+<p>All of the state names above happen to end with the string “nia”.</p>
+</div>
+<div id="metacharacters" class="section level3">
+<h3><span class="header-section-number">4.3.2</span> Metacharacters</h3>
+<p>Regular expressions aren’t just limited to searching with characters and strings, the real power of regular expressions come from using <strong>metacharacters</strong>. Remember that metacharacters are characters that can be used to represent other characters. To take full advantage of all of the metacharacters we should use <code>grep</code>’s cousin <code>egrep</code>, which just extends <code>grep</code>’s capabilities. The first metacharacter we should discuss is the <code>&quot;.&quot;</code> (period) metacharacter, which represents <em>any</em> character. If for example I wanted to search <code>states.txt</code> for the character “i”, followed by any character, followed by the character “g” I could do so with the following command:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">egrep</span> <span class="st">&quot;i.g&quot;</span> states.txt</code></pre></div>
 <pre><code>Virginia
 Washington
 West Virginia
 Wyoming</code></pre>
 <p>The regular expression “i.g” matches the sub-string “irg” in V<em>irg</em>inia, and West V<em>irg</em>inia, and it matches the sub-string “ing” in Wash<em>ing</em>ton and Wyom<em>ing</em>. The period metacharacter is a stand-in for the “r” in “irg” and the “n” in “ing” in the example above. The period metacharacter is extremely liberal, for example the command <code>egrep &quot;.&quot; states.txt</code> would return every line of states.txt since the regular expression <code>&quot;.&quot;</code> would match one occurrence of any character on every line (there’s at least one character on every line).</p>
-<p>Besides characters that can represent other characters, there are also metacharacters called <strong>quantifiers</strong> which allow you to specify the number of times a regular expressions should appear in string. One of the most basic quantifiers is <code>&quot;+&quot;</code> (plus) which represents one or more occurrences of the proceeding expression. For example the regular expression “s+as” means: one or more “s” followed by “as”. Let’s see if any of the state names match this expression:</p>
+<p>Besides characters that can represent other characters, there are also metacharacters called <strong>quantifiers</strong> which allow you to specify the number of times a particular regular expression should appear in a string. One of the most basic quantifiers is <code>&quot;+&quot;</code> (plus) which represents one or more occurrences of the proceeding expression. For example the regular expression “s+as” means: one or more “s” followed by “as”. Let’s see if any of the state names match this expression:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">egrep</span> <span class="st">&quot;s+as&quot;</span> states.txt</code></pre></div>
 <pre><code>Arkansas
 Kansas</code></pre>
-<p>-n line number -x exact -i ignore case -v invert match</p>
+<p>Both Arkan<em>sas</em> and Kan<em>sas</em> match the regular expression <code>&quot;s+as&quot;</code>. Besides the plus metacharacter there’s also the <code>&quot;*&quot;</code> (star) metacharacter which represents zero or more occurrences of the preceding expression. Let’s see what happens if we change <code>&quot;s+as&quot;</code> to <code>&quot;s*as&quot;</code>:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">egrep</span> <span class="st">&quot;s*as&quot;</span> states.txt</code></pre></div>
+<pre><code>Alaska
+Arkansas
+Kansas
+Massachusetts
+Nebraska
+Texas
+Washington</code></pre>
+<p>As you can see the star metacharacter is much more liberal with respect to matching since many more state names are matched by <code>&quot;s*as&quot;</code>. There are more specific quantifies you can use beyond “zero or more” or “one or more” occurrences of an expression. You can use curly brackets (<code>{ }</code>) to specify an exact number of occurrences of an expression. For example the regular expression <code>&quot;s{2}&quot;</code> specifies exactly two occurrences of the character “s”. Let’s try using this regular expression:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">egrep</span> <span class="st">&quot;s{2}&quot;</span> states.txt</code></pre></div>
+<pre><code>Massachusetts
+Mississippi
+Missouri
+Tennessee</code></pre>
+<p>Take note that the regular expression <code>&quot;s{2}&quot;</code> is equivalent to the regular expression <code>&quot;ss&quot;</code>. We could also search for state names that have between two and three adjacent occurrences of the letter “s” with the regular expression <code>&quot;s{2,3}&quot;</code>:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">egrep</span> <span class="st">&quot;s{2,3}&quot;</span> states.txt</code></pre></div>
+<pre><code>Massachusetts
+Mississippi
+Missouri
+Tennessee</code></pre>
+<p>Of course the results are the same because there aren’t any states that have “s” repeated three times.</p>
+<p>You can use a <strong>capturing group</strong> in order to search for multiple occurrences of a string. You can create capturing groups within regular expressions by using parentheses (<code>&quot;( )&quot;</code>). For example if I wanted to search states.txt for the string “iss” occurring twice in a state name I could use a capturing group and a quantifier like so:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">egrep</span> <span class="st">&quot;(iss){2}&quot;</span> states.txt</code></pre></div>
+<pre><code>Mississippi</code></pre>
+<p>We could combine more quantifiers and capturing groups to dream up even more complicated regular expressions. For example, the following regular expression describes three occurrences of an “i” followed by two of any character:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">egrep</span> <span class="st">&quot;(i.{2}){3}&quot;</span> states.txt</code></pre></div>
+<pre><code>Mississippi</code></pre>
+<p>The complex regular expression above still only matches “Mississippi”.</p>
+</div>
+<div id="character-sets" class="section level3">
+<h3><span class="header-section-number">4.3.3</span> Character Sets</h3>
+<p>For the next couple of examples we’re going to need some text data beyond the names of the states. Let’s just create a short text file from the console:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">touch</span> small.txt
+<span class="kw">echo</span> <span class="st">&quot;abcdefghijklmnopqrstuvwxyz&quot;</span> <span class="kw">&gt;&gt;</span> small.txt
+<span class="kw">echo</span> <span class="st">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;</span> <span class="kw">&gt;&gt;</span> small.txt
+<span class="kw">echo</span> <span class="st">&quot;0123456789&quot;</span> <span class="kw">&gt;&gt;</span> small.txt
+<span class="kw">echo</span> <span class="st">&quot;aa bb cc&quot;</span> <span class="kw">&gt;&gt;</span> small.txt
+<span class="kw">echo</span> <span class="st">&quot;rhythms&quot;</span> <span class="kw">&gt;&gt;</span> small.txt
+<span class="kw">echo</span> <span class="st">&quot;xyz&quot;</span> <span class="kw">&gt;&gt;</span> small.txt
+<span class="kw">echo</span> <span class="st">&quot;abc&quot;</span> <span class="kw">&gt;&gt;</span> small.txt
+<span class="kw">echo</span> <span class="st">&quot;tragedy + time = humor&quot;</span> <span class="kw">&gt;&gt;</span> small.txt
+<span class="kw">echo</span> <span class="st">&quot;http://www.jhsph.edu/&quot;</span> <span class="kw">&gt;&gt;</span> small.txt
+<span class="kw">echo</span> <span class="st">&quot;#%&amp;-=***=-&amp;%#&quot;</span> <span class="kw">&gt;&gt;</span> small.txt</code></pre></div>
+<p>In addition to quantifiers there are also regular expressions for describing sets of characters. The <code>\w</code> metacharacter corresponds to all “word” characters, the <code>\d</code> metacharacter corresponds to all “number” characters, and the <code>\s</code> metacharacter corresponds to all “space” characters. Let’s take a look at using each of these metacharacters on small.txt:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">egrep</span> <span class="st">&quot;\w&quot;</span> small.txt</code></pre></div>
+<pre><code>abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+0123456789
+aa bb cc
+rhythms
+xyz
+abc
+tragedy + time = humor
+http://www.jhsph.edu/</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">egrep</span> <span class="st">&quot;\d&quot;</span> small.txt</code></pre></div>
+<pre><code>0123456789</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">egrep</span> <span class="st">&quot;\s&quot;</span> small.txt</code></pre></div>
+<pre><code>aa bb cc
+tragedy + time = humor</code></pre>
+<p>As you can see in the example above, the <code>\w</code> metacharacter matches all letters, numbers, and even the underscore character (<code>_</code>). We can see the compliment of this grep by adding the <code>-v</code> flag to the command:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">egrep</span> -v <span class="st">&quot;\w&quot;</span> small.txt</code></pre></div>
+<pre><code>#%&amp;-=***=-&amp;%#</code></pre>
+<p>The <code>-v</code> flag (which stands for in<strong>v</strong>ert match) makes <code>grep</code> return all of the lines not matched by the regular expression. Note that the character set regular expressions also have their inverse sets: <code>\W</code> for non-words, <code>\D</code> for non-digits, and <code>\S</code> for non-spaces. Let’s take a look at using <code>\W</code>:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">egrep</span> <span class="st">&quot;\W&quot;</span> small.txt</code></pre></div>
+<pre><code>aa bb cc
+tragedy + time = humor
+http://www.jhsph.edu/
+#%&amp;-=***=-&amp;%#</code></pre>
+<p>The returned strings all contain non-word characters. Note the difference between the results of using the invert flag <code>-v</code> versus using an inverse set regular expression.</p>
+<p>In addition to general character sets we can also create specific character sets using squre brackets (<code>[ ]</code>) and then including the characters we wish to match in the sqaure brackets. For example the regular expression for the set of vowels is <code>[aeiou]</code>. You can also create a regular expression for the compliment of a set by including a caret (<code>^</code>) in the beginning of a set. For example the regular expression <code>[^aeiou]</code> matches all characters that are not vowels. Let’s test both on small.txt:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">egrep</span> <span class="st">&quot;[aeiou]&quot;</span> small.txt</code></pre></div>
+<pre><code>abcdefghijklmnopqrstuvwxyz
+aa bb cc
+abc
+tragedy + time = humor
+http://www.jhsph.edu/</code></pre>
+<p>Notice that the word “rythms” does not appear in the result (it’s the longest word without any vowels that I could think of).</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">egrep</span> <span class="st">&quot;[^aeiou]&quot;</span> small.txt</code></pre></div>
+<pre><code>abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+0123456789
+aa bb cc
+rhythms
+xyz
+abc
+tragedy + time = humor
+http://www.jhsph.edu/
+#%&amp;-=***=-&amp;%#</code></pre>
+<p>Every line in the file is printed, because every line contains at least one non-vowel! If you want to specify a range of characters you can use a hyphen (<code>-</code>) inside of the square brackets. For example the regular expression <code>[e-q]</code> matches all of the lowercase letters between “e” and “q” in the alphabet inclusively. Case matters when you’re specifying character sets, so if you wanted to only match uppercase characters you’d need to use <code>[E-Q]</code>. To ignore the case of your match you could combine the character sets with the <code>[e-qE-Q]</code> regex (short for regular expression), or you could use the <code>-i</code> flag with <code>grep</code> to <strong>i</strong>gnore the care. Note that the <code>-i</code> flag will work providied any regular expression, not just character sets. Let’s take a look at some examples using the regular expressions that we just described:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">egrep</span> <span class="st">&quot;[e-q]&quot;</span> small.txt</code></pre></div>
+<pre><code>abcdefghijklmnopqrstuvwxyz
+rhythms
+tragedy + time = humor
+http://www.jhsph.edu/</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">egrep</span> <span class="st">&quot;[E-Q]&quot;</span> small.txt</code></pre></div>
+<pre><code>ABCDEFGHIJKLMNOPQRSTUVWXYZ</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">egrep</span> <span class="st">&quot;[e-qE-Q]&quot;</span> small.txt</code></pre></div>
+<pre><code>abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+rhythms
+tragedy + time = humor
+http://www.jhsph.edu/</code></pre>
+</div>
+<div id="escaping-anchors-odds-and-ends" class="section level3">
+<h3><span class="header-section-number">4.3.4</span> Escaping, Anchors, Odds, and Ends</h3>
+<p>One issue you may have thought about during our little exploration of regular expressions is how to search for certain punctuation marks in text considering that those same symbols are used as metacharacters! For example, how would you find a plus sign (<code>+</code>) in a line of text since the plus sign is <strong>also</strong> a metacharacter? The answer is simply using a backslash (<code>\</code>) before the plus sign in a regex, in order to “escape” the metacharacter functionality. Here are a few examples:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">egrep</span> <span class="st">&quot;\+&quot;</span> small.txt</code></pre></div>
+<pre><code>tragedy + time = humor</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">egrep</span> <span class="st">&quot;\.&quot;</span> small.txt</code></pre></div>
+<pre><code>http://www.jhsph.edu/</code></pre>
+<p>There are three more metacharacters that we should discuss, and two of them come as a pair: the caret (<code>^</code>), which represents the start of a line, and the dollar sign (<code>$</code>) which represents the end of line. These “anchor characters” only match the beginning and ends of lines when couples with other regular expressions. For example, going back to looking at states.txt, I could search for all of the state names that begin with “M” with the following command:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">egrep</span> <span class="st">&quot;^M&quot;</span> states.txt</code></pre></div>
+<pre><code>Maine
+Maryland
+Massachusetts
+Michigan
+Minnesota
+Mississippi
+Missouri
+Montana</code></pre>
+<p>Or we could search for all of the states that end in “s”:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">egrep</span> <span class="st">&quot;s$&quot;</span> states.txt</code></pre></div>
+<pre><code>Arkansas
+Illinois
+Kansas
+Massachusetts
+Texas</code></pre>
+<p>There’s a mnemonic that I love for remembering which metacharacter to use for each anchor: “First you get the <strong>power</strong>, then you get the <strong>money</strong>.” The caret character is used for exponentiation in many programming languages, so “power” (<code>^</code>) is used for the beginning of a line and “money” (<code>$</code>) is used for the end of a line.</p>
+<p>Finally, let’s talk about the “or” metacharacter (<code>|</code>), which is also called the “pipe” character. This metacharacter allows you to match either the regex on the right or on the left side of the pipe. Let’s take a look at a small example:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">egrep</span> <span class="st">&quot;North|South&quot;</span> states.txt</code></pre></div>
+<pre><code>North Carolina
+North Dakota
+South Carolina
+South Dakota</code></pre>
+<p>In the example above we’re searching for lines of text that contain the words “North” or “South”. You can also use multiple pipe characters to, for example, search for lines that contain the words for all of the cardinal directions:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">egrep</span> <span class="st">&quot;North|South|East|West&quot;</span> states.txt</code></pre></div>
+<pre><code>North Carolina
+North Dakota
+South Carolina
+South Dakota
+West Virginia</code></pre>
+<p>Just two more notes on <code>grep</code>: you can display the line number that a match occurs on using the <code>-n</code> flag:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">egrep</span> -n <span class="st">&quot;t$&quot;</span> states.txt</code></pre></div>
+<pre><code>7:Connecticut
+45:Vermont</code></pre>
+<p>And you can also <code>grep</code> multiple files at once but providing multiple file arguments:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">egrep</span> <span class="st">&quot;s$&quot;</span> states.txt small.txt</code></pre></div>
+<pre><code>states.txt:Arkansas
+states.txt:Illinois
+states.txt:Kansas
+states.txt:Massachusetts
+states.txt:Texas
+small.txt:rhythms</code></pre>
+<p>You now have the power to do some pretty complicated string searching using regular expressions! Imagine you wanted to search for all of the state names that both begin and end with a vowel. Now you can:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">egrep</span> <span class="st">&quot;^[AEIOU]{1}.+[aeiou]{1}$&quot;</span> states.txt</code></pre></div>
+<pre><code>Alabama
+Alaska
+Arizona
+Idaho
+Indiana
+Iowa
+Ohio
+Oklahoma</code></pre>
+<p>I know there a many metacharacters to keep track of here so below I’ve included a table with several of the metacharacters we’ve discussed in this chapter:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">Metacharacter</th>
+<th align="left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">.</td>
+<td align="left">Any Character</td>
+</tr>
+<tr class="even">
+<td align="right">\w</td>
+<td align="left">A Word</td>
+</tr>
+<tr class="odd">
+<td align="right">\W</td>
+<td align="left">Not a Word</td>
+</tr>
+<tr class="even">
+<td align="right">\d</td>
+<td align="left">A Digit</td>
+</tr>
+<tr class="odd">
+<td align="right">\D</td>
+<td align="left">Not a Digit</td>
+</tr>
+<tr class="even">
+<td align="right">\s</td>
+<td align="left">Whitespace</td>
+</tr>
+<tr class="odd">
+<td align="right">\S</td>
+<td align="left">Not Whitespace</td>
+</tr>
+<tr class="even">
+<td align="right">[def]</td>
+<td align="left">A Set of Characters</td>
+</tr>
+<tr class="odd">
+<td align="right">[^def]</td>
+<td align="left">Negation of Set</td>
+</tr>
+<tr class="even">
+<td align="right">[e-q]</td>
+<td align="left">A Range of Characters</td>
+</tr>
+<tr class="odd">
+<td align="right">^</td>
+<td align="left">Beginning of String</td>
+</tr>
+<tr class="even">
+<td align="right">$</td>
+<td align="left">End of String</td>
+</tr>
+<tr class="odd">
+<td align="right">\n</td>
+<td align="left">Newline</td>
+</tr>
+<tr class="even">
+<td align="right">+</td>
+<td align="left">One or More of Previous</td>
+</tr>
+<tr class="odd">
+<td align="right">*</td>
+<td align="left">Zero or More of Previous</td>
+</tr>
+<tr class="even">
+<td align="right">?</td>
+<td align="left">Zero or One of Previous</td>
+</tr>
+<tr class="odd">
+<td align="right">|</td>
+<td align="left">Either the Previous or the Following</td>
+</tr>
+<tr class="even">
+<td align="right">{6}</td>
+<td align="left">Exactly 6 of Previous</td>
+</tr>
+<tr class="odd">
+<td align="right">{4, 6}</td>
+<td align="left">Between 4 and 6 or Previous</td>
+</tr>
+<tr class="even">
+<td align="right">{4, }</td>
+<td align="left">More than 4 of Previous</td>
+</tr>
+</tbody>
+</table>
+<p>If you want to experiment with writing regular expressions before you use them I highly recommend playing around with <a href="http://regexr.com/" class="uri">http://regexr.com/</a>.</p>
+</div>
+<div id="find" class="section level3">
+<h3><span class="header-section-number">4.3.5</span> <code>find</code></h3>
+<p>If you want to find the location of a file or the location of a group of files you can use the <code>find</code> command. This command has a specific structure where the first argument is the directory where you want to begin the search, and all directories contained within that directory will also be searched. The first argument is then followed by a flag that describes the method you want to use to search, in this case we’ll only be searching for a file by its name, so we’ll use the <code>-name</code> flag. The <code>-name</code> flag itself then takes an argument, the name of the file that you’re looking for. Let’s go back to the home directory and look for some files from there:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span>
+<span class="kw">pwd</span></code></pre></div>
+<pre><code>/Users/sean</code></pre>
+<p>Let’s start by looking for a file called states.txt:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">find</span> . -name <span class="st">&quot;states.txt&quot;</span></code></pre></div>
+<pre><code>./Documents/states.txt</code></pre>
+<p>Right where we expected it to be! Now let’s try searching for all <code>.jpg</code> files:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">find</span> . -name <span class="st">&quot;*.jpg&quot;</span></code></pre></div>
+<pre><code>./Photos/2016-06-21-lab01.jpg
+./Photos/2016-06-21-lab02.jpg
+./Photos/2017/2017-01-02-hiking01.jpg
+./Photos/2017/2017-01-02-hiking02.jpg
+./Photos/2017/2017-02-10-hiking01.jpg
+./Photos/2017/2017-02-10-hiking02.jpg</code></pre>
+<p>Good file hunting out there!</p>
+</div>
+<div id="summary-6" class="section level3">
+<h3><span class="header-section-number">4.3.6</span> Summary</h3>
+<ul>
+<li><code>grep</code> and <code>egrep</code> can be used along with regular expressions to search for patterns of text in a file.</li>
+<li>Metacharacters are used in regular expressions to describe patterns of characters.</li>
+<li><code>find</code> can be used to search for the names of files in a directory.</li>
+</ul>
+</div>
+<div id="exercises-6" class="section level3">
+<h3><span class="header-section-number">4.3.7</span> Exercises</h3>
+<ol style="list-style-type: decimal">
+<li>Search <code>states.txt</code> and <code>canada.txt</code> for lines that contain the word “New”.</li>
+<li>Make five text files containing the names of states that don’t contain one of each of the five vowels.</li>
+<li>Download GitHub repository for this book and find out how many <code>.html</code> files it contains.</li>
+</ol>
+</div>
 </div>
 <div id="make" class="section level2">
 <h2><span class="header-section-number">4.4</span> Make</h2>
@@ -380,9 +684,30 @@ Kansas</code></pre>
 </div>
 <div id="differentiate" class="section level2">
 <h2><span class="header-section-number">4.6</span> Differentiate</h2>
-<ul>
-<li>diff, md5, sha1</li>
-</ul>
+<p>Sometimes you need to be able examine differences between files. First let’s make two small simple text files in the Documents directory.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span> ~/Documents
+<span class="kw">head</span> -n 4 states.txt <span class="kw">&gt;</span> four.txt
+<span class="kw">head</span> -n 6 states.txt <span class="kw">&gt;</span> six.txt</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">diff</span> four.txt six.txt</code></pre></div>
+<pre><code>4a5,6
+&gt; California
+&gt; Colorado</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sdiff</span> four.txt six.txt</code></pre></div>
+<pre><code>Alabama                             Alabama
+Alaska                              Alaska
+Arizona                             Arizona
+Arkansas                            Arkansas
+                                  &gt; California
+                                  &gt; Colorado</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cp</span> states.txt states_copy.txt
+<span class="kw">md5</span> states.txt</code></pre></div>
+<pre><code>MD5 (states.txt) = 8d7dd71ff51614e69339b03bd1cb86ac</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">md5</span> states_copy.txt</code></pre></div>
+<pre><code>MD5 (states_copy.txt) = 8d7dd71ff51614e69339b03bd1cb86ac</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">shasum</span> states.txt</code></pre></div>
+<pre><code>588e9de7ffa97268b2448927df41760abd3369a9  states.txt</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">shasum</span> states_copy.txt</code></pre></div>
+<pre><code>588e9de7ffa97268b2448927df41760abd3369a9  states_copy.txt</code></pre>
 </div>
 <div id="connect" class="section level2">
 <h2><span class="header-section-number">4.7</span> Connect</h2>

@@ -292,6 +292,8 @@ science course and the pictures I took in the lab into their own folders?
 
 ## Search
 
+### Regular Expressions
+
 The ability to search through files and folders can greatly improve your
 productivity using Unix. First we'll cover searching through text files.
 I recently downloaded a list of the names of the states in the US. Let's take a
@@ -405,6 +407,8 @@ West Virginia
 ```
 
 All of the state names above happen to end with the string "nia".
+
+### Metacharacters
 
 Regular expressions aren't just limited to searching with characters and
 strings, the real power of regular expressions come from using
@@ -537,6 +541,8 @@ Mississippi
 
 The complex regular expression above still only matches "Mississippi".
 
+### Character Sets
+
 For the next couple of examples we're going to need some text data beyond the
 names of the states. Let's just create a short text file from the console:
 
@@ -551,6 +557,7 @@ echo "xyz" >> small.txt
 echo "abc" >> small.txt
 echo "tragedy + time = humor" >> small.txt
 echo "http://www.jhsph.edu/" >> small.txt
+echo "#%&-=***=-&%#" >> small.txt
 ```
 
 In addition to quantifiers there are also regular expressions for describing
@@ -592,20 +599,361 @@ aa bb cc
 tragedy + time = humor
 ```
 
+As you can see in the example above, the `\w` metacharacter matches all letters,
+numbers, and even the underscore character (`_`). We can see the compliment of
+this grep by adding the `-v` flag to the command:
 
+```{r, engine='bash', eval=FALSE}
+egrep -v "\w" small.txt
+```
 
--n line number
--x exact
--i ignore case
--v invert match
+```
+#%&-=***=-&%#
+```
 
+The `-v` flag (which stands for in**v**ert match) makes `grep` return all of the
+lines not matched by the regular expression. Note that the character set 
+regular expressions also have their inverse sets: `\W` for non-words, `\D` for
+non-digits, and `\S` for non-spaces. Let's take a look at using `\W`:
 
+```{r, engine='bash', eval=FALSE}
+egrep "\W" small.txt
+```
 
+```
+aa bb cc
+tragedy + time = humor
+http://www.jhsph.edu/
+#%&-=***=-&%#
+```
 
+The returned strings all contain non-word characters. Note the difference between
+the results of using the invert flag `-v` versus using an inverse set regular
+expression.
 
+In addition to general character sets we can also create specific character
+sets using squre brackets (`[ ]`) and then including the characters we wish to
+match in the sqaure brackets. For example the regular expression for the set
+of vowels is `[aeiou]`. You can also create a regular expression for the
+compliment of a set by including a caret (`^`) in the beginning of a set. For
+example the regular expression `[^aeiou]` matches all characters that are not
+vowels. Let's test both on small.txt:
+
+```{r, engine='bash', eval=FALSE}
+egrep "[aeiou]" small.txt
+```
+
+```
+abcdefghijklmnopqrstuvwxyz
+aa bb cc
+abc
+tragedy + time = humor
+http://www.jhsph.edu/
+```
+
+Notice that the word "rythms" does not appear in the result (it's the longest
+word without any vowels that I could think of).
+
+```{r, engine='bash', eval=FALSE}
+egrep "[^aeiou]" small.txt
+```
+
+```
+abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+0123456789
+aa bb cc
+rhythms
+xyz
+abc
+tragedy + time = humor
+http://www.jhsph.edu/
+#%&-=***=-&%#
+```
+
+Every line in the file is printed, because every line contains at least one
+non-vowel! If you want to specify a range of characters you can use a hyphen
+(`-`) inside of the square brackets. For example the regular expression `[e-q]`
+matches all of the lowercase letters between "e" and "q" in the alphabet
+inclusively. Case matters when you're specifying character sets, so if you
+wanted to only match uppercase characters you'd need to use `[E-Q]`. To ignore
+the case of your match you could combine the character sets with the `[e-qE-Q]`
+regex (short for regular expression), or you could use the `-i` flag with `grep`
+to **i**gnore the care. Note that the `-i` flag will work providied any regular
+expression, not just character sets. Let's take a look at some examples using
+the regular expressions that we just described:
+
+```{r, engine='bash', eval=FALSE}
+egrep "[e-q]" small.txt
+```
+
+```
+abcdefghijklmnopqrstuvwxyz
+rhythms
+tragedy + time = humor
+http://www.jhsph.edu/
+```
+
+```{r, engine='bash', eval=FALSE}
+egrep "[E-Q]" small.txt
+```
+
+```
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+```
+
+```{r, engine='bash', eval=FALSE}
+egrep "[e-qE-Q]" small.txt
+```
+
+```
+abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+rhythms
+tragedy + time = humor
+http://www.jhsph.edu/
+```
+
+### Escaping, Anchors, Odds, and Ends
+
+One issue you may have thought about during our little exploration of regular
+expressions is how to search for certain punctuation marks in text considering
+that those same symbols are used as metacharacters! For example, how would you
+find a plus sign (`+`) in a line of text since the plus sign is **also** a
+metacharacter? The answer is simply using a backslash (`\`) before the plus sign
+in a regex, in order to "escape" the metacharacter functionality. Here are a few
+examples:
+
+```{r, engine='bash', eval=FALSE}
+egrep "\+" small.txt
+```
+
+```
+tragedy + time = humor
+```
+
+```{r, engine='bash', eval=FALSE}
+egrep "\." small.txt
+```
+
+```
+http://www.jhsph.edu/
+```
+
+There are three more metacharacters that we should discuss, and two of them come
+as a pair: the caret (`^`), which represents the start of a line, and the dollar
+sign (`$`) which represents the end of line. These "anchor characters" only
+match the beginning and ends of lines when couples with other regular
+expressions. For example, going back to looking at states.txt, I could search
+for all of the state names that begin with "M" with the following command:
+
+```{r, engine='bash', eval=FALSE}
+egrep "^M" states.txt
+```
+
+```
+Maine
+Maryland
+Massachusetts
+Michigan
+Minnesota
+Mississippi
+Missouri
+Montana
+```
+
+Or we could search for all of the states that end in "s":
+
+```{r, engine='bash', eval=FALSE}
+egrep "s$" states.txt
+```
+
+```
+Arkansas
+Illinois
+Kansas
+Massachusetts
+Texas
+```
+
+There's a mnemonic that I love for remembering which metacharacter to use for
+each anchor: "First you get the **power**, then you get the **money**." The
+caret character is used for exponentiation in many programming languages, so
+"power" (`^`) is used for the beginning of a line and "money" (`$`) is used for
+the end of a line.
+
+Finally, let's talk about the "or" metacharacter (`|`), which is also called the
+"pipe" character. This metacharacter allows you to match either the regex on 
+the right or on the left side of the pipe. Let's take a look at a small example:
+
+```{r, engine='bash', eval=FALSE}
+egrep "North|South" states.txt
+```
+
+```
+North Carolina
+North Dakota
+South Carolina
+South Dakota
+```
+
+In the example above we're searching for lines of text that contain the words
+"North" or "South". You can also use multiple pipe characters to, for example,
+search for lines that contain the words for all of the cardinal directions:
+
+```{r, engine='bash', eval=FALSE}
+egrep "North|South|East|West" states.txt
+```
+
+```
+North Carolina
+North Dakota
+South Carolina
+South Dakota
+West Virginia
+```
+
+Just two more notes on `grep`: you can display the line number that a match
+occurs on using the `-n` flag:
+
+```{r, engine='bash', eval=FALSE}
+egrep -n "t$" states.txt
+```
+
+```
+7:Connecticut
+45:Vermont
+```
+
+And you can also `grep` multiple files at once but providing multiple file
+arguments:
+
+```{r, engine='bash', eval=FALSE}
+egrep "s$" states.txt small.txt
+```
+
+```
+states.txt:Arkansas
+states.txt:Illinois
+states.txt:Kansas
+states.txt:Massachusetts
+states.txt:Texas
+small.txt:rhythms
+```
+
+You now have the power to do some pretty complicated string searching using
+regular expressions! Imagine you wanted to search for all of the state names 
+that both begin and end with a vowel. Now you can:
+
+```{r, engine='bash', eval=FALSE}
+egrep "^[AEIOU]{1}.+[aeiou]{1}$" states.txt
+```
+
+```
+Alabama
+Alaska
+Arizona
+Idaho
+Indiana
+Iowa
+Ohio
+Oklahoma
+```
+
+I know there a many metacharacters to keep track of here so below I've included
+a table with several of the metacharacters we've discussed in this chapter:
+
+| Metacharacter |               Meaning                |
+|--------------:|:-------------------------------------|
+|       .       |            Any Character             |
+|      \\w      |                A Word                |
+|      \\W      |              Not a Word              |
+|      \\d      |               A Digit                |
+|      \\D      |             Not a Digit              |
+|      \\s      |              Whitespace              |
+|      \\S      |            Not Whitespace            |
+|     [def]     |         A Set of Characters          |
+|    [^def]     |           Negation of Set            |
+|     [e-q]     |        A Range of Characters         |
+|       ^       |         Beginning of String          |
+|       $       |            End of String             |
+|      \\n      |               Newline                |
+|       +       |       One or More of Previous        |
+|       *       |       Zero or More of Previous       |
+|       ?       |       Zero or One of Previous        |
+|    &#124;     | Either the Previous or the Following |
+|      {6}      |        Exactly 6 of Previous         |
+|    {4, 6}     |     Between 4 and 6 or Previous      |
+|     {4, }     |       More than 4 of Previous        |
+
+If you want to experiment with writing regular expressions before you use them
+I highly recommend playing around with http://regexr.com/.
+
+### `find`
+
+If you want to find the location of a file or the location of a group of files
+you can use the `find` command. This command has a specific structure where
+the first argument is the directory where you want to begin the search, and all
+directories contained within that directory will also be searched. The first
+argument is then followed by a flag that describes the method you want to use to
+search, in this case we'll only be searching for a file by its name, so we'll
+use the `-name` flag. The `-name` flag itself then takes an argument, the name
+of the file that you're looking for. Let's go back to the home directory and
+look for some files from there:
+
+```{r, engine='bash', eval=FALSE}
+cd
+pwd
+```
+
+```
+/Users/sean
+```
+
+Let's start by looking for a file called states.txt:
+
+```{r, engine='bash', eval=FALSE}
+find . -name "states.txt"
+```
+
+```
+./Documents/states.txt
+```
+
+Right where we expected it to be! Now let's try searching for all `.jpg` files:
+
+```{r, engine='bash', eval=FALSE}
+find . -name "*.jpg"
+```
+
+```
+./Photos/2016-06-21-lab01.jpg
+./Photos/2016-06-21-lab02.jpg
+./Photos/2017/2017-01-02-hiking01.jpg
+./Photos/2017/2017-01-02-hiking02.jpg
+./Photos/2017/2017-02-10-hiking01.jpg
+./Photos/2017/2017-02-10-hiking02.jpg
+```
+
+Good file hunting out there!
+
+### Summary
+
+- `grep` and `egrep` can be used along with regular expressions to search for
+patterns of text in a file.
+- Metacharacters are used in regular expressions to describe patterns of
+characters.
+- `find` can be used to search for the names of files in a directory.
+
+### Exercises
+
+1. Search `states.txt` and `canada.txt` for lines that contain the word "New".
+2. Make five text files containing the names of states that don't contain one of
+each of the five vowels.
+3. Download GitHub repository for this book and find out how many `.html` files
+it contains.
 
 ## Make
-
 
 ## Configure
 
@@ -613,7 +961,70 @@ tragedy + time = humor
 
 ## Differentiate
 
-- diff, md5, sha1
+Sometimes you need to be able examine differences between files. First let's
+make two small simple text files in the Documents directory.
+
+```{r, engine='bash', eval=FALSE}
+cd ~/Documents
+head -n 4 states.txt > four.txt
+head -n 6 states.txt > six.txt
+```
+
+```{r, engine='bash', eval=FALSE}
+diff four.txt six.txt
+```
+
+```
+4a5,6
+> California
+> Colorado
+```
+
+```{r, engine='bash', eval=FALSE}
+sdiff four.txt six.txt
+```
+
+```
+Alabama								Alabama
+Alaska								Alaska
+Arizona								Arizona
+Arkansas							Arkansas
+							      >	California
+							      >	Colorado
+```
+
+```{r, engine='bash', eval=FALSE}
+cp states.txt states_copy.txt
+md5 states.txt
+```
+
+```
+MD5 (states.txt) = 8d7dd71ff51614e69339b03bd1cb86ac
+```
+
+```{r, engine='bash', eval=FALSE}
+md5 states_copy.txt
+```
+
+```
+MD5 (states_copy.txt) = 8d7dd71ff51614e69339b03bd1cb86ac
+```
+
+```{r, engine='bash', eval=FALSE}
+shasum states.txt
+```
+
+```
+588e9de7ffa97268b2448927df41760abd3369a9  states.txt
+```
+
+```{r, engine='bash', eval=FALSE}
+shasum states_copy.txt
+```
+
+```
+588e9de7ffa97268b2448927df41760abd3369a9  states_copy.txt
+```
 
 ## Connect
 

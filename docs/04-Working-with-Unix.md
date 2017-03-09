@@ -94,7 +94,7 @@ pwd
 ```
 
 ```
-/Users/sean
+## /Users/sean
 ```
 
 
@@ -103,12 +103,12 @@ ls
 ```
 
 ```
-Code
-Documents
-Photos
-Desktop
-Music
-todo-2017-01-24.txt
+## Code
+## Documents
+## Photos
+## Desktop
+## Music
+## todo-2017-01-24.txt
 ```
 
 
@@ -118,15 +118,15 @@ ls
 ```
 
 ```
-2016-06-20-datasci01.png
-2016-06-20-datasci02.png
-2016-06-20-datasci03.png
-2016-06-21-lab01.jpg
-2016-06-21-lab02.jpg
-2017-01-02-hiking01.jpg
-2017-01-02-hiking02.jpg
-2017-02-10-hiking01.jpg
-2017-02-10-hiking02.jpg
+## 2016-06-20-datasci01.png
+## 2016-06-20-datasci02.png
+## 2016-06-20-datasci03.png
+## 2016-06-21-lab01.jpg
+## 2016-06-21-lab02.jpg
+## 2017-01-02-hiking01.jpg
+## 2017-01-02-hiking02.jpg
+## 2017-02-10-hiking01.jpg
+## 2017-02-10-hiking02.jpg
 ```
 
 I've just been dumping pictures and figures into this folder without organizing
@@ -149,10 +149,10 @@ ls 2017*
 ```
 
 ```
-2017-01-02-hiking01.jpg
-2017-01-02-hiking02.jpg
-2017-02-10-hiking01.jpg
-2017-02-10-hiking02.jpg
+## 2017-01-02-hiking01.jpg
+## 2017-01-02-hiking02.jpg
+## 2017-02-10-hiking01.jpg
+## 2017-02-10-hiking02.jpg
 ```
 
 Only the files starting with "2017" are listed! The command `ls 2017*` literally
@@ -169,11 +169,11 @@ ls 2016*
 ```
 
 ```
-2016-06-20-datasci01.png
-2016-06-20-datasci02.png
-2016-06-20-datasci03.png
-2016-06-21-lab01.jpg
-2016-06-21-lab02.jpg
+## 2016-06-20-datasci01.png
+## 2016-06-20-datasci02.png
+## 2016-06-20-datasci03.png
+## 2016-06-21-lab01.jpg
+## 2016-06-21-lab02.jpg
 ```
 
 We could list only the files with names ending in `.jpg`:
@@ -184,12 +184,12 @@ ls *.jpg
 ```
 
 ```
-2016-06-21-lab01.jpg
-2016-06-21-lab02.jpg
-2017-01-02-hiking01.jpg
-2017-01-02-hiking02.jpg
-2017-02-10-hiking01.jpg
-2017-02-10-hiking02.jpg
+## 2016-06-21-lab01.jpg
+## 2016-06-21-lab02.jpg
+## 2017-01-02-hiking01.jpg
+## 2017-01-02-hiking02.jpg
+## 2017-02-10-hiking01.jpg
+## 2017-02-10-hiking02.jpg
 ```
 
 In the case above the file name can start with a sequence of zero or more of 
@@ -202,10 +202,10 @@ ls *01.*
 ```
 
 ```
-2016-06-20-datasci01.png
-2016-06-21-lab01.jpg
-2017-01-02-hiking01.jpg
-2017-02-10-hiking01.jpg
+## 2016-06-20-datasci01.png
+## 2016-06-21-lab01.jpg
+## 2017-01-02-hiking01.jpg
+## 2017-02-10-hiking01.jpg
 ```
 
 All of the files above have names that are composed of a sequence of characters,
@@ -233,13 +233,13 @@ ls
 ```
 
 ```
-2016
-2016-06-20-datasci01.png
-2016-06-20-datasci02.png
-2016-06-20-datasci03.png
-2016-06-21-lab01.jpg
-2016-06-21-lab02.jpg
-2017
+## 2016
+## 2016-06-20-datasci01.png
+## 2016-06-20-datasci02.png
+## 2016-06-20-datasci03.png
+## 2016-06-21-lab01.jpg
+## 2016-06-21-lab02.jpg
+## 2017
 ```
 
 Notice that I've moved all files that start with "2017-" into the 2017 folder!
@@ -252,8 +252,8 @@ ls
 ```
 
 ```
-2016
-2017
+## 2016
+## 2017
 ```
 
 Finally my photos are somewhat organized! Let's list the file in each directory
@@ -265,11 +265,11 @@ ls 2016/
 ```
 
 ```
-2016-06-20-datasci01.png
-2016-06-20-datasci02.png
-2016-06-20-datasci03.png
-2016-06-21-lab01.jpg
-2016-06-21-lab02.jpg
+## 2016-06-20-datasci01.png
+## 2016-06-20-datasci02.png
+## 2016-06-20-datasci03.png
+## 2016-06-21-lab01.jpg
+## 2016-06-21-lab02.jpg
 ```
 
 
@@ -278,10 +278,10 @@ ls 2017/
 ```
 
 ```
-2017-01-02-hiking01.jpg
-2017-01-02-hiking02.jpg
-2017-02-10-hiking01.jpg
-2017-02-10-hiking02.jpg
+## 2017-01-02-hiking01.jpg
+## 2017-01-02-hiking02.jpg
+## 2017-02-10-hiking01.jpg
+## 2017-02-10-hiking02.jpg
 ```
 
 Looks good! There are a few more wildcards beyond the star wildcard which we'll
@@ -320,8 +320,8 @@ ls
 ```
 
 ```
-canada.txt
-states.txt
+## canada.txt
+## states.txt
 ```
 
 
@@ -330,7 +330,7 @@ wc states.txt
 ```
 
 ```
-50      60     472 states.txt
+## 50      60     472 states.txt
 ```
 
 It makes sense that there are 50 lines, but it's interesting that there are 60
@@ -342,16 +342,16 @@ head states.txt
 ```
 
 ```
-Alabama
-Alaska
-Arizona
-Arkansas
-California
-Colorado
-Connecticut
-Delaware
-Florida
-Georgia
+## Alabama
+## Alaska
+## Arizona
+## Arkansas
+## California
+## Colorado
+## Connecticut
+## Delaware
+## Florida
+## Georgia
 ```
 
 This file looks basically how you would expect it to look! You may recall from
@@ -376,8 +376,8 @@ grep "x" states.txt
 ```
 
 ```
-New Mexico
-Texas
+## New Mexico
+## Texas
 ```
 
 In the command above, the first argument to `grep` is the regular expression
@@ -403,10 +403,10 @@ grep "New" states.txt
 ```
 
 ```
-New Hampshire
-New Jersey
-New Mexico
-New York
+## New Hampshire
+## New Jersey
+## New Mexico
+## New York
 ```
 
 In the previous case the regular expression we used was simply `"New"`, which
@@ -421,10 +421,10 @@ grep "nia" states.txt
 ```
 
 ```
-California
-Pennsylvania
-Virginia
-West Virginia
+## California
+## Pennsylvania
+## Virginia
+## West Virginia
 ```
 
 All of the state names above happen to end with the string "nia".
@@ -447,10 +447,10 @@ egrep "i.g" states.txt
 ```
 
 ```
-Virginia
-Washington
-West Virginia
-Wyoming
+## Virginia
+## Washington
+## West Virginia
+## Wyoming
 ```
 
 The regular expression "i.g" matches the sub-string "irg" in V*irg*inia, and
@@ -475,8 +475,8 @@ egrep "s+as" states.txt
 ```
 
 ```
-Arkansas
-Kansas
+## Arkansas
+## Kansas
 ```
 
 Both Arkan*sas* and Kan*sas* match the regular expression `"s+as"`. Besides the
@@ -490,13 +490,13 @@ egrep "s*as" states.txt
 ```
 
 ```
-Alaska
-Arkansas
-Kansas
-Massachusetts
-Nebraska
-Texas
-Washington
+## Alaska
+## Arkansas
+## Kansas
+## Massachusetts
+## Nebraska
+## Texas
+## Washington
 ```
 
 As you can see the star metacharacter is much more liberal with respect to
@@ -513,10 +513,10 @@ egrep "s{2}" states.txt
 ```
 
 ```
-Massachusetts
-Mississippi
-Missouri
-Tennessee
+## Massachusetts
+## Mississippi
+## Missouri
+## Tennessee
 ```
 
 Take note that the regular expression `"s{2}"` is equivalent to the regular
@@ -530,10 +530,10 @@ egrep "s{2,3}" states.txt
 ```
 
 ```
-Massachusetts
-Mississippi
-Missouri
-Tennessee
+## Massachusetts
+## Mississippi
+## Missouri
+## Tennessee
 ```
 
 Of course the results are the same because there aren't any states that have "s"
@@ -551,7 +551,7 @@ egrep "(iss){2}" states.txt
 ```
 
 ```
-Mississippi
+## Mississippi
 ```
 
 We could combine more quantifiers and capturing groups to dream up even more
@@ -564,7 +564,7 @@ egrep "(i.{2}){3}" states.txt
 ```
 
 ```
-Mississippi
+## Mississippi
 ```
 
 The complex regular expression above still only matches "Mississippi".
@@ -601,15 +601,15 @@ egrep "\w" small.txt
 ```
 
 ```
-abcdefghijklmnopqrstuvwxyz
-ABCDEFGHIJKLMNOPQRSTUVWXYZ
-0123456789
-aa bb cc
-rhythms
-xyz
-abc
-tragedy + time = humor
-http://www.jhsph.edu/
+## abcdefghijklmnopqrstuvwxyz
+## ABCDEFGHIJKLMNOPQRSTUVWXYZ
+## 0123456789
+## aa bb cc
+## rhythms
+## xyz
+## abc
+## tragedy + time = humor
+## http://www.jhsph.edu/
 ```
 
 
@@ -618,7 +618,7 @@ egrep "\d" small.txt
 ```
 
 ```
-0123456789
+## 0123456789
 ```
 
 
@@ -627,8 +627,8 @@ egrep "\s" small.txt
 ```
 
 ```
-aa bb cc
-tragedy + time = humor
+## aa bb cc
+## tragedy + time = humor
 ```
 
 As you can see in the example above, the `\w` metacharacter matches all letters,
@@ -641,7 +641,7 @@ egrep -v "\w" small.txt
 ```
 
 ```
-#%&-=***=-&%#
+## #%&-=***=-&%#
 ```
 
 The `-v` flag (which stands for in**v**ert match) makes `grep` return all of the
@@ -655,10 +655,10 @@ egrep "\W" small.txt
 ```
 
 ```
-aa bb cc
-tragedy + time = humor
-http://www.jhsph.edu/
-#%&-=***=-&%#
+## aa bb cc
+## tragedy + time = humor
+## http://www.jhsph.edu/
+## #%&-=***=-&%#
 ```
 
 The returned strings all contain non-word characters. Note the difference between
@@ -679,11 +679,11 @@ egrep "[aeiou]" small.txt
 ```
 
 ```
-abcdefghijklmnopqrstuvwxyz
-aa bb cc
-abc
-tragedy + time = humor
-http://www.jhsph.edu/
+## abcdefghijklmnopqrstuvwxyz
+## aa bb cc
+## abc
+## tragedy + time = humor
+## http://www.jhsph.edu/
 ```
 
 Notice that the word "rythms" does not appear in the result (it's the longest
@@ -695,16 +695,16 @@ egrep "[^aeiou]" small.txt
 ```
 
 ```
-abcdefghijklmnopqrstuvwxyz
-ABCDEFGHIJKLMNOPQRSTUVWXYZ
-0123456789
-aa bb cc
-rhythms
-xyz
-abc
-tragedy + time = humor
-http://www.jhsph.edu/
-#%&-=***=-&%#
+## abcdefghijklmnopqrstuvwxyz
+## ABCDEFGHIJKLMNOPQRSTUVWXYZ
+## 0123456789
+## aa bb cc
+## rhythms
+## xyz
+## abc
+## tragedy + time = humor
+## http://www.jhsph.edu/
+## #%&-=***=-&%#
 ```
 
 Every line in the file is printed, because every line contains at least one
@@ -725,10 +725,10 @@ egrep "[e-q]" small.txt
 ```
 
 ```
-abcdefghijklmnopqrstuvwxyz
-rhythms
-tragedy + time = humor
-http://www.jhsph.edu/
+## abcdefghijklmnopqrstuvwxyz
+## rhythms
+## tragedy + time = humor
+## http://www.jhsph.edu/
 ```
 
 
@@ -737,7 +737,7 @@ egrep "[E-Q]" small.txt
 ```
 
 ```
-ABCDEFGHIJKLMNOPQRSTUVWXYZ
+## ABCDEFGHIJKLMNOPQRSTUVWXYZ
 ```
 
 
@@ -746,11 +746,11 @@ egrep "[e-qE-Q]" small.txt
 ```
 
 ```
-abcdefghijklmnopqrstuvwxyz
-ABCDEFGHIJKLMNOPQRSTUVWXYZ
-rhythms
-tragedy + time = humor
-http://www.jhsph.edu/
+## abcdefghijklmnopqrstuvwxyz
+## ABCDEFGHIJKLMNOPQRSTUVWXYZ
+## rhythms
+## tragedy + time = humor
+## http://www.jhsph.edu/
 ```
 
 ### Escaping, Anchors, Odds, and Ends
@@ -769,7 +769,7 @@ egrep "\+" small.txt
 ```
 
 ```
-tragedy + time = humor
+## tragedy + time = humor
 ```
 
 
@@ -778,7 +778,7 @@ egrep "\." small.txt
 ```
 
 ```
-http://www.jhsph.edu/
+## http://www.jhsph.edu/
 ```
 
 There are three more metacharacters that we should discuss, and two of them come
@@ -794,14 +794,14 @@ egrep "^M" states.txt
 ```
 
 ```
-Maine
-Maryland
-Massachusetts
-Michigan
-Minnesota
-Mississippi
-Missouri
-Montana
+## Maine
+## Maryland
+## Massachusetts
+## Michigan
+## Minnesota
+## Mississippi
+## Missouri
+## Montana
 ```
 
 Or we could search for all of the states that end in "s":
@@ -812,11 +812,11 @@ egrep "s$" states.txt
 ```
 
 ```
-Arkansas
-Illinois
-Kansas
-Massachusetts
-Texas
+## Arkansas
+## Illinois
+## Kansas
+## Massachusetts
+## Texas
 ```
 
 There's a mnemonic that I love for remembering which metacharacter to use for
@@ -835,10 +835,10 @@ egrep "North|South" states.txt
 ```
 
 ```
-North Carolina
-North Dakota
-South Carolina
-South Dakota
+## North Carolina
+## North Dakota
+## South Carolina
+## South Dakota
 ```
 
 In the example above we're searching for lines of text that contain the words
@@ -851,11 +851,11 @@ egrep "North|South|East|West" states.txt
 ```
 
 ```
-North Carolina
-North Dakota
-South Carolina
-South Dakota
-West Virginia
+## North Carolina
+## North Dakota
+## South Carolina
+## South Dakota
+## West Virginia
 ```
 
 Just two more notes on `grep`: you can display the line number that a match
@@ -867,8 +867,8 @@ egrep -n "t$" states.txt
 ```
 
 ```
-7:Connecticut
-45:Vermont
+## 7:Connecticut
+## 45:Vermont
 ```
 
 And you can also `grep` multiple files at once but providing multiple file
@@ -876,16 +876,16 @@ arguments:
 
 
 ```bash
-egrep "s$" states.txt small.txt
+egrep "New" states.txt canada.txt
 ```
 
 ```
-states.txt:Arkansas
-states.txt:Illinois
-states.txt:Kansas
-states.txt:Massachusetts
-states.txt:Texas
-small.txt:rhythms
+## states.txt:New Hampshire
+## states.txt:New Jersey
+## states.txt:New Mexico
+## states.txt:New York
+## canada.txt:Newfoundland and Labrador
+## canada.txt:New Brunswick
 ```
 
 You now have the power to do some pretty complicated string searching using
@@ -898,14 +898,14 @@ egrep "^[AEIOU]{1}.+[aeiou]{1}$" states.txt
 ```
 
 ```
-Alabama
-Alaska
-Arizona
-Idaho
-Indiana
-Iowa
-Ohio
-Oklahoma
+## Alabama
+## Alaska
+## Arizona
+## Idaho
+## Indiana
+## Iowa
+## Ohio
+## Oklahoma
 ```
 
 I know there a many metacharacters to keep track of here so below I've included
@@ -956,7 +956,7 @@ pwd
 ```
 
 ```
-/Users/sean
+## /Users/sean
 ```
 
 Let's start by looking for a file called states.txt:
@@ -967,7 +967,7 @@ find . -name "states.txt"
 ```
 
 ```
-./Documents/states.txt
+## ./Documents/states.txt
 ```
 
 Right where we expected it to be! Now let's try searching for all `.jpg` files:
@@ -978,12 +978,12 @@ find . -name "*.jpg"
 ```
 
 ```
-./Photos/2016-06-21-lab01.jpg
-./Photos/2016-06-21-lab02.jpg
-./Photos/2017/2017-01-02-hiking01.jpg
-./Photos/2017/2017-01-02-hiking02.jpg
-./Photos/2017/2017-02-10-hiking01.jpg
-./Photos/2017/2017-02-10-hiking02.jpg
+## ./Photos/2016-06-21-lab01.jpg
+## ./Photos/2016-06-21-lab02.jpg
+## ./Photos/2017/2017-01-02-hiking01.jpg
+## ./Photos/2017/2017-01-02-hiking02.jpg
+## ./Photos/2017/2017-02-10-hiking01.jpg
+## ./Photos/2017/2017-02-10-hiking02.jpg
 ```
 
 Good file hunting out there!
@@ -1022,16 +1022,21 @@ head -n 4 states.txt > four.txt
 head -n 6 states.txt > six.txt
 ```
 
+If we want to look at which lines in these files are different we can use the
+`diff` command:
+
 
 ```bash
 diff four.txt six.txt
 ```
 
 ```
-4a5,6
-> California
-> Colorado
+## 4a5,6
+## > California
+## > Colorado
 ```
+
+Only the differing lines are printed to the console. We could also browse
 
 
 ```bash
@@ -1039,12 +1044,12 @@ sdiff four.txt six.txt
 ```
 
 ```
-Alabama								Alabama
-Alaska								Alaska
-Arizona								Arizona
-Arkansas							Arkansas
-							      >	California
-							      >	Colorado
+## Alabama							Alabama
+## Alaska								Alaska
+## Arizona							Arizona
+## Arkansas							Arkansas
+## 							      >	California
+## 							      >	Colorado
 ```
 
 
@@ -1054,7 +1059,7 @@ md5 states.txt
 ```
 
 ```
-MD5 (states.txt) = 8d7dd71ff51614e69339b03bd1cb86ac
+## MD5 (states.txt) = 8d7dd71ff51614e69339b03bd1cb86ac
 ```
 
 
@@ -1063,7 +1068,7 @@ md5 states_copy.txt
 ```
 
 ```
-MD5 (states_copy.txt) = 8d7dd71ff51614e69339b03bd1cb86ac
+## MD5 (states_copy.txt) = 8d7dd71ff51614e69339b03bd1cb86ac
 ```
 
 
@@ -1072,7 +1077,7 @@ shasum states.txt
 ```
 
 ```
-588e9de7ffa97268b2448927df41760abd3369a9  states.txt
+## 588e9de7ffa97268b2448927df41760abd3369a9  states.txt
 ```
 
 
@@ -1081,7 +1086,7 @@ shasum states_copy.txt
 ```
 
 ```
-588e9de7ffa97268b2448927df41760abd3369a9  states_copy.txt
+## 588e9de7ffa97268b2448927df41760abd3369a9  states_copy.txt
 ```
 
 ## Connect

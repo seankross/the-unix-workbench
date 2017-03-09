@@ -1,7 +1,7 @@
 --- 
 title: "The Unix Workbench"
 author: "Sean Kross"
-date: "2017-03-07"
+date: "2017-03-09"
 site: bookdown::bookdown_site
 output:
  bookdown::html_chapters:

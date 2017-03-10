@@ -14,8 +14,32 @@ evenodd 6
 ## the number is even
 ```
 
+```{r, engine='bash', eval=FALSE}
+evenodd 19
+```
+
+```
+## the number is odd
+```
+
+```{r, engine='bash', eval=FALSE}
+evenodd 0
+```
+
+```
+## the number is less than 1
+```
+
 Write a program that takes many numbers as arguments and prints the largest
 number. Add a flag to specify whether it prints the minimum or maximum number.
+
+```{r, engine='bash', eval=FALSE}
+findn -max 8 2 9 4 0 3
+```
+
+```
+## 9
+```
 
 Write a program that takes one number as an argument and prints all of the
 numbers

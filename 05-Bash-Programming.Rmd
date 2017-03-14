@@ -1,5 +1,29 @@
 # Bash Programming
 
+The last two chapters have discussed how to use the bash shell. Bash itself is a
+little programming langauge, and this chapter we're going to discuss how you can
+write your own computer programs in Bash. Programming in Bash is sueful to know
+because of how seamlessly it integreats with all of the command line programs
+you've already learned, and
+
+## Math
+
+## Variables
+
+## User Input
+
+## Arrays
+
+## Braces
+
+## If/Else
+
+## Loops
+
+## Functions
+
+## Writing Programs
+
 ### Exercises
 
 Write a program that takes one number as an argument and prints

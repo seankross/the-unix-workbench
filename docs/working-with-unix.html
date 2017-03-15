@@ -26,7 +26,7 @@
 <meta name="author" content="Sean Kross">
 
 
-<meta name="date" content="2017-03-09">
+<meta name="date" content="2017-03-14">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -153,7 +153,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.7" data-path="working-with-unix.html"><a href="working-with-unix.html#connect"><i class="fa fa-check"></i><b>4.7</b> Connect</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="bash-programming.html"><a href="bash-programming.html"><i class="fa fa-check"></i><b>5</b> Bash Programming</a><ul>
-<li class="chapter" data-level="5.0.1" data-path="bash-programming.html"><a href="bash-programming.html#exercises-7"><i class="fa fa-check"></i><b>5.0.1</b> Exercises</a></li>
+<li class="chapter" data-level="5.1" data-path="bash-programming.html"><a href="bash-programming.html#math"><i class="fa fa-check"></i><b>5.1</b> Math</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="bash-programming.html"><a href="bash-programming.html#summary-7"><i class="fa fa-check"></i><b>5.1.1</b> Summary</a></li>
+<li class="chapter" data-level="5.1.2" data-path="bash-programming.html"><a href="bash-programming.html#exercises-7"><i class="fa fa-check"></i><b>5.1.2</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="bash-programming.html"><a href="bash-programming.html#variables"><i class="fa fa-check"></i><b>5.2</b> Variables</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="bash-programming.html"><a href="bash-programming.html#summary-8"><i class="fa fa-check"></i><b>5.2.1</b> Summary</a></li>
+<li class="chapter" data-level="5.2.2" data-path="bash-programming.html"><a href="bash-programming.html#exercises-8"><i class="fa fa-check"></i><b>5.2.2</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="bash-programming.html"><a href="bash-programming.html#user-input"><i class="fa fa-check"></i><b>5.3</b> User Input</a></li>
+<li class="chapter" data-level="5.4" data-path="bash-programming.html"><a href="bash-programming.html#ifelse"><i class="fa fa-check"></i><b>5.4</b> If/Else</a></li>
+<li class="chapter" data-level="5.5" data-path="bash-programming.html"><a href="bash-programming.html#arrays"><i class="fa fa-check"></i><b>5.5</b> Arrays</a></li>
+<li class="chapter" data-level="5.6" data-path="bash-programming.html"><a href="bash-programming.html#braces"><i class="fa fa-check"></i><b>5.6</b> Braces</a></li>
+<li class="chapter" data-level="5.7" data-path="bash-programming.html"><a href="bash-programming.html#loops"><i class="fa fa-check"></i><b>5.7</b> Loops</a></li>
+<li class="chapter" data-level="5.8" data-path="bash-programming.html"><a href="bash-programming.html#functions"><i class="fa fa-check"></i><b>5.8</b> Functions</a></li>
+<li class="chapter" data-level="5.9" data-path="bash-programming.html"><a href="bash-programming.html#writing-programs"><i class="fa fa-check"></i><b>5.9</b> Writing Programs</a><ul>
+<li class="chapter" data-level="5.9.1" data-path="bash-programming.html"><a href="bash-programming.html#exercises-9"><i class="fa fa-check"></i><b>5.9.1</b> Exercises</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="git-and-github.html"><a href="git-and-github.html"><i class="fa fa-check"></i><b>6</b> Git and GitHub</a></li>
 <li class="chapter" data-level="7" data-path="nephology.html"><a href="nephology.html"><i class="fa fa-check"></i><b>7</b> Nephology</a></li>
@@ -695,7 +711,7 @@ DESCRIPTION
 <pre><code>## 4a5,6
 ## &gt; California
 ## &gt; Colorado</code></pre>
-<p>Only the differing lines are printed to the console. We could also browse</p>
+<p>Only the differing lines are printed to the console. We could also compare differening lines in a side-by-side comparison using <code>sdiff</code>:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sdiff</span> four.txt six.txt</code></pre></div>
 <pre><code>## Alabama                          Alabama
 ## Alaska                               Alaska
@@ -703,6 +719,8 @@ DESCRIPTION
 ## Arkansas                         Arkansas
 ##                                &gt; California
 ##                                &gt; Colorado</code></pre>
+<p>Sometimes you might be sent a file, or you might download a file from the internet that comes with code known as a <strong>checksum</strong> or a <strong>hash</strong>. Hashing programs generate a unique code based on the contents of a file. People distribute hashes with files so that you can be sure that the file you think you’re downloading is the genuine file????????????????????????</p>
+<p>There are a few commonly used file hases but we’ll talk about two called MD5 and SHA-1.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cp</span> states.txt states_copy.txt
 <span class="kw">md5</span> states.txt</code></pre></div>
 <pre><code>## MD5 (states.txt) = 8d7dd71ff51614e69339b03bd1cb86ac</code></pre>

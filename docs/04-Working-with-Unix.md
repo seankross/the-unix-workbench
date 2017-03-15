@@ -1036,7 +1036,8 @@ diff four.txt six.txt
 ## > Colorado
 ```
 
-Only the differing lines are printed to the console. We could also browse
+Only the differing lines are printed to the console. We could also compare
+differening lines in a side-by-side comparison using `sdiff`:
 
 
 ```bash
@@ -1051,6 +1052,16 @@ sdiff four.txt six.txt
 ## 							      >	California
 ## 							      >	Colorado
 ```
+
+Sometimes you might be sent a file, or you might download a file from the 
+internet that comes with code known as a **checksum** or a **hash**. Hashing
+programs generate a unique code based on the contents of a file. People
+distribute hashes with files so that you can be sure that the file you think
+you're downloading is the genuine file????????????????????????
+
+
+There are a few commonly used file hases but we'll talk about two called MD5
+and SHA-1.
 
 
 ```bash

@@ -26,7 +26,7 @@
 <meta name="author" content="Sean Kross">
 
 
-<meta name="date" content="2017-03-09">
+<meta name="date" content="2017-03-14">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -153,7 +153,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.7" data-path="working-with-unix.html"><a href="working-with-unix.html#connect"><i class="fa fa-check"></i><b>4.7</b> Connect</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="bash-programming.html"><a href="bash-programming.html"><i class="fa fa-check"></i><b>5</b> Bash Programming</a><ul>
-<li class="chapter" data-level="5.0.1" data-path="bash-programming.html"><a href="bash-programming.html#exercises-7"><i class="fa fa-check"></i><b>5.0.1</b> Exercises</a></li>
+<li class="chapter" data-level="5.1" data-path="bash-programming.html"><a href="bash-programming.html#math"><i class="fa fa-check"></i><b>5.1</b> Math</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="bash-programming.html"><a href="bash-programming.html#summary-7"><i class="fa fa-check"></i><b>5.1.1</b> Summary</a></li>
+<li class="chapter" data-level="5.1.2" data-path="bash-programming.html"><a href="bash-programming.html#exercises-7"><i class="fa fa-check"></i><b>5.1.2</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="bash-programming.html"><a href="bash-programming.html#variables"><i class="fa fa-check"></i><b>5.2</b> Variables</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="bash-programming.html"><a href="bash-programming.html#summary-8"><i class="fa fa-check"></i><b>5.2.1</b> Summary</a></li>
+<li class="chapter" data-level="5.2.2" data-path="bash-programming.html"><a href="bash-programming.html#exercises-8"><i class="fa fa-check"></i><b>5.2.2</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="bash-programming.html"><a href="bash-programming.html#user-input"><i class="fa fa-check"></i><b>5.3</b> User Input</a></li>
+<li class="chapter" data-level="5.4" data-path="bash-programming.html"><a href="bash-programming.html#ifelse"><i class="fa fa-check"></i><b>5.4</b> If/Else</a></li>
+<li class="chapter" data-level="5.5" data-path="bash-programming.html"><a href="bash-programming.html#arrays"><i class="fa fa-check"></i><b>5.5</b> Arrays</a></li>
+<li class="chapter" data-level="5.6" data-path="bash-programming.html"><a href="bash-programming.html#braces"><i class="fa fa-check"></i><b>5.6</b> Braces</a></li>
+<li class="chapter" data-level="5.7" data-path="bash-programming.html"><a href="bash-programming.html#loops"><i class="fa fa-check"></i><b>5.7</b> Loops</a></li>
+<li class="chapter" data-level="5.8" data-path="bash-programming.html"><a href="bash-programming.html#functions"><i class="fa fa-check"></i><b>5.8</b> Functions</a></li>
+<li class="chapter" data-level="5.9" data-path="bash-programming.html"><a href="bash-programming.html#writing-programs"><i class="fa fa-check"></i><b>5.9</b> Writing Programs</a><ul>
+<li class="chapter" data-level="5.9.1" data-path="bash-programming.html"><a href="bash-programming.html#exercises-9"><i class="fa fa-check"></i><b>5.9.1</b> Exercises</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="git-and-github.html"><a href="git-and-github.html"><i class="fa fa-check"></i><b>6</b> Git and GitHub</a></li>
 <li class="chapter" data-level="7" data-path="nephology.html"><a href="nephology.html"><i class="fa fa-check"></i><b>7</b> Nephology</a></li>
@@ -180,14 +196,174 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="bash-programming" class="section level1">
 <h1><span class="header-section-number">Chapter 5</span> Bash Programming</h1>
+<p>The last two chapters have discussed how to use the bash shell. Bash itself is a little programming langauge, and this chapter we’re going to discuss how you can write your own computer programs in Bash. Programming in Bash is useful to know because of how seamlessly it integreats with all of the command line programs you’ve already learned. By the end of this chapter you should able to write your own command line tools!</p>
+<p>You can use <code>nano</code> to write all of the programs we’re going to discuss in this chapter, however I recommend using the <a href="https://atom.io/">Atom</a> text editor because it’s more user friendly.</p>
+<p>Now let’s create a new file called <code>math.sh</code> in the <code>~/Code/</code> directory and let’s open that file with either <code>nano</code> or Atom.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span> ~/Code/
+<span class="kw">nano</span> math.sh</code></pre></div>
+<p>You should now have a new, clean text file open. Any code block in the following chapters that starts with the code (or similar) below should indicate to you that we’re working on a particular text file.</p>
+<pre><code>#!/usr/bin/env bash
+# File: math.sh</code></pre>
+<p>You do not need to add these lines to your file, though you should type exactly what I have typed below these lines. <strong>Note</strong>: please type all of the lines out for every program that we’re going to write, do not copy and paste. Typing code is a little different from typing an email, and you should practice typing the code out yourself as much as possible. Both of these lines start with the pound symbol (<code>#</code>) and in the Bash programming language anything that is typed after a pound symbol is ignored. The pound symbol allows you to make <strong>comments</strong> in your code which you can use to annotate code so that another human being who is reading your code can understand how your program is designed to function.</p>
+<p>If you’re using <code>nano</code> or another shell-based text editor you should perhaps open up two terminals, one where you can edit and save the programs you’re working on, and one where you can run your programs. One advantage of using Atom is that you can keep Atom open in a separate window and then run your programs in your terminal window.</p>
+<div id="math" class="section level2">
+<h2><span class="header-section-number">5.1</span> Math</h2>
+<p>The Bash programming language can do very basic arithetic, which we’ll demonstrate in this section. Now that you have <code>math.sh</code> open in your prefered text editor type the following into your text editor:</p>
+<pre><code>#!/usr/bin/env bash
+# File: math.sh
+
+expr 5 + 2
+expr 5 - 2
+expr 5 \* 2
+expr 5 / 2</code></pre>
+<p>Save <code>math.sh</code> and then run this script in your shell:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">bash</span> math.sh</code></pre></div>
+<pre><code>## 7
+## 3
+## 10
+## 2</code></pre>
+<p>Let’s break down what’s going on in the Bash script you just created. Bash executes programs in order from the fist line in your file to the last line. The <code>expr</code> command can be used to <strong>evaluate</strong> Bash <strong>expressions</strong>. An expression is just a valid string of Bash code that, when run, produces a result. The arithmetic operators that you’re already familiar with for addition (<code>+</code>), substraction (<code>-</code>), and multiplication (<code>*</code>) work like you would expect them to. Notice that when doing multiplication you need to escape the the star character, otherwise Bash thinks you’re trying to create a regular expression! The division operator (<code>/</code>) does not work as you might expect it to since 5 / 2 = 2.5. Bash does <strong>integer division</strong>, which means that the result of dividing one number by another is always rounded down to the nearest integer. Let’s take a look at a few examples on the command line:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">expr</span> 1 / 3
+<span class="kw">expr</span> 10 / 3
+<span class="kw">expr</span> 40 / 21
+<span class="kw">expr</span> 40 / 20</code></pre></div>
+<pre><code>## 0
+## 3
+## 1
+## 2</code></pre>
+<p>The other numerical operator you should be aware of that you might not be familiar with is the modulus operator (<code>%</code>). The modulus operator returns the <strong>remainder</strong> after integer division. In integer division if A / B = C, and A % B = D, then B * C + D = A. Let’s take a look at some examples on the command line:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">expr</span> 1 % 3
+<span class="kw">expr</span> 10 % 3
+<span class="kw">expr</span> 40 % 21
+<span class="kw">expr</span> 40 % 20</code></pre></div>
+<pre><code>## 1
+## 1
+## 19
+## 0</code></pre>
+<p>Notice that when one number is completely divisible by another number then the result of the modulus is zero.</p>
+<p>If you want to more complex math, for example amth with fractions and numbers with decimals then I highly suggest combining <code>echo</code> and <strong>b</strong>ench <strong>c</strong>alculator program called <code>bc</code>. Open up a new file called <code>bigmath.sh</code> and type in the following:</p>
+<pre><code>#!/usr/bin/env bash
+# File: bigmath.sh
+
+echo &quot;22 / 7&quot; | bc -l
+echo &quot;4.2 * 9.15&quot; | bc -l
+echo &quot;(6.5 / 0.5) + (6 * 2.2)&quot; | bc -l</code></pre>
+<p>Save <code>bigmath.sh</code> and then run this script in your shell:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">bash</span> bigmath.sh</code></pre></div>
+<pre><code>## 3.14285714285714285714
+## 38.430
+## 26.2</code></pre>
+<p>You can pipe any mathematical string to <code>bc</code> with the <code>-l</code> flag in order to use decimal numbers in your calculations.</p>
+<div id="summary-7" class="section level3">
+<h3><span class="header-section-number">5.1.1</span> Summary</h3>
+<ul>
+<li>Bash programs are executed in order from the first line in a file until the last line.</li>
+<li>Anything wirtten after a pound sign (<code>#</code>) is a comment and is not executed by Bash.</li>
+<li>You can do simple arithmetic with the <code>expr</code> command.</li>
+<li>For more complicated arithmetic by piping string of equations into <code>bc</code> using <code>echo</code>.</li>
+</ul>
+</div>
 <div id="exercises-7" class="section level3">
-<h3><span class="header-section-number">5.0.1</span> Exercises</h3>
+<h3><span class="header-section-number">5.1.2</span> Exercises</h3>
+<ol style="list-style-type: decimal">
+<li>Look at the <code>man</code> pages for <code>bc</code>.</li>
+<li>Try doing some math in <code>bc</code> interactively.</li>
+<li>Try writing some equations in a file and then provide that file as an argument to <code>bc</code>.</li>
+</ol>
+</div>
+</div>
+<div id="variables" class="section level2">
+<h2><span class="header-section-number">5.2</span> Variables</h2>
+<p>In Bash you can store data in variables. In chapter 4 we discussed environmental variables that are set by your operating system. You can also create your own variables. Make sure you follow these rules when you’re naming variables:</p>
+<ul>
+<li>Every character should be lowercase.</li>
+<li>The variable name should start with a letter.</li>
+<li>The name should only contain alphanumeric characters and underscores (<code>_</code>).</li>
+<li>Words in the name should be seperated by underscores.</li>
+</ul>
+<p>If you follow those rules then you can avoid accidentally overwriting data stored in environmental variables.</p>
+<p>You can assign data to a variable using the equals sign (<code>=</code>). The data you store in a variable can either be a string or a number. Let’s create a variable now on the command line:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ot">chapter_number=</span>5</code></pre></div>
+<p>The variable name is one the left hand side of the equals sign, and the data which will be stored in that variable is on the right hand side of the equals sign. Notice that there are no spaces on either side of the equals sign, this is not allowed when assigning variables:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">chapter_number</span> = 5</code></pre></div>
+<pre><code>## Error in running command bash</code></pre>
+<p>In order to print the data in a variable, also called the value of a variable, we can use <code>echo</code>. When you want to retrieve the value of a variable you must use the dollar sign (<code>$</code>) before the name of the variable. Let’s try this out:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">echo</span> <span class="ot">$chapter_number</span></code></pre></div>
+<pre><code>## 5</code></pre>
+<p>You can modify the value of a variable using arithetic operators by using the <code>let</code> command:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">let</span> chapter_number=<span class="ot">$chapter_number</span>+1
+<span class="kw">echo</span> <span class="ot">$chapter_number</span></code></pre></div>
+<pre><code>## 6</code></pre>
+<p>You can also store strings in variables:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ot">the_empire_state=</span><span class="st">&quot;New York&quot;</span>
+<span class="kw">echo</span> <span class="ot">$the_empire_state</span></code></pre></div>
+<pre><code>## New York</code></pre>
+<p>Occasionally you might want to run a command like you would on the command line and store the result of that command in a variable. We can do this by wrapping the command in a dollar sign and parentheses (<code>$( )</code>) around a command. For example if I wanted to store the number of lines in <code>math.sh</code>:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ot">math_lines=$(</span><span class="kw">cat</span> math.sh <span class="kw">|</span> <span class="kw">wc</span> -l<span class="ot">)</span>
+<span class="kw">echo</span> <span class="ot">$math_lines</span></code></pre></div>
+<pre><code>## 7</code></pre>
+<p>Variable names with a dollar sign can also be used inside of other strings in order to insert the the value of the variable into the string:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">echo</span> <span class="st">&quot;I went to school in </span><span class="ot">$the_empire_state</span><span class="st">.&quot;</span></code></pre></div>
+<pre><code>## I went to school in New York.</code></pre>
+<p>When writing a Bash script, the script gives you a few variables for free. Let’s create a new file called <code>vars.sh</code> with the following code:</p>
+<pre><code>#!/usr/bin/env bash
+# File: vars.sh
+
+echo &quot;Script arguments: $@&quot;
+echo &quot;First arg: $1. Second arg: $2.&quot;
+echo &quot;Number of arguments: $#&quot;</code></pre>
+<div id="summary-8" class="section level3">
+<h3><span class="header-section-number">5.2.1</span> Summary</h3>
+<ul>
+<li>Variables can be assigned with the equal sign (<code>=</code>) operator.</li>
+<li>Strings or numbers can be assigned to variables.</li>
+<li>The value of a variable can be accessed with the dollar sign (<code>$</code>) before the variable name.</li>
+<li>You can use the dollar sign and parentheses syntax to execute a command and save the output in a variable.</li>
+</ul>
+</div>
+<div id="exercises-8" class="section level3">
+<h3><span class="header-section-number">5.2.2</span> Exercises</h3>
+<ol style="list-style-type: decimal">
+<li>Write a Bash program where you assign two numbers to different variables, and then the program prints the sum of those variables.</li>
+<li>Write another Bash program where you assign two strings to different variables, and then the program prints both of those strings. Write a version where the strings are printed on the same line, and a version where the strings are printed on different lines.</li>
+</ol>
+</div>
+</div>
+<div id="user-input" class="section level2">
+<h2><span class="header-section-number">5.3</span> User Input</h2>
+</div>
+<div id="ifelse" class="section level2">
+<h2><span class="header-section-number">5.4</span> If/Else</h2>
+</div>
+<div id="arrays" class="section level2">
+<h2><span class="header-section-number">5.5</span> Arrays</h2>
+</div>
+<div id="braces" class="section level2">
+<h2><span class="header-section-number">5.6</span> Braces</h2>
+</div>
+<div id="loops" class="section level2">
+<h2><span class="header-section-number">5.7</span> Loops</h2>
+</div>
+<div id="functions" class="section level2">
+<h2><span class="header-section-number">5.8</span> Functions</h2>
+</div>
+<div id="writing-programs" class="section level2">
+<h2><span class="header-section-number">5.9</span> Writing Programs</h2>
+<div id="exercises-9" class="section level3">
+<h3><span class="header-section-number">5.9.1</span> Exercises</h3>
 <p>Write a program that takes one number as an argument and prints “the number is even” if the number is even, “the number is odd” if the number is odd, and “the number is less than 1” if the number is less than 1.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">evenodd</span> 6</code></pre></div>
 <pre><code>## the number is even</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">evenodd</span> 19</code></pre></div>
+<pre><code>## the number is odd</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">evenodd</span> 0</code></pre></div>
+<pre><code>## the number is less than 1</code></pre>
 <p>Write a program that takes many numbers as arguments and prints the largest number. Add a flag to specify whether it prints the minimum or maximum number.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">findn</span> -max 8 2 9 4 0 3</code></pre></div>
+<pre><code>## 9</code></pre>
 <p>Write a program that takes one number as an argument and prints all of the numbers</p>
 
+</div>
 </div>
 </div>
             </section>

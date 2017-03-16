@@ -1,11 +1,11 @@
 # Bash Programming
 
 The last two chapters have discussed how to use the bash shell. Bash itself is a
-little programming langauge, and this chapter we're going to discuss how you can
+little programming language, and this chapter we're going to discuss how you can
 write your own computer programs in Bash. Programming in Bash is useful to know
-because of how seamlessly it integreats with all of the command line programs
-you've already learned. By the end of this chapter you should able to write your
-own command line tools!
+because of how seamlessly it integrates with all of the command line programs
+you've already learned. By the end of this chapter you should be able to write 
+your own command line tools!
 
 You can use `nano` to write all of the programs we're going to discuss in this
 chapter, however I recommend using the [Atom](https://atom.io/) text editor 
@@ -46,9 +46,9 @@ in your terminal window.
 
 ## Math
 
-The Bash programming language can do very basic arithetic, which we'll
+The Bash programming language can do very basic arithmetic, which we'll
 demonstrate in this section.
-Now that you have `math.sh` open in your prefered text editor type the following
+Now that you have `math.sh` open in your preferred text editor type the following
 into your text editor:
 
 ```
@@ -79,9 +79,9 @@ executes programs in order from the fist line in your file to the last line.
 The `expr` command can be used to **evaluate** Bash **expressions**.
 An expression is just
 a valid string of Bash code that, when run, produces a result. The arithmetic
-operators that you're already familiar with for addition (`+`), substraction
+operators that you're already familiar with for addition (`+`), subtraction
 (`-`), and multiplication (`*`) work like you would expect them to. Notice that
-when doing multiplication you need to escape the the star character, otherwise
+when doing multiplication you need to escape the star character, otherwise
 Bash thinks you're trying to create a regular expression! The division operator
 (`/`) does not work as you might expect it to since 5 / 2 = 2.5. Bash does
 **integer division**, which means that the result of dividing one number by
@@ -118,8 +118,8 @@ expr 40 % 20
 Notice that when one number is completely divisible by another number then the
 result of the modulus is zero.
 
-If you want to more complex math, for example amth with fractions and numbers
-with decimals then I highly suggest combining `echo` and **b**ench **c**alculator
+If you want to do more complex math, for example math with fractions and numbers
+with decimals then I highly suggest combining `echo` and the **b**ench **c**alculator
 program called `bc`. Open up a new file called `bigmath.sh` and type in the
 following:
 
@@ -151,10 +151,10 @@ use decimal numbers in your calculations.
 
 - Bash programs are executed in order from the first line in a file until the
 last line.
-- Anything wirtten after a pound sign (`#`) is a comment and is not executed by
+- Anything written after a pound sign (`#`) is a comment and is not executed by
 Bash.
 - You can do simple arithmetic with the `expr` command.
-- For more complicated arithmetic by piping string of equations into `bc` using
+- Perform more complicated arithmetic by piping a string expression into `bc` using
 `echo`.
 
 ### Exercises
@@ -173,7 +173,7 @@ variables. Make sure you follow these rules when you're naming variables:
 - Every character should be lowercase.
 - The variable name should start with a letter.
 - The name should only contain alphanumeric characters and underscores (`_`).
-- Words in the name should be seperated by underscores.
+- Words in the name should be separated by underscores.
 
 If you follow those rules then you can avoid accidentally overwriting data
 stored in environmental variables.
@@ -186,7 +186,7 @@ now on the command line:
 chapter_number=5
 ```
 
-The variable name is one the left hand side of the equals sign, and the data
+The variable name is on the left hand side of the equals sign, and the data
 which will be stored in that variable is on the right hand side of the equals
 sign. Notice that there are no spaces on either side of the equals sign, this
 is not allowed when assigning variables:
@@ -207,7 +207,7 @@ echo $chapter_number
 ## 5
 ```
 
-You can modify the value of a variable using arithetic operators by using the
+You can modify the value of a variable using arithmetic operators by using the
 `let` command:
 
 ```{r, engine='bash', eval=FALSE}
@@ -240,8 +240,8 @@ echo $math_lines
 ## 7
 ```
 
-Variable names with a dollar sign can also be used inside of other strings in
-order to insert the the value of the variable into the string:
+Variable names with a dollar sign can also be used inside other strings in
+order to insert the value of the variable into the string:
 
 ```{r, engine='bash', eval=FALSE}
 echo "I went to school in $the_empire_state."

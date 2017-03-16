@@ -896,7 +896,7 @@ you can use the `find` command. This command has a specific structure where
 the first argument is the directory where you want to begin the search, and all
 directories contained within that directory will also be searched. The first
 argument is then followed by a flag that describes the method you want to use to
-search. In this case we'll only be searching for a file by it's name, so we'll
+search. In this case we'll only be searching for a file by its name, so we'll
 use the `-name` flag. The `-name` flag itself then takes an argument, the name
 of the file that you're looking for. Let's go back to the home directory and
 look for some files from there:

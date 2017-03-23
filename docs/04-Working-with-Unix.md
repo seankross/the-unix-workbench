@@ -1,5 +1,7 @@
 # Working with Unix
 
+> It is not the knowing that is difficult, but the doing. - Chinese proverb
+
 ## Self-Help
 
 Each of the commands that we've discussed so far are thoroughly documented, and
@@ -139,9 +141,9 @@ individual photo I can select groups of photos using the `*` wildcard. A
 joker in a deck of cards can represent other cards in the deck. Wildcards are
 a subset of metacharacters, a topic which we will discuss in detail later on in
 this chapter. The `*` ("star") wildcard represents *zero or more of any
-character*, and it can be used to match names of files and folders in the command
-line. For example if I wanted list all of the files in my Photos directory which
-have a name that starts with "2017" I could do the following:
+character*, and it can be used to match names of files and folders in the 
+command line. For example if I wanted to list all of the files in my Photos 
+directory which have a name that starts with "2017" I could do the following:
 
 
 ```bash
@@ -157,8 +159,8 @@ ls 2017*
 
 Only the files starting with "2017" are listed! The command `ls 2017*` literally
 means: list the files that start with "2017" followed by zero or more of any
-character. As you can imagine using wildcards
-is a powerful tool for working with groups of files that are similarly named.
+character. As you can imagine using wildcards is a powerful tool for working 
+with groups of files that are similarly named.
 
 Let's walk through a few other examples of using the star wildcard. We could
 only list the photos starting with "2016":
@@ -256,7 +258,7 @@ ls
 ## 2017
 ```
 
-Finally my photos are somewhat organized! Let's list the file in each directory
+Finally my photos are somewhat organized! Let's list the files in each directory
 just to make sure all was moved as planned:
 
 
@@ -645,7 +647,7 @@ egrep -v "\w" small.txt
 ```
 
 The `-v` flag (which stands for in**v**ert match) makes `grep` return all of the
-lines not matched by the regular expression. Note that the character set 
+lines not matched by the regular expression. Note that the character sets for 
 regular expressions also have their inverse sets: `\W` for non-words, `\D` for
 non-digits, and `\S` for non-spaces. Let's take a look at using `\W`:
 
@@ -666,8 +668,8 @@ the results of using the invert flag `-v` versus using an inverse set regular
 expression.
 
 In addition to general character sets we can also create specific character
-sets using squre brackets (`[ ]`) and then including the characters we wish to
-match in the sqaure brackets. For example the regular expression for the set
+sets using square brackets (`[ ]`) and then including the characters we wish to
+match in the square brackets. For example the regular expression for the set
 of vowels is `[aeiou]`. You can also create a regular expression for the
 compliment of a set by including a caret (`^`) in the beginning of a set. For
 example the regular expression `[^aeiou]` matches all characters that are not
@@ -686,7 +688,7 @@ egrep "[aeiou]" small.txt
 ## http://www.jhsph.edu/
 ```
 
-Notice that the word "rythms" does not appear in the result (it's the longest
+Notice that the word "rhythms" does not appear in the result (it's the longest
 word without any vowels that I could think of).
 
 
@@ -715,7 +717,7 @@ inclusively. Case matters when you're specifying character sets, so if you
 wanted to only match uppercase characters you'd need to use `[E-Q]`. To ignore
 the case of your match you could combine the character sets with the `[e-qE-Q]`
 regex (short for regular expression), or you could use the `-i` flag with `grep`
-to **i**gnore the care. Note that the `-i` flag will work providied any regular
+to **i**gnore the case. Note that the `-i` flag will work for any provided regular
 expression, not just character sets. Let's take a look at some examples using
 the regular expressions that we just described:
 
@@ -784,7 +786,7 @@ egrep "\." small.txt
 There are three more metacharacters that we should discuss, and two of them come
 as a pair: the caret (`^`), which represents the start of a line, and the dollar
 sign (`$`) which represents the end of line. These "anchor characters" only
-match the beginning and ends of lines when couples with other regular
+match the beginning and ends of lines when coupled with other regular
 expressions. For example, going back to looking at states.txt, I could search
 for all of the state names that begin with "M" with the following command:
 
@@ -871,7 +873,7 @@ egrep -n "t$" states.txt
 ## 45:Vermont
 ```
 
-And you can also `grep` multiple files at once but providing multiple file
+And you can also `grep` multiple files at once by providing multiple file
 arguments:
 
 
@@ -944,7 +946,7 @@ you can use the `find` command. This command has a specific structure where
 the first argument is the directory where you want to begin the search, and all
 directories contained within that directory will also be searched. The first
 argument is then followed by a flag that describes the method you want to use to
-search, in this case we'll only be searching for a file by its name, so we'll
+search. In this case we'll only be searching for a file by its name, so we'll
 use the `-name` flag. The `-name` flag itself then takes an argument, the name
 of the file that you're looking for. Let's go back to the home directory and
 look for some files from there:
@@ -1001,8 +1003,8 @@ characters.
 1. Search `states.txt` and `canada.txt` for lines that contain the word "New".
 2. Make five text files containing the names of states that don't contain one of
 each of the five vowels.
-3. Download GitHub repository for this book and find out how many `.html` files
-it contains.
+3. Download the GitHub repository for this book and find out how many `.html` 
+files it contains.
 
 ## Make
 
@@ -1037,7 +1039,7 @@ diff four.txt six.txt
 ```
 
 Only the differing lines are printed to the console. We could also compare
-differening lines in a side-by-side comparison using `sdiff`:
+differing lines in a side-by-side comparison using `sdiff`:
 
 
 ```bash
@@ -1060,7 +1062,7 @@ distribute hashes with files so that you can be sure that the file you think
 you're downloading is the genuine file????????????????????????
 
 
-There are a few commonly used file hases but we'll talk about two called MD5
+There are a few commonly used file hashes but we'll talk about two called MD5
 and SHA-1.
 
 

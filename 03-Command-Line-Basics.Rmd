@@ -1,5 +1,7 @@
 # Command Line Basics
 
+> Of a small spark a great fire. - Gaelic proverb
+
 ## Hello Terminal!
 
 Once you have opened up Terminal then you should see a window that 

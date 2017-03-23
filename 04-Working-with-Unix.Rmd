@@ -1,5 +1,7 @@
 # Working with Unix
 
+> It is not the knowing that is difficult, but the doing. - Chinese proverb
+
 ## Self-Help
 
 Each of the commands that we've discussed so far are thoroughly documented, and

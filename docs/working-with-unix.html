@@ -26,7 +26,7 @@
 <meta name="author" content="Sean Kross">
 
 
-<meta name="date" content="2017-03-14">
+<meta name="date" content="2017-03-23">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -161,14 +161,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.2.1" data-path="bash-programming.html"><a href="bash-programming.html#summary-8"><i class="fa fa-check"></i><b>5.2.1</b> Summary</a></li>
 <li class="chapter" data-level="5.2.2" data-path="bash-programming.html"><a href="bash-programming.html#exercises-8"><i class="fa fa-check"></i><b>5.2.2</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="bash-programming.html"><a href="bash-programming.html#user-input"><i class="fa fa-check"></i><b>5.3</b> User Input</a></li>
-<li class="chapter" data-level="5.4" data-path="bash-programming.html"><a href="bash-programming.html#ifelse"><i class="fa fa-check"></i><b>5.4</b> If/Else</a></li>
+<li class="chapter" data-level="5.3" data-path="bash-programming.html"><a href="bash-programming.html#user-input"><i class="fa fa-check"></i><b>5.3</b> User Input</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="bash-programming.html"><a href="bash-programming.html#summary-9"><i class="fa fa-check"></i><b>5.3.1</b> Summary</a></li>
+<li class="chapter" data-level="5.3.2" data-path="bash-programming.html"><a href="bash-programming.html#exercises-9"><i class="fa fa-check"></i><b>5.3.2</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="bash-programming.html"><a href="bash-programming.html#logic-and-ifelse"><i class="fa fa-check"></i><b>5.4</b> Logic and If/Else</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="bash-programming.html"><a href="bash-programming.html#conditional-execution"><i class="fa fa-check"></i><b>5.4.1</b> Conditional Execution</a></li>
+<li class="chapter" data-level="5.4.2" data-path="bash-programming.html"><a href="bash-programming.html#conditional-expressions"><i class="fa fa-check"></i><b>5.4.2</b> Conditional Expressions</a></li>
+</ul></li>
 <li class="chapter" data-level="5.5" data-path="bash-programming.html"><a href="bash-programming.html#arrays"><i class="fa fa-check"></i><b>5.5</b> Arrays</a></li>
 <li class="chapter" data-level="5.6" data-path="bash-programming.html"><a href="bash-programming.html#braces"><i class="fa fa-check"></i><b>5.6</b> Braces</a></li>
 <li class="chapter" data-level="5.7" data-path="bash-programming.html"><a href="bash-programming.html#loops"><i class="fa fa-check"></i><b>5.7</b> Loops</a></li>
 <li class="chapter" data-level="5.8" data-path="bash-programming.html"><a href="bash-programming.html#functions"><i class="fa fa-check"></i><b>5.8</b> Functions</a></li>
 <li class="chapter" data-level="5.9" data-path="bash-programming.html"><a href="bash-programming.html#writing-programs"><i class="fa fa-check"></i><b>5.9</b> Writing Programs</a><ul>
-<li class="chapter" data-level="5.9.1" data-path="bash-programming.html"><a href="bash-programming.html#exercises-9"><i class="fa fa-check"></i><b>5.9.1</b> Exercises</a></li>
+<li class="chapter" data-level="5.9.1" data-path="bash-programming.html"><a href="bash-programming.html#exercises-10"><i class="fa fa-check"></i><b>5.9.1</b> Exercises</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="git-and-github.html"><a href="git-and-github.html"><i class="fa fa-check"></i><b>6</b> Git and GitHub</a></li>
@@ -196,6 +202,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="working-with-unix" class="section level1">
 <h1><span class="header-section-number">Chapter 4</span> Working with Unix</h1>
+<blockquote>
+<p>It is not the knowing that is difficult, but the doing. - Chinese proverb</p>
+</blockquote>
 <div id="self-help" class="section level2">
 <h2><span class="header-section-number">4.1</span> Self-Help</h2>
 <p>Each of the commands that we’ve discussed so far are thoroughly documented, and you can view their documentation using the <code>man</code> command, where the first argument to <code>man</code> is the command you’re curious about. Let’s take a look at the documentation for <code>ls</code>:</p>
@@ -264,7 +273,7 @@ DESCRIPTION
 ## 2017-01-02-hiking02.jpg
 ## 2017-02-10-hiking01.jpg
 ## 2017-02-10-hiking02.jpg</code></pre>
-<p>I’ve just been dumping pictures and figures into this folder without organizing them at all! Thankfully (in the words of Dr. Jenny Bryan) <a href="https://twitter.com/JennyBryan/status/816143967695687684">I have an unwavering commitment to the ISO 8601 date standard</a> so at least I know when these photos were taken. Instead of using <code>mv</code> to move around each individual photo I can select groups of photos using the <code>*</code> wildcard. A <strong>wildcard</strong> is a character that represents other characters, much like how joker in a deck of cards can represent other cards in the deck. Wildcards are a subset of metacharacters, a topic which we will discuss in detail later on in this chapter. The <code>*</code> (“star”) wildcard represents <em>zero or more of any character</em>, and it can be used to match names of files and folders in the command line. For example if I wanted list all of the files in my Photos directory which have a name that starts with “2017” I could do the following:</p>
+<p>I’ve just been dumping pictures and figures into this folder without organizing them at all! Thankfully (in the words of Dr. Jenny Bryan) <a href="https://twitter.com/JennyBryan/status/816143967695687684">I have an unwavering commitment to the ISO 8601 date standard</a> so at least I know when these photos were taken. Instead of using <code>mv</code> to move around each individual photo I can select groups of photos using the <code>*</code> wildcard. A <strong>wildcard</strong> is a character that represents other characters, much like how joker in a deck of cards can represent other cards in the deck. Wildcards are a subset of metacharacters, a topic which we will discuss in detail later on in this chapter. The <code>*</code> (“star”) wildcard represents <em>zero or more of any character</em>, and it can be used to match names of files and folders in the command line. For example if I wanted to list all of the files in my Photos directory which have a name that starts with “2017” I could do the following:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ls</span> 2017*</code></pre></div>
 <pre><code>## 2017-01-02-hiking01.jpg
 ## 2017-01-02-hiking02.jpg
@@ -311,7 +320,7 @@ DESCRIPTION
 <span class="kw">ls</span></code></pre></div>
 <pre><code>## 2016
 ## 2017</code></pre>
-<p>Finally my photos are somewhat organized! Let’s list the file in each directory just to make sure all was moved as planned:</p>
+<p>Finally my photos are somewhat organized! Let’s list the files in each directory just to make sure all was moved as planned:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ls</span> 2016/</code></pre></div>
 <pre><code>## 2016-06-20-datasci01.png
 ## 2016-06-20-datasci02.png
@@ -461,21 +470,21 @@ DESCRIPTION
 <p>As you can see in the example above, the <code>\w</code> metacharacter matches all letters, numbers, and even the underscore character (<code>_</code>). We can see the compliment of this grep by adding the <code>-v</code> flag to the command:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">egrep</span> -v <span class="st">&quot;\w&quot;</span> small.txt</code></pre></div>
 <pre><code>## #%&amp;-=***=-&amp;%#</code></pre>
-<p>The <code>-v</code> flag (which stands for in<strong>v</strong>ert match) makes <code>grep</code> return all of the lines not matched by the regular expression. Note that the character set regular expressions also have their inverse sets: <code>\W</code> for non-words, <code>\D</code> for non-digits, and <code>\S</code> for non-spaces. Let’s take a look at using <code>\W</code>:</p>
+<p>The <code>-v</code> flag (which stands for in<strong>v</strong>ert match) makes <code>grep</code> return all of the lines not matched by the regular expression. Note that the character sets for regular expressions also have their inverse sets: <code>\W</code> for non-words, <code>\D</code> for non-digits, and <code>\S</code> for non-spaces. Let’s take a look at using <code>\W</code>:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">egrep</span> <span class="st">&quot;\W&quot;</span> small.txt</code></pre></div>
 <pre><code>## aa bb cc
 ## tragedy + time = humor
 ## http://www.jhsph.edu/
 ## #%&amp;-=***=-&amp;%#</code></pre>
 <p>The returned strings all contain non-word characters. Note the difference between the results of using the invert flag <code>-v</code> versus using an inverse set regular expression.</p>
-<p>In addition to general character sets we can also create specific character sets using squre brackets (<code>[ ]</code>) and then including the characters we wish to match in the sqaure brackets. For example the regular expression for the set of vowels is <code>[aeiou]</code>. You can also create a regular expression for the compliment of a set by including a caret (<code>^</code>) in the beginning of a set. For example the regular expression <code>[^aeiou]</code> matches all characters that are not vowels. Let’s test both on small.txt:</p>
+<p>In addition to general character sets we can also create specific character sets using square brackets (<code>[ ]</code>) and then including the characters we wish to match in the square brackets. For example the regular expression for the set of vowels is <code>[aeiou]</code>. You can also create a regular expression for the compliment of a set by including a caret (<code>^</code>) in the beginning of a set. For example the regular expression <code>[^aeiou]</code> matches all characters that are not vowels. Let’s test both on small.txt:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">egrep</span> <span class="st">&quot;[aeiou]&quot;</span> small.txt</code></pre></div>
 <pre><code>## abcdefghijklmnopqrstuvwxyz
 ## aa bb cc
 ## abc
 ## tragedy + time = humor
 ## http://www.jhsph.edu/</code></pre>
-<p>Notice that the word “rythms” does not appear in the result (it’s the longest word without any vowels that I could think of).</p>
+<p>Notice that the word “rhythms” does not appear in the result (it’s the longest word without any vowels that I could think of).</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">egrep</span> <span class="st">&quot;[^aeiou]&quot;</span> small.txt</code></pre></div>
 <pre><code>## abcdefghijklmnopqrstuvwxyz
 ## ABCDEFGHIJKLMNOPQRSTUVWXYZ
@@ -487,7 +496,7 @@ DESCRIPTION
 ## tragedy + time = humor
 ## http://www.jhsph.edu/
 ## #%&amp;-=***=-&amp;%#</code></pre>
-<p>Every line in the file is printed, because every line contains at least one non-vowel! If you want to specify a range of characters you can use a hyphen (<code>-</code>) inside of the square brackets. For example the regular expression <code>[e-q]</code> matches all of the lowercase letters between “e” and “q” in the alphabet inclusively. Case matters when you’re specifying character sets, so if you wanted to only match uppercase characters you’d need to use <code>[E-Q]</code>. To ignore the case of your match you could combine the character sets with the <code>[e-qE-Q]</code> regex (short for regular expression), or you could use the <code>-i</code> flag with <code>grep</code> to <strong>i</strong>gnore the care. Note that the <code>-i</code> flag will work providied any regular expression, not just character sets. Let’s take a look at some examples using the regular expressions that we just described:</p>
+<p>Every line in the file is printed, because every line contains at least one non-vowel! If you want to specify a range of characters you can use a hyphen (<code>-</code>) inside of the square brackets. For example the regular expression <code>[e-q]</code> matches all of the lowercase letters between “e” and “q” in the alphabet inclusively. Case matters when you’re specifying character sets, so if you wanted to only match uppercase characters you’d need to use <code>[E-Q]</code>. To ignore the case of your match you could combine the character sets with the <code>[e-qE-Q]</code> regex (short for regular expression), or you could use the <code>-i</code> flag with <code>grep</code> to <strong>i</strong>gnore the case. Note that the <code>-i</code> flag will work for any provided regular expression, not just character sets. Let’s take a look at some examples using the regular expressions that we just described:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">egrep</span> <span class="st">&quot;[e-q]&quot;</span> small.txt</code></pre></div>
 <pre><code>## abcdefghijklmnopqrstuvwxyz
 ## rhythms
@@ -509,7 +518,7 @@ DESCRIPTION
 <pre><code>## tragedy + time = humor</code></pre>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">egrep</span> <span class="st">&quot;\.&quot;</span> small.txt</code></pre></div>
 <pre><code>## http://www.jhsph.edu/</code></pre>
-<p>There are three more metacharacters that we should discuss, and two of them come as a pair: the caret (<code>^</code>), which represents the start of a line, and the dollar sign (<code>$</code>) which represents the end of line. These “anchor characters” only match the beginning and ends of lines when couples with other regular expressions. For example, going back to looking at states.txt, I could search for all of the state names that begin with “M” with the following command:</p>
+<p>There are three more metacharacters that we should discuss, and two of them come as a pair: the caret (<code>^</code>), which represents the start of a line, and the dollar sign (<code>$</code>) which represents the end of line. These “anchor characters” only match the beginning and ends of lines when coupled with other regular expressions. For example, going back to looking at states.txt, I could search for all of the state names that begin with “M” with the following command:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">egrep</span> <span class="st">&quot;^M&quot;</span> states.txt</code></pre></div>
 <pre><code>## Maine
 ## Maryland
@@ -544,7 +553,7 @@ DESCRIPTION
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">egrep</span> -n <span class="st">&quot;t$&quot;</span> states.txt</code></pre></div>
 <pre><code>## 7:Connecticut
 ## 45:Vermont</code></pre>
-<p>And you can also <code>grep</code> multiple files at once but providing multiple file arguments:</p>
+<p>And you can also <code>grep</code> multiple files at once by providing multiple file arguments:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">egrep</span> <span class="st">&quot;New&quot;</span> states.txt canada.txt</code></pre></div>
 <pre><code>## states.txt:New Hampshire
 ## states.txt:New Jersey
@@ -657,7 +666,7 @@ DESCRIPTION
 </div>
 <div id="find" class="section level3">
 <h3><span class="header-section-number">4.3.5</span> <code>find</code></h3>
-<p>If you want to find the location of a file or the location of a group of files you can use the <code>find</code> command. This command has a specific structure where the first argument is the directory where you want to begin the search, and all directories contained within that directory will also be searched. The first argument is then followed by a flag that describes the method you want to use to search, in this case we’ll only be searching for a file by its name, so we’ll use the <code>-name</code> flag. The <code>-name</code> flag itself then takes an argument, the name of the file that you’re looking for. Let’s go back to the home directory and look for some files from there:</p>
+<p>If you want to find the location of a file or the location of a group of files you can use the <code>find</code> command. This command has a specific structure where the first argument is the directory where you want to begin the search, and all directories contained within that directory will also be searched. The first argument is then followed by a flag that describes the method you want to use to search. In this case we’ll only be searching for a file by its name, so we’ll use the <code>-name</code> flag. The <code>-name</code> flag itself then takes an argument, the name of the file that you’re looking for. Let’s go back to the home directory and look for some files from there:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span>
 <span class="kw">pwd</span></code></pre></div>
 <pre><code>## /Users/sean</code></pre>
@@ -687,7 +696,7 @@ DESCRIPTION
 <ol style="list-style-type: decimal">
 <li>Search <code>states.txt</code> and <code>canada.txt</code> for lines that contain the word “New”.</li>
 <li>Make five text files containing the names of states that don’t contain one of each of the five vowels.</li>
-<li>Download GitHub repository for this book and find out how many <code>.html</code> files it contains.</li>
+<li>Download the GitHub repository for this book and find out how many <code>.html</code> files it contains.</li>
 </ol>
 </div>
 </div>
@@ -711,7 +720,7 @@ DESCRIPTION
 <pre><code>## 4a5,6
 ## &gt; California
 ## &gt; Colorado</code></pre>
-<p>Only the differing lines are printed to the console. We could also compare differening lines in a side-by-side comparison using <code>sdiff</code>:</p>
+<p>Only the differing lines are printed to the console. We could also compare differing lines in a side-by-side comparison using <code>sdiff</code>:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sdiff</span> four.txt six.txt</code></pre></div>
 <pre><code>## Alabama                          Alabama
 ## Alaska                               Alaska
@@ -720,7 +729,7 @@ DESCRIPTION
 ##                                &gt; California
 ##                                &gt; Colorado</code></pre>
 <p>Sometimes you might be sent a file, or you might download a file from the internet that comes with code known as a <strong>checksum</strong> or a <strong>hash</strong>. Hashing programs generate a unique code based on the contents of a file. People distribute hashes with files so that you can be sure that the file you think you’re downloading is the genuine file????????????????????????</p>
-<p>There are a few commonly used file hases but we’ll talk about two called MD5 and SHA-1.</p>
+<p>There are a few commonly used file hashes but we’ll talk about two called MD5 and SHA-1.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cp</span> states.txt states_copy.txt
 <span class="kw">md5</span> states.txt</code></pre></div>
 <pre><code>## MD5 (states.txt) = 8d7dd71ff51614e69339b03bd1cb86ac</code></pre>

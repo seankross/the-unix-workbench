@@ -1,1 +1,3 @@
 # Crypto
+
+> After dark, all cats are leopards. - Zuni Indian proverb

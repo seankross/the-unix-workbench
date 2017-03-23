@@ -1,5 +1,7 @@
 # Getting Unix
 
+> An indispensible thing never has much value. - Russian proverb
+
 ## Mac & Ubuntu Users
 
 If you're using a Mac or you're using the Ubuntu operating system find a

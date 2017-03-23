@@ -1,5 +1,7 @@
 # Nephology
 
+> I saw a city in the clouds. - Dagobahnian proverb
+
 Nephology is the study of clouds. Few modern technology concepts (other than 
 data science and artificial intelligence) have been hyped as loudly as "the
 cloud." The cloud is simply somebody else's computer which you're usually

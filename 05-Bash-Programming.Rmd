@@ -1,5 +1,7 @@
 # Bash Programming
 
+> Communities begin by building their kitchen. - French proverb
+
 The last two chapters have discussed how to use the bash shell. Bash itself is a
 little programming language, and this chapter we're going to discuss how you can
 write your own computer programs in Bash. Programming in Bash is useful to know
@@ -389,12 +391,217 @@ then use those words in a sentence (like [Mad Libs](https://en.wikipedia.org/wik
 
 ## Logic and If/Else
 
+### Conditional Execution
+
 When writing computer programs it is often useful for your program to be able to
 make decisions based on inputs like arguments, files, and environmental
-variables. Bash provides mechanisms for creating logical expressions, which
-resemble mathematical equations, and these logical expressions can be evaluated
+variables. Bash provides mechanisms for creating **logical expressions** which
+resemble mathematical equations. These logical expressions can be evaluated
 until they are either true or false. In fact, `true` and `false` are both simple
-Bash commands!
+Bash commands! Let's try them both out now:
+
+```{r, engine='bash', eval=FALSE}
+true
+false
+```
+
+At first it doesn't look like they do much. In order to see how they work, we're
+going to need to look under the hood of Unix a little bit. Whenever you exceute
+a program on the command line, in general one of two things will happen: either
+the command is executed successfully, or there's an error. In terms of errors
+there are many ways that a program can go wrong, and Unix can take different
+action depending on what kind of error occurs. For example if I enter the name
+of a command that does not exist into the keyboard, then I'll see an error:
+
+```{r, engine='bash', error=TRUE}
+this_command_does_not_exist
+```
+
+Since that command does not exist, it creates a specific kind of error which is
+indicated by the program's **exit status**. The exit status of a program is an
+integer, the exit status of the last program run is stored in the question mark
+variable (`$?`). We can take a look at the exit status of the last program with
+`echo`:
+
+```{r, engine='bash', eval=FALSE}
+echo $?
+```
+
+```
+## 127
+```
+
+This particular exit status made an indication to the shell that it should
+print an error message to the console. What's the exit status of a program that
+runs successfully? Let's take a look:
+
+```{r, engine='bash', eval=FALSE}
+echo I will succeed.
+echo $?
+```
+
+```
+## I will succeed.
+## 0 
+```
+
+So the exit status of a successful program is 0. Now let's take a look at the
+exit statuses of `true` and `false`:
+
+```{r, engine='bash'}
+true
+echo $?
+false
+echo $?
+```
+
+As you can see `true` has an exit status of 0 and `false` has an exit status of
+1. Since there programs don't do much else, you could define `true` as a program
+that always has an exit status of 0 and `false` as a program that always has an
+exit status of 1.
+
+Knowing the exit status of these programs is important when discussing the
+**logical operators**: the AND operator (`&&`) and the OR operator (`||`). The
+AND and OR operators can be used for conditional execution of programs on the
+command line. Conditional execution occurs when the execution of one program
+depends on the exit status of another program. For example in the case of the
+AND operator, the program on the right hand side of `&&` will only be executed
+if the program on the left hand side of `&&` has an exit status of 0. Let's
+take a look at some small examples:
+
+```{r, engine='bash', error=TRUE}
+true && echo "Program 1 was executed."
+false && echo "Program 2 was executed."
+```
+
+Since `false` has an exit status of 1, the program `echo "Program 2 was executed."`
+is not executed, so nothing is printed to the console for that line command.
+Several AND operators can be chained together like so:
+
+```{r, engine='bash', error=TRUE}
+false && true && echo Hello
+echo 1 && false && echo 3
+echo Athos && echo Porthos && echo Aramis
+```
+
+In a series of programs joined toegther by AND operators, any programs to the
+right of a program that has a non-zero exit status is not executed.
+
+The OR operator (`||`) follows a similar set of principles. Commands on the right
+hand side of `||` are only executed if the command on the left hand side *fails*
+and therefore has an exit status other than 0. Let's take a look at how this
+works:
+
+```{r, engine='bash', error=TRUE}
+true || echo "Program 1 was executed."
+false || echo "Program 2 was executed."
+```
+
+Only `echo "Program 2 was executed."` runs because `false` has a non-zero exit
+status. You can combine multiple OR operators so that only the first program
+with an exit status of 0 is executed:
+
+```{r, engine='bash', error=TRUE}
+false || echo 1 || echo 2
+echo 3 || false || echo 4
+echo Athos || echo Porthos || echo Aramis
+```
+
+You can combine AND and OR operators in commands, which are evaluated from left
+to right:
+
+```{r, engine='bash', error=TRUE}
+echo Athos || echo Porthos && echo Aramis
+echo Gaspar && echo Balthasar || echo Melchior
+```
+
+By combining AND and OR operators you can precisely control the conditions for
+when certain commands should be executed.
+
+### Conditional Expressions
+
+Enabling your Bash script to make decisions is extremely useful. Conditional
+execution allows you to control the circumstances where certain programs are
+executed based on whether those programs succeed or fail, but you can also
+construct **conditional expressions** which are logical statements that are
+either equivalent to `true` or `false`. Conditional expressions either compare
+two values, or they ask a question about one value. Conditional expressions are
+always between double brackets (`[[ ]]`), and they either use **logical flags**
+or **logical operators**. For example, there are several logical flags you could
+use for comparing two integers. If we wanted to see if one integer was greater
+than another we could use `-gt`, the **g**reater **t**han flag. Enter this
+simple conditional expression into the command line:
+
+```{r, engine='bash', error=TRUE}
+[[ 4 -gt 3 ]]
+```
+
+The logical expression above is asking: Is 4 greater than 3? No result is
+printed to the console so let's check the exit status of that expression.
+
+```{r, engine='bash', eval=FALSE}
+echo $?
+```
+
+```
+## 0
+```
+
+It looks like the exit status of this program is 0, the same exit status as
+`true`. This conditional expression is saying that `[[ 4 -gt 3 ]]` is equivalent
+to `true`, which of course we know is logically consistent, 4 is in fact greater
+than 3! Let's see what happens if we flip the expression around so we're asking
+if 3 is greater than 4:
+
+```{r, engine='bash', error=TRUE}
+[[ 3 -gt 4 ]]
+```
+
+Again, nothing is printed to the console so we'll look at the exit status:
+
+```{r, engine='bash', eval=FALSE}
+echo $?
+```
+
+```
+## 1
+```
+
+Ah-ha! Obviously 3 is not greater than 4, so this false logical expression 
+resulted in an exit status of 1, which is the same exit status as `false`! 
+Because they have the same exit status `[[ 3 -gt 4 ]]` and `false` are
+essentially equivalent. To quickly test the logical value of a conditional
+expression, we can use the AND and OR operators so that an expression will
+print "t" if it's true and "f" if its false:
+
+```{r, engine='bash', error=TRUE}
+[[ 4 -gt 3 ]] && echo t || echo f
+[[ 3 -gt 4 ]] && echo t || echo f
+```
+
+
+
+| Logical Flag | Meaning | Usage |
+|:-------------|:--------|:------|
+| -gt | **G**reater **T**han | `[[ $planets -gt 8 ]]` |
+| -ge | **G**reater Than or **E**qual To | `[[ $votes -ge 270 ]]` |
+| -eq | **Eq**ual | `[[ $fingers -eq 10 ]]` |
+| -ne | **N**ot **E**qual | `[[ $pages -ne 0 ]]` |
+| -le | **L**ess Than or **E**qual To | `[[ $candles -le 8 ]]` |
+| -lt | **L**ess **T**han | `[[ $wives -lt 2 ]]` |
+| -e | A File **E**xists | `[[ -e $taxes_2016 ]]` |
+| -d | A **D**irectory Exists | `[[ -d $photos ]]` |
+| -z | Length of String is **Z**ero | `[[ -z $name ]]` |
+| -n | Length of String is **N**on-Zero | `[[ -n $name ]]` |
+
+| Logical Operator | Meaning | Usage |
+|:-------------|:--------|:------|
+| =~ | Matches Regular Expression | `[[ $consonants =~ [aeiou] ]]` |
+| = | Equal To | `[[ $fingers = 10 ]]` |
+| != | Not Equal To | `[[ $pages != 0 ]]` |
+| ! | Not | `[[ ! "apple" =~ ^b ]]` |
+
+
 
 ## Arrays
 

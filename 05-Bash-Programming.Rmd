@@ -579,6 +579,24 @@ print "t" if it's true and "f" if its false:
 [[ 3 -gt 4 ]] && echo t || echo f
 ```
 
+This is a little trick you can use to quickly look at the resulting value of a
+logical expression.
+
+These **binary** logical expressions compare two values, but there are also
+**unary** logical expressions that only look at one value. For example, you can
+test whether or not a file exists using the `-e` logical flag. Let's take a look
+at this flag in action:
+
+```{r, engine='bash', eval=FALSE}
+cd ~/Code
+[[ -e math.sh ]] && echo t || echo f
+```
+
+```
+## t
+```
+
+As you can see the file `math.sh` exists!
 
 
 | Logical Flag | Meaning | Usage |

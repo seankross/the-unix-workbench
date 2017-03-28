@@ -596,8 +596,22 @@ cd ~/Code
 ## t
 ```
 
-As you can see the file `math.sh` exists!
+As you can see the file `math.sh` exists! Most of the time when you'r writing
+bash scripts you won't be comparing two raw values or trying to find something
+out about one raw value, instead you'll want to create a logical statememnt
+about a value contained ina variable. Variables behave just like raw values in
+logical expressions. Let's take a look at a few examples:
 
+```{r, engine='bash', error=TRUE}
+number=7
+[[ $number -gt 3 ]] && echo t || echo f
+[[ $number -gt 10 ]] && echo t || echo f
+[[ -e $number ]] && echo t || echo f
+```
+
+As you can see 7 is greater than 3 though it is not greater than 10, and there
+is not file in this directory called `7`. There are several other varieties of
+logcial flags, and you can find a table of several of these flags below.
 
 | Logical Flag | Meaning | Usage |
 |:-------------|:--------|:------|
@@ -605,12 +619,29 @@ As you can see the file `math.sh` exists!
 | -ge | **G**reater Than or **E**qual To | `[[ $votes -ge 270 ]]` |
 | -eq | **Eq**ual | `[[ $fingers -eq 10 ]]` |
 | -ne | **N**ot **E**qual | `[[ $pages -ne 0 ]]` |
-| -le | **L**ess Than or **E**qual To | `[[ $candles -le 8 ]]` |
+| -le | **L**ess Than or **E**qual To | `[[ $candles -le 9 ]]` |
 | -lt | **L**ess **T**han | `[[ $wives -lt 2 ]]` |
 | -e | A File **E**xists | `[[ -e $taxes_2016 ]]` |
 | -d | A **D**irectory Exists | `[[ -d $photos ]]` |
 | -z | Length of String is **Z**ero | `[[ -z $name ]]` |
 | -n | Length of String is **N**on-Zero | `[[ -n $name ]]` |
+
+Try using each of these flags on the command line before moving on to the next
+section.
+
+In addition to logical flags there are also logical operators. One of the most
+useful logical operators is the regex match operator `=~`. The regex match
+operator compares a string to a regular expression and if the string is a match
+for the regex then the expression is equivalent to `true`, otherwise it's
+equivalent to `false`. Let's test this operator a couple different ways:
+
+```{r, engine='bash', error=TRUE}
+[[ rhythms =~ [aeiou] ]] && echo t || echo f
+my_name=sean
+[[ $my_name =~ ^s.+n$ ]] && echo t || echo f
+```
+
+There's also the NOT operator `!`
 
 | Logical Operator | Meaning | Usage |
 |:-------------|:--------|:------|

@@ -26,7 +26,7 @@
 <meta name="author" content="Sean Kross">
 
 
-<meta name="date" content="2017-03-23">
+<meta name="date" content="2017-03-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -464,6 +464,19 @@ echo &quot;You entered: $response&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">[[</span> 4 <span class="ot">-gt</span> 3<span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="kw">echo</span> t <span class="kw">||</span> <span class="kw">echo</span> f
 <span class="kw">[[</span> 3 <span class="ot">-gt</span> 4<span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="kw">echo</span> t <span class="kw">||</span> <span class="kw">echo</span> f</code></pre></div>
 <pre><code>## t
+## f</code></pre>
+<p>This is a little trick you can use to quickly look at the resulting value of a logical expression.</p>
+<p>These <strong>binary</strong> logical expressions compare two values, but there are also <strong>unary</strong> logical expressions that only look at one value. For example, you can test whether or not a file exists using the <code>-e</code> logical flag. Let’s take a look at this flag in action:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span> ~/Code
+<span class="kw">[[</span> <span class="ot">-e</span> math.sh<span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="kw">echo</span> t <span class="kw">||</span> <span class="kw">echo</span> f</code></pre></div>
+<pre><code>## t</code></pre>
+<p>As you can see the file <code>math.sh</code> exists! Most of the time when you’r writing bash scripts you won’t be comparing two raw values or trying to find something out about one raw value, instead you’ll want to create a logical statememnt about a value contained ina variable. Variables behave just like raw values in logical expressions. Let’s take a look at a few examples:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ot">number=</span>7
+<span class="kw">[[</span> <span class="ot">$number</span> <span class="ot">-gt</span> 3<span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="kw">echo</span> t <span class="kw">||</span> <span class="kw">echo</span> f
+<span class="kw">[[</span> <span class="ot">$number</span> <span class="ot">-gt</span> 10<span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="kw">echo</span> t <span class="kw">||</span> <span class="kw">echo</span> f
+<span class="kw">[[</span> <span class="ot">-e</span> <span class="ot">$number</span><span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="kw">echo</span> t <span class="kw">||</span> <span class="kw">echo</span> f</code></pre></div>
+<pre><code>## t
+## f
 ## f</code></pre>
 <table>
 <thead>

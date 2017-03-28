@@ -668,6 +668,43 @@ print "t" if it's true and "f" if its false:
 ## f
 ```
 
+This is a little trick you can use to quickly look at the resulting value of a
+logical expression.
+
+These **binary** logical expressions compare two values, but there are also
+**unary** logical expressions that only look at one value. For example, you can
+test whether or not a file exists using the `-e` logical flag. Let's take a look
+at this flag in action:
+
+
+```bash
+cd ~/Code
+[[ -e math.sh ]] && echo t || echo f
+```
+
+```
+## t
+```
+
+As you can see the file `math.sh` exists! Most of the time when you'r writing
+bash scripts you won't be comparing two raw values or trying to find something
+out about one raw value, instead you'll want to create a logical statememnt
+about a value contained ina variable. Variables behave just like raw values in
+logical expressions. Let's take a look at a few examples:
+
+
+```bash
+number=7
+[[ $number -gt 3 ]] && echo t || echo f
+[[ $number -gt 10 ]] && echo t || echo f
+[[ -e $number ]] && echo t || echo f
+```
+
+```
+## t
+## f
+## f
+```
 
 
 | Logical Flag | Meaning | Usage |

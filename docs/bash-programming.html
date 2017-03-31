@@ -26,7 +26,7 @@
 <meta name="author" content="Sean Kross">
 
 
-<meta name="date" content="2017-03-30">
+<meta name="date" content="2017-03-31">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -172,12 +172,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.4.4" data-path="bash-programming.html"><a href="bash-programming.html#summary-10"><i class="fa fa-check"></i><b>5.4.4</b> Summary</a></li>
 <li class="chapter" data-level="5.4.5" data-path="bash-programming.html"><a href="bash-programming.html#exercises-10"><i class="fa fa-check"></i><b>5.4.5</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="bash-programming.html"><a href="bash-programming.html#arrays"><i class="fa fa-check"></i><b>5.5</b> Arrays</a></li>
+<li class="chapter" data-level="5.5" data-path="bash-programming.html"><a href="bash-programming.html#arrays"><i class="fa fa-check"></i><b>5.5</b> Arrays</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="bash-programming.html"><a href="bash-programming.html#summary-11"><i class="fa fa-check"></i><b>5.5.1</b> Summary</a></li>
+<li class="chapter" data-level="5.5.2" data-path="bash-programming.html"><a href="bash-programming.html#exercises-11"><i class="fa fa-check"></i><b>5.5.2</b> Exercises</a></li>
+</ul></li>
 <li class="chapter" data-level="5.6" data-path="bash-programming.html"><a href="bash-programming.html#braces"><i class="fa fa-check"></i><b>5.6</b> Braces</a></li>
 <li class="chapter" data-level="5.7" data-path="bash-programming.html"><a href="bash-programming.html#loops"><i class="fa fa-check"></i><b>5.7</b> Loops</a></li>
 <li class="chapter" data-level="5.8" data-path="bash-programming.html"><a href="bash-programming.html#functions"><i class="fa fa-check"></i><b>5.8</b> Functions</a></li>
 <li class="chapter" data-level="5.9" data-path="bash-programming.html"><a href="bash-programming.html#writing-programs"><i class="fa fa-check"></i><b>5.9</b> Writing Programs</a><ul>
-<li class="chapter" data-level="5.9.1" data-path="bash-programming.html"><a href="bash-programming.html#exercises-11"><i class="fa fa-check"></i><b>5.9.1</b> Exercises</a></li>
+<li class="chapter" data-level="5.9.1" data-path="bash-programming.html"><a href="bash-programming.html#exercises-12"><i class="fa fa-check"></i><b>5.9.1</b> Exercises</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="git-and-github.html"><a href="git-and-github.html"><i class="fa fa-check"></i><b>6</b> Git and GitHub</a></li>
@@ -216,7 +219,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>You should now have a new, clean text file open. Any code block in the following chapters that starts with the code (or similar) below should indicate to you that we’re working on a particular text file.</p>
 <pre><code>#!/usr/bin/env bash
 # File: math.sh</code></pre>
-<p>You do not need to add these lines to your file, though you should type exactly what I have typed below these lines. <strong>Note</strong>: please type all of the lines out for every program that we’re going to write, do not copy and paste. Typing code is a little different from typing an email, and you should practice typing the code out yourself as much as possible. Both of these lines start with the pound symbol (<code>#</code>) and in the Bash programming language anything that is typed after a pound symbol is ignored. The pound symbol allows you to make <strong>comments</strong> in your code which you can use to annotate code so that another human being who is reading your code can understand how your program is designed to function.</p>
+<p>You do not need to add these lines to your file, though you should type exactly what I have typed below these lines. <strong>Note</strong>: please type all of the lines out for every program that we’re going to write, do not copy and paste. Typing code is a little different from typing an email, and you should practice typing the code out yourself as much as possible. Both of these lines start with the pound symbol (<code>#</code>) and in the Bash programming language anything that is typed after a pound symbol is ignored (unless the pound symbol is between curly brackets (<code>{ }</code>), but that’s only in very specific situations). The pound symbol allows you to make <strong>comments</strong> in your code which you can use to annotate code so that another human being who is reading your code can understand how your program is designed to function.</p>
 <p>If you’re using <code>nano</code> or another shell-based text editor you should perhaps open up two terminals, one where you can edit and save the programs you’re working on, and one where you can run your programs. One advantage of using Atom is that you can keep Atom open in a separate window and then run your programs in your terminal window.</p>
 <div id="math" class="section level2">
 <h2><span class="header-section-number">5.1</span> Math</h2>
@@ -765,9 +768,37 @@ fi</code></pre>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">echo</span> <span class="ot">${plagues[*]:5:3}</span></code></pre></div>
 <pre><code>## boils hail locusts</code></pre>
 <p>The above query essentially says: get 3 array elements starting from the sixth element of the array (remember, the sixth element has an index of 5).</p>
+<p>You can find the length of an array using the pound sign (<code>#</code>):</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">echo</span> <span class="ot">${#plagues[*]}</span></code></pre></div>
+<pre><code>## 10</code></pre>
+<p>You can use the plus-equals operator (<code>+=</code>) to add an array onto the end of an array array:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ot">dwarfs=(</span>grumpy sleepy sneezy doc<span class="ot">)</span>
+<span class="kw">echo</span> <span class="ot">${dwarfs[*]}</span>
+<span class="ot">dwarfs+=(</span>bashful dopey happy<span class="ot">)</span>
+<span class="kw">echo</span> <span class="ot">${dwarfs[*]}</span></code></pre></div>
+<pre><code>## grumpy sleepy sneezy doc
+## grumpy sleepy sneezy doc bashful dopey happy</code></pre>
+<div id="summary-11" class="section level3">
+<h3><span class="header-section-number">5.5.1</span> Summary</h3>
+<ul>
+<li>Arrays are a linear data structure with ordered elements which can be stored in variables.</li>
+<li>The each element of an array has an index and the first index is 0.</li>
+<li>Individual elements of an array can be accessed using their index.</li>
+</ul>
+</div>
+<div id="exercises-11" class="section level3">
+<h3><span class="header-section-number">5.5.2</span> Exercises</h3>
+<ol style="list-style-type: decimal">
+<li>Write a bash script where you define an array inside of the script, and the first argument for the script indicates the index of the array element that is printed to the console when the script is run.</li>
+<li>Write a bash script where you define two arrays inside of the script, and the sum of the lengths of the arrays are printed to the console when the script is run.</li>
+</ol>
+</div>
 </div>
 <div id="braces" class="section level2">
 <h2><span class="header-section-number">5.6</span> Braces</h2>
+<p>Bash has a very handy tool for creating strings out of sequences called <strong>brace expansion</strong>. Brace expansion uses the curly brackets and two periods (<code>{ .. }</code>) to create a sequence of letters or numbers. For example to create a string with all of the numbers between zero and nine you could do the following:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">echo</span> <span class="dt">{0..9}</span></code></pre></div>
+<pre><code>## 0 1 2 3 4 5 6 7 8 9</code></pre>
 </div>
 <div id="loops" class="section level2">
 <h2><span class="header-section-number">5.7</span> Loops</h2>
@@ -777,7 +808,7 @@ fi</code></pre>
 </div>
 <div id="writing-programs" class="section level2">
 <h2><span class="header-section-number">5.9</span> Writing Programs</h2>
-<div id="exercises-11" class="section level3">
+<div id="exercises-12" class="section level3">
 <h3><span class="header-section-number">5.9.1</span> Exercises</h3>
 <p>Write a program that takes one number as an argument and prints “the number is even” if the number is even, “the number is odd” if the number is odd, and “the number is less than 1” if the number is less than 1.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">evenodd</span> 6</code></pre></div>

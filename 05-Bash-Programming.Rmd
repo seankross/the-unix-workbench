@@ -36,7 +36,9 @@ for every program that we're going to write, do not copy and paste. Typing code
 is a little different from typing an email, and you should practice typing the
 code out yourself as much as possible. Both of these lines start with the pound
 symbol (`#`) and in the Bash programming language anything that is typed after
-a pound symbol is ignored. The pound symbol allows you to make **comments** in
+a pound symbol is ignored (unless the pound symbol is between curly brackets
+(`{ }`), but that's only in very specific situations). The pound symbol allows 
+you to make **comments** in
 your code which you can use to annotate code so that another human being who is
 reading your code can understand how your program is designed to function.
 
@@ -1023,8 +1025,52 @@ echo ${plagues[*]:5:3}
 The above query essentially says: get 3 array elements starting from the sixth
 element of the array (remember, the sixth element has an index of 5).
 
+You can find the length of an array using the pound sign (`#`):
+
+```{r, engine='bash', eval=FALSE}
+echo ${#plagues[*]}
+```
+
+```
+## 10
+```
+
+You can use the plus-equals operator (`+=`) to add an array onto the end of
+an array array:
+
+```{r, engine='bash'}
+dwarfs=(grumpy sleepy sneezy doc)
+echo ${dwarfs[*]}
+dwarfs+=(bashful dopey happy)
+echo ${dwarfs[*]}
+```
+
+### Summary
+
+- Arrays are a linear data structure with ordered elements which can be stored
+in variables.
+- The each element of an array has an index and the first index is 0.
+- Individual elements of an array can be accessed using their index.
+
+### Exercises
+
+1. Write a bash script where you define an array inside of the script, and the
+first argument for the script indicates the index of the array element that is
+printed to the console when the script is run.
+2. Write a bash script where you define two arrays inside of the script, and the
+sum of the lengths of the arrays are printed to the console when the script is
+run.
 
 ## Braces
+
+Bash has a very handy tool for creating strings out of sequences called
+**brace expansion**. Brace expansion uses the curly brackets and two periods
+(`{ .. }`) to create a sequence of letters or numbers. For example to create a
+string with all of the numbers between zero and nine you could do the following:
+
+```{r, engine='bash'}
+echo {0..9}
+```
 
 ## Loops
 

@@ -26,7 +26,7 @@
 <meta name="author" content="Sean Kross">
 
 
-<meta name="date" content="2017-03-28">
+<meta name="date" content="2017-03-30">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -168,13 +168,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.4" data-path="bash-programming.html"><a href="bash-programming.html#logic-and-ifelse"><i class="fa fa-check"></i><b>5.4</b> Logic and If/Else</a><ul>
 <li class="chapter" data-level="5.4.1" data-path="bash-programming.html"><a href="bash-programming.html#conditional-execution"><i class="fa fa-check"></i><b>5.4.1</b> Conditional Execution</a></li>
 <li class="chapter" data-level="5.4.2" data-path="bash-programming.html"><a href="bash-programming.html#conditional-expressions"><i class="fa fa-check"></i><b>5.4.2</b> Conditional Expressions</a></li>
+<li class="chapter" data-level="5.4.3" data-path="bash-programming.html"><a href="bash-programming.html#if-and-else"><i class="fa fa-check"></i><b>5.4.3</b> If and Else</a></li>
+<li class="chapter" data-level="5.4.4" data-path="bash-programming.html"><a href="bash-programming.html#summary-10"><i class="fa fa-check"></i><b>5.4.4</b> Summary</a></li>
+<li class="chapter" data-level="5.4.5" data-path="bash-programming.html"><a href="bash-programming.html#exercises-10"><i class="fa fa-check"></i><b>5.4.5</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="5.5" data-path="bash-programming.html"><a href="bash-programming.html#arrays"><i class="fa fa-check"></i><b>5.5</b> Arrays</a></li>
 <li class="chapter" data-level="5.6" data-path="bash-programming.html"><a href="bash-programming.html#braces"><i class="fa fa-check"></i><b>5.6</b> Braces</a></li>
 <li class="chapter" data-level="5.7" data-path="bash-programming.html"><a href="bash-programming.html#loops"><i class="fa fa-check"></i><b>5.7</b> Loops</a></li>
 <li class="chapter" data-level="5.8" data-path="bash-programming.html"><a href="bash-programming.html#functions"><i class="fa fa-check"></i><b>5.8</b> Functions</a></li>
 <li class="chapter" data-level="5.9" data-path="bash-programming.html"><a href="bash-programming.html#writing-programs"><i class="fa fa-check"></i><b>5.9</b> Writing Programs</a><ul>
-<li class="chapter" data-level="5.9.1" data-path="bash-programming.html"><a href="bash-programming.html#exercises-10"><i class="fa fa-check"></i><b>5.9.1</b> Exercises</a></li>
+<li class="chapter" data-level="5.9.1" data-path="bash-programming.html"><a href="bash-programming.html#exercises-11"><i class="fa fa-check"></i><b>5.9.1</b> Exercises</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="git-and-github.html"><a href="git-and-github.html"><i class="fa fa-check"></i><b>6</b> Git and GitHub</a></li>
@@ -478,6 +481,7 @@ echo &quot;You entered: $response&quot;</code></pre>
 <pre><code>## t
 ## f
 ## f</code></pre>
+<p>As you can see 7 is greater than 3 though it is not greater than 10, and there is not file in this directory called <code>7</code>. There are several other varieties of logcial flags, and you can find a table of several of these flags below.</p>
 <table>
 <thead>
 <tr class="header">
@@ -510,7 +514,7 @@ echo &quot;You entered: $response&quot;</code></pre>
 <tr class="odd">
 <td align="left">-le</td>
 <td align="left"><strong>L</strong>ess Than or <strong>E</strong>qual To</td>
-<td align="left"><code>[[ $candles -le 8 ]]</code></td>
+<td align="left"><code>[[ $candles -le 9 ]]</code></td>
 </tr>
 <tr class="even">
 <td align="left">-lt</td>
@@ -539,6 +543,23 @@ echo &quot;You entered: $response&quot;</code></pre>
 </tr>
 </tbody>
 </table>
+<p>Try using each of these flags on the command line before moving on to the next section.</p>
+<p>In addition to logical flags there are also logical operators. One of the most useful logical operators is the regex match operator <code>=~</code>. The regex match operator compares a string to a regular expression and if the string is a match for the regex then the expression is equivalent to <code>true</code>, otherwise it’s equivalent to <code>false</code>. Let’s test this operator a couple different ways:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">[[</span> rhythms =~ [aeiou]<span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="kw">echo</span> t <span class="kw">||</span> <span class="kw">echo</span> f
+<span class="ot">my_name=</span>sean
+<span class="kw">[[</span> <span class="ot">$my_name</span> =~ ^s.+n$<span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="kw">echo</span> t <span class="kw">||</span> <span class="kw">echo</span> f</code></pre></div>
+<pre><code>## f
+## t</code></pre>
+<p>There’s also the NOT operator <code>!</code>, which inverts the value of any conditional expression. The NOT operator turns true expressions into false expressions and vice-versa. Let’s take a look at a few examples using the NOT operator:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">[[</span> 7 <span class="ot">-gt</span> 2<span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="kw">echo</span> t <span class="kw">||</span> <span class="kw">echo</span> f
+<span class="kw">[[</span> <span class="ot">!</span> 7 <span class="ot">-gt</span> 2<span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="kw">echo</span> t <span class="kw">||</span> <span class="kw">echo</span> f
+<span class="kw">[[</span> 6 <span class="ot">-ne</span> 3<span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="kw">echo</span> t <span class="kw">||</span> <span class="kw">echo</span> f
+<span class="kw">[[</span> <span class="ot">!</span> 6 <span class="ot">-ne</span> 3<span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="kw">echo</span> t <span class="kw">||</span> <span class="kw">echo</span> f</code></pre></div>
+<pre><code>## t
+## f
+## t
+## f</code></pre>
+<p>Here’s a table of some of the useful logical operators in case you need to reference how they’re used later:</p>
 <table>
 <thead>
 <tr class="header">
@@ -555,13 +576,13 @@ echo &quot;You entered: $response&quot;</code></pre>
 </tr>
 <tr class="even">
 <td align="left">=</td>
-<td align="left">Equal To</td>
-<td align="left"><code>[[ $fingers = 10 ]]</code></td>
+<td align="left">String Equal To</td>
+<td align="left"><code>[[ $password = &quot;pegasus&quot; ]]</code></td>
 </tr>
 <tr class="odd">
 <td align="left">!=</td>
-<td align="left">Not Equal To</td>
-<td align="left"><code>[[ $pages != 0 ]]</code></td>
+<td align="left">String Not Equal To</td>
+<td align="left"><code>[[ $fruit != &quot;banana&quot; ]]</code></td>
 </tr>
 <tr class="even">
 <td align="left">!</td>
@@ -571,9 +592,179 @@ echo &quot;You entered: $response&quot;</code></pre>
 </tbody>
 </table>
 </div>
+<div id="if-and-else" class="section level3">
+<h3><span class="header-section-number">5.4.3</span> If and Else</h3>
+<p>Conditional expressions are powerful because you can use them to control how a Bash program that you’re writing is executed. One of the fundamental constructs in Bash programming is the <strong>IF statement</strong>. Code written inside of an IF statement is only executed <em>if</em> a certain condition is true, otherwise the code is skipped. Let’s write a small program with an IF statement:</p>
+<pre><code>#!/usr/bin/env bash
+# File: simpleif.sh
+
+echo &quot;Start program&quot;
+
+if [[ $1 -eq 4 ]]
+then
+  echo &quot;You entered $1&quot;
+fi
+
+echo &quot;End program&quot;</code></pre>
+<p>First this program will print “Start program”, then the IF statement will check if the conditional expression <code>[[ $1 -eq 4 ]]</code> is true. It will only be true if you provide <code>4</code> as the first argument to the script. If the conditional expression if true then it will execute the code in between <code>then</code> and <code>fi</code>, otherwise it will skip over that code. Finally the program will print “End program.”</p>
+<p>Let’s try running this Bash program a few different ways. First we’ll run this program with no arguments:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">bash</span> simpleif.sh</code></pre></div>
+<pre><code>## Start program
+## End program</code></pre>
+<p>Since we didn’t provide any arguments to <code>simpleif.sh</code> the code withhin the IF statement was skipped! Now let’s try providing an argument to this script:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">bash</span> simpleif.sh 77</code></pre></div>
+<pre><code>## Start program
+## End program</code></pre>
+<p>We providied the argument <code>77</code>, however 77 is not equal to 4, therefore the code within the IF statement was once again skipped. Finally let’s privide <code>4</code> as an argument:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">bash</span> simpleif.sh 4</code></pre></div>
+<pre><code>## Start program
+## You entered 4
+## End program</code></pre>
+<p>It worked! Since the first argument to this script was <code>4</code>, and 4 is equal to 4, the code within the IF statement was executed. You can pair IF statements with ELSE statements. An ELSE statement only runs if the conditional expression being evaluated by the IF statement is false. Let’s create a simple program that uses an ELSE statement:</p>
+<pre><code>#!/usr/bin/env bash
+# File: simpleifelse.sh
+
+echo &quot;Start program&quot;
+
+if [[ $1 -eq 4 ]]
+then
+  echo &quot;Thanks for entering $1&quot;
+else
+  echo &quot;You entered: $1, not what I was looking for.&quot;
+fi
+
+echo &quot;End program&quot;</code></pre>
+<p>Now let’s try running this program a few different ways:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">bash</span> simpleifelse.sh 4</code></pre></div>
+<pre><code>## Start program
+## Thanks for entering 4
+## End program</code></pre>
+<p>The conditional expression <code>[[ $1 -eq 4 ]]</code> was true so code inside of the IF statement was run and the code in the ELSE statement was not run. What do you think will happned when we make the conditional expression false?</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">bash</span> simpleifelse.sh 3</code></pre></div>
+<pre><code>## Start program
+## You entered: 3, not what I was looking for.
+## End program</code></pre>
+<p>The conditional expression <code>[[ $1 -eq 4 ]]</code> was false so code inside of the ELSE statement was run and the code in the IF statement was not run.</p>
+<p>Between IF and ELSE statements you can also have ELIF statements. These statements act like IF statements except they’re only evaluated if preceding IF and ELIF statements have all evaluated false conditional expressions. Let’s create a brief program using ELIF:</p>
+<pre><code>#!/usr/bin/env bash
+# File: simpleelif.sh
+
+if [[ $1 -eq 4 ]]
+then
+  echo &quot;$1 is my favorite number&quot;
+elif [[ $1 -gt 3 ]]
+then
+  echo &quot;$1 is a great number&quot;
+else
+  echo &quot;You entered: $1, not what I was looking for.&quot;
+fi</code></pre>
+<p>First let’s run the program with <code>4</code> as the first argument:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">bash</span> simpleelif.sh 4</code></pre></div>
+<pre><code>## 4 is my favorite number</code></pre>
+<p>The condition in the IF statement was true, so only the first <code>echo</code> command was executed. Now let’s run the program with <code>5</code> as the first argument:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">bash</span> simpleelif.sh 5</code></pre></div>
+<pre><code>## 5 is a great number</code></pre>
+<p>If first condition is false since 5 is not equal to 4, but then the next condition in the ELIF statement is true since 5 is greater than 3, so that echo command is executed and the rest of the statement is skipped. Try to guess what will happen if we use <code>2</code> as an argument:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">bash</span> simpleelif.sh 2</code></pre></div>
+<pre><code>## You entered: 2, not what I was looking for.</code></pre>
+<p>Since 2 is neither equal to 4 nor greater than 5, the code in the ELSE statement is executed.</p>
+<p>You should also know that you can combine conditional execution, conditional expressions, and IF/ELIF/ELSE statements. The conditional execution operators AND (<code>&amp;&amp;</code>) and OR (<code>||</code>) can be used in an IF or ELIF statement. Let’s look at an example using these operators in an IF statement:</p>
+<pre><code>#!/usr/bin/env bash
+# File: condexif.sh
+
+if [[ $1 -gt 3 ]] &amp;&amp; [[ $1 -lt 7 ]]
+then
+  echo &quot;$1 is between 3 and 7&quot;
+elif [[ $1 =~ &quot;Jeff&quot; ]] || [[ $1 =~ &quot;Roger&quot; ]] || [[ $1 =~ &quot;Brian&quot; ]]
+then
+  echo &quot;$1 works in the Data Science Lab&quot;
+else
+  echo &quot;You entered: $1, not what I was looking for.&quot;
+fi</code></pre>
+<p>Now let’s test this script with a few different arguments:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">bash</span> condexif.sh 2
+<span class="kw">bash</span> condexif.sh 4
+<span class="kw">bash</span> condexif.sh 6
+<span class="kw">bash</span> condexif.sh Jeff
+<span class="kw">bash</span> condexif.sh Brian
+<span class="kw">bash</span> condexif.sh Sean</code></pre></div>
+<pre><code>## You entered: 2, not what I was looking for.
+## 4 is between 3 and 7
+## 6 is between 3 and 7
+## Jeff works in the Data Science Lab
+## Brian works in the Data Science Lab
+## You entered: Sean, not what I was looking for.</code></pre>
+<p>The conidtional execution operators work just like they would on the command line. If the entire conditional expression evaluates to the equivalent of <code>true</code> then the code within the IF statement is executed, otherwise it is skipped.</p>
+<p>Finally we should note that IF/ELIF/ELSE statements can be nested inside of other IF statements. Here’s a small example of a program with nested statements:</p>
+<pre><code>#!/usr/bin/env bash
+# File: nested.sh
+
+if [[ $1 -gt 3 ]] &amp;&amp; [[ $1 -lt 7 ]]
+then
+  if [[ $1 -eq 4 ]]
+  then
+    echo &quot;four&quot;
+  elif [[ $1 -eq 5 ]]
+  then
+    echo &quot;five&quot;
+  else
+    echo &quot;six&quot;
+  fi
+else
+  echo &quot;You entered: $1, not what I was looking for.&quot;
+fi</code></pre>
+<p>Now let’s run it a few times:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">bash</span> nested.sh 2
+<span class="kw">bash</span> nested.sh 4
+<span class="kw">bash</span> nested.sh 6</code></pre></div>
+<pre><code>## You entered: 2, not what I was looking for.
+## four
+## six</code></pre>
+<p>In order to get to the inner IF statement, the conditions for the outer IF statement must be met first (the first argument for the script must be between 3 and 7). As you can see combining variables, arguments, conditional expressions, and IF statements allow you to write more powerful Bash programs.</p>
+</div>
+<div id="summary-10" class="section level3">
+<h3><span class="header-section-number">5.4.4</span> Summary</h3>
+<ul>
+<li>All Bash programs have an exit status. <code>true</code> has an exit status of 0 and <code>false</code> has an exit status of 1.</li>
+<li>Conditional execution uses two operators: AND (<code>&amp;&amp;</code>) and OR (<code>||</code>) which you can use to control what command get executed based on their exit status.</li>
+<li>Conditional expressions are always in double brackets (<code>[[ ]]</code>). They have exit an exit status of 0 if they contain a true assertion or 1 if they contain a false assertion.</li>
+<li>IF statements evaluate conditional expressions. If an expression is true then the code within an IF statement is executed, otherwise it is skipped.</li>
+<li>ELIF and ELSE statements also help control the flow of a Bash program, and IF statements can be nested within other IF statements.</li>
+</ul>
+</div>
+<div id="exercises-10" class="section level3">
+<h3><span class="header-section-number">5.4.5</span> Exercises</h3>
+<ol style="list-style-type: decimal">
+<li>Write a Bash script that takes a string as an argument and prints “how proper” if the string starts with a capital letter.</li>
+<li>Write a Bash script that takes one argument and prints “even” if the first argument is an even number or “odd” if the first argument is an odd number.</li>
+<li>Write a Bash script that takes two arguments. If both arguments are numbers, print their sum, otherwise just print both arguments.</li>
+<li>Write a Bash script that prints “Thank Moses it’s Friday” if today is Friday. (Hint: take a look at the <code>date</code> program).</li>
+</ol>
+</div>
 </div>
 <div id="arrays" class="section level2">
 <h2><span class="header-section-number">5.5</span> Arrays</h2>
+<p>Arrays in Bash are ordered lists of values. You can create a list from scratch by assigning it to a variable name. Lists are created with parentheses (<code>( )</code>) with a space separating each element in the list. Let’s make a list of the plagues of Egypt:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ot">plagues=(</span>blood frogs lice flies sickness boils hail locusts darkness death<span class="ot">)</span></code></pre></div>
+<p>To retrieve the array you need to use <strong>parameter expansion</strong>, which involves the dollar sign and curly brackets (<code>${ }</code>). The positions of the elements in the array are numbered starting from zero. To get the first element of this array use <code>${plagues[0]}</code> like so:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">echo</span> <span class="ot">${plagues[0]}</span></code></pre></div>
+<pre><code>## blood</code></pre>
+<p>Notice that the first element has an <strong>index</strong> of 0. You can get any of the elements this way, for example the fourth element:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">echo</span> <span class="ot">${plagues[3]}</span></code></pre></div>
+<pre><code>## flies</code></pre>
+<p>To get all of the elements of <code>plagues</code> use a star (<code>*</code>) between the square brackets:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">echo</span> <span class="ot">${plagues[*]}</span></code></pre></div>
+<pre><code>## blood frogs lice flies sickness boils hail locusts darkness death</code></pre>
+<p>You can also change an individual elements in the array by specifying their index with square brackets:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">echo</span> <span class="ot">${plagues[*]}</span>
+<span class="ot">plagues[4]=</span>disease
+<span class="kw">echo</span> <span class="ot">${plagues[*]}</span></code></pre></div>
+<pre><code>## blood frogs lice flies sickness boils hail locusts darkness death
+## blood frogs lice flies disease boils hail locusts darkness death</code></pre>
+<p>To get only part of an array you have to specify the index you would like to start at, followed by the number of elements you would like to retrieve from the array, separated by colons:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">echo</span> <span class="ot">${plagues[*]:5:3}</span></code></pre></div>
+<pre><code>## boils hail locusts</code></pre>
+<p>The above query essentially says: get 3 array elements starting from the sixth element of the array (remember, the sixth element has an index of 5).</p>
 </div>
 <div id="braces" class="section level2">
 <h2><span class="header-section-number">5.6</span> Braces</h2>
@@ -586,7 +777,7 @@ echo &quot;You entered: $response&quot;</code></pre>
 </div>
 <div id="writing-programs" class="section level2">
 <h2><span class="header-section-number">5.9</span> Writing Programs</h2>
-<div id="exercises-10" class="section level3">
+<div id="exercises-11" class="section level3">
 <h3><span class="header-section-number">5.9.1</span> Exercises</h3>
 <p>Write a program that takes one number as an argument and prints “the number is even” if the number is even, “the number is odd” if the number is odd, and “the number is less than 1” if the number is less than 1.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">evenodd</span> 6</code></pre></div>

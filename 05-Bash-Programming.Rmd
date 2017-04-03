@@ -1072,7 +1072,66 @@ string with all of the numbers between zero and nine you could do the following:
 echo {0..9}
 ```
 
+In addition to numbers you can also create sequences of letters:
+
+```{r, engine='bash'}
+echo {a..e}
+echo {W..Z}
+```
+
+You can put strings on either side of the curly brackets and they'll be "pasted"
+onto the corresponding end of the sequence:
+
+```{r, engine='bash'}
+echo a{0..4}
+echo b{0..4}c
+```
+
+You can also combine sequences so that two or more sequences are pasted
+together:
+
+```{r, engine='bash'}
+echo {1..3}{A..C}
+```
+
+If you want to use variables in order to define a sequence you need to use the
+`eval` command in order to create the sequence:
+
+```{r, engine='bash'}
+start=4
+end=9
+echo {$start..$end}
+eval echo {$start..$end}
+```
+
+You can combine sequences with a comma between brackets (`{,}`):
+
+```{r, engine='bash'}
+echo {{1..3},{a..c}}
+```
+
+In fact you can do this with any number of strings:
+
+```{r, engine='bash'}
+echo {Who,What,Why,When,How}?
+```
+
+### Summary
+
+- Braces allow you create string sequences and expansions.
+- To use variables with braces you need to use the `eval` command.
+
+### Exercises
+
+1. Create 100 text files using brace expansion.
+
 ## Loops
+
+Loops are one of the most important programming structures in the Bash language.
+All of the programs we've written so far are executed from the first line of the
+script until the last line, but loops allow you to repeat lines of code based on
+logical conditions or by following a sequence. The first kind of loop that we'll
+discuss is a FOR loop. FOR loops follow a sequence of
 
 ## Functions
 

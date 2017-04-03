@@ -26,7 +26,7 @@
 <meta name="author" content="Sean Kross">
 
 
-<meta name="date" content="2017-03-31">
+<meta name="date" content="2017-04-03">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -799,6 +799,21 @@ fi</code></pre>
 <p>Bash has a very handy tool for creating strings out of sequences called <strong>brace expansion</strong>. Brace expansion uses the curly brackets and two periods (<code>{ .. }</code>) to create a sequence of letters or numbers. For example to create a string with all of the numbers between zero and nine you could do the following:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">echo</span> <span class="dt">{0..9}</span></code></pre></div>
 <pre><code>## 0 1 2 3 4 5 6 7 8 9</code></pre>
+<p>In addition to numbers you can also create sequences of letters:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">echo</span> <span class="dt">{a..e}</span>
+<span class="kw">echo</span> <span class="dt">{W..Z}</span></code></pre></div>
+<pre><code>## a b c d e
+## W X Y Z</code></pre>
+<p>You can put strings on either side of the curly brackets and they’ll be “pasted” onto the corresponding end of the sequence:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">echo</span> a<span class="dt">{0..4}</span>
+<span class="kw">echo</span> b<span class="dt">{0..4}</span>c</code></pre></div>
+<pre><code>## a0 a1 a2 a3 a4
+## b0c b1c b2c b3c b4c</code></pre>
+<p>You can also combine sequences so that two or more sequences are pasted together:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">echo</span> <span class="dt">{0..2}{A..C}</span>
+<span class="kw">echo</span> <span class="dt">{0..2}{M..O}{6..8}</span></code></pre></div>
+<pre><code>## 0A 0B 0C 1A 1B 1C 2A 2B 2C
+## 0M6 0M7 0M8 0N6 0N7 0N8 0O6 0O7 0O8 1M6 1M7 1M8 1N6 1N7 1N8 1O6 1O7 1O8 2M6 2M7 2M8 2N6 2N7 2N8 2O6 2O7 2O8</code></pre>
 </div>
 <div id="loops" class="section level2">
 <h2><span class="header-section-number">5.7</span> Loops</h2>

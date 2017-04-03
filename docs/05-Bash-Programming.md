@@ -1211,6 +1211,47 @@ echo {0..9}
 ## 0 1 2 3 4 5 6 7 8 9
 ```
 
+In addition to numbers you can also create sequences of letters:
+
+
+```bash
+echo {a..e}
+echo {W..Z}
+```
+
+```
+## a b c d e
+## W X Y Z
+```
+
+You can put strings on either side of the curly brackets and they'll be "pasted"
+onto the corresponding end of the sequence:
+
+
+```bash
+echo a{0..4}
+echo b{0..4}c
+```
+
+```
+## a0 a1 a2 a3 a4
+## b0c b1c b2c b3c b4c
+```
+
+You can also combine sequences so that two or more sequences are pasted
+together:
+
+
+```bash
+echo {0..2}{A..C}
+echo {0..2}{M..O}{6..8}
+```
+
+```
+## 0A 0B 0C 1A 1B 1C 2A 2B 2C
+## 0M6 0M7 0M8 0N6 0N7 0N8 0O6 0O7 0O8 1M6 1M7 1M8 1N6 1N7 1N8 1O6 1O7 1O8 2M6 2M7 2M8 2N6 2N7 2N8 2O6 2O7 2O8
+```
+
 ## Loops
 
 ## Functions

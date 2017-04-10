@@ -1243,16 +1243,169 @@ together:
 
 
 ```bash
-echo {0..2}{A..C}
-echo {0..2}{M..O}{6..8}
+echo {1..3}{A..C}
 ```
 
 ```
-## 0A 0B 0C 1A 1B 1C 2A 2B 2C
-## 0M6 0M7 0M8 0N6 0N7 0N8 0O6 0O7 0O8 1M6 1M7 1M8 1N6 1N7 1N8 1O6 1O7 1O8 2M6 2M7 2M8 2N6 2N7 2N8 2O6 2O7 2O8
+## 1A 1B 1C 2A 2B 2C 3A 3B 3C
 ```
+
+If you want to use variables in order to define a sequence you need to use the
+`eval` command in order to create the sequence:
+
+
+```bash
+start=4
+end=9
+echo {$start..$end}
+eval echo {$start..$end}
+```
+
+```
+## {4..9}
+## 4 5 6 7 8 9
+```
+
+You can combine sequences with a comma between brackets (`{,}`):
+
+
+```bash
+echo {{1..3},{a..c}}
+```
+
+```
+## 1 2 3 a b c
+```
+
+In fact you can do this with any number of strings:
+
+
+```bash
+echo {Who,What,Why,When,How}?
+```
+
+```
+## Who? What? Why? When? How?
+```
+
+### Summary
+
+- Braces allow you create string sequences and expansions.
+- To use variables with braces you need to use the `eval` command.
+
+### Exercises
+
+1. Create 100 text files using brace expansion.
 
 ## Loops
+
+Loops are one of the most important programming structures in the Bash language.
+All of the programs we've written so far are executed from the first line of the
+script until the last line, but loops allow you to repeat lines of code based on
+logical conditions or by following a sequence. The first kind of loop that we'll
+discuss is a FOR loop. FOR loops iterate through every elemenet of a sequence
+that you specify. Let's take a look at a small example FOR loop:
+
+```
+#!/usr/bin/env bash
+# File: forloop.sh
+
+echo "Before Loop"
+
+for i in {1..3}
+do
+	echo "i is equal to $i"
+done
+
+echo "After Loop"
+```
+
+Now let's execute this script:
+
+
+```bash
+bash forloop.sh
+```
+
+```
+## Before Loop
+## i is equal to 1
+## i is equal to 2
+## i is equal to 3
+## After Loop
+```
+
+Let's walk through `forloop.sh` line-by-line. First `"Before Loop"` is printed
+before the FOR loop, then the loop begins. FOR loops start with the syntax
+`for [variable name] in [sequence]` followed by `do` on the next line. The
+variable name that you define immediately after `for` will take on a value
+inside of the loop that corresponds to an element in the sequence you provide
+after `in`, starting with the first element of the sequence, followed by every
+subsequent element. Valid sequences include brace expansions, explicit lists of strings,
+arrays, and command substitution. In this instance we're using the brace
+expansion `{1..3}` which we know expands to the string `"1 2 3"`. The code 
+executed in each iteration of the loop is written
+between `do` and `done`. In the first iteration of the loop, the variable `$i`
+contains the value 1. The string `"i is equal to 1"` is printed to the console.
+There are more elements in the brace expansion after 1, so after
+reaching `done` the first time, the program starts executing back at the 
+`do` statement. The second time through the loop variable `$i` contains the 
+value 2. The string 
+`"i is equal to 2"` is printed to the console, then the loop goes back to the
+`do` statement since there are still elements left in the sequence. The `$i`
+variable is now equal to 3, so `"i is equal to 3"` is printed to the console.
+There are no elements left in the sequence, so the program moves beyond the
+FOR loop and finally prints `"After Loop"`. Stop for a moment and edit this loop
+yourself. Try executing it with your changes to see if it prints the output you
+expected.
+
+Once you've experimented at little take a look at this example with several
+other kinds of sequence generating strategies:
+
+```
+#!/usr/bin/env bash
+# File: manyloops.sh
+
+echo "Explicit list:"
+
+for picture in img001.jpg img002.jpg img451.jpg
+do
+	echo "picture is equal to $picture"
+done
+
+echo "Array:"
+
+stooges=(curly larry moe)
+
+for stooge in ${stooges[*]}
+do
+	echo "Current stooge: $stooge"
+done
+
+echo "Command substitution:"
+
+for code in $(ls)
+do
+	echo "$code is a bash script"
+done
+```
+
+```
+```
+
+```
+## math.sh
+## bigmath.sh
+## vars.sh
+## letsread.sh
+## simpleif.sh
+## simpleifelse.sh
+## simpleelif.sh
+## condexif.sh
+## nested.sh
+## forloop.sh
+## manyloops.sh
+```
 
 ## Functions
 

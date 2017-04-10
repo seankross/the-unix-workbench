@@ -26,7 +26,7 @@
 <meta name="author" content="Sean Kross">
 
 
-<meta name="date" content="2017-04-03">
+<meta name="date" content="2017-04-10">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -176,11 +176,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.5.1" data-path="bash-programming.html"><a href="bash-programming.html#summary-11"><i class="fa fa-check"></i><b>5.5.1</b> Summary</a></li>
 <li class="chapter" data-level="5.5.2" data-path="bash-programming.html"><a href="bash-programming.html#exercises-11"><i class="fa fa-check"></i><b>5.5.2</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="bash-programming.html"><a href="bash-programming.html#braces"><i class="fa fa-check"></i><b>5.6</b> Braces</a></li>
+<li class="chapter" data-level="5.6" data-path="bash-programming.html"><a href="bash-programming.html#braces"><i class="fa fa-check"></i><b>5.6</b> Braces</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="bash-programming.html"><a href="bash-programming.html#summary-12"><i class="fa fa-check"></i><b>5.6.1</b> Summary</a></li>
+<li class="chapter" data-level="5.6.2" data-path="bash-programming.html"><a href="bash-programming.html#exercises-12"><i class="fa fa-check"></i><b>5.6.2</b> Exercises</a></li>
+</ul></li>
 <li class="chapter" data-level="5.7" data-path="bash-programming.html"><a href="bash-programming.html#loops"><i class="fa fa-check"></i><b>5.7</b> Loops</a></li>
 <li class="chapter" data-level="5.8" data-path="bash-programming.html"><a href="bash-programming.html#functions"><i class="fa fa-check"></i><b>5.8</b> Functions</a></li>
 <li class="chapter" data-level="5.9" data-path="bash-programming.html"><a href="bash-programming.html#writing-programs"><i class="fa fa-check"></i><b>5.9</b> Writing Programs</a><ul>
-<li class="chapter" data-level="5.9.1" data-path="bash-programming.html"><a href="bash-programming.html#exercises-12"><i class="fa fa-check"></i><b>5.9.1</b> Exercises</a></li>
+<li class="chapter" data-level="5.9.1" data-path="bash-programming.html"><a href="bash-programming.html#exercises-13"><i class="fa fa-check"></i><b>5.9.1</b> Exercises</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="git-and-github.html"><a href="git-and-github.html"><i class="fa fa-check"></i><b>6</b> Git and GitHub</a></li>
@@ -810,20 +813,102 @@ fi</code></pre>
 <pre><code>## a0 a1 a2 a3 a4
 ## b0c b1c b2c b3c b4c</code></pre>
 <p>You can also combine sequences so that two or more sequences are pasted together:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">echo</span> <span class="dt">{0..2}{A..C}</span>
-<span class="kw">echo</span> <span class="dt">{0..2}{M..O}{6..8}</span></code></pre></div>
-<pre><code>## 0A 0B 0C 1A 1B 1C 2A 2B 2C
-## 0M6 0M7 0M8 0N6 0N7 0N8 0O6 0O7 0O8 1M6 1M7 1M8 1N6 1N7 1N8 1O6 1O7 1O8 2M6 2M7 2M8 2N6 2N7 2N8 2O6 2O7 2O8</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">echo</span> <span class="dt">{1..3}{A..C}</span></code></pre></div>
+<pre><code>## 1A 1B 1C 2A 2B 2C 3A 3B 3C</code></pre>
+<p>If you want to use variables in order to define a sequence you need to use the <code>eval</code> command in order to create the sequence:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ot">start=</span>4
+<span class="ot">end=</span>9
+<span class="kw">echo</span> <span class="dt">{$start..$end}</span>
+<span class="kw">eval</span> echo <span class="dt">{$start..$end}</span></code></pre></div>
+<pre><code>## {4..9}
+## 4 5 6 7 8 9</code></pre>
+<p>You can combine sequences with a comma between brackets (<code>{,}</code>):</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">echo</span> <span class="dt">{{1..3},{a..c}}</span></code></pre></div>
+<pre><code>## 1 2 3 a b c</code></pre>
+<p>In fact you can do this with any number of strings:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">echo</span> <span class="dt">{Who,What,Why,When,How}</span>?</code></pre></div>
+<pre><code>## Who? What? Why? When? How?</code></pre>
+<div id="summary-12" class="section level3">
+<h3><span class="header-section-number">5.6.1</span> Summary</h3>
+<ul>
+<li>Braces allow you create string sequences and expansions.</li>
+<li>To use variables with braces you need to use the <code>eval</code> command.</li>
+</ul>
+</div>
+<div id="exercises-12" class="section level3">
+<h3><span class="header-section-number">5.6.2</span> Exercises</h3>
+<ol style="list-style-type: decimal">
+<li>Create 100 text files using brace expansion.</li>
+</ol>
+</div>
 </div>
 <div id="loops" class="section level2">
 <h2><span class="header-section-number">5.7</span> Loops</h2>
+<p>Loops are one of the most important programming structures in the Bash language. All of the programs we’ve written so far are executed from the first line of the script until the last line, but loops allow you to repeat lines of code based on logical conditions or by following a sequence. The first kind of loop that we’ll discuss is a FOR loop. FOR loops iterate through every elemenet of a sequence that you specify. Let’s take a look at a small example FOR loop:</p>
+<pre><code>#!/usr/bin/env bash
+# File: forloop.sh
+
+echo &quot;Before Loop&quot;
+
+for i in {1..3}
+do
+    echo &quot;i is equal to $i&quot;
+done
+
+echo &quot;After Loop&quot;</code></pre>
+<p>Now let’s execute this script:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">bash</span> forloop.sh</code></pre></div>
+<pre><code>## Before Loop
+## i is equal to 1
+## i is equal to 2
+## i is equal to 3
+## After Loop</code></pre>
+<p>Let’s walk through <code>forloop.sh</code> line-by-line. First <code>&quot;Before Loop&quot;</code> is printed before the FOR loop, then the loop begins. FOR loops start with the syntax <code>for [variable name] in [sequence]</code> followed by <code>do</code> on the next line. The variable name that you define immediately after <code>for</code> will take on a value inside of the loop that corresponds to an element in the sequence you provide after <code>in</code>, starting with the first element of the sequence, followed by every subsequent element. Valid sequences include brace expansions, explicit lists of strings, arrays, and command substitution. In this instance we’re using the brace expansion <code>{1..3}</code> which we know expands to the string <code>&quot;1 2 3&quot;</code>. The code executed in each iteration of the loop is written between <code>do</code> and <code>done</code>. In the first iteration of the loop, the variable <code>$i</code> contains the value 1. The string <code>&quot;i is equal to 1&quot;</code> is printed to the console. There are more elements in the brace expansion after 1, so after reaching <code>done</code> the first time, the program starts executing back at the <code>do</code> statement. The second time through the loop variable <code>$i</code> contains the value 2. The string <code>&quot;i is equal to 2&quot;</code> is printed to the console, then the loop goes back to the <code>do</code> statement since there are still elements left in the sequence. The <code>$i</code> variable is now equal to 3, so <code>&quot;i is equal to 3&quot;</code> is printed to the console. There are no elements left in the sequence, so the program moves beyond the FOR loop and finally prints <code>&quot;After Loop&quot;</code>. Stop for a moment and edit this loop yourself. Try executing it with your changes to see if it prints the output you expected.</p>
+<p>Once you’ve experimented at little take a look at this example with several other kinds of sequence generating strategies:</p>
+<pre><code>#!/usr/bin/env bash
+# File: manyloops.sh
+
+echo &quot;Explicit list:&quot;
+
+for picture in img001.jpg img002.jpg img451.jpg
+do
+    echo &quot;picture is equal to $picture&quot;
+done
+
+echo &quot;Array:&quot;
+
+stooges=(curly larry moe)
+
+for stooge in ${stooges[*]}
+do
+    echo &quot;Current stooge: $stooge&quot;
+done
+
+echo &quot;Command substitution:&quot;
+
+for code in $(ls)
+do
+    echo &quot;$code is a bash script&quot;
+done</code></pre>
+<pre><code></code></pre>
+<pre><code>## math.sh
+## bigmath.sh
+## vars.sh
+## letsread.sh
+## simpleif.sh
+## simpleifelse.sh
+## simpleelif.sh
+## condexif.sh
+## nested.sh
+## forloop.sh
+## manyloops.sh</code></pre>
 </div>
 <div id="functions" class="section level2">
 <h2><span class="header-section-number">5.8</span> Functions</h2>
 </div>
 <div id="writing-programs" class="section level2">
 <h2><span class="header-section-number">5.9</span> Writing Programs</h2>
-<div id="exercises-12" class="section level3">
+<div id="exercises-13" class="section level3">
 <h3><span class="header-section-number">5.9.1</span> Exercises</h3>
 <p>Write a program that takes one number as an argument and prints “the number is even” if the number is even, “the number is odd” if the number is odd, and “the number is less than 1” if the number is less than 1.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">evenodd</span> 6</code></pre></div>

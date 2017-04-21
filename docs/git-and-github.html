@@ -26,7 +26,7 @@
 <meta name="author" content="Sean Kross">
 
 
-<meta name="date" content="2017-04-10">
+<meta name="date" content="2017-04-21">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -186,7 +186,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.9.1" data-path="bash-programming.html"><a href="bash-programming.html#exercises-13"><i class="fa fa-check"></i><b>5.9.1</b> Exercises</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="git-and-github.html"><a href="git-and-github.html"><i class="fa fa-check"></i><b>6</b> Git and GitHub</a></li>
+<li class="chapter" data-level="6" data-path="git-and-github.html"><a href="git-and-github.html"><i class="fa fa-check"></i><b>6</b> Git and GitHub</a><ul>
+<li class="chapter" data-level="6.1" data-path="git-and-github.html"><a href="git-and-github.html#what-are-git-and-github"><i class="fa fa-check"></i><b>6.1</b> What are Git and GitHub?</a></li>
+<li class="chapter" data-level="6.2" data-path="git-and-github.html"><a href="git-and-github.html#setting-up-git-and-github"><i class="fa fa-check"></i><b>6.2</b> Setting Up Git and GitHub</a></li>
+<li class="chapter" data-level="6.3" data-path="git-and-github.html"><a href="git-and-github.html#getting-started-with-git"><i class="fa fa-check"></i><b>6.3</b> Getting Started with Git</a></li>
+</ul></li>
 <li class="chapter" data-level="7" data-path="nephology.html"><a href="nephology.html"><i class="fa fa-check"></i><b>7</b> Nephology</a></li>
 <li class="chapter" data-level="8" data-path="crypto.html"><a href="crypto.html"><i class="fa fa-check"></i><b>8</b> Crypto</a></li>
 <li class="divider"></li>
@@ -214,7 +218,175 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <blockquote>
 <p>Proof rather than argument. - Japanese proverb</p>
 </blockquote>
+<div id="what-are-git-and-github" class="section level2">
+<h2><span class="header-section-number">6.1</span> What are Git and GitHub?</h2>
+<p>Git is a command line program which allows you to track versions of any code or plain text documents that you create. Like the “track changes” feature of a word processor Git keeps track of who made particular changes, the time and date of those changes, and where the changes were made. If a critical file gets deleted by accident, or if you make a breaking change to your code and you want to try to figure out where the breaking change was made, you can use Git to restore the deleted file or find the new bug in your program. Git organizes groups of files that you’re tracking into a <strong>repository</strong>, which is just directory where all of the changes to files in that directory are tracked.</p>
+<p>GitHub is a website that provides remote Git repositories. If you’re working on code together with a friend GitHub can help you sync changes to code files between you and your friend. There’s also a social and community aspect to GitHub, since you can watch other programmers develop their projects. GitHub also makes it easy to jump in and help somebody with their project. GitHub offers many other useful features which will discuss at length.</p>
+</div>
+<div id="setting-up-git-and-github" class="section level2">
+<h2><span class="header-section-number">6.2</span> Setting Up Git and GitHub</h2>
+<p>Before setting up Git, go to <a href="https://github.com/">GitHub</a> and create a free account. Take note of which email address you use and which username you choose.</p>
+<p>To see if you have Git installed open up your terminal and enter the following:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> --version</code></pre></div>
+<pre><code>## git version 2.11.0 (Apple Git-81)</code></pre>
+<p>If you don’t get a response back telling you the version of Git that you have installed then you need to install Git. You can find instructions for installing Git on your operating system <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">here</a>.</p>
+<p>Open up your shell once you have git installed and run <code>git --version</code> again to make sure that installation succeeded (you may need to restart your shell or your computer). After Git is installed we need to set up two environmental variables, but we only need to do this once.</p>
+</div>
+<div id="getting-started-with-git" class="section level2">
+<h2><span class="header-section-number">6.3</span> Getting Started with Git</h2>
+<p>Let’s create our first Git repository. First we need to create a directory:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span>
+<span class="kw">mkdir</span> my-first-repo
+<span class="kw">cd</span> my-first-repo</code></pre></div>
+<p>“Repo” in this case is just shorthand for “repository.” To start tracking files with Git in a directory enter <code>git init</code> into the command line:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> init</code></pre></div>
+<pre><code>## Initialized empty Git repository in /Users/sean/my-first-repo/.git/</code></pre>
+<p>You’ve just created your first repository! Now let’s create a file and start tracking it.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">echo</span> <span class="st">&quot;Welcome to My First Repo&quot;</span> <span class="kw">&gt;</span> readme.txt</code></pre></div>
+<p>Now that we’ve created a file in this Git repository, let’s use <code>git status</code> to see what’s going on in this repository. We’ll be using <code>git status</code> continuously throughout this chapter in order to get information about the status Git repository.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> status</code></pre></div>
+<pre><code>## On branch master
+## 
+## Initial commit
+## 
+## Untracked files:
+##   (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+## 
+##  readme.txt
+## 
+## nothing added to commit but untracked files present (use &quot;git add&quot; to track)</code></pre>
+<p>As you can see <code>readme.txt</code> is listed as an untracked file. In order to let Git know that you want to track this file we need to use <code>git add</code> with the name of the file that we want to track. Let’s start tracking <code>readme.txt</code>:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> add readme.txt</code></pre></div>
+<p>Git now knows to track any changes to <code>readme.txt</code> let’s see how the status of the repository has changed:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> status</code></pre></div>
+<pre><code>## On branch master
+## 
+## Initial commit
+## 
+## Changes to be committed:
+##   (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)
+## 
+##  new file:   readme.txt
+## </code></pre>
+<p>Git is now tracking <code>readme.txt</code>, or in Git-specific language <code>readme.txt</code> is now <strong>staged</strong>. Between the parentheses in the message above you can see that <code>git status</code> is giving us a tip about how to unstage (or un-track) this file, which we could do with <code>git rm --cached readme.txt</code>. Let’s unstage this file just to see what happens:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> rm --cached readme.txt</code></pre></div>
+<pre><code>## rm &#39;readme.txt&#39;</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> status</code></pre></div>
+<pre><code>## On branch master
+## 
+## Initial commit
+## 
+## Untracked files:
+##   (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+## 
+##  readme.txt
+## </code></pre>
+<p>Our repository is right back to the way it started with <code>readme.txt</code> as an unstaged file. Let’s start tracking <code>readme.txt</code> again so we can move on to cooler Git features.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> add readme.txt</code></pre></div>
+<p>Now that Git is tracking <code>readme.txt</code> we need to create a milestone to indicate the changes that we made to <code>readme.txt</code>. In this case, the changes that we made were creating the file in the first place! This milestone is called a <strong>commit</strong> in Git. A commit logs the content of all of the currently staged files. Right now we only have <code>readme.txt</code> staged so let’s commit the creation of this file. When making a Git commit, we need to write a commit message which is specified after the <code>-m</code> flag. The message should breifly describe what changes you’ve made since the last commit.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> commit -m <span class="st">&quot;added readme.txt&quot;</span></code></pre></div>
+<pre><code>## [master (root-commit) 73e53ca] added readme.txt
+##  1 file changed, 1 insertion(+)
+##  create mode 100644 readme.txt</code></pre>
+<p>The message above confirms that the commit succeeded and it summarizes the changes that took place since the last commit. As you can see in the message we only changed one file, and we only changed one line in that file. Let’s run <code>git status</code> again to see the state of our repository after we’ve made the first commit:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> status</code></pre></div>
+<pre><code>## On branch master
+## nothing to commit, working tree clean</code></pre>
+<p>All of the changes to the files in this repository have been committed! Let’s add a few more files to this repository and commit them.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">touch</span> file1.txt
+<span class="kw">touch</span> fil2.txt
+<span class="kw">ls</span></code></pre></div>
+<pre><code>## file1.txt
+## fil2.txt
+## readme.txt</code></pre>
+<p>While we’re at it let’s also add a new line of text to <code>readme.txt</code>:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">echo</span> <span class="st">&quot;Learning Git is going well so far.&quot;</span> <span class="kw">&gt;&gt;</span> readme.txt</code></pre></div>
+<p>Now that’s we’ve added two more files and we’ve made changes to one file let’s take a look at the state of this repository.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> status</code></pre></div>
+<pre><code>## On branch master
+## Changes not staged for commit:
+##   (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+##   (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)
+## 
+##  modified:   readme.txt
+## 
+## Untracked files:
+##   (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+## 
+##  fil2.txt
+##  file1.txt
+## 
+## no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)</code></pre>
+<p>We can see that Git has detected that one file has been modified, and that there are two files in this directory that it is not tracking. Now we needd to tell Git to track the changes to these files. We could tell Git to track changes to each file using <code>git add</code>, or since all of the files in this repository are <code>.txt</code> files we could use a wildcard and enter <code>git add *.txt</code> into the console. However if we want to track all of the changes to all of the files in our directory we shoudl use the command <code>git add -A</code>.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> add -A
+<span class="kw">git</span> status</code></pre></div>
+<pre><code>## On branch master
+## Changes to be committed:
+##   (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)
+## 
+##  new file:   fil2.txt
+##  new file:   file1.txt
+##  modified:   readme.txt
+## </code></pre>
+<p>Now the changes to all of the files in this repository are being tracked. Finally let’s commit these changes:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> commit -m <span class="st">&quot;added two files&quot;</span></code></pre></div>
+<pre><code>## [master 53a1983] added two files
+##  3 files changed, 1 insertion(+)
+##  create mode 100644 fil2.txt
+##  create mode 100644 file1.txt</code></pre>
+<p>Darn it, now looking at this commit summary I realize that I have a typo in one of the names of my files! Thankfully we can undo the most recent commit with the command <code>git reset --soft HEAD~</code>:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> reset --soft HEAD~
+<span class="kw">git</span> status</code></pre></div>
+<pre><code>## On branch master
+## Changes to be committed:
+##   (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)
+## 
+##  new file:   fil2.txt
+##  new file:   file1.txt
+##  modified:   readme.txt
+## </code></pre>
+<p>This repo is now in that exact same state it was right before we made the commit. Now we can rename <code>fil2.txt</code> to <code>file2.txt</code>, then let’s look at the status of the repository again.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">mv</span> fil2.txt file2.txt
+<span class="kw">git</span> status</code></pre></div>
+<pre><code>## On branch master
+## Changes to be committed:
+##   (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)
+## 
+##  new file:   fil2.txt
+##  new file:   file1.txt
+##  modified:   readme.txt
+## 
+## Changes not staged for commit:
+##   (use &quot;git add/rm &lt;file&gt;...&quot; to update what will be committed)
+##   (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)
+## 
+##  deleted:    fil2.txt
+## 
+## Untracked files:
+##   (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+## 
+##  file2.txt
+## </code></pre>
+<p>We previously told Git to track <code>fil2.txt</code>, and we can see that Git acknowledges that the file has been deleted. We can bring Git up to speed with what files it should be tracking with <code>git add -A</code>:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> add -A
+<span class="kw">git</span> status</code></pre></div>
+<pre><code>## On branch master
+## Changes to be committed:
+##   (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)
+## 
+##  new file:   file1.txt
+##  new file:   file2.txt
+##  modified:   readme.txt
+## </code></pre>
+<p>Finally we got the file names right! Now let’s make the correct commit:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> commit -m <span class="st">&quot;added two files&quot;</span></code></pre></div>
+<pre><code>## [master 12bb9f5] added two files
+##  3 files changed, 1 insertion(+)
+##  create mode 100644 file1.txt
+##  create mode 100644 file2.txt</code></pre>
+<p>That looks much better.</p>
 
+</div>
 </div>
             </section>
 

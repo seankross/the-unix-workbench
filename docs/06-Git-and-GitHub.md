@@ -12,7 +12,12 @@ deleted by accident, or if you make a breaking change to your code and you want
 to try to figure out where the breaking change was made, you can use Git to
 restore the deleted file or find the new bug in your program. Git organizes
 groups of files that you're tracking into a **repository**, which is just
-directory where all of the changes to files in that directory are tracked.
+directory where all of the changes to files in that directory are tracked. Git
+can also help your collaborate with others when you're writing software. As
+[Karl Broman](https://twitter.com/kwbroman) says
+(paraphrasing [Mark Holder](https://twitter.com/mtholder)):
+"Your closest collaborator is you six months ago, but you don’t reply to 
+emails."
 
 GitHub is a website that provides remote Git repositories. If you're working
 on code together with a friend GitHub can help you sync changes to code files
@@ -45,7 +50,15 @@ Git on your operating system
 Open up your shell once you have git installed and run `git --version` again to
 make sure that installation succeeded (you may need to restart your shell or
 your computer). After Git is installed we need to set up two environmental
-variables, but we only need to do this once.
+variables, but we only need to do this once. The first variable we need to set
+up with Git is your GitHub user name, and the second variable is the email 
+address that you used to create your GitHub account:
+
+
+```bash
+git config --global user.name "myUserName"
+git config --global user.email myName@email.com
+```
 
 
 ## Getting Started with Git
@@ -384,3 +397,57 @@ git commit -m "added two files"
 ```
 
 That looks much better.
+
+### Summary
+
+- Git tracks changes to plain text files (code files and text documents).
+- A directory where chanegs to files are tracked by Git is called a Git
+repository.
+- You can track changes to a file using `git add [names of files]`.
+- You can create a milestone about the state of your files using `git commit -m "messahe about changes since the last commit"`.
+- To examine the state of files in your repository use `git status`.
+
+### Exercises
+
+1. Start a repository in a new directory.
+2. Create a new file in your new Git repository. Make sure Git is tracking the
+file and then create a new commit.
+3. Make changes to the file, and then commit these changes.
+4. Add two new files to your repository, but only commit one of them. What is
+the status of your repository after the commit?
+5. Undo the last commit, add the untracked file, and redo the commit.
+
+## Important Git Features
+
+### Gitting Help, Logs, and Diffs
+
+Git commands have their own `man` pages. You can access them with
+`git help [name of command]`. For example here's the start of the help page
+for `git status`:
+
+
+```bash
+git help status
+```
+
+```
+GIT-STATUS(1)                                Git Manual                               GIT-STATUS(1)
+
+NAME
+       git-status - Show the working tree status
+
+SYNOPSIS
+       git status [<options>...] [--] [<pathspec>...]
+
+DESCRIPTION
+       Displays paths that have differences between the index file and the current HEAD commit,
+       paths that have differences between the working tree and the index file, and paths in the
+       working tree that are not tracked by Git (and are not ignored by gitignore(5)). The first
+       are what you would commit by running git commit; the second and third are what you could
+       commit by running git add before running git commit.
+```
+
+Just like any other help page that uses `less`, you can return to the prompt
+with the `Q` key.
+
+

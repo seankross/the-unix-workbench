@@ -26,7 +26,7 @@
 <meta name="author" content="Sean Kross">
 
 
-<meta name="date" content="2017-04-21">
+<meta name="date" content="2017-04-24">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -189,7 +189,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6" data-path="git-and-github.html"><a href="git-and-github.html"><i class="fa fa-check"></i><b>6</b> Git and GitHub</a><ul>
 <li class="chapter" data-level="6.1" data-path="git-and-github.html"><a href="git-and-github.html#what-are-git-and-github"><i class="fa fa-check"></i><b>6.1</b> What are Git and GitHub?</a></li>
 <li class="chapter" data-level="6.2" data-path="git-and-github.html"><a href="git-and-github.html#setting-up-git-and-github"><i class="fa fa-check"></i><b>6.2</b> Setting Up Git and GitHub</a></li>
-<li class="chapter" data-level="6.3" data-path="git-and-github.html"><a href="git-and-github.html#getting-started-with-git"><i class="fa fa-check"></i><b>6.3</b> Getting Started with Git</a></li>
+<li class="chapter" data-level="6.3" data-path="git-and-github.html"><a href="git-and-github.html#getting-started-with-git"><i class="fa fa-check"></i><b>6.3</b> Getting Started with Git</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="git-and-github.html"><a href="git-and-github.html#summary-13"><i class="fa fa-check"></i><b>6.3.1</b> Summary</a></li>
+<li class="chapter" data-level="6.3.2" data-path="git-and-github.html"><a href="git-and-github.html#exercises-14"><i class="fa fa-check"></i><b>6.3.2</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="git-and-github.html"><a href="git-and-github.html#important-git-features"><i class="fa fa-check"></i><b>6.4</b> Important Git Features</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="git-and-github.html"><a href="git-and-github.html#gitting-help-logs-and-diffs"><i class="fa fa-check"></i><b>6.4.1</b> Gitting Help, Logs, and Diffs</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="nephology.html"><a href="nephology.html"><i class="fa fa-check"></i><b>7</b> Nephology</a></li>
 <li class="chapter" data-level="8" data-path="crypto.html"><a href="crypto.html"><i class="fa fa-check"></i><b>8</b> Crypto</a></li>
@@ -220,7 +226,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </blockquote>
 <div id="what-are-git-and-github" class="section level2">
 <h2><span class="header-section-number">6.1</span> What are Git and GitHub?</h2>
-<p>Git is a command line program which allows you to track versions of any code or plain text documents that you create. Like the “track changes” feature of a word processor Git keeps track of who made particular changes, the time and date of those changes, and where the changes were made. If a critical file gets deleted by accident, or if you make a breaking change to your code and you want to try to figure out where the breaking change was made, you can use Git to restore the deleted file or find the new bug in your program. Git organizes groups of files that you’re tracking into a <strong>repository</strong>, which is just directory where all of the changes to files in that directory are tracked.</p>
+<p>Git is a command line program which allows you to track versions of any code or plain text documents that you create. Like the “track changes” feature of a word processor Git keeps track of who made particular changes, the time and date of those changes, and where the changes were made. If a critical file gets deleted by accident, or if you make a breaking change to your code and you want to try to figure out where the breaking change was made, you can use Git to restore the deleted file or find the new bug in your program. Git organizes groups of files that you’re tracking into a <strong>repository</strong>, which is just directory where all of the changes to files in that directory are tracked. Git can also help your collaborate with others when you’re writing software. As <a href="https://twitter.com/kwbroman">Karl Broman</a> says (paraphrasing <a href="https://twitter.com/mtholder">Mark Holder</a>): “Your closest collaborator is you six months ago, but you don’t reply to emails.”</p>
 <p>GitHub is a website that provides remote Git repositories. If you’re working on code together with a friend GitHub can help you sync changes to code files between you and your friend. There’s also a social and community aspect to GitHub, since you can watch other programmers develop their projects. GitHub also makes it easy to jump in and help somebody with their project. GitHub offers many other useful features which will discuss at length.</p>
 </div>
 <div id="setting-up-git-and-github" class="section level2">
@@ -230,7 +236,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> --version</code></pre></div>
 <pre><code>## git version 2.11.0 (Apple Git-81)</code></pre>
 <p>If you don’t get a response back telling you the version of Git that you have installed then you need to install Git. You can find instructions for installing Git on your operating system <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">here</a>.</p>
-<p>Open up your shell once you have git installed and run <code>git --version</code> again to make sure that installation succeeded (you may need to restart your shell or your computer). After Git is installed we need to set up two environmental variables, but we only need to do this once.</p>
+<p>Open up your shell once you have git installed and run <code>git --version</code> again to make sure that installation succeeded (you may need to restart your shell or your computer). After Git is installed we need to set up two environmental variables, but we only need to do this once. The first variable we need to set up with Git is your GitHub user name, and the second variable is the email address that you used to create your GitHub account:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> config --global user.name <span class="st">&quot;myUserName&quot;</span>
+<span class="kw">git</span> config --global user.email myName@email.com</code></pre></div>
 </div>
 <div id="getting-started-with-git" class="section level2">
 <h2><span class="header-section-number">6.3</span> Getting Started with Git</h2>
@@ -385,7 +393,50 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ##  create mode 100644 file1.txt
 ##  create mode 100644 file2.txt</code></pre>
 <p>That looks much better.</p>
+<div id="summary-13" class="section level3">
+<h3><span class="header-section-number">6.3.1</span> Summary</h3>
+<ul>
+<li>Git tracks changes to plain text files (code files and text documents).</li>
+<li>A directory where chanegs to files are tracked by Git is called a Git repository.</li>
+<li>You can track changes to a file using <code>git add [names of files]</code>.</li>
+<li>You can create a milestone about the state of your files using <code>git commit -m &quot;messahe about changes since the last commit&quot;</code>.</li>
+<li>To examine the state of files in your repository use <code>git status</code>.</li>
+</ul>
+</div>
+<div id="exercises-14" class="section level3">
+<h3><span class="header-section-number">6.3.2</span> Exercises</h3>
+<ol style="list-style-type: decimal">
+<li>Start a repository in a new directory.</li>
+<li>Create a new file in your new Git repository. Make sure Git is tracking the file and then create a new commit.</li>
+<li>Make changes to the file, and then commit these changes.</li>
+<li>Add two new files to your repository, but only commit one of them. What is the status of your repository after the commit?</li>
+<li>Undo the last commit, add the untracked file, and redo the commit.</li>
+</ol>
+</div>
+</div>
+<div id="important-git-features" class="section level2">
+<h2><span class="header-section-number">6.4</span> Important Git Features</h2>
+<div id="gitting-help-logs-and-diffs" class="section level3">
+<h3><span class="header-section-number">6.4.1</span> Gitting Help, Logs, and Diffs</h3>
+<p>Git commands have their own <code>man</code> pages. You can access them with <code>git help [name of command]</code>. For example here’s the start of the help page for <code>git status</code>:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> help status</code></pre></div>
+<pre><code>GIT-STATUS(1)                                Git Manual                               GIT-STATUS(1)
 
+NAME
+       git-status - Show the working tree status
+
+SYNOPSIS
+       git status [&lt;options&gt;...] [--] [&lt;pathspec&gt;...]
+
+DESCRIPTION
+       Displays paths that have differences between the index file and the current HEAD commit,
+       paths that have differences between the working tree and the index file, and paths in the
+       working tree that are not tracked by Git (and are not ignored by gitignore(5)). The first
+       are what you would commit by running git commit; the second and third are what you could
+       commit by running git add before running git commit.</code></pre>
+<p>Just like any other help page that uses <code>less</code>, you can return to the prompt with the <code>Q</code> key.</p>
+
+</div>
 </div>
 </div>
             </section>

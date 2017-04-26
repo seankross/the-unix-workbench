@@ -450,4 +450,360 @@ DESCRIPTION
 Just like any other help page that uses `less`, you can return to the prompt
 with the `Q` key.
 
+If you want to see a list of your Git commits, enter `git log` into the console:
 
+
+```bash
+git log
+```
+
+```
+## commit 12bb9f53b10c9b720dac8441e8624370e4e071b6
+## Author: seankross <sean@seankross.com>
+## Date:   Fri Apr 21 15:23:59 2017 -0400
+## 
+##     added two files
+## 
+## commit 73e53cae75301ce9b2802107b1956447241bb17a
+## Author: seankross <sean@seankross.com>
+## Date:   Thu Apr 20 14:15:26 2017 -0400
+## 
+##     added readme.txt
+```
+
+If you've made many commits to a repository you might need to press the `Q` key
+in order to get back to the prompt. Each commit has its time, date, and commit
+message recorded, along with a SHA-1 hash that uniquely identifies the commit.
+
+Git can also help show the differences between unstaged changes to your files
+compared to the last commit. Let's add a new line of text to `readme.txt`:
+
+
+```bash
+echo "The third line." >> readme.txt
+git diff readme.txt
+```
+
+```
+## diff --git a/readme.txt b/readme.txt
+## index b965f6a..a3db358 100644
+## --- a/readme.txt
+## +++ b/readme.txt
+## @@ -1,2 +1,3 @@
+##  Welcome to My First Repo
+##  Learning Git is going well so far.
+## +I added a line.
+```
+
+As you can see a plus sign shows up next to the added line. Now let's open up
+this file in a text editor so we can delete the second line.
+
+
+```bash
+nano readme.txt
+# Delete the second line
+git diff readme.txt
+```
+
+```
+## diff --git a/readme.txt b/readme.txt
+## index b965f6a..e173fdf 100644
+## --- a/readme.txt
+## +++ b/readme.txt
+## @@ -1,2 +1,2 @@
+##  Welcome to My First Repo
+## -Learning Git is going well so far.
+## +I added a line.
+```
+
+A minus sign appears next to the line we deleted. Let's take a look at the
+status of our directory at this point.
+
+
+```bash
+git status
+```
+
+```
+## On branch master
+## Changes not staged for commit:
+##   (use "git add <file>..." to update what will be committed)
+##   (use "git checkout -- <file>..." to discard changes in working directory)
+## 
+## 	modified:   readme.txt
+## 
+## no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+If you read the results from `git status` carefully you can see that we can take
+this repository in one of two directions at this point. We can either `git add`
+the files we've made changes to in order to track those changes, or we can
+use `git checkout` in order to remove all of the changes we've made to a file
+to restore its content to what was present in the last commit. Let's remove
+our changes to see how this works.
+
+
+```bash
+cat readme.txt
+```
+
+```
+## Welcome to My First Repo
+## I added a line.
+```
+
+
+```bash
+git checkout readme.txt
+cat readme.txt
+```
+
+```
+## Welcome to My First Repo
+## Learning Git is going well so far.
+```
+
+And as you can see the changes we made to `readme.txt` have been undone.
+
+Sometimes you might have files that you never want Git to track, for example
+binary files that are generated as by-products of running code (PDFs or images),
+or secrets like passwords or API keys. A file in your Git repository called 
+`.gitignore` can list names of files and sub-folders, or simple regular
+expressions (whatever you can use with `ls`) in order to specify files which
+should be never tracked. Each line of a `.gitignore` file should specify a file
+or group of files that should not be tracked by Git. Let's make a `.gitignore`
+file to make sure that we never track image files in this repository:
+
+
+```bash
+touch toby.jpg
+git status
+```
+
+```
+## On branch master
+## Untracked files:
+##   (use "git add <file>..." to include in what will be committed)
+## 
+## 	toby.jpg
+## 
+## nothing added to commit but untracked files present (use "git add" to track)
+```
+
+Now that we're added an image to our repository, let's add a `.gitignore` file
+to make sure Git doesn't track these kinds of files.
+
+
+```bash
+echo "*.jpg" > .gitignore
+git status
+```
+
+```
+## On branch master
+## Untracked files:
+##   (use "git add <file>..." to include in what will be committed)
+## 
+## 	.gitignore
+## 
+## nothing added to commit but untracked files present (use "git add" to track)
+```
+
+Now we can see that Git has detected the new `.gitignore` file, but it doesn't
+see `toby.jpg`. Let's add and commit our `.gitignore` file:
+
+
+```bash
+git add -A
+git commit -m "added gitignore"
+```
+
+```
+## [master adef548] added gitignore
+##  1 file changed, 1 insertion(+)
+##  create mode 100644 .gitignore
+```
+
+Now if we add another `.jpg` file, Git will not see the file:
+
+
+```bash
+touch bernie.jpg
+git status
+```
+
+```
+## On branch master
+## nothing to commit, working tree clean
+```
+
+
+```bash
+ls
+```
+
+```
+## bernie.jpg
+## toby.jpg
+## file1.txt
+## file2.txt
+## readme.txt	
+```
+
+### Summary
+
+- `git help` allows you to read the `man` pages for specific Git commands.
+- `git log` will show you your commit history.
+- `git diff` displays what has changed between the last commit and your current
+untracked changes.
+- You can specify a `.gitignore` file in order to tell Git to not track certain
+files.
+
+### Exercises
+
+1. Look at the help pages for `git log` and `git diff`.
+2. Add to the `.gitignore` you already started to inlude a specific file name,
+then add that file to your repository.
+3. Create a file that contains the Git log for this repository. Use `grep` to
+see which day of the week most of the commits occurred on.
+
+## Branching
+
+Branching is one of the most powerful features that Git offers. Creating
+different Git branches allows you to work on a particular feature or set of
+files independently from other "copies" of a repository. That way you and a
+friend can work on different parts of the same file on different braches, and
+then Git can help you elegantly merge your branches and changes together.
+
+You can list all of the available branches with the command `git branch`:
+
+
+```bash
+git branch
+```
+
+```
+## * master
+```
+
+The star (`*`) indicates which branch you're currently on. The default branch
+that is created is always called *master*. Usually people use this branch as the
+working version of the software that their writing, while they develop new and
+potentially unstable features on other branches.
+
+To add a branch we'll also use the `git branch` command, followed the name of
+the branch we want to create:
+
+
+```bash
+git branch my-new-feature
+```
+
+Now let's enter `git branch` again to confirm that we've created the branch:
+
+
+```bash
+git branch
+```
+
+```
+## * master
+## my-new-feature
+```
+
+We can make `my-new-feature` the current branch using `git checkout` with the
+name of the branch:
+
+
+```bash
+git checkout my-new-feature
+```
+
+```
+## Switched to branch 'my-new-feature'
+```
+
+
+```bash
+git branch
+```
+
+```
+##   master
+## * my-new-feature
+```
+
+If we look at `git status` we can also see that it will tell us which branch
+we're on:
+
+
+```bash
+git status
+```
+
+```
+On branch my-new-feature
+nothing to commit, working tree clean
+```
+
+We can switch back to the `master` branch using `git checkout`:
+
+
+```bash
+git checkout master
+```
+
+```
+## Switched to branch 'master'
+```
+
+
+```bash
+git branch
+```
+
+```
+## * master
+##   my-new-feature
+```
+
+Now we can delete a branch by using the `-d` flag with `git branch` and the name
+of the branch we want to delete:
+
+
+```bash
+git branch -d my-new-feature
+```
+
+```
+## Deleted branch my-new-feature (was adef548).
+```
+
+
+```bash
+git branch
+```
+
+```
+## * master
+```
+
+Let's create a new branch for adding a section to the `readme.txt` in our
+repository. We can create a new branch and switch to that branch at the same
+time using the command `git checkout -b` and the name of the new branch we want
+to create:
+
+
+```bash
+git checkout -b update-readme
+```
+
+```
+## Switched to a new branch 'update-readme'
+```
+
+
+
+## Markdown
+
+## GitHub

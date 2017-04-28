@@ -802,7 +802,144 @@ git checkout -b update-readme
 ## Switched to a new branch 'update-readme'
 ```
 
+Now that we've created and switched to a new branch, let's make some changes to
+a file. As you might be expecting right now we'll add a new line to
+`readme.txt`:
 
+
+```bash
+echo "I added this line in the update-readme branch." >> readme.txt
+cat readme.txt
+```
+
+```
+## Welcome to My First Repo
+## Learning Git is going well so far.
+## I added this line in the update-readme branch.
+```
+
+Now that we've added a new line let's commit these changes:
+
+
+```bash
+git add -A
+git commit -m "added a third line to readme.txt"
+```
+
+```
+## [update-readme 6e378a9] added a third line to readme.txt
+##  1 file changed, 1 insertion(+)
+```
+
+Now we've made a commit on the `update-readme` branch, let's switch back to the
+`master` branch, and then we'll take a look at `readme.txt`:
+
+
+```bash
+git checkout master
+```
+
+```
+## Switched to branch 'master'
+```
+
+Now that we're on the `master` branch let's quickly glance at `readme.txt`:
+
+
+```bash
+cat readme.txt
+```
+
+```
+## Welcome to My First Repo
+## Learning Git is going well so far.
+```
+
+The third line that we added is gone! Don't fret, the line that we added isn't
+gone forever. We committed the change to this file while we were on the
+`update-readme` branch, so the up updated file is safely in that branch. Let's
+switch back to that branch just to make sure:
+
+
+```bash
+git checkout update-readme
+cat readme.txt
+```
+
+```
+## Welcome to My First Repo
+## Learning Git is going well so far.
+## I added this line in the update-readme branch.
+```
+
+And the third line is back! Let's add and commit yet another line while we're 
+on this branch:
+
+
+```bash
+echo "It's sunny outside today." >> readme.txt
+git add -A
+git commit -m "added weather info"
+```
+
+```
+## [update-readme d7946e9] added weather info
+##  1 file changed, 1 insertion(+)
+```
+
+This is a small example of how to use Git branching, but you can see how you
+can make incremental edits to plain text (usually code files) without
+effecting the `master` branch (the tested and working copy of your software)
+and without effecting any other branches. You can imagine how
+this system could be used for multiple people to work on the same codebase at
+the same time, or how you could develop and test multiple software features
+without them interfering with each other. Now that we've made a couple of
+changes to `readme.txt`, let's combine those changes with what we have in the
+`master` branch. This is made possible by a Git **merge**. Merging allows you
+to elegantly combine the changes that have been made between two branches. Let's
+merge the changes we made in the `update-readme` branch with the `master`
+branch. Git incorporates other branches into the current branch by default.
+When you're merging, the current branch is also called the **base** branch.
+Let's switch to the `master` branch so we can merge in the changes from the
+`update-readme` branch:
+
+
+```bash
+git checkout master
+```
+
+```
+## Switched to branch 'master'
+```
+
+To merge in the changes from another branch we need to use `git merge` and the
+name of the branch:
+
+
+```bash
+git merge update-readme
+```
+
+```
+## Updating adef548..d7946e9
+## Fast-forward
+##  readme.txt | 2 ++
+##  1 file changed, 2 insertions(+)
+```
+
+
+```bash
+cat readme.txt
+```
+
+```
+## Welcome to My First Repo
+## Learning Git is going well so far.
+## I added this line in the update-readme branch.
+## It's sunny outside today.
+```
+
+It looks like you've merged your first branch in Git!
 
 ## Markdown
 

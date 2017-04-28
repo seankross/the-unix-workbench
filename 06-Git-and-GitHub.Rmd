@@ -881,6 +881,8 @@ cat readme.txt
 ## It's sunny outside today.
 ```
 
+It looks like you've merged your first branch in Git!
+
 ## Markdown
 
 ## GitHub

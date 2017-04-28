@@ -26,7 +26,7 @@
 <meta name="author" content="Sean Kross">
 
 
-<meta name="date" content="2017-04-25">
+<meta name="date" content="2017-04-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -589,6 +589,51 @@ nothing to commit, working tree clean</code></pre>
 <p>Let’s create a new branch for adding a section to the <code>readme.txt</code> in our repository. We can create a new branch and switch to that branch at the same time using the command <code>git checkout -b</code> and the name of the new branch we want to create:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> checkout -b update-readme</code></pre></div>
 <pre><code>## Switched to a new branch &#39;update-readme&#39;</code></pre>
+<p>Now that we’ve created and switched to a new branch, let’s make some changes to a file. As you might be expecting right now we’ll add a new line to <code>readme.txt</code>:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">echo</span> <span class="st">&quot;I added this line in the update-readme branch.&quot;</span> <span class="kw">&gt;&gt;</span> readme.txt
+<span class="kw">cat</span> readme.txt</code></pre></div>
+<pre><code>## Welcome to My First Repo
+## Learning Git is going well so far.
+## I added this line in the update-readme branch.</code></pre>
+<p>Now that we’ve added a new line let’s commit these changes:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> add -A
+<span class="kw">git</span> commit -m <span class="st">&quot;added a third line to readme.txt&quot;</span></code></pre></div>
+<pre><code>## [update-readme 6e378a9] added a third line to readme.txt
+##  1 file changed, 1 insertion(+)</code></pre>
+<p>Now we’ve made a commit on the <code>update-readme</code> branch, let’s switch back to the <code>master</code> branch, and then we’ll take a look at <code>readme.txt</code>:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> checkout master</code></pre></div>
+<pre><code>## Switched to branch &#39;master&#39;</code></pre>
+<p>Now that we’re on the <code>master</code> branch let’s quickly glance at <code>readme.txt</code>:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cat</span> readme.txt</code></pre></div>
+<pre><code>## Welcome to My First Repo
+## Learning Git is going well so far.</code></pre>
+<p>The third line that we added is gone! Don’t fret, the line that we added isn’t gone forever. We committed the change to this file while we were on the <code>update-readme</code> branch, so the up updated file is safely in that branch. Let’s switch back to that branch just to make sure:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> checkout update-readme
+<span class="kw">cat</span> readme.txt</code></pre></div>
+<pre><code>## Welcome to My First Repo
+## Learning Git is going well so far.
+## I added this line in the update-readme branch.</code></pre>
+<p>And the third line is back! Let’s add and commit yet another line while we’re on this branch:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">echo</span> <span class="st">&quot;It&#39;s sunny outside today.&quot;</span> <span class="kw">&gt;&gt;</span> readme.txt
+<span class="kw">git</span> add -A
+<span class="kw">git</span> commit -m <span class="st">&quot;added weather info&quot;</span></code></pre></div>
+<pre><code>## [update-readme d7946e9] added weather info
+##  1 file changed, 1 insertion(+)</code></pre>
+<p>This is a small example of how to use Git branching, but you can see how you can make incremental edits to plain text (usually code files) without effecting the <code>master</code> branch (the tested and working copy of your software) and without effecting any other branches. You can imagine how this system could be used for multiple people to work on the same codebase at the same time, or how you could develop and test multiple software features without them interfering with each other. Now that we’ve made a couple of changes to <code>readme.txt</code>, let’s combine those changes with what we have in the <code>master</code> branch. This is made possible by a Git <strong>merge</strong>. Merging allows you to elegantly combine the changes that have been made between two branches. Let’s merge the changes we made in the <code>update-readme</code> branch with the <code>master</code> branch. Git incorporates other branches into the current branch by default. When you’re merging, the current branch is also called the <strong>base</strong> branch. Let’s switch to the <code>master</code> branch so we can merge in the changes from the <code>update-readme</code> branch:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> checkout master</code></pre></div>
+<pre><code>## Switched to branch &#39;master&#39;</code></pre>
+<p>To merge in the changes from another branch we need to use <code>git merge</code> and the name of the branch:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> merge update-readme</code></pre></div>
+<pre><code>## Updating adef548..d7946e9
+## Fast-forward
+##  readme.txt | 2 ++
+##  1 file changed, 2 insertions(+)</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cat</span> readme.txt</code></pre></div>
+<pre><code>## Welcome to My First Repo
+## Learning Git is going well so far.
+## I added this line in the update-readme branch.
+## It&#39;s sunny outside today.</code></pre>
+<p>It looks like you’ve merged your first branch in Git!</p>
 </div>
 <div id="markdown" class="section level2">
 <h2><span class="header-section-number">6.6</span> Markdown</h2>

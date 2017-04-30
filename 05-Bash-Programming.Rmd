@@ -314,9 +314,9 @@ bash vars.sh red blue green
 Your script can accept arguments just like a command line program! The first
 argument to your script is stored in `$1`, the second argument is stored in
 `$2`, etc, etc. An array of all of the arguments passed to your script is stored
-`$@`, and we'll discuss how to handle arrays later on in this chapter. The total
-number of arguments passed to your script is stored in `$#`. Now that you know
-how to pass arguments to your scripts you can start writing your own commnad
+in `$@`, and we'll discuss how to handle arrays later on in this chapter. The 
+total number of arguments passed to your script is stored in `$#`. Now that you 
+know how to pass arguments to your scripts you can start writing your own command
 line tools!
 
 ### Summary
@@ -328,7 +328,7 @@ variable name.
 - You can use the dollar sign and parentheses syntax (command substitution) to
 execute a command and save the output in a variable.
 - You can access command line arguments within your own scripts using the dollar
-sign followed by the number of the argumnet.
+sign followed by the number of the argument.
 
 ### Exercises
 
@@ -339,7 +339,7 @@ variables, and then the program prints both of those strings. Write a version
 where the strings are printed on the same line, and a version where the strings
 are printed on different lines.
 3. Write a Bash program that prints the number of arguments provided to that
-program multiplied by the first argument providied to the program.
+program multiplied by the first argument provided to the program.
 
 ## User Input
 
@@ -408,7 +408,7 @@ false
 ```
 
 At first it doesn't look like they do much. In order to see how they work, we're
-going to need to look under the hood of Unix a little bit. Whenever you exceute
+going to need to look under the hood of Unix a little bit. Whenever you execute
 a program on the command line, in general one of two things will happen: either
 the command is executed successfully, or there's an error. In terms of errors
 there are many ways that a program can go wrong, and Unix can take different
@@ -486,7 +486,7 @@ echo 1 && false && echo 3
 echo Athos && echo Porthos && echo Aramis
 ```
 
-In a series of programs joined toegther by AND operators, any programs to the
+In a series of programs joined together by AND operators, any programs to the
 right of a program that has a non-zero exit status is not executed.
 
 The OR operator (`||`) follows a similar set of principles. Commands on the right
@@ -598,10 +598,10 @@ cd ~/Code
 ## t
 ```
 
-As you can see the file `math.sh` exists! Most of the time when you'r writing
+As you can see the file `math.sh` exists! Most of the time when you're writing
 bash scripts you won't be comparing two raw values or trying to find something
-out about one raw value, instead you'll want to create a logical statememnt
-about a value contained ina variable. Variables behave just like raw values in
+out about one raw value, instead you'll want to create a logical statement
+about a value contained in a variable. Variables behave just like raw values in
 logical expressions. Let's take a look at a few examples:
 
 ```{r, engine='bash', error=TRUE}
@@ -613,7 +613,7 @@ number=7
 
 As you can see 7 is greater than 3 though it is not greater than 10, and there
 is not file in this directory called `7`. There are several other varieties of
-logcial flags, and you can find a table of several of these flags below.
+logical flags, and you can find a table of several of these flags below.
 
 | Logical Flag | Meaning | Usage |
 |:-------------|:--------|:------|
@@ -705,7 +705,7 @@ bash simpleif.sh
 ## End program
 ```
 
-Since we didn't provide any arguments to `simpleif.sh` the code withhin the IF
+Since we didn't provide any arguments to `simpleif.sh` the code within the IF
 statement was skipped! Now let's try providing an argument to this script:
 
 ```{r, engine='bash', eval=FALSE}
@@ -717,8 +717,8 @@ bash simpleif.sh 77
 ## End program
 ```
 
-We providied the argument `77`, however 77 is not equal to 4, therefore the code
-within the IF statement was once again skipped. Finally let's privide `4` as an
+We provided the argument `77`, however 77 is not equal to 4, therefore the code
+within the IF statement was once again skipped. Finally let's provide `4` as an
 argument:
 
 ```{r, engine='bash', eval=FALSE}
@@ -767,7 +767,7 @@ bash simpleifelse.sh 4
 
 The conditional expression `[[ $1 -eq 4 ]]` was true so code inside of the IF
 statement was run and the code in the ELSE statement was not run. What do you
-think will happned when we make the conditional expression false?
+think will happened when we make the conditional expression false?
 
 ```{r, engine='bash', eval=FALSE}
 bash simpleifelse.sh 3
@@ -878,7 +878,7 @@ bash condexif.sh Sean
 ## You entered: Sean, not what I was looking for.
 ```
 
-The conidtional execution operators work just like they would on the command
+The conditional execution operators work just like they would on the command
 line. If the entire conditional expression evaluates to the equivalent of `true`
 then the code within the IF statement is executed, otherwise it is skipped.
 
@@ -1131,7 +1131,7 @@ Loops are one of the most important programming structures in the Bash language.
 All of the programs we've written so far are executed from the first line of the
 script until the last line, but loops allow you to repeat lines of code based on
 logical conditions or by following a sequence. The first kind of loop that we'll
-discuss is a FOR loop. FOR loops iterate through every elemenet of a sequence
+discuss is a FOR loop. FOR loops iterate through every element of a sequence
 that you specify. Let's take a look at a small example FOR loop:
 
 ```

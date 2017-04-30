@@ -11,7 +11,7 @@ date of those changes, and where the changes were made. If a critical file gets
 deleted by accident, or if you make a breaking change to your code and you want
 to try to figure out where the breaking change was made, you can use Git to
 restore the deleted file or find the new bug in your program. Git organizes
-groups of files that you're tracking into a **repository**, which is just
+groups of files that you're tracking into a **repository**, which is just a
 directory where all of the changes to files in that directory are tracked. Git
 can also help your collaborate with others when you're writing software. As
 [Karl Broman](https://twitter.com/kwbroman) says
@@ -24,7 +24,7 @@ on code together with a friend GitHub can help you sync changes to code files
 between you and your friend. There's also a social and community aspect to 
 GitHub, since you can watch other programmers develop their projects. GitHub 
 also makes it easy to jump in and help somebody with their project. GitHub
-offers many other useful features which will discuss at length.
+offers many other useful features which we will discuss at length.
 
 ## Setting Up Git and GitHub
 
@@ -175,7 +175,7 @@ were creating the file in the first place! This milestone is called a **commit**
 in Git. A commit logs the content of all of the currently staged files. Right
 now we only have `readme.txt` staged so let's commit the creation of this file.
 When making a Git commit, we need to write a commit message which is specified
-after the `-m` flag. The message should breifly describe what changes you've
+after the `-m` flag. The message should briefly describe what changes you've
 made since the last commit.
 
 ```{r, engine='bash', eval=FALSE}
@@ -249,12 +249,12 @@ git status
 ```
 
 We can see that Git has detected that one file has been modified, and that there
-are two files in this directory that it is not tracking. Now we needd to tell
+are two files in this directory that it is not tracking. Now we need to tell
 Git to track the changes to these files. We could tell Git to track changes to
 each file using `git add`, or since all of the files in this repository are
 `.txt` files we could use a wildcard and enter `git add *.txt` into the
 console. However if we want to track all of the changes to all of the files in
-our directory we shoudl use the command `git add -A`.
+our directory we should use the command `git add -A`.
 
 ```{r, engine='bash', eval=FALSE}
 git add -A
@@ -375,7 +375,7 @@ That looks much better.
 ### Summary
 
 - Git tracks changes to plain text files (code files and text documents).
-- A directory where chanegs to files are tracked by Git is called a Git
+- A directory where changes to files are tracked by Git is called a Git
 repository.
 - You can track changes to a file using `git add [names of files]`.
 - You can create a milestone about the state of your files using `git commit -m "messahe about changes since the last commit"`.
@@ -624,7 +624,7 @@ files.
 ### Exercises
 
 1. Look at the help pages for `git log` and `git diff`.
-2. Add to the `.gitignore` you already started to inlude a specific file name,
+2. Add to the `.gitignore` you already started to include a specific file name,
 then add that file to your repository.
 3. Create a file that contains the Git log for this repository. Use `grep` to
 see which day of the week most of the commits occurred on.
@@ -634,7 +634,7 @@ see which day of the week most of the commits occurred on.
 Branching is one of the most powerful features that Git offers. Creating
 different Git branches allows you to work on a particular feature or set of
 files independently from other "copies" of a repository. That way you and a
-friend can work on different parts of the same file on different braches, and
+friend can work on different parts of the same file on different branches, and
 then Git can help you elegantly merge your branches and changes together.
 
 You can list all of the available branches with the command `git branch`:

@@ -881,7 +881,120 @@ cat readme.txt
 ## It's sunny outside today.
 ```
 
-It looks like you've merged your first branch in Git!
+It looks like you've merged your first branch in Git! Branching is part of what
+makes Git so powerful since it enables parallel developments on the same code
+base. But what if there are two commits in two seperate branches that make
+different edits to the same line of text? When this occurs it is called a
+**conflict**. Let's create a conflict so we can learn how they can be resolved.
+
+First we'll switch to the `update-readme` branch. Use `nano` to edit the last
+line of `readme.txt`, then commit your changes:
+
+```{r, engine='bash', eval=FALSE}
+git checkout update-readme
+nano readme.txt
+cat readme.txt
+```
+
+```
+## Welcome to My First Repo
+## Learning Git is going well so far.
+## I added this line in the update-readme branch.
+## It's cloudy outside today.
+```
+
+Notice that we changed "sunny" to "cloudy" in the last line.
+
+```{r, engine='bash', eval=FALSE}
+git add -A
+git commit -m "changed sunny to cloudy"
+```
+
+Now that our changes are commited on the `update-readme` branch, let's switch
+back to `master`:
+
+```{r, engine='bash', eval=FALSE}
+git checkout master
+```
+
+Let's change the same line of code using `nano`:
+
+```{r, engine='bash', eval=FALSE}
+nano readme.txt
+cat readme.txt
+```
+
+```
+## Welcome to My First Repo
+## Learning Git is going well so far.
+## I added this line in the update-readme branch.
+## It's windy outside today.
+```
+
+Now let's commit these changes:
+
+```{r, engine='bash', eval=FALSE}
+git add -A
+git commit -m "changed sunny to windy"
+```
+
+We've now created two commits that directly conflict with each other. On the
+`update-readme` branch the last line says `It's cloudy outside today.`, while
+on the `master` branch the last line says `It's windy outside today.`. Let's
+see what happens when we try to merge `update-readme` into `master`.
+
+```{r, engine='bash', eval=FALSE}
+git merge update-readme
+```
+
+```
+## Auto-merging readme.txt
+## CONFLICT (content): Merge conflict in readme.txt
+## Automatic merge failed; fix conflicts and then commit the result.
+```
+
+Uh-oh, there's a conflict! Let's check the status of the repo right now:
+
+```{r, engine='bash', eval=FALSE}
+git status
+```
+
+```
+## On branch master
+## You have unmerged paths.
+##   (fix conflicts and run "git commit")
+##   (use "git merge --abort" to abort the merge)
+## 
+## Unmerged paths:
+##   (use "git add <file>..." to mark resolution)
+## 
+## 	both modified:   readme.txt
+## 
+## no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+If you're getting used to reading the result of `git status`, you can see that
+it often offers suggestions about what steps you should take next. Git is
+indicating that both versions of readme.txt have modified the same text. Let's
+take a look at `readme.txt` to see what's going on there:
+
+```{r, engine='bash', eval=FALSE}
+cat readme.txt
+```
+
+```
+## Welcome to My First Repo
+## Learning Git is going well so far.
+## I added this line in the update-readme branch.
+## <<<<<<< HEAD
+## It's windy outside today.
+## =======
+## It's cloudy outside today.
+## >>>>>>> update-readme
+```
+
+The first three lines of this file look normal, then things get interesting!
+
 
 ## Markdown
 

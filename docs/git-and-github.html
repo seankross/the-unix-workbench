@@ -26,7 +26,7 @@
 <meta name="author" content="Sean Kross">
 
 
-<meta name="date" content="2017-04-28">
+<meta name="date" content="2017-05-04">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -195,12 +195,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="git-and-github.html"><a href="git-and-github.html#important-git-features"><i class="fa fa-check"></i><b>6.4</b> Important Git Features</a><ul>
 <li class="chapter" data-level="6.4.1" data-path="git-and-github.html"><a href="git-and-github.html#gitting-help-logs-and-diffs"><i class="fa fa-check"></i><b>6.4.1</b> Gitting Help, Logs, and Diffs</a></li>
-<li class="chapter" data-level="6.4.2" data-path="git-and-github.html"><a href="git-and-github.html#summary-14"><i class="fa fa-check"></i><b>6.4.2</b> Summary</a></li>
-<li class="chapter" data-level="6.4.3" data-path="git-and-github.html"><a href="git-and-github.html#exercises-15"><i class="fa fa-check"></i><b>6.4.3</b> Exercises</a></li>
+<li class="chapter" data-level="6.4.2" data-path="git-and-github.html"><a href="git-and-github.html#ignoring-files"><i class="fa fa-check"></i><b>6.4.2</b> Ignoring Files</a></li>
+<li class="chapter" data-level="6.4.3" data-path="git-and-github.html"><a href="git-and-github.html#summary-14"><i class="fa fa-check"></i><b>6.4.3</b> Summary</a></li>
+<li class="chapter" data-level="6.4.4" data-path="git-and-github.html"><a href="git-and-github.html#exercises-15"><i class="fa fa-check"></i><b>6.4.4</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="git-and-github.html"><a href="git-and-github.html#branching"><i class="fa fa-check"></i><b>6.5</b> Branching</a></li>
-<li class="chapter" data-level="6.6" data-path="git-and-github.html"><a href="git-and-github.html#markdown"><i class="fa fa-check"></i><b>6.6</b> Markdown</a></li>
-<li class="chapter" data-level="6.7" data-path="git-and-github.html"><a href="git-and-github.html#github"><i class="fa fa-check"></i><b>6.7</b> GitHub</a></li>
+<li class="chapter" data-level="6.5" data-path="git-and-github.html"><a href="git-and-github.html#branching"><i class="fa fa-check"></i><b>6.5</b> Branching</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="git-and-github.html"><a href="git-and-github.html#summary-15"><i class="fa fa-check"></i><b>6.5.1</b> Summary</a></li>
+<li class="chapter" data-level="6.5.2" data-path="git-and-github.html"><a href="git-and-github.html#exercises-16"><i class="fa fa-check"></i><b>6.5.2</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="git-and-github.html"><a href="git-and-github.html#github"><i class="fa fa-check"></i><b>6.6</b> GitHub</a><ul>
+<li class="chapter" data-level="6.6.1" data-path="git-and-github.html"><a href="git-and-github.html#markdown"><i class="fa fa-check"></i><b>6.6.1</b> Markdown</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="nephology.html"><a href="nephology.html"><i class="fa fa-check"></i><b>7</b> Nephology</a></li>
 <li class="chapter" data-level="8" data-path="crypto.html"><a href="crypto.html"><i class="fa fa-check"></i><b>8</b> Crypto</a></li>
@@ -231,8 +236,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </blockquote>
 <div id="what-are-git-and-github" class="section level2">
 <h2><span class="header-section-number">6.1</span> What are Git and GitHub?</h2>
-<p>Git is a command line program which allows you to track versions of any code or plain text documents that you create. Like the “track changes” feature of a word processor Git keeps track of who made particular changes, the time and date of those changes, and where the changes were made. If a critical file gets deleted by accident, or if you make a breaking change to your code and you want to try to figure out where the breaking change was made, you can use Git to restore the deleted file or find the new bug in your program. Git organizes groups of files that you’re tracking into a <strong>repository</strong>, which is just directory where all of the changes to files in that directory are tracked. Git can also help your collaborate with others when you’re writing software. As <a href="https://twitter.com/kwbroman">Karl Broman</a> says (paraphrasing <a href="https://twitter.com/mtholder">Mark Holder</a>): “Your closest collaborator is you six months ago, but you don’t reply to emails.”</p>
-<p>GitHub is a website that provides remote Git repositories. If you’re working on code together with a friend GitHub can help you sync changes to code files between you and your friend. There’s also a social and community aspect to GitHub, since you can watch other programmers develop their projects. GitHub also makes it easy to jump in and help somebody with their project. GitHub offers many other useful features which will discuss at length.</p>
+<p>Git is a command line program which allows you to track versions of any code or plain text documents that you create. Like the “track changes” feature of a word processor Git keeps track of who made particular changes, the time and date of those changes, and where the changes were made. If a critical file gets deleted by accident, or if you make a breaking change to your code and you want to try to figure out where the breaking change was made, you can use Git to restore the deleted file or find the new bug in your program. Git organizes groups of files that you’re tracking into a <strong>repository</strong>, which is just a directory where all of the changes to files in that directory are tracked. Git can also help your collaborate with others when you’re writing software. As <a href="https://twitter.com/kwbroman">Karl Broman</a> says (paraphrasing <a href="https://twitter.com/mtholder">Mark Holder</a>): “Your closest collaborator is you six months ago, but you don’t reply to emails.”</p>
+<p>GitHub is a website that provides remote Git repositories. If you’re working on code together with a friend GitHub can help you sync changes to code files between you and your friend. There’s also a social and community aspect to GitHub, since you can watch other programmers develop their projects. GitHub also makes it easy to jump in and help somebody with their project. GitHub offers many other useful features which we will discuss at length.</p>
 </div>
 <div id="setting-up-git-and-github" class="section level2">
 <h2><span class="header-section-number">6.2</span> Setting Up Git and GitHub</h2>
@@ -296,7 +301,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## </code></pre>
 <p>Our repository is right back to the way it started with <code>readme.txt</code> as an unstaged file. Let’s start tracking <code>readme.txt</code> again so we can move on to cooler Git features.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> add readme.txt</code></pre></div>
-<p>Now that Git is tracking <code>readme.txt</code> we need to create a milestone to indicate the changes that we made to <code>readme.txt</code>. In this case, the changes that we made were creating the file in the first place! This milestone is called a <strong>commit</strong> in Git. A commit logs the content of all of the currently staged files. Right now we only have <code>readme.txt</code> staged so let’s commit the creation of this file. When making a Git commit, we need to write a commit message which is specified after the <code>-m</code> flag. The message should breifly describe what changes you’ve made since the last commit.</p>
+<p>Now that Git is tracking <code>readme.txt</code> we need to create a milestone to indicate the changes that we made to <code>readme.txt</code>. In this case, the changes that we made were creating the file in the first place! This milestone is called a <strong>commit</strong> in Git. A commit logs the content of all of the currently staged files. Right now we only have <code>readme.txt</code> staged so let’s commit the creation of this file. When making a Git commit, we need to write a commit message which is specified after the <code>-m</code> flag. The message should briefly describe what changes you’ve made since the last commit.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> commit -m <span class="st">&quot;added readme.txt&quot;</span></code></pre></div>
 <pre><code>## [master (root-commit) 73e53ca] added readme.txt
 ##  1 file changed, 1 insertion(+)
@@ -330,7 +335,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ##  file1.txt
 ## 
 ## no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)</code></pre>
-<p>We can see that Git has detected that one file has been modified, and that there are two files in this directory that it is not tracking. Now we needd to tell Git to track the changes to these files. We could tell Git to track changes to each file using <code>git add</code>, or since all of the files in this repository are <code>.txt</code> files we could use a wildcard and enter <code>git add *.txt</code> into the console. However if we want to track all of the changes to all of the files in our directory we shoudl use the command <code>git add -A</code>.</p>
+<p>We can see that Git has detected that one file has been modified, and that there are two files in this directory that it is not tracking. Now we need to tell Git to track the changes to these files. We could tell Git to track changes to each file using <code>git add</code>, or since all of the files in this repository are <code>.txt</code> files we could use a wildcard and enter <code>git add *.txt</code> into the console. However if we want to track all of the changes to all of the files in our directory we should use the command <code>git add -A</code>.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> add -A
 <span class="kw">git</span> status</code></pre></div>
 <pre><code>## On branch master
@@ -402,7 +407,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h3><span class="header-section-number">6.3.1</span> Summary</h3>
 <ul>
 <li>Git tracks changes to plain text files (code files and text documents).</li>
-<li>A directory where chanegs to files are tracked by Git is called a Git repository.</li>
+<li>A directory where changes to files are tracked by Git is called a Git repository.</li>
 <li>You can track changes to a file using <code>git add [names of files]</code>.</li>
 <li>You can create a milestone about the state of your files using <code>git commit -m &quot;messahe about changes since the last commit&quot;</code>.</li>
 <li>To examine the state of files in your repository use <code>git status</code>.</li>
@@ -496,6 +501,9 @@ DESCRIPTION
 <pre><code>## Welcome to My First Repo
 ## Learning Git is going well so far.</code></pre>
 <p>And as you can see the changes we made to <code>readme.txt</code> have been undone.</p>
+</div>
+<div id="ignoring-files" class="section level3">
+<h3><span class="header-section-number">6.4.2</span> Ignoring Files</h3>
 <p>Sometimes you might have files that you never want Git to track, for example binary files that are generated as by-products of running code (PDFs or images), or secrets like passwords or API keys. A file in your Git repository called <code>.gitignore</code> can list names of files and sub-folders, or simple regular expressions (whatever you can use with <code>ls</code>) in order to specify files which should be never tracked. Each line of a <code>.gitignore</code> file should specify a file or group of files that should not be tracked by Git. Let’s make a <code>.gitignore</code> file to make sure that we never track image files in this repository:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">touch</span> toby.jpg
 <span class="kw">git</span> status</code></pre></div>
@@ -535,7 +543,7 @@ DESCRIPTION
 ## readme.txt   </code></pre>
 </div>
 <div id="summary-14" class="section level3">
-<h3><span class="header-section-number">6.4.2</span> Summary</h3>
+<h3><span class="header-section-number">6.4.3</span> Summary</h3>
 <ul>
 <li><code>git help</code> allows you to read the <code>man</code> pages for specific Git commands.</li>
 <li><code>git log</code> will show you your commit history.</li>
@@ -544,17 +552,17 @@ DESCRIPTION
 </ul>
 </div>
 <div id="exercises-15" class="section level3">
-<h3><span class="header-section-number">6.4.3</span> Exercises</h3>
+<h3><span class="header-section-number">6.4.4</span> Exercises</h3>
 <ol style="list-style-type: decimal">
 <li>Look at the help pages for <code>git log</code> and <code>git diff</code>.</li>
-<li>Add to the <code>.gitignore</code> you already started to inlude a specific file name, then add that file to your repository.</li>
+<li>Add to the <code>.gitignore</code> you already started to include a specific file name, then add that file to your repository.</li>
 <li>Create a file that contains the Git log for this repository. Use <code>grep</code> to see which day of the week most of the commits occurred on.</li>
 </ol>
 </div>
 </div>
 <div id="branching" class="section level2">
 <h2><span class="header-section-number">6.5</span> Branching</h2>
-<p>Branching is one of the most powerful features that Git offers. Creating different Git branches allows you to work on a particular feature or set of files independently from other “copies” of a repository. That way you and a friend can work on different parts of the same file on different braches, and then Git can help you elegantly merge your branches and changes together.</p>
+<p>Branching is one of the most powerful features that Git offers. Creating different Git branches allows you to work on a particular feature or set of files independently from other “copies” of a repository. That way you and a friend can work on different parts of the same file on different branches, and then Git can help you elegantly merge your branches and changes together.</p>
 <p>You can list all of the available branches with the command <code>git branch</code>:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> branch</code></pre></div>
 <pre><code>## * master</code></pre>
@@ -633,14 +641,131 @@ nothing to commit, working tree clean</code></pre>
 ## Learning Git is going well so far.
 ## I added this line in the update-readme branch.
 ## It&#39;s sunny outside today.</code></pre>
-<p>It looks like you’ve merged your first branch in Git!</p>
+<p>It looks like you’ve merged your first branch in Git! Branching is part of what makes Git so powerful since it enables parallel developments on the same code base. But what if there are two commits in two seperate branches that make different edits to the same line of text? When this occurs it is called a <strong>conflict</strong>. Let’s create a conflict so we can learn how they can be resolved.</p>
+<p>First we’ll switch to the <code>update-readme</code> branch. Use <code>nano</code> to edit the last line of <code>readme.txt</code>, then commit your changes:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> checkout update-readme
+<span class="kw">nano</span> readme.txt
+<span class="kw">cat</span> readme.txt</code></pre></div>
+<pre><code>## Welcome to My First Repo
+## Learning Git is going well so far.
+## I added this line in the update-readme branch.
+## It&#39;s cloudy outside today.</code></pre>
+<p>Notice that we changed “sunny” to “cloudy” in the last line.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> add -A
+<span class="kw">git</span> commit -m <span class="st">&quot;changed sunny to cloudy&quot;</span></code></pre></div>
+<p>Now that our changes are commited on the <code>update-readme</code> branch, let’s switch back to <code>master</code>:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> checkout master</code></pre></div>
+<p>Let’s change the same line of code using <code>nano</code>:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">nano</span> readme.txt
+<span class="kw">cat</span> readme.txt</code></pre></div>
+<pre><code>## Welcome to My First Repo
+## Learning Git is going well so far.
+## I added this line in the update-readme branch.
+## It&#39;s windy outside today.</code></pre>
+<p>Now let’s commit these changes:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> add -A
+<span class="kw">git</span> commit -m <span class="st">&quot;changed sunny to windy&quot;</span></code></pre></div>
+<p>We’ve now created two commits that directly conflict with each other. On the <code>update-readme</code> branch the last line says <code>It's cloudy outside today.</code>, while on the <code>master</code> branch the last line says <code>It's windy outside today.</code>. Let’s see what happens when we try to merge <code>update-readme</code> into <code>master</code>.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> merge update-readme</code></pre></div>
+<pre><code>## Auto-merging readme.txt
+## CONFLICT (content): Merge conflict in readme.txt
+## Automatic merge failed; fix conflicts and then commit the result.</code></pre>
+<p>Uh-oh, there’s a conflict! Let’s check the status of the repo right now:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> status</code></pre></div>
+<pre><code>## On branch master
+## You have unmerged paths.
+##   (fix conflicts and run &quot;git commit&quot;)
+##   (use &quot;git merge --abort&quot; to abort the merge)
+## 
+## Unmerged paths:
+##   (use &quot;git add &lt;file&gt;...&quot; to mark resolution)
+## 
+##  both modified:   readme.txt
+## 
+## no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)</code></pre>
+<p>If you’re getting used to reading the result of <code>git status</code>, you can see that it often offers suggestions about what steps you should take next. Git is indicating that both versions of readme.txt have modified the same text. Let’s take a look at <code>readme.txt</code> to see what’s going on there:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cat</span> readme.txt</code></pre></div>
+<pre><code>## Welcome to My First Repo
+## Learning Git is going well so far.
+## I added this line in the update-readme branch.
+## &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+## It&#39;s windy outside today.
+## =======
+## It&#39;s cloudy outside today.
+## &gt;&gt;&gt;&gt;&gt;&gt;&gt; update-readme</code></pre>
+<p>The first three lines of this file look normal, then things get interesting! The line between <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> and <code>=======</code> shows the version of the conflicted line between on the current branch. In Git terminology the <code>HEAD</code> represents the most recent commit on the branch which is currently checked out (which is <code>master</code> in this case). The line between <code>=======</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; update-readme</code> shows the version of the line on the <code>update-readme</code> branch. In order to resolve this conflict, all we need to do is open <code>readme.txt</code> with <code>nano</code> so we can delete the lines we want to get rid of. In this case let’s keep the “cloudy” version.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">nano</span> readme.txt
+<span class="kw">cat</span> readme.txt</code></pre></div>
+<pre><code>## Welcome to My First Repo
+## Learning Git is going well so far.
+## I added this line in the update-readme branch.
+## It&#39;s cloudy outside today.</code></pre>
+<p>Now we can commit the resolution of this conflict.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> add -A
+<span class="kw">git</span> commit -m <span class="st">&quot;resolved conflict&quot;</span></code></pre></div>
+<p>You’re now familiar with this basics of Git! If you want to go into further depth with your study of Git I highly recommend the free and open source book <a href="https://git-scm.com/book/">Pro Git</a>.</p>
+<div id="summary-15" class="section level3">
+<h3><span class="header-section-number">6.5.1</span> Summary</h3>
+<ul>
+<li>Git branching allows you and others to work on the same code base toegther.</li>
+<li>You can create a branch with the command <code>git branch [name of branch]</code>.</li>
+<li>To switch to a branch use <code>git checkout [name of branch]</code>.</li>
+<li>You can combine a branch with your current branch with <code>git merge</code>.</li>
+</ul>
 </div>
-<div id="markdown" class="section level2">
-<h2><span class="header-section-number">6.6</span> Markdown</h2>
+<div id="exercises-16" class="section level3">
+<h3><span class="header-section-number">6.5.2</span> Exercises</h3>
+<ol style="list-style-type: decimal">
+<li>Start a new branch.</li>
+<li>Switch to that branch and add commits to it. Switch to an older branch and then merge the new branch into your current branch.</li>
+<li>Purposefully create and resolve a merge conflict.</li>
+</ol>
+</div>
 </div>
 <div id="github" class="section level2">
-<h2><span class="header-section-number">6.7</span> GitHub</h2>
+<h2><span class="header-section-number">6.6</span> GitHub</h2>
+<p>Now that you know the basics of using Git, let’s talk about how you can share your work and start collaborating online using GitHub. As an added bonus, by the end of this chapter you will have created your very own website for free! To get started go to <a href="https://github.com/">GitHub</a> and sign in with the credentials we set up at the beginning of the chapter. After you sign in, you should see a plus-sign near the top-right corner of your web browser. Click the plus-sign and a little menu should appear, then click “New repository.” You should now see a screen that looks like this:</p>
+<div class="figure">
+<img src="img/new-repo.png" />
 
+</div>
+<p>In the text box under <strong>Repository name</strong> type <code>my-first-repo</code> and then click the green <strong>Create repository</strong> button. Now you should see a page like this:</p>
+<div class="figure">
+<img src="img/quick-setup.png" />
+
+</div>
+<div id="markdown" class="section level3">
+<h3><span class="header-section-number">6.6.1</span> Markdown</h3>
+<hr />
+<pre><code>#### This is a large heading
+
+##### This is a smaller heading
+
+And as **imagination** bodies forth,
+The forms of things *unknown*, the poet’s pen,
+Turns them to shapes and gives to airy nothing,
+A local *habitation* and a **name**.
+
+Here is how you make [a link](https://www.wikipedia.org/).
+
+- This is
+- an unordered
+- list
+
+1. This is
+2. an ordered
+3. list
+
+Here is `some code` in the middle of a sentence.
+
+```
+This is
+a block
+of code
+```</code></pre>
+<hr />
+
+</div>
 </div>
 </div>
             </section>

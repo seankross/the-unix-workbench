@@ -26,7 +26,7 @@
 <meta name="author" content="Sean Kross">
 
 
-<meta name="date" content="2017-04-28">
+<meta name="date" content="2017-05-04">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -195,12 +195,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="git-and-github.html"><a href="git-and-github.html#important-git-features"><i class="fa fa-check"></i><b>6.4</b> Important Git Features</a><ul>
 <li class="chapter" data-level="6.4.1" data-path="git-and-github.html"><a href="git-and-github.html#gitting-help-logs-and-diffs"><i class="fa fa-check"></i><b>6.4.1</b> Gitting Help, Logs, and Diffs</a></li>
-<li class="chapter" data-level="6.4.2" data-path="git-and-github.html"><a href="git-and-github.html#summary-14"><i class="fa fa-check"></i><b>6.4.2</b> Summary</a></li>
-<li class="chapter" data-level="6.4.3" data-path="git-and-github.html"><a href="git-and-github.html#exercises-15"><i class="fa fa-check"></i><b>6.4.3</b> Exercises</a></li>
+<li class="chapter" data-level="6.4.2" data-path="git-and-github.html"><a href="git-and-github.html#ignoring-files"><i class="fa fa-check"></i><b>6.4.2</b> Ignoring Files</a></li>
+<li class="chapter" data-level="6.4.3" data-path="git-and-github.html"><a href="git-and-github.html#summary-14"><i class="fa fa-check"></i><b>6.4.3</b> Summary</a></li>
+<li class="chapter" data-level="6.4.4" data-path="git-and-github.html"><a href="git-and-github.html#exercises-15"><i class="fa fa-check"></i><b>6.4.4</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="git-and-github.html"><a href="git-and-github.html#branching"><i class="fa fa-check"></i><b>6.5</b> Branching</a></li>
-<li class="chapter" data-level="6.6" data-path="git-and-github.html"><a href="git-and-github.html#markdown"><i class="fa fa-check"></i><b>6.6</b> Markdown</a></li>
-<li class="chapter" data-level="6.7" data-path="git-and-github.html"><a href="git-and-github.html#github"><i class="fa fa-check"></i><b>6.7</b> GitHub</a></li>
+<li class="chapter" data-level="6.5" data-path="git-and-github.html"><a href="git-and-github.html#branching"><i class="fa fa-check"></i><b>6.5</b> Branching</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="git-and-github.html"><a href="git-and-github.html#summary-15"><i class="fa fa-check"></i><b>6.5.1</b> Summary</a></li>
+<li class="chapter" data-level="6.5.2" data-path="git-and-github.html"><a href="git-and-github.html#exercises-16"><i class="fa fa-check"></i><b>6.5.2</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="git-and-github.html"><a href="git-and-github.html#github"><i class="fa fa-check"></i><b>6.6</b> GitHub</a><ul>
+<li class="chapter" data-level="6.6.1" data-path="git-and-github.html"><a href="git-and-github.html#markdown"><i class="fa fa-check"></i><b>6.6.1</b> Markdown</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="nephology.html"><a href="nephology.html"><i class="fa fa-check"></i><b>7</b> Nephology</a></li>
 <li class="chapter" data-level="8" data-path="crypto.html"><a href="crypto.html"><i class="fa fa-check"></i><b>8</b> Crypto</a></li>
@@ -362,7 +367,7 @@ echo &quot;Number of arguments: $#&quot;</code></pre>
 <pre><code>## Script arguments: red blue green
 ## First arg: red. Second arg: blue.
 ## Number of arguments: 3</code></pre>
-<p>Your script can accept arguments just like a command line program! The first argument to your script is stored in <code>$1</code>, the second argument is stored in <code>$2</code>, etc, etc. An array of all of the arguments passed to your script is stored <code>$@</code>, and we’ll discuss how to handle arrays later on in this chapter. The total number of arguments passed to your script is stored in <code>$#</code>. Now that you know how to pass arguments to your scripts you can start writing your own commnad line tools!</p>
+<p>Your script can accept arguments just like a command line program! The first argument to your script is stored in <code>$1</code>, the second argument is stored in <code>$2</code>, etc, etc. An array of all of the arguments passed to your script is stored in <code>$@</code>, and we’ll discuss how to handle arrays later on in this chapter. The total number of arguments passed to your script is stored in <code>$#</code>. Now that you know how to pass arguments to your scripts you can start writing your own command line tools!</p>
 <div id="summary-8" class="section level3">
 <h3><span class="header-section-number">5.2.1</span> Summary</h3>
 <ul>
@@ -370,7 +375,7 @@ echo &quot;Number of arguments: $#&quot;</code></pre>
 <li>Strings or numbers can be assigned to variables.</li>
 <li>The value of a variable can be accessed with the dollar sign (<code>$</code>) before the variable name.</li>
 <li>You can use the dollar sign and parentheses syntax (command substitution) to execute a command and save the output in a variable.</li>
-<li>You can access command line arguments within your own scripts using the dollar sign followed by the number of the argumnet.</li>
+<li>You can access command line arguments within your own scripts using the dollar sign followed by the number of the argument.</li>
 </ul>
 </div>
 <div id="exercises-8" class="section level3">
@@ -378,7 +383,7 @@ echo &quot;Number of arguments: $#&quot;</code></pre>
 <ol style="list-style-type: decimal">
 <li>Write a Bash program where you assign two numbers to different variables, and then the program prints the sum of those variables.</li>
 <li>Write another Bash program where you assign two strings to different variables, and then the program prints both of those strings. Write a version where the strings are printed on the same line, and a version where the strings are printed on different lines.</li>
-<li>Write a Bash program that prints the number of arguments provided to that program multiplied by the first argument providied to the program.</li>
+<li>Write a Bash program that prints the number of arguments provided to that program multiplied by the first argument provided to the program.</li>
 </ol>
 </div>
 </div>
@@ -420,7 +425,7 @@ echo &quot;You entered: $response&quot;</code></pre>
 <p>When writing computer programs it is often useful for your program to be able to make decisions based on inputs like arguments, files, and environmental variables. Bash provides mechanisms for creating <strong>logical expressions</strong> which resemble mathematical equations. These logical expressions can be evaluated until they are either true or false. In fact, <code>true</code> and <code>false</code> are both simple Bash commands! Let’s try them both out now:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">true</span>
 <span class="kw">false</span></code></pre></div>
-<p>At first it doesn’t look like they do much. In order to see how they work, we’re going to need to look under the hood of Unix a little bit. Whenever you exceute a program on the command line, in general one of two things will happen: either the command is executed successfully, or there’s an error. In terms of errors there are many ways that a program can go wrong, and Unix can take different action depending on what kind of error occurs. For example if I enter the name of a command that does not exist into the keyboard, then I’ll see an error:</p>
+<p>At first it doesn’t look like they do much. In order to see how they work, we’re going to need to look under the hood of Unix a little bit. Whenever you execute a program on the command line, in general one of two things will happen: either the command is executed successfully, or there’s an error. In terms of errors there are many ways that a program can go wrong, and Unix can take different action depending on what kind of error occurs. For example if I enter the name of a command that does not exist into the keyboard, then I’ll see an error:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">this_command_does_not_exist</span></code></pre></div>
 <pre><code>## Error in running command bash</code></pre>
 <p>Since that command does not exist, it creates a specific kind of error which is indicated by the program’s <strong>exit status</strong>. The exit status of a program is an integer, the exit status of the last program run is stored in the question mark variable (<code>$?</code>). We can take a look at the exit status of the last program with <code>echo</code>:</p>
@@ -451,7 +456,7 @@ echo &quot;You entered: $response&quot;</code></pre>
 ## Athos
 ## Porthos
 ## Aramis</code></pre>
-<p>In a series of programs joined toegther by AND operators, any programs to the right of a program that has a non-zero exit status is not executed.</p>
+<p>In a series of programs joined together by AND operators, any programs to the right of a program that has a non-zero exit status is not executed.</p>
 <p>The OR operator (<code>||</code>) follows a similar set of principles. Commands on the right hand side of <code>||</code> are only executed if the command on the left hand side <em>fails</em> and therefore has an exit status other than 0. Let’s take a look at how this works:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">true</span> <span class="kw">||</span> <span class="kw">echo</span> <span class="st">&quot;Program 1 was executed.&quot;</span>
 <span class="kw">false</span> <span class="kw">||</span> <span class="kw">echo</span> <span class="st">&quot;Program 2 was executed.&quot;</span></code></pre></div>
@@ -494,7 +499,7 @@ echo &quot;You entered: $response&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span> ~/Code
 <span class="kw">[[</span> <span class="ot">-e</span> math.sh<span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="kw">echo</span> t <span class="kw">||</span> <span class="kw">echo</span> f</code></pre></div>
 <pre><code>## t</code></pre>
-<p>As you can see the file <code>math.sh</code> exists! Most of the time when you’r writing bash scripts you won’t be comparing two raw values or trying to find something out about one raw value, instead you’ll want to create a logical statememnt about a value contained ina variable. Variables behave just like raw values in logical expressions. Let’s take a look at a few examples:</p>
+<p>As you can see the file <code>math.sh</code> exists! Most of the time when you’re writing bash scripts you won’t be comparing two raw values or trying to find something out about one raw value, instead you’ll want to create a logical statement about a value contained in a variable. Variables behave just like raw values in logical expressions. Let’s take a look at a few examples:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ot">number=</span>7
 <span class="kw">[[</span> <span class="ot">$number</span> <span class="ot">-gt</span> 3<span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="kw">echo</span> t <span class="kw">||</span> <span class="kw">echo</span> f
 <span class="kw">[[</span> <span class="ot">$number</span> <span class="ot">-gt</span> 10<span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="kw">echo</span> t <span class="kw">||</span> <span class="kw">echo</span> f
@@ -502,7 +507,7 @@ echo &quot;You entered: $response&quot;</code></pre>
 <pre><code>## t
 ## f
 ## f</code></pre>
-<p>As you can see 7 is greater than 3 though it is not greater than 10, and there is not file in this directory called <code>7</code>. There are several other varieties of logcial flags, and you can find a table of several of these flags below.</p>
+<p>As you can see 7 is greater than 3 though it is not greater than 10, and there is not file in this directory called <code>7</code>. There are several other varieties of logical flags, and you can find a table of several of these flags below.</p>
 <table>
 <thead>
 <tr class="header">
@@ -632,11 +637,11 @@ echo &quot;End program&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">bash</span> simpleif.sh</code></pre></div>
 <pre><code>## Start program
 ## End program</code></pre>
-<p>Since we didn’t provide any arguments to <code>simpleif.sh</code> the code withhin the IF statement was skipped! Now let’s try providing an argument to this script:</p>
+<p>Since we didn’t provide any arguments to <code>simpleif.sh</code> the code within the IF statement was skipped! Now let’s try providing an argument to this script:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">bash</span> simpleif.sh 77</code></pre></div>
 <pre><code>## Start program
 ## End program</code></pre>
-<p>We providied the argument <code>77</code>, however 77 is not equal to 4, therefore the code within the IF statement was once again skipped. Finally let’s privide <code>4</code> as an argument:</p>
+<p>We provided the argument <code>77</code>, however 77 is not equal to 4, therefore the code within the IF statement was once again skipped. Finally let’s provide <code>4</code> as an argument:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">bash</span> simpleif.sh 4</code></pre></div>
 <pre><code>## Start program
 ## You entered 4
@@ -660,7 +665,7 @@ echo &quot;End program&quot;</code></pre>
 <pre><code>## Start program
 ## Thanks for entering 4
 ## End program</code></pre>
-<p>The conditional expression <code>[[ $1 -eq 4 ]]</code> was true so code inside of the IF statement was run and the code in the ELSE statement was not run. What do you think will happned when we make the conditional expression false?</p>
+<p>The conditional expression <code>[[ $1 -eq 4 ]]</code> was true so code inside of the IF statement was run and the code in the ELSE statement was not run. What do you think will happened when we make the conditional expression false?</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">bash</span> simpleifelse.sh 3</code></pre></div>
 <pre><code>## Start program
 ## You entered: 3, not what I was looking for.
@@ -715,7 +720,7 @@ fi</code></pre>
 ## Jeff works in the Data Science Lab
 ## Brian works in the Data Science Lab
 ## You entered: Sean, not what I was looking for.</code></pre>
-<p>The conidtional execution operators work just like they would on the command line. If the entire conditional expression evaluates to the equivalent of <code>true</code> then the code within the IF statement is executed, otherwise it is skipped.</p>
+<p>The conditional execution operators work just like they would on the command line. If the entire conditional expression evaluates to the equivalent of <code>true</code> then the code within the IF statement is executed, otherwise it is skipped.</p>
 <p>Finally we should note that IF/ELIF/ELSE statements can be nested inside of other IF statements. Here’s a small example of a program with nested statements:</p>
 <pre><code>#!/usr/bin/env bash
 # File: nested.sh
@@ -859,7 +864,7 @@ fi</code></pre>
 </div>
 <div id="loops" class="section level2">
 <h2><span class="header-section-number">5.7</span> Loops</h2>
-<p>Loops are one of the most important programming structures in the Bash language. All of the programs we’ve written so far are executed from the first line of the script until the last line, but loops allow you to repeat lines of code based on logical conditions or by following a sequence. The first kind of loop that we’ll discuss is a FOR loop. FOR loops iterate through every elemenet of a sequence that you specify. Let’s take a look at a small example FOR loop:</p>
+<p>Loops are one of the most important programming structures in the Bash language. All of the programs we’ve written so far are executed from the first line of the script until the last line, but loops allow you to repeat lines of code based on logical conditions or by following a sequence. The first kind of loop that we’ll discuss is a FOR loop. FOR loops iterate through every element of a sequence that you specify. Let’s take a look at a small example FOR loop:</p>
 <pre><code>#!/usr/bin/env bash
 # File: forloop.sh
 

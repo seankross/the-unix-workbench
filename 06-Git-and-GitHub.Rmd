@@ -532,6 +532,8 @@ cat readme.txt
 
 And as you can see the changes we made to `readme.txt` have been undone.
 
+### Ignoring Files
+
 Sometimes you might have files that you never want Git to track, for example
 binary files that are generated as by-products of running code (PDFs or images),
 or secrets like passwords or API keys. A file in your Git repository called 
@@ -994,8 +996,101 @@ cat readme.txt
 ```
 
 The first three lines of this file look normal, then things get interesting!
+The line between `<<<<<<< HEAD` and `=======` shows the version of the
+conflicted line between on the current branch. In Git terminology the `HEAD`
+represents the most recent commit on the branch which is currently checked out
+(which is `master` in this case). The line between `=======` and 
+`>>>>>>> update-readme` shows the version of the line on the `update-readme`
+branch. In order to resolve this conflict, all we need to do is open `readme.txt`
+with `nano` so we can delete the lines we want to get rid of. In this case let's
+keep the "cloudy" version.
 
+```{r, engine='bash', eval=FALSE}
+nano readme.txt
+cat readme.txt
+```
 
-## Markdown
+```
+## Welcome to My First Repo
+## Learning Git is going well so far.
+## I added this line in the update-readme branch.
+## It's cloudy outside today.
+```
+
+Now we can commit the resolution of this conflict.
+
+```{r, engine='bash', eval=FALSE}
+git add -A
+git commit -m "resolved conflict"
+```
+
+You're now familiar with this basics of Git! If you want to go into further
+depth with your study of Git I highly recommend the free and open source book
+[Pro Git](https://git-scm.com/book/).
+
+### Summary
+
+- Git branching allows you and others to work on the same code base toegther.
+- You can create a branch with the command `git branch [name of branch]`.
+- To switch to a branch use `git checkout [name of branch]`.
+- You can combine a branch with your current branch with `git merge`.
+
+### Exercises
+
+1. Start a new branch.
+2. Switch to that branch and add commits to it. Switch to an older branch and
+then merge the new branch into your current branch.
+3. Purposefully create and resolve a merge conflict.
 
 ## GitHub
+
+Now that you know the basics of using Git, let's talk about how you can share
+your work and start collaborating online using GitHub. As an added bonus, by
+the end of this chapter you will have created your very own website for free!
+To get started go to [GitHub](https://github.com/) and sign in with the
+credentials we set up at the beginning of the chapter. After you sign in, you
+should see a plus-sign near the top-right corner of your web browser. Click the
+plus-sign and a little menu should appear, then click "New repository." You
+should now see a screen that looks like this:
+
+![](img/new-repo.png)
+
+In the text box under **Repository name** type `my-first-repo` and then click
+the green **Create repository** button. Now you should see a page like this:
+
+![](img/quick-setup.png)
+
+### Markdown
+
+---
+
+    #### This is a large heading
+
+    ##### This is a smaller heading
+
+    And as **imagination** bodies forth,
+    The forms of things *unknown*, the poet’s pen,
+    Turns them to shapes and gives to airy nothing,
+    A local *habitation* and a **name**.
+    
+    Here is how you make [a link](https://www.wikipedia.org/).
+
+    - This is
+    - an unordered
+    - list
+
+    1. This is
+    2. an ordered
+    3. list
+
+    Here is `some code` in the middle of a sentence.
+    
+    ```
+    This is
+    a block
+    of code
+    ```
+    
+---
+
+

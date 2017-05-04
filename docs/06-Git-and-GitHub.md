@@ -11,7 +11,7 @@ date of those changes, and where the changes were made. If a critical file gets
 deleted by accident, or if you make a breaking change to your code and you want
 to try to figure out where the breaking change was made, you can use Git to
 restore the deleted file or find the new bug in your program. Git organizes
-groups of files that you're tracking into a **repository**, which is just
+groups of files that you're tracking into a **repository**, which is just a
 directory where all of the changes to files in that directory are tracked. Git
 can also help your collaborate with others when you're writing software. As
 [Karl Broman](https://twitter.com/kwbroman) says
@@ -24,7 +24,7 @@ on code together with a friend GitHub can help you sync changes to code files
 between you and your friend. There's also a social and community aspect to 
 GitHub, since you can watch other programmers develop their projects. GitHub 
 also makes it easy to jump in and help somebody with their project. GitHub
-offers many other useful features which will discuss at length.
+offers many other useful features which we will discuss at length.
 
 ## Setting Up Git and GitHub
 
@@ -190,7 +190,7 @@ were creating the file in the first place! This milestone is called a **commit**
 in Git. A commit logs the content of all of the currently staged files. Right
 now we only have `readme.txt` staged so let's commit the creation of this file.
 When making a Git commit, we need to write a commit message which is specified
-after the `-m` flag. The message should breifly describe what changes you've
+after the `-m` flag. The message should briefly describe what changes you've
 made since the last commit.
 
 
@@ -269,12 +269,12 @@ git status
 ```
 
 We can see that Git has detected that one file has been modified, and that there
-are two files in this directory that it is not tracking. Now we needd to tell
+are two files in this directory that it is not tracking. Now we need to tell
 Git to track the changes to these files. We could tell Git to track changes to
 each file using `git add`, or since all of the files in this repository are
 `.txt` files we could use a wildcard and enter `git add *.txt` into the
 console. However if we want to track all of the changes to all of the files in
-our directory we shoudl use the command `git add -A`.
+our directory we should use the command `git add -A`.
 
 
 ```bash
@@ -401,7 +401,7 @@ That looks much better.
 ### Summary
 
 - Git tracks changes to plain text files (code files and text documents).
-- A directory where chanegs to files are tracked by Git is called a Git
+- A directory where changes to files are tracked by Git is called a Git
 repository.
 - You can track changes to a file using `git add [names of files]`.
 - You can create a milestone about the state of your files using `git commit -m "messahe about changes since the last commit"`.
@@ -565,6 +565,8 @@ cat readme.txt
 
 And as you can see the changes we made to `readme.txt` have been undone.
 
+### Ignoring Files
+
 Sometimes you might have files that you never want Git to track, for example
 binary files that are generated as by-products of running code (PDFs or images),
 or secrets like passwords or API keys. A file in your Git repository called 
@@ -662,7 +664,7 @@ files.
 ### Exercises
 
 1. Look at the help pages for `git log` and `git diff`.
-2. Add to the `.gitignore` you already started to inlude a specific file name,
+2. Add to the `.gitignore` you already started to include a specific file name,
 then add that file to your repository.
 3. Create a file that contains the Git log for this repository. Use `grep` to
 see which day of the week most of the commits occurred on.
@@ -672,7 +674,7 @@ see which day of the week most of the commits occurred on.
 Branching is one of the most powerful features that Git offers. Creating
 different Git branches allows you to work on a particular feature or set of
 files independently from other "copies" of a repository. That way you and a
-friend can work on different parts of the same file on different braches, and
+friend can work on different parts of the same file on different branches, and
 then Git can help you elegantly merge your branches and changes together.
 
 You can list all of the available branches with the command `git branch`:
@@ -939,8 +941,224 @@ cat readme.txt
 ## It's sunny outside today.
 ```
 
-It looks like you've merged your first branch in Git!
+It looks like you've merged your first branch in Git! Branching is part of what
+makes Git so powerful since it enables parallel developments on the same code
+base. But what if there are two commits in two seperate branches that make
+different edits to the same line of text? When this occurs it is called a
+**conflict**. Let's create a conflict so we can learn how they can be resolved.
 
-## Markdown
+First we'll switch to the `update-readme` branch. Use `nano` to edit the last
+line of `readme.txt`, then commit your changes:
+
+
+```bash
+git checkout update-readme
+nano readme.txt
+cat readme.txt
+```
+
+```
+## Welcome to My First Repo
+## Learning Git is going well so far.
+## I added this line in the update-readme branch.
+## It's cloudy outside today.
+```
+
+Notice that we changed "sunny" to "cloudy" in the last line.
+
+
+```bash
+git add -A
+git commit -m "changed sunny to cloudy"
+```
+
+Now that our changes are commited on the `update-readme` branch, let's switch
+back to `master`:
+
+
+```bash
+git checkout master
+```
+
+Let's change the same line of code using `nano`:
+
+
+```bash
+nano readme.txt
+cat readme.txt
+```
+
+```
+## Welcome to My First Repo
+## Learning Git is going well so far.
+## I added this line in the update-readme branch.
+## It's windy outside today.
+```
+
+Now let's commit these changes:
+
+
+```bash
+git add -A
+git commit -m "changed sunny to windy"
+```
+
+We've now created two commits that directly conflict with each other. On the
+`update-readme` branch the last line says `It's cloudy outside today.`, while
+on the `master` branch the last line says `It's windy outside today.`. Let's
+see what happens when we try to merge `update-readme` into `master`.
+
+
+```bash
+git merge update-readme
+```
+
+```
+## Auto-merging readme.txt
+## CONFLICT (content): Merge conflict in readme.txt
+## Automatic merge failed; fix conflicts and then commit the result.
+```
+
+Uh-oh, there's a conflict! Let's check the status of the repo right now:
+
+
+```bash
+git status
+```
+
+```
+## On branch master
+## You have unmerged paths.
+##   (fix conflicts and run "git commit")
+##   (use "git merge --abort" to abort the merge)
+## 
+## Unmerged paths:
+##   (use "git add <file>..." to mark resolution)
+## 
+## 	both modified:   readme.txt
+## 
+## no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+If you're getting used to reading the result of `git status`, you can see that
+it often offers suggestions about what steps you should take next. Git is
+indicating that both versions of readme.txt have modified the same text. Let's
+take a look at `readme.txt` to see what's going on there:
+
+
+```bash
+cat readme.txt
+```
+
+```
+## Welcome to My First Repo
+## Learning Git is going well so far.
+## I added this line in the update-readme branch.
+## <<<<<<< HEAD
+## It's windy outside today.
+## =======
+## It's cloudy outside today.
+## >>>>>>> update-readme
+```
+
+The first three lines of this file look normal, then things get interesting!
+The line between `<<<<<<< HEAD` and `=======` shows the version of the
+conflicted line between on the current branch. In Git terminology the `HEAD`
+represents the most recent commit on the branch which is currently checked out
+(which is `master` in this case). The line between `=======` and 
+`>>>>>>> update-readme` shows the version of the line on the `update-readme`
+branch. In order to resolve this conflict, all we need to do is open `readme.txt`
+with `nano` so we can delete the lines we want to get rid of. In this case let's
+keep the "cloudy" version.
+
+
+```bash
+nano readme.txt
+cat readme.txt
+```
+
+```
+## Welcome to My First Repo
+## Learning Git is going well so far.
+## I added this line in the update-readme branch.
+## It's cloudy outside today.
+```
+
+Now we can commit the resolution of this conflict.
+
+
+```bash
+git add -A
+git commit -m "resolved conflict"
+```
+
+You're now familiar with this basics of Git! If you want to go into further
+depth with your study of Git I highly recommend the free and open source book
+[Pro Git](https://git-scm.com/book/).
+
+### Summary
+
+- Git branching allows you and others to work on the same code base toegther.
+- You can create a branch with the command `git branch [name of branch]`.
+- To switch to a branch use `git checkout [name of branch]`.
+- You can combine a branch with your current branch with `git merge`.
+
+### Exercises
+
+1. Start a new branch.
+2. Switch to that branch and add commits to it. Switch to an older branch and
+then merge the new branch into your current branch.
+3. Purposefully create and resolve a merge conflict.
 
 ## GitHub
+
+Now that you know the basics of using Git, let's talk about how you can share
+your work and start collaborating online using GitHub. As an added bonus, by
+the end of this chapter you will have created your very own website for free!
+To get started go to [GitHub](https://github.com/) and sign in with the
+credentials we set up at the beginning of the chapter. After you sign in, you
+should see a plus-sign near the top-right corner of your web browser. Click the
+plus-sign and a little menu should appear, then click "New repository." You
+should now see a screen that looks like this:
+
+![](img/new-repo.png)
+
+In the text box under **Repository name** type `my-first-repo` and then click
+the green **Create repository** button. Now you should see a page like this:
+
+![](img/quick-setup.png)
+
+### Markdown
+
+---
+
+    #### This is a large heading
+
+    ##### This is a smaller heading
+
+    And as **imagination** bodies forth,
+    The forms of things *unknown*, the poet’s pen,
+    Turns them to shapes and gives to airy nothing,
+    A local *habitation* and a **name**.
+    
+    Here is how you make [a link](https://www.wikipedia.org/).
+
+    - This is
+    - an unordered
+    - list
+
+    1. This is
+    2. an ordered
+    3. list
+
+    Here is `some code` in the middle of a sentence.
+    
+    ```
+    This is
+    a block
+    of code
+    ```
+    
+---
+
+

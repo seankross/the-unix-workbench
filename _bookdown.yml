@@ -2,6 +2,6 @@ book_filename: "the-unix-workbench"
 chapter_name: "Chapter "
 repo: https://github.com/seankross/the-unix-workbench
 output_dir: docs
-#rmd_files: ["index.Rmd", "01-What-is-Unix.Rmd", "02-Getting-Unix.Rmd", "03-Command-Line-Basics.Rmd"]
+rmd_files: ["index.Rmd", "01-What-is-Unix.Rmd", "02-Getting-Unix.Rmd", "03-Command-Line-Basics.Rmd", "04-Working-with-Unix.Rmd", "05-Bash-Programming.Rmd", "06-Git-and-GitHub.Rmd", "07-Nephology.Rmd"]
 clean: [packages.bib, bookdown.bbl]
 new_session: yes

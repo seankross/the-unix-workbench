@@ -1046,9 +1046,9 @@ then merge the new branch into your current branch.
 
 Now that you know the basics of using Git, let's talk about how you can share
 your work and start collaborating online using GitHub. As an added bonus, by
-the end of this chapter you will have created your very own website for free!
+the end of this chapter you will have created your very own website!
 To get started go to [GitHub](https://github.com/) and sign in with the
-credentials we set up at the beginning of the chapter. After you sign in, you
+credentials we set up at the beginning of the chapter. After you sign in you
 should see a plus-sign near the top-right corner of your web browser. Click the
 plus-sign and a little menu should appear, then click "New repository." You
 should now see a screen that looks like this:
@@ -1059,22 +1059,110 @@ In the text box under **Repository name** type `my-first-repo` and then click
 the green **Create repository** button. Now you should see a page like this:
 
 ![](img/quick-setup.png)
+GitHub offers a few suggestions about what to do with our new remote repository.
+We've already been using a local Git repository, and what GitHub provides is a
+**remote** Git repository. A remote Git repository is just a Git repository
+stored on a computer is that always turned on and conected to the internet, so
+it can act as a central point where we can share and sync our changes to files
+with our friends and colleagues. We can see which remote repositories our local
+repository is connected to with the `git remote` command while we have our
+working directory set to `my-first-repo`:
+
+```{r, engine='bash', eval=FALSE}
+git remote
+```
+
+Nothing is printed to the console since you haven't set any remotes up yet!
+Now let's add your new GitHub repository as a remote in your local repository:
+
+```{r, engine='bash', eval=FALSE}
+git remote add origin https://github.com/seankross/my-first-repo.git
+```
+
+In the command above `git remote add` adds a new remote to your local repository,
+`origin` is the name we're assigning to this remote repository, and 
+`https://github.com/seankross/my-first-repo.git`
+is the URL of the remote repository. You should of course substitute `seankross`
+for your GitHub user name so that it corresponds to your remote repository URL.
+Later I'll explain why "origin" is the name we chose for this remote.
+Let's run `git remote` again to confirm that we added the `origin` remote
+successfully:
+
+```{r, engine='bash', eval=FALSE}
+git remote
+```
+
+```
+## origin
+```
+
+Now that we've added our GitHub remote, let's perform our first Git **push**. A
+Git push updates a remote repository with all of the commits that we've made to
+our local Git repository. This first Git push you do when setting up a remote
+on GitHub with a local repository is little different from future Git pushes.
+We'll need to use the `-u` flag in order to set `origin` as the default remote
+repository so we don't have to provide its name every time we want to interact
+with it. Enter the following command, modified so that you're using your GitHub
+user name:
+
+```{r, engine='bash', eval=FALSE}
+git push -u origin master
+```
+
+```
+## Counting objects: 23, done.
+## Delta compression using up to 4 threads.
+## Compressing objects: 100% (19/19), done.
+## Writing objects: 100% (23/23), 1.88 KiB | 0 bytes/s, done.
+## Total 23 (delta 9), reused 0 (delta 0)
+## remote: Resolving deltas: 100% (9/9), done.
+## To https://github.com/seankross/my-first-repo.git
+##  * [new branch]      master -> master
+## Branch master set up to track remote branch master from origin.
+```
+
+The command above pushed all of our commits to the remote repository on
+GitHub, and it set up the `master` branch of the `origin` remote repository as
+the default remote repository. Looking back at the web page for your repository
+on GitHub, it should look something like this:
+
+![](img/first-push.png)
+
+One neat feature of GitHub is that readme files are rendered on the repository
+page so you can write documents which explain the contents of your repository.
+Let's get more creative with these readme documents by learning a small
+language called Markdown.
 
 ### Markdown
 
----
+Markdown is a markup langauge. Markup languages are sets of rules for adding
+decorative features to text. The most popular markup language is HTML, but you
+might have also heard of XML and LaTeX. 
+Markdown is a powerful markup language because it's
+small, inutitive, and readable when it's written as plain text. GitHub
+transforms markdown files (which end in the file extension `.md`) into simple
+HTML web pages in your repository. If there is a file called `README.md` in any
+folder in your repository, then that file is rendered to HTML and displayed on
+GitHub. Let's create a `README.md` file for our repository. First we'll destroy
+the plain text readme file we already have:
 
-    #### This is a large heading
+```{r, engine='bash', eval=FALSE}
+rm readme.txt
+```
 
-    ##### This is a smaller heading
+I've included a markdown file below that attempts to explain some of markdown's
+features. Copy the plain text below, create a new file called `README.md` with
+`nano`, paste the text in, and then save the file.
+
+    # This is a large heading
+
+    ## This is a smaller heading
 
     And as **imagination** bodies forth,
     The forms of things *unknown*, the poet’s pen,
     Turns them to shapes and gives to airy nothing,
     A local *habitation* and a **name**.
     
-    Here is how you make [a link](https://www.wikipedia.org/).
-
     - This is
     - an unordered
     - list
@@ -1091,6 +1179,11 @@ the green **Create repository** button. Now you should see a page like this:
     of code
     ```
     
----
+    Here is how you make [a link](https://www.wikipedia.org/).
+    
+    ![This is an image.](https://github.com/yihui/xaringan/releases/download/v0.0.2/karl-moustache.jpg)
 
+```{r, engine='bash', eval=FALSE}
+nano README.md
+```
 

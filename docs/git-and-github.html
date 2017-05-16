@@ -26,7 +26,7 @@
 <meta name="author" content="Sean Kross">
 
 
-<meta name="date" content="2017-05-15">
+<meta name="date" content="2017-05-16">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -205,6 +205,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="6.6" data-path="git-and-github.html"><a href="git-and-github.html#github"><i class="fa fa-check"></i><b>6.6</b> GitHub</a><ul>
 <li class="chapter" data-level="6.6.1" data-path="git-and-github.html"><a href="git-and-github.html#markdown"><i class="fa fa-check"></i><b>6.6.1</b> Markdown</a></li>
+<li class="chapter" data-level="6.6.2" data-path="git-and-github.html"><a href="git-and-github.html#pull-requests"><i class="fa fa-check"></i><b>6.6.2</b> Pull Requests</a></li>
+<li class="chapter" data-level="6.6.3" data-path="git-and-github.html"><a href="git-and-github.html#forking"><i class="fa fa-check"></i><b>6.6.3</b> Forking</a></li>
+<li class="chapter" data-level="6.6.4" data-path="git-and-github.html"><a href="git-and-github.html#summary-16"><i class="fa fa-check"></i><b>6.6.4</b> Summary</a></li>
+<li class="chapter" data-level="6.6.5" data-path="git-and-github.html"><a href="git-and-github.html#exercises-17"><i class="fa fa-check"></i><b>6.6.5</b> Exercises</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="nephology.html"><a href="nephology.html"><i class="fa fa-check"></i><b>7</b> Nephology</a></li>
@@ -263,41 +267,41 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Now that we’ve created a file in this Git repository, let’s use <code>git status</code> to see what’s going on in this repository. We’ll be using <code>git status</code> continuously throughout this chapter in order to get information about the status Git repository.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> status</code></pre></div>
 <pre><code>## On branch master
-## 
+##
 ## Initial commit
-## 
+##
 ## Untracked files:
 ##   (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
-## 
+##
 ##  readme.txt
-## 
+##
 ## nothing added to commit but untracked files present (use &quot;git add&quot; to track)</code></pre>
 <p>As you can see <code>readme.txt</code> is listed as an untracked file. In order to let Git know that you want to track this file we need to use <code>git add</code> with the name of the file that we want to track. Let’s start tracking <code>readme.txt</code>:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> add readme.txt</code></pre></div>
 <p>Git now knows to track any changes to <code>readme.txt</code> let’s see how the status of the repository has changed:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> status</code></pre></div>
 <pre><code>## On branch master
-## 
+##
 ## Initial commit
-## 
+##
 ## Changes to be committed:
 ##   (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)
-## 
+##
 ##  new file:   readme.txt
-## </code></pre>
+##</code></pre>
 <p>Git is now tracking <code>readme.txt</code>, or in Git-specific language <code>readme.txt</code> is now <strong>staged</strong>. Between the parentheses in the message above you can see that <code>git status</code> is giving us a tip about how to unstage (or un-track) this file, which we could do with <code>git rm --cached readme.txt</code>. Let’s unstage this file just to see what happens:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> rm --cached readme.txt</code></pre></div>
 <pre><code>## rm &#39;readme.txt&#39;</code></pre>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> status</code></pre></div>
 <pre><code>## On branch master
-## 
+##
 ## Initial commit
-## 
+##
 ## Untracked files:
 ##   (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
-## 
+##
 ##  readme.txt
-## </code></pre>
+##</code></pre>
 <p>Our repository is right back to the way it started with <code>readme.txt</code> as an unstaged file. Let’s start tracking <code>readme.txt</code> again so we can move on to cooler Git features.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> add readme.txt</code></pre></div>
 <p>Now that Git is tracking <code>readme.txt</code> we need to create a milestone to indicate the changes that we made to <code>readme.txt</code>. In this case, the changes that we made were creating the file in the first place! This milestone is called a <strong>commit</strong> in Git. A commit logs the content of all of the currently staged files. Right now we only have <code>readme.txt</code> staged so let’s commit the creation of this file. When making a Git commit, we need to write a commit message which is specified after the <code>-m</code> flag. The message should briefly describe what changes you’ve made since the last commit.</p>
@@ -324,15 +328,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## Changes not staged for commit:
 ##   (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
 ##   (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)
-## 
+##
 ##  modified:   readme.txt
-## 
+##
 ## Untracked files:
 ##   (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
-## 
+##
 ##  fil2.txt
 ##  file1.txt
-## 
+##
 ## no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)</code></pre>
 <p>We can see that Git has detected that one file has been modified, and that there are two files in this directory that it is not tracking. Now we need to tell Git to track the changes to these files. We could tell Git to track changes to each file using <code>git add</code>, or since all of the files in this repository are <code>.txt</code> files we could use a wildcard and enter <code>git add *.txt</code> into the console. However if we want to track all of the changes to all of the files in our directory we should use the command <code>git add -A</code>.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> add -A
@@ -340,11 +344,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>## On branch master
 ## Changes to be committed:
 ##   (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)
-## 
+##
 ##  new file:   fil2.txt
 ##  new file:   file1.txt
 ##  modified:   readme.txt
-## </code></pre>
+##</code></pre>
 <p>Now the changes to all of the files in this repository are being tracked. Finally let’s commit these changes:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> commit -m <span class="st">&quot;added two files&quot;</span></code></pre></div>
 <pre><code>## [master 53a1983] added two files
@@ -357,44 +361,44 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>## On branch master
 ## Changes to be committed:
 ##   (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)
-## 
+##
 ##  new file:   fil2.txt
 ##  new file:   file1.txt
 ##  modified:   readme.txt
-## </code></pre>
+##</code></pre>
 <p>This repo is now in that exact same state it was right before we made the commit. Now we can rename <code>fil2.txt</code> to <code>file2.txt</code>, then let’s look at the status of the repository again.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">mv</span> fil2.txt file2.txt
 <span class="kw">git</span> status</code></pre></div>
 <pre><code>## On branch master
 ## Changes to be committed:
 ##   (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)
-## 
+##
 ##  new file:   fil2.txt
 ##  new file:   file1.txt
 ##  modified:   readme.txt
-## 
+##
 ## Changes not staged for commit:
 ##   (use &quot;git add/rm &lt;file&gt;...&quot; to update what will be committed)
 ##   (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)
-## 
+##
 ##  deleted:    fil2.txt
-## 
+##
 ## Untracked files:
 ##   (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
-## 
+##
 ##  file2.txt
-## </code></pre>
+##</code></pre>
 <p>We previously told Git to track <code>fil2.txt</code>, and we can see that Git acknowledges that the file has been deleted. We can bring Git up to speed with what files it should be tracking with <code>git add -A</code>:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> add -A
 <span class="kw">git</span> status</code></pre></div>
 <pre><code>## On branch master
 ## Changes to be committed:
 ##   (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)
-## 
+##
 ##  new file:   file1.txt
 ##  new file:   file2.txt
 ##  modified:   readme.txt
-## </code></pre>
+##</code></pre>
 <p>Finally we got the file names right! Now let’s make the correct commit:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> commit -m <span class="st">&quot;added two files&quot;</span></code></pre></div>
 <pre><code>## [master 12bb9f5] added two files
@@ -408,7 +412,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Git tracks changes to plain text files (code files and text documents).</li>
 <li>A directory where changes to files are tracked by Git is called a Git repository.</li>
 <li>You can track changes to a file using <code>git add [names of files]</code>.</li>
-<li>You can create a milestone about the state of your files using <code>git commit -m &quot;messahe about changes since the last commit&quot;</code>.</li>
+<li>You can create a milestone about the state of your files using <code>git commit -m &quot;message about changes since the last commit&quot;</code>.</li>
 <li>To examine the state of files in your repository use <code>git status</code>.</li>
 </ul>
 </div>
@@ -449,13 +453,13 @@ DESCRIPTION
 <pre><code>## commit 12bb9f53b10c9b720dac8441e8624370e4e071b6
 ## Author: seankross &lt;sean@seankross.com&gt;
 ## Date:   Fri Apr 21 15:23:59 2017 -0400
-## 
+##
 ##     added two files
-## 
+##
 ## commit 73e53cae75301ce9b2802107b1956447241bb17a
 ## Author: seankross &lt;sean@seankross.com&gt;
 ## Date:   Thu Apr 20 14:15:26 2017 -0400
-## 
+##
 ##     added readme.txt</code></pre>
 <p>If you’ve made many commits to a repository you might need to press the <code>Q</code> key in order to get back to the prompt. Each commit has its time, date, and commit message recorded, along with a SHA-1 hash that uniquely identifies the commit.</p>
 <p>Git can also help show the differences between unstaged changes to your files compared to the last commit. Let’s add a new line of text to <code>readme.txt</code>:</p>
@@ -487,9 +491,9 @@ DESCRIPTION
 ## Changes not staged for commit:
 ##   (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
 ##   (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)
-## 
+##
 ##  modified:   readme.txt
-## 
+##
 ## no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)</code></pre>
 <p>If you read the results from <code>git status</code> carefully you can see that we can take this repository in one of two directions at this point. We can either <code>git add</code> the files we’ve made changes to in order to track those changes, or we can use <code>git checkout</code> in order to remove all of the changes we’ve made to a file to restore its content to what was present in the last commit. Let’s remove our changes to see how this works.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cat</span> readme.txt</code></pre></div>
@@ -509,9 +513,9 @@ DESCRIPTION
 <pre><code>## On branch master
 ## Untracked files:
 ##   (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
-## 
+##
 ##  toby.jpg
-## 
+##
 ## nothing added to commit but untracked files present (use &quot;git add&quot; to track)</code></pre>
 <p>Now that we’re added an image to our repository, let’s add a <code>.gitignore</code> file to make sure Git doesn’t track these kinds of files.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">echo</span> <span class="st">&quot;*.jpg&quot;</span> <span class="kw">&gt;</span> .gitignore
@@ -519,9 +523,9 @@ DESCRIPTION
 <pre><code>## On branch master
 ## Untracked files:
 ##   (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
-## 
+##
 ##  .gitignore
-## 
+##
 ## nothing added to commit but untracked files present (use &quot;git add&quot; to track)</code></pre>
 <p>Now we can see that Git has detected the new <code>.gitignore</code> file, but it doesn’t see <code>toby.jpg</code>. Let’s add and commit our <code>.gitignore</code> file:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> add -A
@@ -539,7 +543,7 @@ DESCRIPTION
 ## toby.jpg
 ## file1.txt
 ## file2.txt
-## readme.txt   </code></pre>
+## readme.txt</code></pre>
 </div>
 <div id="summary-14" class="section level3">
 <h3><span class="header-section-number">6.4.3</span> Summary</h3>
@@ -640,7 +644,7 @@ nothing to commit, working tree clean</code></pre>
 ## Learning Git is going well so far.
 ## I added this line in the update-readme branch.
 ## It&#39;s sunny outside today.</code></pre>
-<p>It looks like you’ve merged your first branch in Git! Branching is part of what makes Git so powerful since it enables parallel developments on the same code base. But what if there are two commits in two seperate branches that make different edits to the same line of text? When this occurs it is called a <strong>conflict</strong>. Let’s create a conflict so we can learn how they can be resolved.</p>
+<p>It looks like you’ve merged your first branch in Git! Branching is part of what makes Git so powerful since it enables parallel developments on the same code base. But what if there are two commits in two separate branches that make different edits to the same line of text? When this occurs it is called a <strong>conflict</strong>. Let’s create a conflict so we can learn how they can be resolved.</p>
 <p>First we’ll switch to the <code>update-readme</code> branch. Use <code>nano</code> to edit the last line of <code>readme.txt</code>, then commit your changes:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> checkout update-readme
 <span class="kw">nano</span> readme.txt
@@ -652,7 +656,7 @@ nothing to commit, working tree clean</code></pre>
 <p>Notice that we changed “sunny” to “cloudy” in the last line.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> add -A
 <span class="kw">git</span> commit -m <span class="st">&quot;changed sunny to cloudy&quot;</span></code></pre></div>
-<p>Now that our changes are commited on the <code>update-readme</code> branch, let’s switch back to <code>master</code>:</p>
+<p>Now that our changes are committed on the <code>update-readme</code> branch, let’s switch back to <code>master</code>:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> checkout master</code></pre></div>
 <p>Let’s change the same line of code using <code>nano</code>:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">nano</span> readme.txt
@@ -675,12 +679,12 @@ nothing to commit, working tree clean</code></pre>
 ## You have unmerged paths.
 ##   (fix conflicts and run &quot;git commit&quot;)
 ##   (use &quot;git merge --abort&quot; to abort the merge)
-## 
+##
 ## Unmerged paths:
 ##   (use &quot;git add &lt;file&gt;...&quot; to mark resolution)
-## 
+##
 ##  both modified:   readme.txt
-## 
+##
 ## no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)</code></pre>
 <p>If you’re getting used to reading the result of <code>git status</code>, you can see that it often offers suggestions about what steps you should take next. Git is indicating that both versions of readme.txt have modified the same text. Let’s take a look at <code>readme.txt</code> to see what’s going on there:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cat</span> readme.txt</code></pre></div>
@@ -706,7 +710,7 @@ nothing to commit, working tree clean</code></pre>
 <div id="summary-15" class="section level3">
 <h3><span class="header-section-number">6.5.1</span> Summary</h3>
 <ul>
-<li>Git branching allows you and others to work on the same code base toegther.</li>
+<li>Git branching allows you and others to work on the same code base together.</li>
 <li>You can create a branch with the command <code>git branch [name of branch]</code>.</li>
 <li>To switch to a branch use <code>git checkout [name of branch]</code>.</li>
 <li>You can combine a branch with your current branch with <code>git merge</code>.</li>
@@ -729,7 +733,7 @@ nothing to commit, working tree clean</code></pre>
 
 </div>
 <p>In the text box under <strong>Repository name</strong> type <code>my-first-repo</code> and then click the green <strong>Create repository</strong> button. Now you should see a page like this:</p>
-<p><img src="img/quick-setup.png" /> GitHub offers a few suggestions about what to do with our new remote repository. We’ve already been using a local Git repository, and what GitHub provides is a <strong>remote</strong> Git repository. A remote Git repository is just a Git repository stored on a computer is that always turned on and conected to the internet, so it can act as a central point where we can share and sync our changes to files with our friends and colleagues. We can see which remote repositories our local repository is connected to with the <code>git remote</code> command while we have our working directory set to <code>my-first-repo</code>:</p>
+<p><img src="img/quick-setup.png" /> GitHub offers a few suggestions about what to do with our new remote repository. We’ve already been using a local Git repository, and what GitHub provides is a <strong>remote</strong> Git repository. A remote Git repository is just a Git repository stored on a computer is that always turned on and connected to the internet, so it can act as a central point where we can share and sync our changes to files with our friends and colleagues. We can see which remote repositories our local repository is connected to with the <code>git remote</code> command while we have our working directory set to <code>my-first-repo</code>:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> remote</code></pre></div>
 <p>Nothing is printed to the console since you haven’t set any remotes up yet! Now let’s add your new GitHub repository as a remote in your local repository:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> remote add origin https://github.com/seankross/my-first-repo.git</code></pre></div>
@@ -755,9 +759,9 @@ nothing to commit, working tree clean</code></pre>
 <p>One neat feature of GitHub is that readme files are rendered on the repository page so you can write documents which explain the contents of your repository. Let’s get more creative with these readme documents by learning a small language called Markdown.</p>
 <div id="markdown" class="section level3">
 <h3><span class="header-section-number">6.6.1</span> Markdown</h3>
-<p>Markdown is a markup langauge. Markup languages are sets of rules for adding decorative features to text. The most popular markup language is HTML, but you might have also heard of XML and LaTeX. Markdown is a powerful markup language because it’s small, inutitive, and readable when it’s written as plain text. GitHub transforms markdown files (which end in the file extension <code>.md</code>) into simple HTML web pages in your repository. If there is a file called <code>README.md</code> in any folder in your repository, then that file is rendered to HTML and displayed on GitHub. Let’s create a <code>README.md</code> file for our repository. First we’ll destroy the plain text readme file we already have:</p>
+<p>Markdown is a markup language. Markup languages are sets of rules for adding decorative features to text. The most popular markup language is HTML, but you might have also heard of XML and LaTeX. Markdown is a powerful markup language because it’s small, intuitive, and readable when it’s written as plain text. GitHub transforms Markdown files (which end in the file extension <code>.md</code>) into simple HTML web pages in your repository. If there is a file called <code>README.md</code> in any folder in your repository, then that file is rendered to HTML and displayed on GitHub. Let’s create a <code>README.md</code> file for our repository. First we’ll destroy the plain text readme file we already have:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">rm</span> readme.txt</code></pre></div>
-<p>I’ve included a markdown file below that attempts to explain some of markdown’s features. Copy the plain text below, create a new file called <code>README.md</code> with <code>nano</code>, paste the text in, and then save the file.</p>
+<p>I’ve included a Markdown file below that attempts to explain some of Markdown’s features. Copy the plain text below, create a new file called <code>README.md</code> with <code>nano</code>, paste the text in, and then save the file.</p>
 <pre><code># This is a large heading
 
 ## This is a smaller heading
@@ -787,6 +791,46 @@ Here is how you make [a link](https://www.wikipedia.org/).
 
 ![This is an image.](https://github.com/yihui/xaringan/releases/download/v0.0.2/karl-moustache.jpg)</code></pre>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">nano</span> README.md</code></pre></div>
+<p>Now let’s add our changes, make a commit, and push those changes to our remote repository:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> add -A
+<span class="kw">git</span> commit -m <span class="st">&quot;added README.md&quot;</span>
+<span class="kw">git</span> push</code></pre></div>
+<pre><code>## Counting objects: 3, done.
+## Delta compression using up to 4 threads.
+## Compressing objects: 100% (3/3), done.
+## Writing objects: 100% (3/3), 659 bytes | 0 bytes/s, done.
+## Total 3 (delta 0), reused 0 (delta 0)
+## To https://github.com/seankross/my-first-repo.git
+##    ca04f67..2169912  master -&gt; master</code></pre>
+<p>Since we set up a default remote repository the first time we pushed, we can now simply enter <code>git push</code> in order to send our latest commits to the <code>master</code> branch on the <code>origin</code> remote. Now the page on GitHub for your repository should look like something like this:</p>
+<div class="figure">
+<img src="img/md-readme.png" />
+
+</div>
+<p>We’ve got a much more complex readme file! Notice how the plain text that we wrote has been rendered according to a few rules:</p>
+<ul>
+<li>Pound signs (<code>#</code>, <code>##</code>) make headings.</li>
+<li>A word surrounded by single asterisks (<code>*word*</code>) makes that word <em>italicized</em>.</li>
+<li>A word surrounded by double asterisks (<code>**word**</code>) makes that word <strong>bold</strong>.</li>
+<li>You can create lists with hyphens (<code>-</code>) or numbers (<code>1., 2., 3.</code>).</li>
+<li>Code can placed in to the middle of a line with single backticks (<code>`code`</code>).</li>
+<li>A code block can be created by putting code in between a set of triple backticks (<code>```</code>).</li>
+<li>You can insert a link with brackets and parentheses (<code>[Link text here](http://jhu.edu)</code>).</li>
+<li>You can use an image with an exclamation point, and a link to an image (<code>![Alt text here](http://jhu.edu/jeff.jpg)</code>)</li>
+</ul>
+<p>Personally I really enjoy writing with Markdown, to the point where I wrote <a href="https://github.com/seankross/the-unix-workbench/blob/master/docs/06-Git-and-GitHub.md">this entire book</a> in Markdown! We’re going to be using Markdown for the rest of this chapter, so I suggest that you take a few minutes to play around with the syntax in <a href="https://jbt.github.io/markdown-editor/#TVFLbtwwDN3rFCxm0xgTOU133WXXA2QXFDDHYizWEmlIctzZ9Rq9Xk9SetqZFNCCIt97/LwDPEeuYA8hYZkIImFgmZw7HP6r1YwpUXmvPkkArNB1nHFiwcYqXQcnDUwVXrW0eHTPkfYwV9BXaNGIxlhlFt2kO1qGYFFqv3/+qrCQGGEtUvd8hqZQIy4mhtZq4jeLLIdcziB6ETu6J0g6YoIu4onb3yEueLTJBDN1nXfu/rqIRSiwipZAhYJ9E9fm3Cd/Qzz6HXIFfPb/EF/tu19iqJoJRg00AMtlg8whJNo3tDORNJKRrOkwDO4qinCyOWdnmJ16qd0ko25w1hUyzgQvZgPL/O1jbG2pX/p+2za/8cwLBUavZervTPzDy80agd0B8u+UiVtcT37U3J85rtz/wGLXQukLJcJKtQ9mQFIM/duDf/CP/Ywl3Wdda8Mxkv++THd/AA==">this in-browser Markdown editor</a>. For more information about Markdown see GitHub’s helpful <a href="https://guides.github.com/features/mastering-markdown/"><em>Mastering Markdown</em></a> guide.</p>
+</div>
+<div id="pull-requests" class="section level3">
+<h3><span class="header-section-number">6.6.2</span> Pull Requests</h3>
+</div>
+<div id="forking" class="section level3">
+<h3><span class="header-section-number">6.6.3</span> Forking</h3>
+</div>
+<div id="summary-16" class="section level3">
+<h3><span class="header-section-number">6.6.4</span> Summary</h3>
+</div>
+<div id="exercises-17" class="section level3">
+<h3><span class="header-section-number">6.6.5</span> Exercises</h3>
 
 </div>
 </div>

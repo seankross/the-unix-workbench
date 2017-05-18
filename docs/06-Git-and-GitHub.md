@@ -19,7 +19,13 @@ can also help your collaborate with others when you're writing software. As
 "Your closest collaborator is you six months ago, but you don’t reply to
 emails."
 
-GitHub is a website that provides remote Git repositories. If you're working
+GitHub is a website that provides remote Git repositories. A remote repository
+is just a Git repository that you're able to access over an internet connection.
+GitHub allows you to create public remote repositories for free, and anyone can
+see your code in these public repositories. If you want keep your code private
+then you can pay GitHub for private remote repositories. 
+
+If you're working
 on code together with a friend GitHub can help you sync changes to code files
 between you and your friend. There's also a social and community aspect to
 GitHub, since you can watch other programmers develop their projects. GitHub
@@ -403,6 +409,7 @@ That looks much better.
 - Git tracks changes to plain text files (code files and text documents).
 - A directory where changes to files are tracked by Git is called a Git
 repository.
+- Change you working directory, then run `git init` to start a repository.
 - You can track changes to a file using `git add [names of files]`.
 - You can create a milestone about the state of your files using `git commit -m "message about changes since the last commit"`.
 - To examine the state of files in your repository use `git status`.
@@ -1312,7 +1319,211 @@ guide.
 
 ### Pull Requests
 
+The next two features of GitHub we're going to discuss - **pull requests** and 
+**forking** - are what make GitHub so great. A pull request allows you
+interactively compare two different branches before you merge them so you can
+either go ahead with the merge or provide feedback to whoever opened the pull
+request. Essentially a pull request allows a person to ask another person if
+they're willing to incorperate changes on one branch into another branch. This
+social coding transaction may involve you and a collaborator, you and a
+stranger, or you might open a pull request on your own repository just as a
+method of staying organized.
+
+Since I can't guarantee that you have a collaborator I'll show you how to open
+a pull request on your own repository. First in your local `my-first-repo`
+repository let's switch over to the `update-readme` branch.
+
+
+```bash
+git checkout update-readme
+```
+
+```
+## Switched to branch 'update-readme'
+```
+
+Let's take a look at what's currently on this branch:
+
+
+```bash
+ls
+```
+
+```
+## bernie.jpg
+## toby.jpg
+## file1.txt
+## file2.txt
+## readme.txt
+```
+
+It looks like we haven't updated this branch to be current with the `master`
+branch. We can easily do this by merging in the `master` branch.
+
+
+```bash
+git merge master
+```
+
+```
+## Updating 5aa94fa..2169912
+## Fast-forward
+##  README.md  | 28 ++++++++++++++++++++++++++++
+##  readme.txt |  4 ----
+##  2 files changed, 28 insertions(+), 4 deletions(-)
+##  create mode 100644 README.md
+##  delete mode 100644 readme.txt
+```
+
+Now the `master` and `update-readme` branches are identical. Let's clean up this
+directory so that you can make a little personalized Markdown project. First
+let's delete all of the files in this directory that we don't really need,
+meaning everything execpt `README.md`.
+
+
+```bash
+rm *.txt
+rm *.jpg
+ls
+```
+
+```
+## README.md
+```
+
+Now that we've cleaned up our repository let's open up `README.md` with `nano`.
+Delete everything that's written there and write a few lines about yourself.
+In the block of text below you can see what I've written in `README.md`.
+
+```
+# Sean Kross
+
+### Geography
+
+I live in the city of Baltimore, in the state of Maryland, in the United States
+of America.
+
+### Reading
+
+Three of my favorite books are:
+
+- *Mindstorms* by Seymour Papert
+- *Welcome to the Monkey House* by Kurt Vonnegut
+- *Persepolis* by Marjane Satrapi
+
+### Food
+
+Last night I dreamt about eating in these restaurants:
+
+1. Linger in Denver.
+2. Azura in Jerusalem.
+3. Gemma in New York City.
+
+### Contact
+
+The best way to get in touch with me is [on Twitter](https://twitter.com/seankross).
+```
+
+Once you've written up a few fun things about yourself, add your changes, and
+make a new commit.
+
+
+```bash
+git add -A
+git commit -m "made readme more personal"
+```
+
+Like a local Git repository, remote repositories on GitHub can have multiple
+branches. Let's push this commit to the `update-readme` branch on GitHub:
+
+
+```bash
+git push origin update-readme
+```
+
+```
+## Counting objects: 3, done.
+## Delta compression using up to 4 threads.
+## Compressing objects: 100% (3/3), done.
+## Writing objects: 100% (3/3), 630 bytes | 0 bytes/s, done.
+## Total 3 (delta 0), reused 0 (delta 0)
+## To https://github.com/seankross/my-first-repo.git
+##  * [new branch]      update-readme -> update-readme
+```
+
+Notice that we needed to specify which remote we were pushing to since GitHub
+didn't previously know about the existence of the `update-readme` branch.
+When you perform a `git push`, only the commits on the current branch are sent
+to the remote repository. That way you can create local branches that cannot be
+accessed from the remote repository, unless you explicitly push them to GitHub.
+
+Now let's go back to the GitHub page for our repository. On the left side of the
+page you should see a button that says "Branch: master." Click on that button
+and a little drop-down menu should appear, as you can see below:
+
+![](img/branch-button.png)
+
+Click "update-readme" in the menu in order to view the files in that branch. You
+should see that the `README.md` files are different! You can switch back and
+forth between looking at branches using this menu.
+
+Now that you've pushed an updated branch to GitHub, let's open a pull request.
+A pull request is like a guided `git merge` that is facilitated by GitHub. To
+start the pull request click the "New pull request" button next to the branch
+button (see the upper left corner of the image above). That button should take
+you to a page like this:
+
+![](img/create-pr.png)
+
+There are a few important details on this page, so let's go through them. First
+under the "Open a pull request" heading you can see the names of two branches.
+The branch name after "base:" shows the branch that changes are being merged
+into (in the case the `master` branch), and the branch name after "compare:"
+shows the branch that has the changes (in the case the `update-readme` branch).
+
+In the text boxes below you can write a title for your pull request (the default
+title in this case is the name of the last commit) and you can write comments
+about the pull request which you can format with Markdown. If you're
+collaborating with somebody else on a project it's important to write good
+comments so that your collaborators know what changes you made in the branch
+you are requesting to merge. If you scroll down
+the page you can see a line-by-line comparison of the changes in the "compare"
+branch compared to the "base" branch. When you've finished going over these
+changes click the green "Create pull request" button in order to open the pull
+request. You should now see a screen like this:
+
+![](img/opened-pr.png)
+
+Congratulations on opening your first pull request! Let's take a look at what's
+happening on this page. Below the title of the pull request we can see three
+tabs called Conversation, Commits, and Files changed. In the Conversation tab
+we can add comments to the pull request which can be formatted with Markdown.
+The Commits tab lists the commits that have been made to the "compare" branch
+in this pull request. Finally the Files changed tab shows the same line-by-line
+comparison we saw before.
+
+Usually when you're working with collaborators there's a great deal of
+discussion that occurs after you open a pull request. Git commits that are
+pushed to the "compare" branch (`update-readme` in the case) of the GitHub
+repository will be reflected in a pull request even after the request has been 
+opened. This way changes that are made as the result of the discussion can be 
+easily incorporated. Once you're ready go back to the Conversation tab and click
+the green "Merge pull request" button, then click the green "Confirm merge"
+button that appears. This will `git merge` the "compare" branch into the "base"
+branch on our remote repository. You just merged your first pull request! Now
+click near the top left corner of this page on the **<> Code** tab, and you
+should see that the changes from the `update-readme` branch have been merged
+into `master`.
+
+### Pages
+
+
+
+
+
 ### Forking
+
+
 
 ### Summary
 

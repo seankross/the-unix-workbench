@@ -26,7 +26,7 @@
 <meta name="author" content="Sean Kross">
 
 
-<meta name="date" content="2017-05-16">
+<meta name="date" content="2017-05-17">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -105,6 +105,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Title Page</a></li>
+<li class="chapter" data-level="" data-path="dedication.html"><a href="dedication.html"><i class="fa fa-check"></i>Dedication</a></li>
+<li class="chapter" data-level="" data-path="acknowledgements.html"><a href="acknowledgements.html"><i class="fa fa-check"></i>Acknowledgements</a></li>
 <li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a></li>
 <li class="chapter" data-level="1" data-path="what-is-unix.html"><a href="what-is-unix.html"><i class="fa fa-check"></i><b>1</b> What is Unix?</a></li>
 <li class="chapter" data-level="2" data-path="getting-unix.html"><a href="getting-unix.html"><i class="fa fa-check"></i><b>2</b> Getting Unix</a><ul>
@@ -206,9 +208,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.6" data-path="git-and-github.html"><a href="git-and-github.html#github"><i class="fa fa-check"></i><b>6.6</b> GitHub</a><ul>
 <li class="chapter" data-level="6.6.1" data-path="git-and-github.html"><a href="git-and-github.html#markdown"><i class="fa fa-check"></i><b>6.6.1</b> Markdown</a></li>
 <li class="chapter" data-level="6.6.2" data-path="git-and-github.html"><a href="git-and-github.html#pull-requests"><i class="fa fa-check"></i><b>6.6.2</b> Pull Requests</a></li>
-<li class="chapter" data-level="6.6.3" data-path="git-and-github.html"><a href="git-and-github.html#forking"><i class="fa fa-check"></i><b>6.6.3</b> Forking</a></li>
-<li class="chapter" data-level="6.6.4" data-path="git-and-github.html"><a href="git-and-github.html#summary-16"><i class="fa fa-check"></i><b>6.6.4</b> Summary</a></li>
-<li class="chapter" data-level="6.6.5" data-path="git-and-github.html"><a href="git-and-github.html#exercises-17"><i class="fa fa-check"></i><b>6.6.5</b> Exercises</a></li>
+<li class="chapter" data-level="6.6.3" data-path="git-and-github.html"><a href="git-and-github.html#pages"><i class="fa fa-check"></i><b>6.6.3</b> Pages</a></li>
+<li class="chapter" data-level="6.6.4" data-path="git-and-github.html"><a href="git-and-github.html#forking"><i class="fa fa-check"></i><b>6.6.4</b> Forking</a></li>
+<li class="chapter" data-level="6.6.5" data-path="git-and-github.html"><a href="git-and-github.html#summary-16"><i class="fa fa-check"></i><b>6.6.5</b> Summary</a></li>
+<li class="chapter" data-level="6.6.6" data-path="git-and-github.html"><a href="git-and-github.html#exercises-17"><i class="fa fa-check"></i><b>6.6.6</b> Exercises</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="nephology.html"><a href="nephology.html"><i class="fa fa-check"></i><b>7</b> Nephology</a></li>
@@ -240,7 +243,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="what-are-git-and-github" class="section level2">
 <h2><span class="header-section-number">6.1</span> What are Git and GitHub?</h2>
 <p>Git is a command line program which allows you to track versions of any code or plain text documents that you create. Like the “track changes” feature of a word processor Git keeps track of who made particular changes, the time and date of those changes, and where the changes were made. If a critical file gets deleted by accident, or if you make a breaking change to your code and you want to try to figure out where the breaking change was made, you can use Git to restore the deleted file or find the new bug in your program. Git organizes groups of files that you’re tracking into a <strong>repository</strong>, which is just a directory where all of the changes to files in that directory are tracked. Git can also help your collaborate with others when you’re writing software. As <a href="https://twitter.com/kwbroman">Karl Broman</a> says (paraphrasing <a href="https://twitter.com/mtholder">Mark Holder</a>): “Your closest collaborator is you six months ago, but you don’t reply to emails.”</p>
-<p>GitHub is a website that provides remote Git repositories. If you’re working on code together with a friend GitHub can help you sync changes to code files between you and your friend. There’s also a social and community aspect to GitHub, since you can watch other programmers develop their projects. GitHub also makes it easy to jump in and help somebody with their project. GitHub offers many other useful features which we will discuss at length.</p>
+<p>GitHub is a website that provides remote Git repositories. A remote repository is just a Git repository that you’re able to access over an internet connection. GitHub allows you to create public remote repositories for free, and anyone can see your code in these public repositories. If you want keep your code private then you can pay GitHub for private remote repositories.</p>
+<p>If you’re working on code together with a friend GitHub can help you sync changes to code files between you and your friend. There’s also a social and community aspect to GitHub, since you can watch other programmers develop their projects. GitHub also makes it easy to jump in and help somebody with their project. GitHub offers many other useful features which we will discuss at length.</p>
 </div>
 <div id="setting-up-git-and-github" class="section level2">
 <h2><span class="header-section-number">6.2</span> Setting Up Git and GitHub</h2>
@@ -411,6 +415,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ul>
 <li>Git tracks changes to plain text files (code files and text documents).</li>
 <li>A directory where changes to files are tracked by Git is called a Git repository.</li>
+<li>Change you working directory, then run <code>git init</code> to start a repository.</li>
 <li>You can track changes to a file using <code>git add [names of files]</code>.</li>
 <li>You can create a milestone about the state of your files using <code>git commit -m &quot;message about changes since the last commit&quot;</code>.</li>
 <li>To examine the state of files in your repository use <code>git status</code>.</li>
@@ -822,15 +827,102 @@ Here is how you make [a link](https://www.wikipedia.org/).
 </div>
 <div id="pull-requests" class="section level3">
 <h3><span class="header-section-number">6.6.2</span> Pull Requests</h3>
+<p>The next two features of GitHub we’re going to discuss - <strong>pull requests</strong> and <strong>forking</strong> - are what make GitHub so great. A pull request allows you interactively compare two different branches before you merge them so you can either go ahead with the merge or provide feedback to whoever opened the pull request. Essentially a pull request allows a person to ask another person if they’re willing to incorperate changes on one branch into another branch. This social coding transaction may involve you and a collaborator, you and a stranger, or you might open a pull request on your own repository just as a method of staying organized.</p>
+<p>Since I can’t guarantee that you have a collaborator I’ll show you how to open a pull request on your own repository. First in your local <code>my-first-repo</code> repository let’s switch over to the <code>update-readme</code> branch.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> checkout update-readme</code></pre></div>
+<pre><code>## Switched to branch &#39;update-readme&#39;</code></pre>
+<p>Let’s take a look at what’s currently on this branch:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ls</span></code></pre></div>
+<pre><code>## bernie.jpg
+## toby.jpg
+## file1.txt
+## file2.txt
+## readme.txt</code></pre>
+<p>It looks like we haven’t updated this branch to be current with the <code>master</code> branch. We can easily do this by merging in the <code>master</code> branch.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> merge master</code></pre></div>
+<pre><code>## Updating 5aa94fa..2169912
+## Fast-forward
+##  README.md  | 28 ++++++++++++++++++++++++++++
+##  readme.txt |  4 ----
+##  2 files changed, 28 insertions(+), 4 deletions(-)
+##  create mode 100644 README.md
+##  delete mode 100644 readme.txt</code></pre>
+<p>Now the <code>master</code> and <code>update-readme</code> branches are identical. Let’s clean up this directory so that you can make a little personalized Markdown project. First let’s delete all of the files in this directory that we don’t really need, meaning everything execpt <code>README.md</code>.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">rm</span> *.txt
+<span class="kw">rm</span> *.jpg
+<span class="kw">ls</span></code></pre></div>
+<pre><code>## README.md</code></pre>
+<p>Now that we’ve cleaned up our repository let’s open up <code>README.md</code> with <code>nano</code>. Delete everything that’s written there and write a few lines about yourself. In the block of text below you can see what I’ve written in <code>README.md</code>.</p>
+<pre><code># Sean Kross
+
+### Geography
+
+I live in the city of Baltimore, in the state of Maryland, in the United States
+of America.
+
+### Reading
+
+Three of my favorite books are:
+
+- *Mindstorms* by Seymour Papert
+- *Welcome to the Monkey House* by Kurt Vonnegut
+- *Persepolis* by Marjane Satrapi
+
+### Food
+
+Last night I dreamt about eating in these restaurants:
+
+1. Linger in Denver.
+2. Azura in Jerusalem.
+3. Gemma in New York City.
+
+### Contact
+
+The best way to get in touch with me is [on Twitter](https://twitter.com/seankross).</code></pre>
+<p>Once you’ve written up a few fun things about yourself, add your changes, and make a new commit.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> add -A
+<span class="kw">git</span> commit -m <span class="st">&quot;made readme more personal&quot;</span></code></pre></div>
+<p>Like a local Git repository, remote repositories on GitHub can have multiple branches. Let’s push this commit to the <code>update-readme</code> branch on GitHub:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> push origin update-readme</code></pre></div>
+<pre><code>## Counting objects: 3, done.
+## Delta compression using up to 4 threads.
+## Compressing objects: 100% (3/3), done.
+## Writing objects: 100% (3/3), 630 bytes | 0 bytes/s, done.
+## Total 3 (delta 0), reused 0 (delta 0)
+## To https://github.com/seankross/my-first-repo.git
+##  * [new branch]      update-readme -&gt; update-readme</code></pre>
+<p>Notice that we needed to specify which remote we were pushing to since GitHub didn’t previously know about the existence of the <code>update-readme</code> branch. When you perform a <code>git push</code>, only the commits on the current branch are sent to the remote repository. That way you can create local branches that cannot be accessed from the remote repository, unless you explicitly push them to GitHub.</p>
+<p>Now let’s go back to the GitHub page for our repository. On the left side of the page you should see a button that says “Branch: master.” Click on that button and a little drop-down menu should appear, as you can see below:</p>
+<div class="figure">
+<img src="img/branch-button.png" />
+
+</div>
+<p>Click “update-readme” in the menu in order to view the files in that branch. You should see that the <code>README.md</code> files are different! You can switch back and forth between looking at branches using this menu.</p>
+<p>Now that you’ve pushed an updated branch to GitHub, let’s open a pull request. A pull request is like a guided <code>git merge</code> that is facilitated by GitHub. To start the pull request click the “New pull request” button next to the branch button (see the upper left corner of the image above). That button should take you to a page like this:</p>
+<div class="figure">
+<img src="img/create-pr.png" />
+
+</div>
+<p>There are a few important details on this page, so let’s go through them. First under the “Open a pull request” heading you can see the names of two branches. The branch name after “base:” shows the branch that changes are being merged into (in the case the <code>master</code> branch), and the branch name after “compare:” shows the branch that has the changes (in the case the <code>update-readme</code> branch).</p>
+<p>In the text boxes below you can write a title for your pull request (the default title in this case is the name of the last commit) and you can write comments about the pull request which you can format with Markdown. If you’re collaborating with somebody else on a project it’s important to write good comments so that your collaborators know what changes you made in the branch you are requesting to merge. If you scroll down the page you can see a line-by-line comparison of the changes in the “compare” branch compared to the “base” branch. When you’ve finished going over these changes click the green “Create pull request” button in order to open the pull request. You should now see a screen like this:</p>
+<div class="figure">
+<img src="img/opened-pr.png" />
+
+</div>
+<p>Congratulations on opening your first pull request! Let’s take a look at what’s happening on this page. Below the title of the pull request we can see three tabs called Conversation, Commits, and Files changed. In the Conversation tab we can add comments to the pull request which can be formatted with Markdown. The Commits tab lists the commits that have been made to the “compare” branch in this pull request. Finally the Files changed tab shows the same line-by-line comparison we saw before.</p>
+<p>Usually when you’re working with collaborators there’s a great deal of discussion that occurs after you open a pull request. Git commits that are pushed to the “compare” branch (<code>update-readme</code> in the case) of the GitHub repository will be reflected in a pull request even after the request has been opened. This way changes that are made as the result of the discussion can be easily incorporated. Once you’re ready go back to the Conversation tab and click the green “Merge pull request” button, then click the green “Confirm merge” button that appears. This will <code>git merge</code> the “compare” branch into the “base” branch on our remote repository. You just merged your first pull request! Now click near the top left corner of this page on the <strong>&lt;&gt; Code</strong> tab, and you should see that the changes from the <code>update-readme</code> branch have been merged into <code>master</code>.</p>
+</div>
+<div id="pages" class="section level3">
+<h3><span class="header-section-number">6.6.3</span> Pages</h3>
 </div>
 <div id="forking" class="section level3">
-<h3><span class="header-section-number">6.6.3</span> Forking</h3>
+<h3><span class="header-section-number">6.6.4</span> Forking</h3>
 </div>
 <div id="summary-16" class="section level3">
-<h3><span class="header-section-number">6.6.4</span> Summary</h3>
+<h3><span class="header-section-number">6.6.5</span> Summary</h3>
 </div>
 <div id="exercises-17" class="section level3">
-<h3><span class="header-section-number">6.6.5</span> Exercises</h3>
+<h3><span class="header-section-number">6.6.6</span> Exercises</h3>
 
 </div>
 </div>

@@ -91,7 +91,7 @@ echo "Welcome to My First Repo" > readme.txt
 
 Now that we've created a file in this Git repository, let's use `git status` to
 see what's going on in this repository. We'll be using `git status` continuously
-throughout this chapter in order to get information about the status of a Git 
+throughout this chapter in order to get information about the status of this Git 
 repository.
 
 ```{r, engine='bash', eval=FALSE}
@@ -844,8 +844,8 @@ git commit -m "added weather info"
 
 This is a small example of how to use Git branching, but you can see how you
 can make incremental edits to plain text (usually code files) without
-affecting the `master` branch (the tested and working copy of your software)
-and without affecting any other branches. You can imagine how
+effecting the `master` branch (the tested and working copy of your software)
+and without effecting any other branches. You can imagine how
 this system could be used for multiple people to work on the same codebase at
 the same time, or how you could develop and test multiple software features
 without them interfering with each other. Now that we've made a couple of
@@ -1435,15 +1435,85 @@ click near the top left corner of this page on the **<> Code** tab, and you
 should see that the changes from the `update-readme` branch have been merged
 into `master`.
 
+When working on a remote GitHub repository with many other folks theses pull
+requests and merges can happen without you being involved at all, if the commits
+effect parts of the code that you're not working on. Still it's important to
+keep your local repository up to date with the latest changes in the remote
+repository. Let's go back to your terminal where you have `my-first-repo` set
+as the current working directory.
+
+When working on a remote GitHub repository with many other folks thess pull
+requests and merges can happen without you being involved at all if the commits
+effect parts of the code that you're not working on. Still it's important to
+keep your local repository up to date with the latest changes in the remote
+repository. Let's go back to your terminal where you have `my-first-repo` set
+as the current working directory. First let's switch to the `master` branch.
+
+```{r, engine='bash', eval=FALSE}
+git checkout master
+```
+
+Now let's update our local master branch with the commits that have been merged
+into the master branch on our remote repository. We can accomplish this with
+the command `git pull`:
+
+```{r, engine='bash', eval=FALSE}
+git pull
+```
+
+```
+## remote: Counting objects: 1, done.
+## remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
+## Unpacking objects: 100% (1/1), done.
+## From https://github.com/seankross/my-first-repo
+##    2169912..b9217f6  master     -> origin/master
+## Updating 2169912..b9217f6
+## Fast-forward
+##  README.md | 38 ++++++++++++++++++--------------------
+##  file1.txt |  0
+##  file2.txt |  0
+##  3 files changed, 18 insertions(+), 20 deletions(-)
+##  delete mode 100644 file1.txt
+##  delete mode 100644 file2.txt
+```
+
+With `git pull` Git finds the `master` branch on the `origin` remote repository
+and updates our local repository with the new commits. You've now completed the
+full pull request life cycle! In the **Forking** section of this chapter we'll
+come back to how discussing how GitHub super-charges pull requests in order to
+foster a greater coding community.
+
 ### Pages
 
+For now we're going to take a little detour to discuss
+[GitHub Pages](https://pages.github.com/). GitHub Pages allows you to create
+and host a website on GitHub using only Git and Markdown. Go back to your
+`my-first-repo` repository page on GitHub on click the *Settings* tab at the
+top. Scroll down the page until you see a box that says **GitHub Pages**. Then
+click on the drop-down menu that says **None**. You should see a screen like
+this:
 
+![](img/select-pages.png)
 
+Click *master branch* and then click *Save*. Now go to the website
+[your-GitHub-user-name].github.io/my-first-repo (in my case the address is
+[seankross.github.io/my-first-repo](http://seankross.github.io/my-first-repo))
+and you should see your very own website!
 
+![](img/my-website.png)
+
+How cool is that!? If you want to change your new website all you need to do
+is edit your `README.md` then commit and push the changes! Websites like these
+are great for showing off projects, providing software documentation, creating
+online resumes, or writing a blog! GitHub pages websites can be as simple as a
+few Markdown documents, or if you're know some web programming you can turn
+them into complex websites. For more information about GitHub Pages you can
+check out the [documentation here](https://pages.github.com/).
 
 ### Forking
 
-
+If you're reading this book it's fairly safe to say that you probably interact
+with software every day.
 
 ### Summary
 

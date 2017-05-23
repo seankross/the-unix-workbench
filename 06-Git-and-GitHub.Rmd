@@ -91,7 +91,7 @@ echo "Welcome to My First Repo" > readme.txt
 
 Now that we've created a file in this Git repository, let's use `git status` to
 see what's going on in this repository. We'll be using `git status` continuously
-throughout this chapter in order to get information about the status of this Git 
+throughout this chapter in order to get information about the status of this Git
 repository.
 
 ```{r, engine='bash', eval=FALSE}
@@ -1245,7 +1245,7 @@ guide.
 
 ### Pull Requests
 
-The next two features of GitHub we're going to discuss - **pull requests** and 
+The next two features of GitHub we're going to discuss - **pull requests** and
 **forking** - are what make GitHub so great. A pull request allows you to
 interactively compare two different branches before you merge them so you can
 either go ahead with the merge or provide feedback to whoever opened the pull
@@ -1416,17 +1416,17 @@ request. You should now see a screen like this:
 
 Congratulations on opening your first pull request! Let's take a look at what's
 happening on this page. Below the title of the pull request we can see three
-tabs called **Conversation**, **Commits**, and **Files changed**. In the 
-**Conversation** tab we can add comments to the pull request which can be 
-formatted with Markdown. The **Commits** tab lists the commits that have been 
-made to the "compare" branch in this pull request. Finally the **Files changed** 
+tabs called **Conversation**, **Commits**, and **Files changed**. In the
+**Conversation** tab we can add comments to the pull request which can be
+formatted with Markdown. The **Commits** tab lists the commits that have been
+made to the "compare" branch in this pull request. Finally the **Files changed**
 tab shows the same line-by-line comparison we saw before.
 
 Usually when you're working with collaborators there's a great deal of
 discussion that occurs after you open a pull request. Git commits that are
 pushed to the "compare" branch (`update-readme` in the case) of the GitHub
-repository will be reflected in a pull request even after the request has been 
-opened. This way changes that are made as a result of the discussion can be 
+repository will be reflected in a pull request even after the request has been
+opened. This way changes that are made as a result of the discussion can be
 easily incorporated. Once you're ready go back to the **Conversation** tab and click
 the green "Merge pull request" button, then click the green "Confirm merge"
 button that appears. This will `git merge` the "compare" branch into the "base"
@@ -1496,7 +1496,7 @@ this:
 ![](img/select-pages.png)
 
 Click *master branch* and then click *Save*. Now go to the website
-[your-GitHub-user-name].github.io/my-first-repo (in my case the address is
+[your-github-username].github.io/my-first-repo (in my case the address is
 [seankross.github.io/my-first-repo](http://seankross.github.io/my-first-repo))
 and you should see your very own website!
 
@@ -1513,8 +1513,147 @@ check out the [documentation here](https://pages.github.com/).
 ### Forking
 
 If you're reading this book it's fairly safe to say that you probably interact
-with software every day.
+with software every day. Software powers your computer, the internet, your
+phone, and this book. Considering all of the software you use, have you ever
+thought about modifying that software? Perhaps you could write some code to add
+a new feature you think would be useful or to fix a glitch that you've noticed.
+GitHub makes modifying other people's software easy through the process of
+**forking**. Forking a GitHub repository copies somebody else's GitHub
+repository into your GitHub account. You can then modify this copy of their
+software however you like. After you've added some commits to your copy of the
+repository you can keep the new commits to yourself, share them with
+others, or you can open up a **pull request** for your new commits to be merged
+into the original source repository. This original source repository (the
+repository you forked) is often called the *upstream* repository.
+
+Let's try forking a repository now. Go to
+https://github.com/seankross/the-unix-workbench and click the **Fork** button
+in the upper right corner. GitHub will then ask you what account you want to
+use to fork the repository. If you're a new GitHub user then you only have one
+account, so select that account. After a brief "please wait" screen you should
+then see the forked repository at the URL
+https://github.com/[your-github-username]/the-unix-workbench. You've now forked
+the repository for this book! In order to get
+get a local copy of the repository you'll need to use the `git clone` command.
+Cloning a repository copies a Git repository to your computer while keeping
+track of the remote repository that it originated from. Let's clone your fork
+of my repository now. On the right side of the repository page you should see
+a green button that says **Clone or download**. Click that button and the
+following menu should appear:
+
+![](img/clone-wb.png)
+
+Click on the little clipboard icon which will copy the Git URL. Now go back to
+the terminal and change your working directory to your home directory.
+
+```{r, engine='bash', eval=FALSE}
+cd
+pwd
+```
+
+```
+## /Users/sean
+```
+
+Now let's clone the repository. Type `git clone` into the terminal and then
+paste in the Git URL we copied from GitHub:
+
+```{r, engine='bash', eval=FALSE}
+git clone https://github.com/[your-github-username]/the-unix-workbench.git
+```
+
+```
+## Cloning into 'the-unix-workbench'...
+## remote: Counting objects: 669, done.
+## remote: Compressing objects: 100% (7/7), done.
+## remote: Total 669 (delta 2), reused 8 (delta 2), pack-reused 660
+## Receiving objects: 100% (669/669), 4.00 MiB | 4.55 MiB/s, done.
+## Resolving deltas: 100% (510/510), done.
+```
+
+Now `cd` into your cloned repository.
+
+```{r, engine='bash', eval=FALSE}
+cd the-unix-workbench
+```
+
+You've just successfully completed your first Git clone! Like we mentioned
+before, cloning has the advantage of keeping track of the remote repository that
+should be associated with the local repository. Let's test this by entering
+`git remote` with the added `-v` flag:
+
+```{r, engine='bash', eval=FALSE}
+git remote -v
+```
+
+```
+## origin	https://github.com/[your-github-username]/the-unix-workbench.git (fetch)
+## origin	https://github.com/[your-github-username]/the-unix-workbench.git (push)
+```
+
+As you can see the default name of the remote repository after you clone that
+repository is `origin`. Now that you've cloned your fork you should add a
+commit! One change that I suggest is adding your name to `guestbook.md`. Let's
+do this now:
+
+```{r, engine='bash', eval=FALSE}
+echo "- Sean Kross" >> guestbook.md # Add your own name of course!
+cat guestbook.md
+```
+
+```
+## # Guest Book
+##
+## - Sean Kross
+```
+
+Now add, commit, and push your changes:
+
+```{r, engine='bash', eval=FALSE}
+git add guestbook.md
+git commit -m "added my name to guestbook.md"
+git push
+```
+
+Now that you've added your name to the guest book you can merge your change into
+my version of the guest book by opening up a new pull request as described in
+the previous section. If your pull request to the guest book is merged into the
+upstream repository (by me) then you will have completed the full GitHub
+lifecycle!
+
+The process of forking a repository, making changes, and then opening a pull
+request is a very powerful workflow for seeing changes that you want made in
+the software world. Many large and important software projects have repositories
+on GitHub including [operating systems](https://github.com/torvalds/linux),
+[programming languages](https://github.com/golang/go),
+and even [Git itself](https://github.com/git/git)! If there's a change you want
+to see in a public GitHub repository, fork that repository and make the change!
 
 ### Summary
 
+- You can use GitHub you create and host remote Git repositories.
+- A remote Git repository is a Git repository that is always connected to the
+internet.
+- List remote repositories with `git remote`.
+- Add remote repositiories with `git remote add [name-of-remote] https://github.com/[username]/[repo-name].git`
+- Add commits to your remote repository with `git push [name-of-remote] [name-of-branch]`
+or just `git push` if you've set up a default remote and branch.
+- To merge commits on a remote repository into your local repository use
+`git pull [name-of-remote] [name-of-branch]` or just `git pull` if you've set 
+up a default remote and branch.
+- A pull request allows you to interactively compare two different branches
+before you merge them.
+- GitHub Pages allows you to host websites written in Markdown for free!
+- Forking a repository allows you to make changes to a copy of a public
+repository. You can then open a pull request if you think your changes should
+be merged into the upstream repository!
+
 ### Exercises
+
+1. Create a new repository on GitHub. Clone your repository and add a
+`README.md` file. Push this file to GitHub and create a GitHub Pages website
+for this repository.
+2. Fork an existing repository (try one of mine https://github.com/seankross)
+and try to identify something valuable you could contribute. Make changes or
+additions to that repository, then open a pull request.
+3. Read through [GitHub's Guides](https://guides.github.com/).

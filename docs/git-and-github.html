@@ -26,7 +26,7 @@
 <meta name="author" content="Sean Kross">
 
 
-<meta name="date" content="2017-05-17">
+<meta name="date" content="2017-05-23">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -242,8 +242,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </blockquote>
 <div id="what-are-git-and-github" class="section level2">
 <h2><span class="header-section-number">6.1</span> What are Git and GitHub?</h2>
-<p>Git is a command line program which allows you to track versions of any code or plain text documents that you create. Like the “track changes” feature of a word processor Git keeps track of who made particular changes, the time and date of those changes, and where the changes were made. If a critical file gets deleted by accident, or if you make a breaking change to your code and you want to try to figure out where the breaking change was made, you can use Git to restore the deleted file or find the new bug in your program. Git organizes groups of files that you’re tracking into a <strong>repository</strong>, which is just a directory where all of the changes to files in that directory are tracked. Git can also help your collaborate with others when you’re writing software. As <a href="https://twitter.com/kwbroman">Karl Broman</a> says (paraphrasing <a href="https://twitter.com/mtholder">Mark Holder</a>): “Your closest collaborator is you six months ago, but you don’t reply to emails.”</p>
-<p>GitHub is a website that provides remote Git repositories. A remote repository is just a Git repository that you’re able to access over an internet connection. GitHub allows you to create public remote repositories for free, and anyone can see your code in these public repositories. If you want keep your code private then you can pay GitHub for private remote repositories.</p>
+<p>Git is a command line program which allows you to track versions of any code or plain text documents that you create. Like the “track changes” feature of a word processor Git keeps track of who made particular changes, the time and date of those changes, and where the changes were made. If a critical file gets deleted by accident, or if you make a breaking change to your code and you want to try to figure out where the breaking change was made, you can use Git to restore the deleted file or find the new bug in your program. Git organizes groups of files that you’re tracking into a <strong>repository</strong>, which is just a directory where all of the changes to files in that directory are tracked. Git can also help you collaborate with others when you’re writing software. As <a href="https://twitter.com/kwbroman">Karl Broman</a> says (paraphrasing <a href="https://twitter.com/mtholder">Mark Holder</a>): “Your closest collaborator is you six months ago, but you don’t reply to emails.”</p>
+<p>GitHub is a website that provides remote Git repositories. A remote repository is just a Git repository that you’re able to access over an internet connection. GitHub allows you to create public remote repositories for free, and anyone can see your code in these public repositories. If you want to keep your code private then you can pay GitHub for private remote repositories.</p>
 <p>If you’re working on code together with a friend GitHub can help you sync changes to code files between you and your friend. There’s also a social and community aspect to GitHub, since you can watch other programmers develop their projects. GitHub also makes it easy to jump in and help somebody with their project. GitHub offers many other useful features which we will discuss at length.</p>
 </div>
 <div id="setting-up-git-and-github" class="section level2">
@@ -268,7 +268,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>## Initialized empty Git repository in /Users/sean/my-first-repo/.git/</code></pre>
 <p>You’ve just created your first repository! Now let’s create a file and start tracking it.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">echo</span> <span class="st">&quot;Welcome to My First Repo&quot;</span> <span class="kw">&gt;</span> readme.txt</code></pre></div>
-<p>Now that we’ve created a file in this Git repository, let’s use <code>git status</code> to see what’s going on in this repository. We’ll be using <code>git status</code> continuously throughout this chapter in order to get information about the status Git repository.</p>
+<p>Now that we’ve created a file in this Git repository, let’s use <code>git status</code> to see what’s going on in this repository. We’ll be using <code>git status</code> continuously throughout this chapter in order to get information about the status of this Git repository.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> status</code></pre></div>
 <pre><code>## On branch master
 ##
@@ -282,7 +282,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## nothing added to commit but untracked files present (use &quot;git add&quot; to track)</code></pre>
 <p>As you can see <code>readme.txt</code> is listed as an untracked file. In order to let Git know that you want to track this file we need to use <code>git add</code> with the name of the file that we want to track. Let’s start tracking <code>readme.txt</code>:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> add readme.txt</code></pre></div>
-<p>Git now knows to track any changes to <code>readme.txt</code> let’s see how the status of the repository has changed:</p>
+<p>Git now knows to track any changes to <code>readme.txt</code>. Let’s see how the status of the repository has changed:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> status</code></pre></div>
 <pre><code>## On branch master
 ##
@@ -326,7 +326,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## readme.txt</code></pre>
 <p>While we’re at it let’s also add a new line of text to <code>readme.txt</code>:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">echo</span> <span class="st">&quot;Learning Git is going well so far.&quot;</span> <span class="kw">&gt;&gt;</span> readme.txt</code></pre></div>
-<p>Now that’s we’ve added two more files and we’ve made changes to one file let’s take a look at the state of this repository.</p>
+<p>Now that we’ve added two more files and we’ve made changes to one file let’s take a look at the state of this repository.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> status</code></pre></div>
 <pre><code>## On branch master
 ## Changes not staged for commit:
@@ -415,7 +415,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ul>
 <li>Git tracks changes to plain text files (code files and text documents).</li>
 <li>A directory where changes to files are tracked by Git is called a Git repository.</li>
-<li>Change you working directory, then run <code>git init</code> to start a repository.</li>
+<li>Change your working directory, then run <code>git init</code> to start a repository.</li>
 <li>You can track changes to a file using <code>git add [names of files]</code>.</li>
 <li>You can create a milestone about the state of your files using <code>git commit -m &quot;message about changes since the last commit&quot;</code>.</li>
 <li>To examine the state of files in your repository use <code>git status</code>.</li>
@@ -512,7 +512,7 @@ DESCRIPTION
 </div>
 <div id="ignoring-files" class="section level3">
 <h3><span class="header-section-number">6.4.2</span> Ignoring Files</h3>
-<p>Sometimes you might have files that you never want Git to track, for example binary files that are generated as by-products of running code (PDFs or images), or secrets like passwords or API keys. A file in your Git repository called <code>.gitignore</code> can list names of files and sub-folders, or simple regular expressions (whatever you can use with <code>ls</code>) in order to specify files which should be never tracked. Each line of a <code>.gitignore</code> file should specify a file or group of files that should not be tracked by Git. Let’s make a <code>.gitignore</code> file to make sure that we never track image files in this repository:</p>
+<p>Sometimes you might have files that you never want Git to track, for example binary files that are generated as by-products of running code (PDFs or images), or secrets like passwords or API keys. A file in your Git repository called <code>.gitignore</code> can list names of files and sub-folders, or simple regular expressions (whatever you can use with <code>ls</code>) in order to specify files which should never be tracked. Each line of a <code>.gitignore</code> file should specify a file or group of files that should not be tracked by Git. Let’s make a <code>.gitignore</code> file to make sure that we never track image files in this repository:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">touch</span> toby.jpg
 <span class="kw">git</span> status</code></pre></div>
 <pre><code>## On branch master
@@ -522,7 +522,7 @@ DESCRIPTION
 ##  toby.jpg
 ##
 ## nothing added to commit but untracked files present (use &quot;git add&quot; to track)</code></pre>
-<p>Now that we’re added an image to our repository, let’s add a <code>.gitignore</code> file to make sure Git doesn’t track these kinds of files.</p>
+<p>Now that we’ve added an image to our repository, let’s add a <code>.gitignore</code> file to make sure Git doesn’t track these kinds of files.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">echo</span> <span class="st">&quot;*.jpg&quot;</span> <span class="kw">&gt;</span> .gitignore
 <span class="kw">git</span> status</code></pre></div>
 <pre><code>## On branch master
@@ -556,7 +556,7 @@ DESCRIPTION
 <li><code>git help</code> allows you to read the <code>man</code> pages for specific Git commands.</li>
 <li><code>git log</code> will show you your commit history.</li>
 <li><code>git diff</code> displays what has changed between the last commit and your current untracked changes.</li>
-<li>You can specify a <code>.gitignore</code> file in order to tell Git to not track certain files.</li>
+<li>You can specify a <code>.gitignore</code> file in order to tell Git not to track certain files.</li>
 </ul>
 </div>
 <div id="exercises-15" class="section level3">
@@ -574,7 +574,7 @@ DESCRIPTION
 <p>You can list all of the available branches with the command <code>git branch</code>:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> branch</code></pre></div>
 <pre><code>## * master</code></pre>
-<p>The star (<code>*</code>) indicates which branch you’re currently on. The default branch that is created is always called <em>master</em>. Usually people use this branch as the working version of the software that their writing, while they develop new and potentially unstable features on other branches.</p>
+<p>The star (<code>*</code>) indicates which branch you’re currently on. The default branch that is created is always called <em>master</em>. Usually people use this branch as the working version of the software that they are writing, while they develop new and potentially unstable features on other branches.</p>
 <p>To add a branch we’ll also use the <code>git branch</code> command, followed the name of the branch we want to create:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> branch my-new-feature</code></pre></div>
 <p>Now let’s enter <code>git branch</code> again to confirm that we’ve created the branch:</p>
@@ -616,14 +616,14 @@ nothing to commit, working tree clean</code></pre>
 <span class="kw">git</span> commit -m <span class="st">&quot;added a third line to readme.txt&quot;</span></code></pre></div>
 <pre><code>## [update-readme 6e378a9] added a third line to readme.txt
 ##  1 file changed, 1 insertion(+)</code></pre>
-<p>Now we’ve made a commit on the <code>update-readme</code> branch, let’s switch back to the <code>master</code> branch, and then we’ll take a look at <code>readme.txt</code>:</p>
+<p>Now that we’ve made a commit on the <code>update-readme</code> branch, let’s switch back to the <code>master</code> branch, and then we’ll take a look at <code>readme.txt</code>:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> checkout master</code></pre></div>
 <pre><code>## Switched to branch &#39;master&#39;</code></pre>
 <p>Now that we’re on the <code>master</code> branch let’s quickly glance at <code>readme.txt</code>:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cat</span> readme.txt</code></pre></div>
 <pre><code>## Welcome to My First Repo
 ## Learning Git is going well so far.</code></pre>
-<p>The third line that we added is gone! Don’t fret, the line that we added isn’t gone forever. We committed the change to this file while we were on the <code>update-readme</code> branch, so the up updated file is safely in that branch. Let’s switch back to that branch just to make sure:</p>
+<p>The third line that we added is gone! Don’t fret, the line that we added isn’t gone forever. We committed the change to this file while we were on the <code>update-readme</code> branch, so the updated file is safely in that branch. Let’s switch back to that branch just to make sure:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> checkout update-readme
 <span class="kw">cat</span> readme.txt</code></pre></div>
 <pre><code>## Welcome to My First Repo
@@ -701,7 +701,7 @@ nothing to commit, working tree clean</code></pre>
 ## =======
 ## It&#39;s cloudy outside today.
 ## &gt;&gt;&gt;&gt;&gt;&gt;&gt; update-readme</code></pre>
-<p>The first three lines of this file look normal, then things get interesting! The line between <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> and <code>=======</code> shows the version of the conflicted line between on the current branch. In Git terminology the <code>HEAD</code> represents the most recent commit on the branch which is currently checked out (which is <code>master</code> in this case). The line between <code>=======</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; update-readme</code> shows the version of the line on the <code>update-readme</code> branch. In order to resolve this conflict, all we need to do is open <code>readme.txt</code> with <code>nano</code> so we can delete the lines we want to get rid of. In this case let’s keep the “cloudy” version.</p>
+<p>The first three lines of this file look normal, then things get interesting! The line between <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> and <code>=======</code> shows the version of the conflicted line on the current branch. In Git terminology the <code>HEAD</code> represents the most recent commit on the branch which is currently checked out (which is <code>master</code> in this case). The line between <code>=======</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; update-readme</code> shows the version of the line on the <code>update-readme</code> branch. In order to resolve this conflict, all we need to do is open <code>readme.txt</code> with <code>nano</code> so we can delete the lines we want to get rid of. In this case let’s keep the “cloudy” version.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">nano</span> readme.txt
 <span class="kw">cat</span> readme.txt</code></pre></div>
 <pre><code>## Welcome to My First Repo
@@ -718,7 +718,7 @@ nothing to commit, working tree clean</code></pre>
 <li>Git branching allows you and others to work on the same code base together.</li>
 <li>You can create a branch with the command <code>git branch [name of branch]</code>.</li>
 <li>To switch to a branch use <code>git checkout [name of branch]</code>.</li>
-<li>You can combine a branch with your current branch with <code>git merge</code>.</li>
+<li>You can combine a branch with your current branch by using <code>git merge</code>.</li>
 </ul>
 </div>
 <div id="exercises-16" class="section level3">
@@ -745,7 +745,7 @@ nothing to commit, working tree clean</code></pre>
 <p>In the command above <code>git remote add</code> adds a new remote to your local repository, <code>origin</code> is the name we’re assigning to this remote repository, and <code>https://github.com/seankross/my-first-repo.git</code> is the URL of the remote repository. You should of course substitute <code>seankross</code> for your GitHub user name so that it corresponds to your remote repository URL. Later I’ll explain why “origin” is the name we chose for this remote. Let’s run <code>git remote</code> again to confirm that we added the <code>origin</code> remote successfully:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> remote</code></pre></div>
 <pre><code>## origin</code></pre>
-<p>Now that we’ve added our GitHub remote, let’s perform our first Git <strong>push</strong>. A Git push updates a remote repository with all of the commits that we’ve made to our local Git repository. This first Git push you do when setting up a remote on GitHub with a local repository is little different from future Git pushes. We’ll need to use the <code>-u</code> flag in order to set <code>origin</code> as the default remote repository so we don’t have to provide its name every time we want to interact with it. Enter the following command, modified so that you’re using your GitHub user name:</p>
+<p>Now that we’ve added our GitHub remote, let’s perform our first Git <strong>push</strong>. A Git push updates a remote repository with all of the commits that we’ve made to our local Git repository. This first Git push you do when setting up a remote on GitHub with a local repository is a little different from future Git pushes. We’ll need to use the <code>-u</code> flag in order to set <code>origin</code> as the default remote repository so we don’t have to provide its name every time we want to interact with it. Enter the following command, modified so that you’re using your GitHub user name:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> push -u origin master</code></pre></div>
 <pre><code>## Counting objects: 23, done.
 ## Delta compression using up to 4 threads.
@@ -807,7 +807,7 @@ Here is how you make [a link](https://www.wikipedia.org/).
 ## Total 3 (delta 0), reused 0 (delta 0)
 ## To https://github.com/seankross/my-first-repo.git
 ##    ca04f67..2169912  master -&gt; master</code></pre>
-<p>Since we set up a default remote repository the first time we pushed, we can now simply enter <code>git push</code> in order to send our latest commits to the <code>master</code> branch on the <code>origin</code> remote. Now the page on GitHub for your repository should look like something like this:</p>
+<p>Since we set up a default remote repository the first time we pushed, we can now simply enter <code>git push</code> in order to send our latest commits to the <code>master</code> branch on the <code>origin</code> remote. Now the page on GitHub for your repository should look something like this:</p>
 <div class="figure">
 <img src="img/md-readme.png" />
 
@@ -818,7 +818,7 @@ Here is how you make [a link](https://www.wikipedia.org/).
 <li>A word surrounded by single asterisks (<code>*word*</code>) makes that word <em>italicized</em>.</li>
 <li>A word surrounded by double asterisks (<code>**word**</code>) makes that word <strong>bold</strong>.</li>
 <li>You can create lists with hyphens (<code>-</code>) or numbers (<code>1., 2., 3.</code>).</li>
-<li>Code can placed in to the middle of a line with single backticks (<code>`code`</code>).</li>
+<li>Code can be placed in the middle of a line with single backticks (<code>`code`</code>).</li>
 <li>A code block can be created by putting code in between a set of triple backticks (<code>```</code>).</li>
 <li>You can insert a link with brackets and parentheses (<code>[Link text here](http://jhu.edu)</code>).</li>
 <li>You can use an image with an exclamation point, and a link to an image (<code>![Alt text here](http://jhu.edu/jeff.jpg)</code>)</li>
@@ -827,7 +827,7 @@ Here is how you make [a link](https://www.wikipedia.org/).
 </div>
 <div id="pull-requests" class="section level3">
 <h3><span class="header-section-number">6.6.2</span> Pull Requests</h3>
-<p>The next two features of GitHub we’re going to discuss - <strong>pull requests</strong> and <strong>forking</strong> - are what make GitHub so great. A pull request allows you interactively compare two different branches before you merge them so you can either go ahead with the merge or provide feedback to whoever opened the pull request. Essentially a pull request allows a person to ask another person if they’re willing to incorperate changes on one branch into another branch. This social coding transaction may involve you and a collaborator, you and a stranger, or you might open a pull request on your own repository just as a method of staying organized.</p>
+<p>The next two features of GitHub we’re going to discuss - <strong>pull requests</strong> and <strong>forking</strong> - are what make GitHub so great. A pull request allows you to interactively compare two different branches before you merge them so you can either go ahead with the merge or provide feedback to whoever opened the pull request. Essentially a pull request allows a person to ask another person if they’re willing to incorporate changes on one branch into another branch. This social coding transaction may involve you and a collaborator, you and a stranger, or you might open a pull request on your own repository just as a method of staying organized.</p>
 <p>Since I can’t guarantee that you have a collaborator I’ll show you how to open a pull request on your own repository. First in your local <code>my-first-repo</code> repository let’s switch over to the <code>update-readme</code> branch.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> checkout update-readme</code></pre></div>
 <pre><code>## Switched to branch &#39;update-readme&#39;</code></pre>
@@ -847,7 +847,7 @@ Here is how you make [a link](https://www.wikipedia.org/).
 ##  2 files changed, 28 insertions(+), 4 deletions(-)
 ##  create mode 100644 README.md
 ##  delete mode 100644 readme.txt</code></pre>
-<p>Now the <code>master</code> and <code>update-readme</code> branches are identical. Let’s clean up this directory so that you can make a little personalized Markdown project. First let’s delete all of the files in this directory that we don’t really need, meaning everything execpt <code>README.md</code>.</p>
+<p>Now the <code>master</code> and <code>update-readme</code> branches are identical. Let’s clean up this directory so that you can make a little personalized Markdown project. First let’s delete all of the files in this directory that we don’t really need, meaning everything except <code>README.md</code>.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">rm</span> *.txt
 <span class="kw">rm</span> *.jpg
 <span class="kw">ls</span></code></pre></div>
@@ -903,26 +903,108 @@ The best way to get in touch with me is [on Twitter](https://twitter.com/seankro
 <img src="img/create-pr.png" />
 
 </div>
-<p>There are a few important details on this page, so let’s go through them. First under the “Open a pull request” heading you can see the names of two branches. The branch name after “base:” shows the branch that changes are being merged into (in the case the <code>master</code> branch), and the branch name after “compare:” shows the branch that has the changes (in the case the <code>update-readme</code> branch).</p>
+<p>There are a few important details on this page, so let’s go through them. First under the “Open a pull request” heading you can see the names of two branches. The branch name after “base:” shows the branch that changes are being merged into (in this case the <code>master</code> branch), and the branch name after “compare:” shows the branch that has the changes (in this case the <code>update-readme</code> branch).</p>
 <p>In the text boxes below you can write a title for your pull request (the default title in this case is the name of the last commit) and you can write comments about the pull request which you can format with Markdown. If you’re collaborating with somebody else on a project it’s important to write good comments so that your collaborators know what changes you made in the branch you are requesting to merge. If you scroll down the page you can see a line-by-line comparison of the changes in the “compare” branch compared to the “base” branch. When you’ve finished going over these changes click the green “Create pull request” button in order to open the pull request. You should now see a screen like this:</p>
 <div class="figure">
 <img src="img/opened-pr.png" />
 
 </div>
-<p>Congratulations on opening your first pull request! Let’s take a look at what’s happening on this page. Below the title of the pull request we can see three tabs called Conversation, Commits, and Files changed. In the Conversation tab we can add comments to the pull request which can be formatted with Markdown. The Commits tab lists the commits that have been made to the “compare” branch in this pull request. Finally the Files changed tab shows the same line-by-line comparison we saw before.</p>
-<p>Usually when you’re working with collaborators there’s a great deal of discussion that occurs after you open a pull request. Git commits that are pushed to the “compare” branch (<code>update-readme</code> in the case) of the GitHub repository will be reflected in a pull request even after the request has been opened. This way changes that are made as the result of the discussion can be easily incorporated. Once you’re ready go back to the Conversation tab and click the green “Merge pull request” button, then click the green “Confirm merge” button that appears. This will <code>git merge</code> the “compare” branch into the “base” branch on our remote repository. You just merged your first pull request! Now click near the top left corner of this page on the <strong>&lt;&gt; Code</strong> tab, and you should see that the changes from the <code>update-readme</code> branch have been merged into <code>master</code>.</p>
+<p>Congratulations on opening your first pull request! Let’s take a look at what’s happening on this page. Below the title of the pull request we can see three tabs called <strong>Conversation</strong>, <strong>Commits</strong>, and <strong>Files changed</strong>. In the <strong>Conversation</strong> tab we can add comments to the pull request which can be formatted with Markdown. The <strong>Commits</strong> tab lists the commits that have been made to the “compare” branch in this pull request. Finally the <strong>Files changed</strong> tab shows the same line-by-line comparison we saw before.</p>
+<p>Usually when you’re working with collaborators there’s a great deal of discussion that occurs after you open a pull request. Git commits that are pushed to the “compare” branch (<code>update-readme</code> in the case) of the GitHub repository will be reflected in a pull request even after the request has been opened. This way changes that are made as a result of the discussion can be easily incorporated. Once you’re ready go back to the <strong>Conversation</strong> tab and click the green “Merge pull request” button, then click the green “Confirm merge” button that appears. This will <code>git merge</code> the “compare” branch into the “base” branch on our remote repository. You just merged your first pull request! Now click near the top left corner of this page on the <strong>&lt;&gt; Code</strong> tab, and you should see that the changes from the <code>update-readme</code> branch have been merged into <code>master</code>.</p>
+<p>When working on a remote GitHub repository with many other folks theses pull requests and merges can happen without you being involved at all, if the commits effect parts of the code that you’re not working on. Still it’s important to keep your local repository up to date with the latest changes in the remote repository. Let’s go back to your terminal where you have <code>my-first-repo</code> set as the current working directory.</p>
+<p>When working on a remote GitHub repository with many other folks thess pull requests and merges can happen without you being involved at all if the commits effect parts of the code that you’re not working on. Still it’s important to keep your local repository up to date with the latest changes in the remote repository. Let’s go back to your terminal where you have <code>my-first-repo</code> set as the current working directory. First let’s switch to the <code>master</code> branch.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> checkout master</code></pre></div>
+<p>Now let’s update our local master branch with the commits that have been merged into the master branch on our remote repository. We can accomplish this with the command <code>git pull</code>:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> pull</code></pre></div>
+<pre><code>## remote: Counting objects: 1, done.
+## remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
+## Unpacking objects: 100% (1/1), done.
+## From https://github.com/seankross/my-first-repo
+##    2169912..b9217f6  master     -&gt; origin/master
+## Updating 2169912..b9217f6
+## Fast-forward
+##  README.md | 38 ++++++++++++++++++--------------------
+##  file1.txt |  0
+##  file2.txt |  0
+##  3 files changed, 18 insertions(+), 20 deletions(-)
+##  delete mode 100644 file1.txt
+##  delete mode 100644 file2.txt</code></pre>
+<p>With <code>git pull</code> Git finds the <code>master</code> branch on the <code>origin</code> remote repository and updates our local repository with the new commits. You’ve now completed the full pull request life cycle! In the <strong>Forking</strong> section of this chapter we’ll come back to how discussing how GitHub super-charges pull requests in order to foster a greater coding community.</p>
 </div>
 <div id="pages" class="section level3">
 <h3><span class="header-section-number">6.6.3</span> Pages</h3>
+<p>For now we’re going to take a little detour to discuss <a href="https://pages.github.com/">GitHub Pages</a>. GitHub Pages allows you to create and host a website on GitHub using only Git and Markdown. Go back to your <code>my-first-repo</code> repository page on GitHub on click the <em>Settings</em> tab at the top. Scroll down the page until you see a box that says <strong>GitHub Pages</strong>. Then click on the drop-down menu that says <strong>None</strong>. You should see a screen like this:</p>
+<div class="figure">
+<img src="img/select-pages.png" />
+
+</div>
+<p>Click <em>master branch</em> and then click <em>Save</em>. Now go to the website [your-github-username].github.io/my-first-repo (in my case the address is <a href="http://seankross.github.io/my-first-repo">seankross.github.io/my-first-repo</a>) and you should see your very own website!</p>
+<div class="figure">
+<img src="img/my-website.png" />
+
+</div>
+<p>How cool is that!? If you want to change your new website all you need to do is edit your <code>README.md</code> then commit and push the changes! Websites like these are great for showing off projects, providing software documentation, creating online resumes, or writing a blog! GitHub pages websites can be as simple as a few Markdown documents, or if you’re know some web programming you can turn them into complex websites. For more information about GitHub Pages you can check out the <a href="https://pages.github.com/">documentation here</a>.</p>
 </div>
 <div id="forking" class="section level3">
 <h3><span class="header-section-number">6.6.4</span> Forking</h3>
+<p>If you’re reading this book it’s fairly safe to say that you probably interact with software every day. Software powers your computer, the internet, your phone, and this book. Considering all of the software you use, have you ever thought about modifying that software? Perhaps you could write some code to add a new feature you think would be useful or to fix a glitch that you’ve noticed. GitHub makes modifying other people’s software easy through the process of <strong>forking</strong>. Forking a GitHub repository copies somebody else’s GitHub repository into your GitHub account. You can then modify this copy of their software however you like. After you’ve added some commits to your copy of the repository you can keep the new commits to yourself, share them with others, or you can open up a <strong>pull request</strong> for your new commits to be merged into the original source repository. This original source repository (the repository you forked) is often called the <em>upstream</em> repository.</p>
+<p>Let’s try forking a repository now. Go to <a href="https://github.com/seankross/the-unix-workbench" class="uri">https://github.com/seankross/the-unix-workbench</a> and click the <strong>Fork</strong> button in the upper right corner. GitHub will then ask you what account you want to use to fork the repository. If you’re a new GitHub user then you only have one account, so select that account. After a brief “please wait” screen you should then see the forked repository at the URL <a href="https://github.com/%5Byour-github-username%5D/the-unix-workbench" class="uri">https://github.com/[your-github-username]/the-unix-workbench</a>. You’ve now forked the repository for this book! In order to get get a local copy of the repository you’ll need to use the <code>git clone</code> command. Cloning a repository copies a Git repository to your computer while keeping track of the remote repository that it originated from. Let’s clone your fork of my repository now. On the right side of the repository page you should see a green button that says <strong>Clone or download</strong>. Click that button and the following menu should appear:</p>
+<div class="figure">
+<img src="img/clone-wb.png" />
+
+</div>
+<p>Click on the little clipboard icon which will copy the Git URL. Now go back to the terminal and change your working directory to your home directory.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span>
+<span class="kw">pwd</span></code></pre></div>
+<pre><code>## /Users/sean</code></pre>
+<p>Now let’s clone the repository. Type <code>git clone</code> into the terminal and then paste in the Git URL we copied from GitHub:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> clone https://github.com/[your-github-username]/the-unix-workbench.git</code></pre></div>
+<pre><code>## Cloning into &#39;the-unix-workbench&#39;...
+## remote: Counting objects: 669, done.
+## remote: Compressing objects: 100% (7/7), done.
+## remote: Total 669 (delta 2), reused 8 (delta 2), pack-reused 660
+## Receiving objects: 100% (669/669), 4.00 MiB | 4.55 MiB/s, done.
+## Resolving deltas: 100% (510/510), done.</code></pre>
+<p>Now <code>cd</code> into your cloned repository.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span> the-unix-workbench</code></pre></div>
+<p>You’ve just successfully completed your first Git clone! Like we mentioned before, cloning has the advantage of keeping track of the remote repository that should be associated with the local repository. Let’s test this by entering <code>git remote</code> with the added <code>-v</code> flag:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> remote -v</code></pre></div>
+<pre><code>## origin   https://github.com/[your-github-username]/the-unix-workbench.git (fetch)
+## origin   https://github.com/[your-github-username]/the-unix-workbench.git (push)</code></pre>
+<p>As you can see the default name of the remote repository after you clone that repository is <code>origin</code>. Now that you’ve cloned your fork you should add a commit! One change that I suggest is adding your name to <code>guestbook.md</code>. Let’s do this now:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">echo</span> <span class="st">&quot;- Sean Kross&quot;</span> <span class="kw">&gt;&gt;</span> guestbook.md <span class="co"># Add your own name of course!</span>
+<span class="kw">cat</span> guestbook.md</code></pre></div>
+<pre><code>## # Guest Book
+##
+## - Sean Kross</code></pre>
+<p>Now add, commit, and push your changes:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> add guestbook.md
+<span class="kw">git</span> commit -m <span class="st">&quot;added my name to guestbook.md&quot;</span>
+<span class="kw">git</span> push</code></pre></div>
+<p>Now that you’ve added your name to the guest book you can merge your change into my version of the guest book by opening up a new pull request as described in the previous section. If your pull request to the guest book is merged into the upstream repository (by me) then you will have completed the full GitHub lifecycle!</p>
+<p>The process of forking a repository, making changes, and then opening a pull request is a very powerful workflow for seeing changes that you want made in the software world. Many large and important software projects have repositories on GitHub including <a href="https://github.com/torvalds/linux">operating systems</a>, <a href="https://github.com/golang/go">programming languages</a>, and even <a href="https://github.com/git/git">Git itself</a>! If there’s a change you want to see in a public GitHub repository, fork that repository and make the change!</p>
 </div>
 <div id="summary-16" class="section level3">
 <h3><span class="header-section-number">6.6.5</span> Summary</h3>
+<ul>
+<li>You can use GitHub you create and host remote Git repositories.</li>
+<li>A remote Git repository is a Git repository that is always connected to the internet.</li>
+<li>List remote repositories with <code>git remote</code>.</li>
+<li>Add remote repositiories with <code>git remote add [name-of-remote] https://github.com/[username]/[repo-name].git</code></li>
+<li>Add commits to your remote repository with <code>git push [name-of-remote] [name-of-branch]</code> or just <code>git push</code> if you’ve set up a default remote and branch.</li>
+<li>To merge commits on a remote repository into your local repository use <code>git pull [name-of-remote] [name-of-branch]</code> or just <code>git pull</code> if you’ve set up a default remote and branch.</li>
+<li>A pull request allows you to interactively compare two different branches before you merge them.</li>
+<li>GitHub Pages allows you to host websites written in Markdown for free!</li>
+<li>Forking a repository allows you to make changes to a copy of a public repository. You can then open a pull request if you think your changes should be merged into the upstream repository!</li>
+</ul>
 </div>
 <div id="exercises-17" class="section level3">
 <h3><span class="header-section-number">6.6.6</span> Exercises</h3>
+<ol style="list-style-type: decimal">
+<li>Create a new repository on GitHub. Clone your repository and add a <code>README.md</code> file. Push this file to GitHub and create a GitHub Pages website for this repository.</li>
+<li>Fork an existing repository (try one of mine <a href="https://github.com/seankross" class="uri">https://github.com/seankross</a>) and try to identify something valuable you could contribute. Make changes or additions to that repository, then open a pull request.</li>
+<li>Read through <a href="https://guides.github.com/">GitHub’s Guides</a>.</li>
+</ol>
 
 </div>
 </div>

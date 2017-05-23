@@ -13,7 +13,7 @@ to try to figure out where the breaking change was made, you can use Git to
 restore the deleted file or find the new bug in your program. Git organizes
 groups of files that you're tracking into a **repository**, which is just a
 directory where all of the changes to files in that directory are tracked. Git
-can also help your collaborate with others when you're writing software. As
+can also help you collaborate with others when you're writing software. As
 [Karl Broman](https://twitter.com/kwbroman) says
 (paraphrasing [Mark Holder](https://twitter.com/mtholder)):
 "Your closest collaborator is you six months ago, but you don’t reply to
@@ -22,8 +22,8 @@ emails."
 GitHub is a website that provides remote Git repositories. A remote repository
 is just a Git repository that you're able to access over an internet connection.
 GitHub allows you to create public remote repositories for free, and anyone can
-see your code in these public repositories. If you want keep your code private
-then you can pay GitHub for private remote repositories. 
+see your code in these public repositories. If you want to keep your code private
+then you can pay GitHub for private remote repositories.
 
 If you're working
 on code together with a friend GitHub can help you sync changes to code files
@@ -100,7 +100,8 @@ echo "Welcome to My First Repo" > readme.txt
 
 Now that we've created a file in this Git repository, let's use `git status` to
 see what's going on in this repository. We'll be using `git status` continuously
-throughout this chapter in order to get information about the status Git repository.
+throughout this chapter in order to get information about the status of this Git
+repository.
 
 
 ```bash
@@ -129,7 +130,7 @@ the file that we want to track. Let's start tracking `readme.txt`:
 git add readme.txt
 ```
 
-Git now knows to track any changes to `readme.txt` let's see how the status of
+Git now knows to track any changes to `readme.txt`. Let's see how the status of
 the repository has changed:
 
 
@@ -249,7 +250,7 @@ While we're at it let's also add a new line of text to `readme.txt`:
 echo "Learning Git is going well so far." >> readme.txt
 ```
 
-Now that's we've added two more files and we've made changes to one file let's
+Now that we've added two more files and we've made changes to one file let's
 take a look at the state of this repository.
 
 
@@ -409,7 +410,7 @@ That looks much better.
 - Git tracks changes to plain text files (code files and text documents).
 - A directory where changes to files are tracked by Git is called a Git
 repository.
-- Change you working directory, then run `git init` to start a repository.
+- Change your working directory, then run `git init` to start a repository.
 - You can track changes to a file using `git add [names of files]`.
 - You can create a milestone about the state of your files using `git commit -m "message about changes since the last commit"`.
 - To examine the state of files in your repository use `git status`.
@@ -579,7 +580,7 @@ binary files that are generated as by-products of running code (PDFs or images),
 or secrets like passwords or API keys. A file in your Git repository called
 `.gitignore` can list names of files and sub-folders, or simple regular
 expressions (whatever you can use with `ls`) in order to specify files which
-should be never tracked. Each line of a `.gitignore` file should specify a file
+should never be tracked. Each line of a `.gitignore` file should specify a file
 or group of files that should not be tracked by Git. Let's make a `.gitignore`
 file to make sure that we never track image files in this repository:
 
@@ -599,7 +600,7 @@ git status
 ## nothing added to commit but untracked files present (use "git add" to track)
 ```
 
-Now that we're added an image to our repository, let's add a `.gitignore` file
+Now that we've added an image to our repository, let's add a `.gitignore` file
 to make sure Git doesn't track these kinds of files.
 
 
@@ -665,7 +666,7 @@ ls
 - `git log` will show you your commit history.
 - `git diff` displays what has changed between the last commit and your current
 untracked changes.
-- You can specify a `.gitignore` file in order to tell Git to not track certain
+- You can specify a `.gitignore` file in order to tell Git not to track certain
 files.
 
 ### Exercises
@@ -697,7 +698,7 @@ git branch
 
 The star (`*`) indicates which branch you're currently on. The default branch
 that is created is always called *master*. Usually people use this branch as the
-working version of the software that their writing, while they develop new and
+working version of the software that they are writing, while they develop new and
 potentially unstable features on other branches.
 
 To add a branch we'll also use the `git branch` command, followed the name of
@@ -840,7 +841,7 @@ git commit -m "added a third line to readme.txt"
 ##  1 file changed, 1 insertion(+)
 ```
 
-Now we've made a commit on the `update-readme` branch, let's switch back to the
+Now that we've made a commit on the `update-readme` branch, let's switch back to the
 `master` branch, and then we'll take a look at `readme.txt`:
 
 
@@ -866,7 +867,7 @@ cat readme.txt
 
 The third line that we added is gone! Don't fret, the line that we added isn't
 gone forever. We committed the change to this file while we were on the
-`update-readme` branch, so the up updated file is safely in that branch. Let's
+`update-readme` branch, so the updated file is safely in that branch. Let's
 switch back to that branch just to make sure:
 
 
@@ -1070,7 +1071,7 @@ cat readme.txt
 
 The first three lines of this file look normal, then things get interesting!
 The line between `<<<<<<< HEAD` and `=======` shows the version of the
-conflicted line between on the current branch. In Git terminology the `HEAD`
+conflicted line on the current branch. In Git terminology the `HEAD`
 represents the most recent commit on the branch which is currently checked out
 (which is `master` in this case). The line between `=======` and
 `>>>>>>> update-readme` shows the version of the line on the `update-readme`
@@ -1108,7 +1109,7 @@ depth with your study of Git I highly recommend the free and open source book
 - Git branching allows you and others to work on the same code base together.
 - You can create a branch with the command `git branch [name of branch]`.
 - To switch to a branch use `git checkout [name of branch]`.
-- You can combine a branch with your current branch with `git merge`.
+- You can combine a branch with your current branch by using `git merge`.
 
 ### Exercises
 
@@ -1177,7 +1178,7 @@ git remote
 Now that we've added our GitHub remote, let's perform our first Git **push**. A
 Git push updates a remote repository with all of the commits that we've made to
 our local Git repository. This first Git push you do when setting up a remote
-on GitHub with a local repository is little different from future Git pushes.
+on GitHub with a local repository is a little different from future Git pushes.
 We'll need to use the `-u` flag in order to set `origin` as the default remote
 repository so we don't have to provide its name every time we want to interact
 with it. Enter the following command, modified so that you're using your GitHub
@@ -1291,7 +1292,7 @@ git push
 Since we set up a default remote repository the first time we pushed, we can
 now simply enter `git push` in order to send our latest commits to the `master`
 branch on the `origin` remote. Now the page on GitHub for your repository should
-look like something like this:
+look something like this:
 
 ![](img/md-readme.png)
 
@@ -1302,7 +1303,7 @@ wrote has been rendered according to a few rules:
 - A word surrounded by single asterisks (`*word*`) makes that word *italicized*.
 - A word surrounded by double asterisks (`**word**`) makes that word **bold**.
 - You can create lists with hyphens (`-`) or numbers (`1., 2., 3.`).
-- Code can placed in to the middle of a line with single backticks (`` `code` ``).
+- Code can be placed in the middle of a line with single backticks (`` `code` ``).
 - A code block can be created by putting code in between a set of triple
 backticks (`` ``` ``).
 - You can insert a link with brackets and parentheses (`[Link text here](http://jhu.edu)`).
@@ -1319,12 +1320,12 @@ guide.
 
 ### Pull Requests
 
-The next two features of GitHub we're going to discuss - **pull requests** and 
-**forking** - are what make GitHub so great. A pull request allows you
+The next two features of GitHub we're going to discuss - **pull requests** and
+**forking** - are what make GitHub so great. A pull request allows you to
 interactively compare two different branches before you merge them so you can
 either go ahead with the merge or provide feedback to whoever opened the pull
 request. Essentially a pull request allows a person to ask another person if
-they're willing to incorperate changes on one branch into another branch. This
+they're willing to incorporate changes on one branch into another branch. This
 social coding transaction may involve you and a collaborator, you and a
 stranger, or you might open a pull request on your own repository just as a
 method of staying organized.
@@ -1378,7 +1379,7 @@ git merge master
 Now the `master` and `update-readme` branches are identical. Let's clean up this
 directory so that you can make a little personalized Markdown project. First
 let's delete all of the files in this directory that we don't really need,
-meaning everything execpt `README.md`.
+meaning everything except `README.md`.
 
 
 ```bash
@@ -1478,8 +1479,8 @@ you to a page like this:
 There are a few important details on this page, so let's go through them. First
 under the "Open a pull request" heading you can see the names of two branches.
 The branch name after "base:" shows the branch that changes are being merged
-into (in the case the `master` branch), and the branch name after "compare:"
-shows the branch that has the changes (in the case the `update-readme` branch).
+into (in this case the `master` branch), and the branch name after "compare:"
+shows the branch that has the changes (in this case the `update-readme` branch).
 
 In the text boxes below you can write a title for your pull request (the default
 title in this case is the name of the last commit) and you can write comments
@@ -1496,18 +1497,18 @@ request. You should now see a screen like this:
 
 Congratulations on opening your first pull request! Let's take a look at what's
 happening on this page. Below the title of the pull request we can see three
-tabs called Conversation, Commits, and Files changed. In the Conversation tab
-we can add comments to the pull request which can be formatted with Markdown.
-The Commits tab lists the commits that have been made to the "compare" branch
-in this pull request. Finally the Files changed tab shows the same line-by-line
-comparison we saw before.
+tabs called **Conversation**, **Commits**, and **Files changed**. In the
+**Conversation** tab we can add comments to the pull request which can be
+formatted with Markdown. The **Commits** tab lists the commits that have been
+made to the "compare" branch in this pull request. Finally the **Files changed**
+tab shows the same line-by-line comparison we saw before.
 
 Usually when you're working with collaborators there's a great deal of
 discussion that occurs after you open a pull request. Git commits that are
 pushed to the "compare" branch (`update-readme` in the case) of the GitHub
-repository will be reflected in a pull request even after the request has been 
-opened. This way changes that are made as the result of the discussion can be 
-easily incorporated. Once you're ready go back to the Conversation tab and click
+repository will be reflected in a pull request even after the request has been
+opened. This way changes that are made as a result of the discussion can be
+easily incorporated. Once you're ready go back to the **Conversation** tab and click
 the green "Merge pull request" button, then click the green "Confirm merge"
 button that appears. This will `git merge` the "compare" branch into the "base"
 branch on our remote repository. You just merged your first pull request! Now
@@ -1515,16 +1516,233 @@ click near the top left corner of this page on the **<> Code** tab, and you
 should see that the changes from the `update-readme` branch have been merged
 into `master`.
 
+When working on a remote GitHub repository with many other folks theses pull
+requests and merges can happen without you being involved at all, if the commits
+effect parts of the code that you're not working on. Still it's important to
+keep your local repository up to date with the latest changes in the remote
+repository. Let's go back to your terminal where you have `my-first-repo` set
+as the current working directory.
+
+When working on a remote GitHub repository with many other folks thess pull
+requests and merges can happen without you being involved at all if the commits
+effect parts of the code that you're not working on. Still it's important to
+keep your local repository up to date with the latest changes in the remote
+repository. Let's go back to your terminal where you have `my-first-repo` set
+as the current working directory. First let's switch to the `master` branch.
+
+
+```bash
+git checkout master
+```
+
+Now let's update our local master branch with the commits that have been merged
+into the master branch on our remote repository. We can accomplish this with
+the command `git pull`:
+
+
+```bash
+git pull
+```
+
+```
+## remote: Counting objects: 1, done.
+## remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
+## Unpacking objects: 100% (1/1), done.
+## From https://github.com/seankross/my-first-repo
+##    2169912..b9217f6  master     -> origin/master
+## Updating 2169912..b9217f6
+## Fast-forward
+##  README.md | 38 ++++++++++++++++++--------------------
+##  file1.txt |  0
+##  file2.txt |  0
+##  3 files changed, 18 insertions(+), 20 deletions(-)
+##  delete mode 100644 file1.txt
+##  delete mode 100644 file2.txt
+```
+
+With `git pull` Git finds the `master` branch on the `origin` remote repository
+and updates our local repository with the new commits. You've now completed the
+full pull request life cycle! In the **Forking** section of this chapter we'll
+come back to how discussing how GitHub super-charges pull requests in order to
+foster a greater coding community.
+
 ### Pages
 
+For now we're going to take a little detour to discuss
+[GitHub Pages](https://pages.github.com/). GitHub Pages allows you to create
+and host a website on GitHub using only Git and Markdown. Go back to your
+`my-first-repo` repository page on GitHub on click the *Settings* tab at the
+top. Scroll down the page until you see a box that says **GitHub Pages**. Then
+click on the drop-down menu that says **None**. You should see a screen like
+this:
 
+![](img/select-pages.png)
 
+Click *master branch* and then click *Save*. Now go to the website
+[your-github-username].github.io/my-first-repo (in my case the address is
+[seankross.github.io/my-first-repo](http://seankross.github.io/my-first-repo))
+and you should see your very own website!
 
+![](img/my-website.png)
+
+How cool is that!? If you want to change your new website all you need to do
+is edit your `README.md` then commit and push the changes! Websites like these
+are great for showing off projects, providing software documentation, creating
+online resumes, or writing a blog! GitHub pages websites can be as simple as a
+few Markdown documents, or if you're know some web programming you can turn
+them into complex websites. For more information about GitHub Pages you can
+check out the [documentation here](https://pages.github.com/).
 
 ### Forking
 
+If you're reading this book it's fairly safe to say that you probably interact
+with software every day. Software powers your computer, the internet, your
+phone, and this book. Considering all of the software you use, have you ever
+thought about modifying that software? Perhaps you could write some code to add
+a new feature you think would be useful or to fix a glitch that you've noticed.
+GitHub makes modifying other people's software easy through the process of
+**forking**. Forking a GitHub repository copies somebody else's GitHub
+repository into your GitHub account. You can then modify this copy of their
+software however you like. After you've added some commits to your copy of the
+repository you can keep the new commits to yourself, share them with
+others, or you can open up a **pull request** for your new commits to be merged
+into the original source repository. This original source repository (the
+repository you forked) is often called the *upstream* repository.
 
+Let's try forking a repository now. Go to
+https://github.com/seankross/the-unix-workbench and click the **Fork** button
+in the upper right corner. GitHub will then ask you what account you want to
+use to fork the repository. If you're a new GitHub user then you only have one
+account, so select that account. After a brief "please wait" screen you should
+then see the forked repository at the URL
+https://github.com/[your-github-username]/the-unix-workbench. You've now forked
+the repository for this book! In order to get
+get a local copy of the repository you'll need to use the `git clone` command.
+Cloning a repository copies a Git repository to your computer while keeping
+track of the remote repository that it originated from. Let's clone your fork
+of my repository now. On the right side of the repository page you should see
+a green button that says **Clone or download**. Click that button and the
+following menu should appear:
+
+![](img/clone-wb.png)
+
+Click on the little clipboard icon which will copy the Git URL. Now go back to
+the terminal and change your working directory to your home directory.
+
+
+```bash
+cd
+pwd
+```
+
+```
+## /Users/sean
+```
+
+Now let's clone the repository. Type `git clone` into the terminal and then
+paste in the Git URL we copied from GitHub:
+
+
+```bash
+git clone https://github.com/[your-github-username]/the-unix-workbench.git
+```
+
+```
+## Cloning into 'the-unix-workbench'...
+## remote: Counting objects: 669, done.
+## remote: Compressing objects: 100% (7/7), done.
+## remote: Total 669 (delta 2), reused 8 (delta 2), pack-reused 660
+## Receiving objects: 100% (669/669), 4.00 MiB | 4.55 MiB/s, done.
+## Resolving deltas: 100% (510/510), done.
+```
+
+Now `cd` into your cloned repository.
+
+
+```bash
+cd the-unix-workbench
+```
+
+You've just successfully completed your first Git clone! Like we mentioned
+before, cloning has the advantage of keeping track of the remote repository that
+should be associated with the local repository. Let's test this by entering
+`git remote` with the added `-v` flag:
+
+
+```bash
+git remote -v
+```
+
+```
+## origin	https://github.com/[your-github-username]/the-unix-workbench.git (fetch)
+## origin	https://github.com/[your-github-username]/the-unix-workbench.git (push)
+```
+
+As you can see the default name of the remote repository after you clone that
+repository is `origin`. Now that you've cloned your fork you should add a
+commit! One change that I suggest is adding your name to `guestbook.md`. Let's
+do this now:
+
+
+```bash
+echo "- Sean Kross" >> guestbook.md # Add your own name of course!
+cat guestbook.md
+```
+
+```
+## # Guest Book
+##
+## - Sean Kross
+```
+
+Now add, commit, and push your changes:
+
+
+```bash
+git add guestbook.md
+git commit -m "added my name to guestbook.md"
+git push
+```
+
+Now that you've added your name to the guest book you can merge your change into
+my version of the guest book by opening up a new pull request as described in
+the previous section. If your pull request to the guest book is merged into the
+upstream repository (by me) then you will have completed the full GitHub
+lifecycle!
+
+The process of forking a repository, making changes, and then opening a pull
+request is a very powerful workflow for seeing changes that you want made in
+the software world. Many large and important software projects have repositories
+on GitHub including [operating systems](https://github.com/torvalds/linux),
+[programming languages](https://github.com/golang/go),
+and even [Git itself](https://github.com/git/git)! If there's a change you want
+to see in a public GitHub repository, fork that repository and make the change!
 
 ### Summary
 
+- You can use GitHub you create and host remote Git repositories.
+- A remote Git repository is a Git repository that is always connected to the
+internet.
+- List remote repositories with `git remote`.
+- Add remote repositiories with `git remote add [name-of-remote] https://github.com/[username]/[repo-name].git`
+- Add commits to your remote repository with `git push [name-of-remote] [name-of-branch]`
+or just `git push` if you've set up a default remote and branch.
+- To merge commits on a remote repository into your local repository use
+`git pull [name-of-remote] [name-of-branch]` or just `git pull` if you've set 
+up a default remote and branch.
+- A pull request allows you to interactively compare two different branches
+before you merge them.
+- GitHub Pages allows you to host websites written in Markdown for free!
+- Forking a repository allows you to make changes to a copy of a public
+repository. You can then open a pull request if you think your changes should
+be merged into the upstream repository!
+
 ### Exercises
+
+1. Create a new repository on GitHub. Clone your repository and add a
+`README.md` file. Push this file to GitHub and create a GitHub Pages website
+for this repository.
+2. Fork an existing repository (try one of mine https://github.com/seankross)
+and try to identify something valuable you could contribute. Make changes or
+additions to that repository, then open a pull request.
+3. Read through [GitHub's Guides](https://guides.github.com/).

@@ -445,8 +445,8 @@ going to need to look under the hood of Unix a little bit. Whenever you execute
 a program on the command line, in general one of two things will happen: either
 the command is executed successfully, or there's an error. In terms of errors
 there are many ways that a program can go wrong, and Unix can take different
-action depending on what kind of error occurs. For example if I enter the name
-of a command that does not exist into the keyboard, then I'll see an error:
+actions depending on what kind of error occurs. For example if I enter the name
+of a command that does not exist into the terminal, then I'll see an error:
 
 
 ```bash
@@ -504,7 +504,7 @@ echo $?
 ```
 
 As you can see `true` has an exit status of 0 and `false` has an exit status of
-1. Since there programs don't do much else, you could define `true` as a program
+1. Since these programs don't do much else, you could define `true` as a program
 that always has an exit status of 0 and `false` as a program that always has an
 exit status of 1.
 
@@ -528,7 +528,7 @@ false && echo "Program 2 was executed."
 ```
 
 Since `false` has an exit status of 1, the program `echo "Program 2 was executed."`
-is not executed, so nothing is printed to the console for that line command.
+is not executed, so nothing is printed to the console for that command.
 Several AND operators can be chained together like so:
 
 
@@ -1342,7 +1342,7 @@ variable name that you define immediately after `for` will take on a value
 inside of the loop that corresponds to an element in the sequence you provide
 after `in`, starting with the first element of the sequence, followed by every
 subsequent element. Valid sequences include brace expansions, explicit lists of strings,
-arrays, and command substitution. In this instance we're using the brace
+arrays, and command substitutions. In this instance we're using the brace
 expansion `{1..3}` which we know expands to the string `"1 2 3"`. The code 
 executed in each iteration of the loop is written
 between `do` and `done`. In the first iteration of the loop, the variable `$i`
@@ -1356,10 +1356,12 @@ value 2. The string
 variable is now equal to 3, so `"i is equal to 3"` is printed to the console.
 There are no elements left in the sequence, so the program moves beyond the
 FOR loop and finally prints `"After Loop"`. Stop for a moment and edit this loop
-yourself. Try executing it with your changes to see if it prints the output you
-expected.
+yourself. Try changing the brace expansion to include other sequences of
+numbers, letters, or words, then execute the modified code. Before you execute
+your modified program, write down what you think will be printed. How do the
+results of executing your program compare with your expectations?
 
-Once you've experimented at little take a look at this example with several
+Once you've experimented a little take a look at this example with several
 other kinds of sequence generating strategies:
 
 ```
@@ -1373,6 +1375,7 @@ do
 	echo "picture is equal to $picture"
 done
 
+echo ""
 echo "Array:"
 
 stooges=(curly larry moe)
@@ -1382,6 +1385,7 @@ do
 	echo "Current stooge: $stooge"
 done
 
+echo ""
 echo "Command substitution:"
 
 for code in $(ls)
@@ -1391,21 +1395,33 @@ done
 ```
 
 ```
+## Explicit list:
+## picture is equal to img001.jpg
+## picture is equal to img002.jpg
+## picture is equal to img451.jpg
+## 
+## Array:
+## Current stooge: curly
+## Current stooge: larry
+## Current stooge: moe
+## 
+## Command substitution:
+## bigmath.sh is a bash script
+## condexif.sh is a bash script
+## forloop.sh is a bash script
+## letsread.sh is a bash script
+## manyloops.sh is a bash script
+## math.sh is a bash script
+## nested.sh is a bash script
+## simpleelif.sh is a bash script
+## simpleif.sh is a bash script
+## simpleifelse.sh is a bash script
+## vars.sh is a bash script
 ```
 
-```
-## math.sh
-## bigmath.sh
-## vars.sh
-## letsread.sh
-## simpleif.sh
-## simpleifelse.sh
-## simpleelif.sh
-## condexif.sh
-## nested.sh
-## forloop.sh
-## manyloops.sh
-```
+The example above illustrates three other methods of creating sequences for FOR
+loops: typing out an explicit list, using an array, getting the result of a
+command 
 
 ## Functions
 

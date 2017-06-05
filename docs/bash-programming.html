@@ -26,7 +26,7 @@
 <meta name="author" content="Sean Kross">
 
 
-<meta name="date" content="2017-05-23">
+<meta name="date" content="2017-06-06">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -431,7 +431,7 @@ echo &quot;You entered: $response&quot;</code></pre>
 <p>When writing computer programs it is often useful for your program to be able to make decisions based on inputs like arguments, files, and environmental variables. Bash provides mechanisms for creating <strong>logical expressions</strong> which resemble mathematical equations. These logical expressions can be evaluated until they are either true or false. In fact, <code>true</code> and <code>false</code> are both simple Bash commands! Let’s try them both out now:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">true</span>
 <span class="kw">false</span></code></pre></div>
-<p>At first it doesn’t look like they do much. In order to see how they work, we’re going to need to look under the hood of Unix a little bit. Whenever you execute a program on the command line, in general one of two things will happen: either the command is executed successfully, or there’s an error. In terms of errors there are many ways that a program can go wrong, and Unix can take different action depending on what kind of error occurs. For example if I enter the name of a command that does not exist into the keyboard, then I’ll see an error:</p>
+<p>At first it doesn’t look like they do much. In order to see how they work, we’re going to need to look under the hood of Unix a little bit. Whenever you execute a program on the command line, in general one of two things will happen: either the command is executed successfully, or there’s an error. In terms of errors there are many ways that a program can go wrong, and Unix can take different actions depending on what kind of error occurs. For example if I enter the name of a command that does not exist into the terminal, then I’ll see an error:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">this_command_does_not_exist</span></code></pre></div>
 <pre><code>## Error in running command bash</code></pre>
 <p>Since that command does not exist, it creates a specific kind of error which is indicated by the program’s <strong>exit status</strong>. The exit status of a program is an integer, the exit status of the last program run is stored in the question mark variable (<code>$?</code>). We can take a look at the exit status of the last program with <code>echo</code>:</p>
@@ -449,12 +449,12 @@ echo &quot;You entered: $response&quot;</code></pre>
 <span class="kw">echo</span> <span class="ot">$?</span></code></pre></div>
 <pre><code>## 0
 ## 1</code></pre>
-<p>As you can see <code>true</code> has an exit status of 0 and <code>false</code> has an exit status of 1. Since there programs don’t do much else, you could define <code>true</code> as a program that always has an exit status of 0 and <code>false</code> as a program that always has an exit status of 1.</p>
+<p>As you can see <code>true</code> has an exit status of 0 and <code>false</code> has an exit status of 1. Since these programs don’t do much else, you could define <code>true</code> as a program that always has an exit status of 0 and <code>false</code> as a program that always has an exit status of 1.</p>
 <p>Knowing the exit status of these programs is important when discussing the <strong>logical operators</strong>: the AND operator (<code>&amp;&amp;</code>) and the OR operator (<code>||</code>). The AND and OR operators can be used for conditional execution of programs on the command line. Conditional execution occurs when the execution of one program depends on the exit status of another program. For example in the case of the AND operator, the program on the right hand side of <code>&amp;&amp;</code> will only be executed if the program on the left hand side of <code>&amp;&amp;</code> has an exit status of 0. Let’s take a look at some small examples:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">true</span> <span class="kw">&amp;&amp;</span> <span class="kw">echo</span> <span class="st">&quot;Program 1 was executed.&quot;</span>
 <span class="kw">false</span> <span class="kw">&amp;&amp;</span> <span class="kw">echo</span> <span class="st">&quot;Program 2 was executed.&quot;</span></code></pre></div>
 <pre><code>## Program 1 was executed.</code></pre>
-<p>Since <code>false</code> has an exit status of 1, the program <code>echo &quot;Program 2 was executed.&quot;</code> is not executed, so nothing is printed to the console for that line command. Several AND operators can be chained together like so:</p>
+<p>Since <code>false</code> has an exit status of 1, the program <code>echo &quot;Program 2 was executed.&quot;</code> is not executed, so nothing is printed to the console for that command. Several AND operators can be chained together like so:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">false</span> <span class="kw">&amp;&amp;</span> <span class="kw">true</span> <span class="kw">&amp;&amp;</span> <span class="kw">echo</span> Hello
 <span class="kw">echo</span> 1 <span class="kw">&amp;&amp;</span> <span class="kw">false</span> <span class="kw">&amp;&amp;</span> <span class="kw">echo</span> 3
 <span class="kw">echo</span> Athos <span class="kw">&amp;&amp;</span> <span class="kw">echo</span> Porthos <span class="kw">&amp;&amp;</span> <span class="kw">echo</span> Aramis</code></pre></div>
@@ -889,8 +889,8 @@ echo &quot;After Loop&quot;</code></pre>
 ## i is equal to 2
 ## i is equal to 3
 ## After Loop</code></pre>
-<p>Let’s walk through <code>forloop.sh</code> line-by-line. First <code>&quot;Before Loop&quot;</code> is printed before the FOR loop, then the loop begins. FOR loops start with the syntax <code>for [variable name] in [sequence]</code> followed by <code>do</code> on the next line. The variable name that you define immediately after <code>for</code> will take on a value inside of the loop that corresponds to an element in the sequence you provide after <code>in</code>, starting with the first element of the sequence, followed by every subsequent element. Valid sequences include brace expansions, explicit lists of strings, arrays, and command substitution. In this instance we’re using the brace expansion <code>{1..3}</code> which we know expands to the string <code>&quot;1 2 3&quot;</code>. The code executed in each iteration of the loop is written between <code>do</code> and <code>done</code>. In the first iteration of the loop, the variable <code>$i</code> contains the value 1. The string <code>&quot;i is equal to 1&quot;</code> is printed to the console. There are more elements in the brace expansion after 1, so after reaching <code>done</code> the first time, the program starts executing back at the <code>do</code> statement. The second time through the loop variable <code>$i</code> contains the value 2. The string <code>&quot;i is equal to 2&quot;</code> is printed to the console, then the loop goes back to the <code>do</code> statement since there are still elements left in the sequence. The <code>$i</code> variable is now equal to 3, so <code>&quot;i is equal to 3&quot;</code> is printed to the console. There are no elements left in the sequence, so the program moves beyond the FOR loop and finally prints <code>&quot;After Loop&quot;</code>. Stop for a moment and edit this loop yourself. Try executing it with your changes to see if it prints the output you expected.</p>
-<p>Once you’ve experimented at little take a look at this example with several other kinds of sequence generating strategies:</p>
+<p>Let’s walk through <code>forloop.sh</code> line-by-line. First <code>&quot;Before Loop&quot;</code> is printed before the FOR loop, then the loop begins. FOR loops start with the syntax <code>for [variable name] in [sequence]</code> followed by <code>do</code> on the next line. The variable name that you define immediately after <code>for</code> will take on a value inside of the loop that corresponds to an element in the sequence you provide after <code>in</code>, starting with the first element of the sequence, followed by every subsequent element. Valid sequences include brace expansions, explicit lists of strings, arrays, and command substitutions. In this instance we’re using the brace expansion <code>{1..3}</code> which we know expands to the string <code>&quot;1 2 3&quot;</code>. The code executed in each iteration of the loop is written between <code>do</code> and <code>done</code>. In the first iteration of the loop, the variable <code>$i</code> contains the value 1. The string <code>&quot;i is equal to 1&quot;</code> is printed to the console. There are more elements in the brace expansion after 1, so after reaching <code>done</code> the first time, the program starts executing back at the <code>do</code> statement. The second time through the loop variable <code>$i</code> contains the value 2. The string <code>&quot;i is equal to 2&quot;</code> is printed to the console, then the loop goes back to the <code>do</code> statement since there are still elements left in the sequence. The <code>$i</code> variable is now equal to 3, so <code>&quot;i is equal to 3&quot;</code> is printed to the console. There are no elements left in the sequence, so the program moves beyond the FOR loop and finally prints <code>&quot;After Loop&quot;</code>. Stop for a moment and edit this loop yourself. Try changing the brace expansion to include other sequences of numbers, letters, or words, then execute the modified code. Before you execute your modified program, write down what you think will be printed. How do the results of executing your program compare with your expectations?</p>
+<p>Once you’ve experimented a little take a look at this example with several other kinds of sequence generating strategies:</p>
 <pre><code>#!/usr/bin/env bash
 # File: manyloops.sh
 
@@ -901,6 +901,7 @@ do
     echo &quot;picture is equal to $picture&quot;
 done
 
+echo &quot;&quot;
 echo &quot;Array:&quot;
 
 stooges=(curly larry moe)
@@ -910,24 +911,36 @@ do
     echo &quot;Current stooge: $stooge&quot;
 done
 
+echo &quot;&quot;
 echo &quot;Command substitution:&quot;
 
 for code in $(ls)
 do
     echo &quot;$code is a bash script&quot;
 done</code></pre>
-<pre><code></code></pre>
-<pre><code>## math.sh
-## bigmath.sh
-## vars.sh
-## letsread.sh
-## simpleif.sh
-## simpleifelse.sh
-## simpleelif.sh
-## condexif.sh
-## nested.sh
-## forloop.sh
-## manyloops.sh</code></pre>
+<pre><code>## Explicit list:
+## picture is equal to img001.jpg
+## picture is equal to img002.jpg
+## picture is equal to img451.jpg
+## 
+## Array:
+## Current stooge: curly
+## Current stooge: larry
+## Current stooge: moe
+## 
+## Command substitution:
+## bigmath.sh is a bash script
+## condexif.sh is a bash script
+## forloop.sh is a bash script
+## letsread.sh is a bash script
+## manyloops.sh is a bash script
+## math.sh is a bash script
+## nested.sh is a bash script
+## simpleelif.sh is a bash script
+## simpleif.sh is a bash script
+## simpleifelse.sh is a bash script
+## vars.sh is a bash script</code></pre>
+<p>The example above illustrates three other methods of creating sequences for FOR loops: typing out an explicit list, using an array, getting the result of a command</p>
 </div>
 <div id="functions" class="section level2">
 <h2><span class="header-section-number">5.8</span> Functions</h2>

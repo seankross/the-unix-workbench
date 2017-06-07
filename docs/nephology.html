@@ -214,7 +214,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.6.6" data-path="git-and-github.html"><a href="git-and-github.html#exercises-17"><i class="fa fa-check"></i><b>6.6.6</b> Exercises</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="nephology.html"><a href="nephology.html"><i class="fa fa-check"></i><b>7</b> Nephology</a></li>
+<li class="chapter" data-level="7" data-path="nephology.html"><a href="nephology.html"><i class="fa fa-check"></i><b>7</b> Nephology</a><ul>
+<li class="chapter" data-level="7.1" data-path="nephology.html"><a href="nephology.html#introduction-to-cloud-computing"><i class="fa fa-check"></i><b>7.1</b> Introduction to Cloud Computing</a></li>
+<li class="chapter" data-level="7.2" data-path="nephology.html"><a href="nephology.html#setting-up-digitalocean"><i class="fa fa-check"></i><b>7.2</b> Setting Up DigitalOcean</a></li>
+<li class="chapter" data-level="7.3" data-path="nephology.html"><a href="nephology.html#connecting-to-the-cloud"><i class="fa fa-check"></i><b>7.3</b> Connecting to the Cloud</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="nephology.html"><a href="nephology.html#summary-17"><i class="fa fa-check"></i><b>7.3.1</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="nephology.html"><a href="nephology.html#cloud-computing-basics"><i class="fa fa-check"></i><b>7.4</b> Cloud Computing Basics</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="nephology.html"><a href="nephology.html#moving-files-in-and-out-of-the-cloud"><i class="fa fa-check"></i><b>7.4.1</b> Moving Files In and Out of the Cloud</a></li>
+<li class="chapter" data-level="7.4.2" data-path="nephology.html"><a href="nephology.html#talking-to-other-servers"><i class="fa fa-check"></i><b>7.4.2</b> Talking to Other Servers</a></li>
+<li class="chapter" data-level="7.4.3" data-path="nephology.html"><a href="nephology.html#automating-tasks"><i class="fa fa-check"></i><b>7.4.3</b> Automating Tasks</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="nephology.html"><a href="nephology.html#shutting-down-your-server"><i class="fa fa-check"></i><b>7.5</b> Shutting Down Your Server</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -240,17 +252,165 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <blockquote>
 <p>I saw a city in the clouds. - Dagobahnian proverb</p>
 </blockquote>
+<div id="introduction-to-cloud-computing" class="section level2">
+<h2><span class="header-section-number">7.1</span> Introduction to Cloud Computing</h2>
 <p>Nephology is the study of clouds. Few modern technology concepts (other than maybe data science and artificial intelligence) have been hyped as loudly as “the cloud.” The cloud is simply a computer which you can access over the interent. In this chapter we’ll set up a cloud computer and we’ll learn the basics of interacting with one.</p>
 <p>To get the most out of the this chapter you’re going to need your credit or debit card, or a <a href="https://www.paypal.com">PayPal</a> account. We’re going to be using <a href="https://m.do.co/c/530d6cfa2b37">DigitalOcean</a>, a company which you can rent cloud computers from. Throughout this chapter I might refer to cloud computers as <strong>servers</strong> (computers connected to the internet) or as <strong>droplets</strong>, which a marketing term DigitalOcean uses to refer to their servers (a droplet is <em>not</em> a technical term). Renting from DigitalOcean won’t cost you any money since I’m giving you a coupon for two free months of service! There are several companies that offer similar services compared to DigitalOcean, but in my opinion they have the best user interface and the most transparent pricing model.</p>
-<p><strong>Warning:</strong> <em>At the end of this chapter we will discuss how to shut down any servers you’ve started on DigitalOcean. If you don’t shut down your server after two months then your account will be charged real money for using DigitalOcean. Please be sure to shut down any servers you start after you are finsihed using them.</em></p>
+<p><strong>Warning:</strong> <em>At the end of this chapter we will discuss how to shut down any servers you’ve started on DigitalOcean. If you don’t shut down your server after two months then your account will be charged real money for using DigitalOcean. Please be sure to shut down any servers you start after you are finished using them.</em></p>
+</div>
+<div id="setting-up-digitalocean" class="section level2">
+<h2><span class="header-section-number">7.2</span> Setting Up DigitalOcean</h2>
 <p>To get started with DigitalOcean we need rent a server from their website. <a href="https://m.do.co/c/530d6cfa2b37">Click this link</a> to sign up for DigitalOcean in order to get two free months of server use. (If you don’t use this link then you don’t get two free months). Click <strong>Sign Up</strong> in the upper right corner, then enter your email address and choose your password.</p>
 <div class="figure">
 <img src="img/do-main.png" />
 
 </div>
-<p>Check your email for a message from DigitalOcean and click the enclosed link to confirm your email. Then you’ll need to enter your credit or debit card information, or your Paypal account details. As long as you close down all of your servers less than two months after you start them you will not be charged.</p>
-<p>ssh, scp, curl, cron, ps</p>
+<p>Check your email for a message from DigitalOcean and click the enclosed link to confirm your email. Then you’ll need to enter your credit or debit card information, or your Paypal account details. As long as you close down all of your servers less than two months after you start them you will not be charged. After entering in your payment information you should see this screen:</p>
+<div class="figure">
+<img src="img/do-create-drop.png" />
 
+</div>
+<p>Click the big blue <strong>Create a new Droplet</strong> button which should then bring you to a screen where you can customize the server you’re going to be renting. Make sure you have Ubuntu chosen as your distribution, and select the $5 per month size option:</p>
+<div class="figure">
+<img src="img/do-distro-size.png" />
+
+</div>
+<p>Scroll down the page and then select the region that is geographically closest to you. Some regions have multiple data centers, it doesn’t matter which data center you pick. Currently I’m in Baltimore, Maryland, USA, so I’m going to pick the number 1 data center in New York:</p>
+<div class="figure">
+<img src="img/do-region.png" />
+
+</div>
+<p>Finally at the bottom of the page click the big green <strong>Create</strong> button in order to start your server!</p>
+<div class="figure">
+<img src="img/do-create-confirm.png" />
+
+</div>
+<p>It will take a minute to launch the server, but once launched you should receive an email from Digital Ocean with the details about your new server. Included in this email you should find the IP address of your server, the default username (which should be <code>root</code>) and a randomly generated password that you will need to connect to your server for the first time. Once you’ve received this email open up a new terminal.</p>
+</div>
+<div id="connecting-to-the-cloud" class="section level2">
+<h2><span class="header-section-number">7.3</span> Connecting to the Cloud</h2>
+<p>You can connect to computers on the interenet with the <code>ssh</code> program, which stands for <strong>S</strong>ecure <strong>Sh</strong>ell. The <code>ssh</code> command provides a command line interface to whichever computer you point it to. A computer that is connected to the internet has an addresses (just like a house has an address) which is specified by an <strong>IP address</strong>. The command for connecting to a computer with <code>ssh</code> generally looks like this:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ssh</span> [username]@[IP address]</code></pre></div>
+<p>Let’s connect to your DigitalOcean server using <code>ssh</code>. Enter the following command in the terminal substituting the IP address you received from DigitalOcean for the IP address I’m using in this example:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ssh</span> root@159.203.134.88</code></pre></div>
+<pre><code>## The authenticity of host &#39;159.203.134.88 (159.203.134.88)&#39; can&#39;t be established.
+## ECDSA key fingerprint is SHA256:UhtoIx/3c6/MmAIE+H8w5oGE06PsbXdzRRsAUhKtjhs.
+## Are you sure you want to continue connecting (yes/no)?</code></pre>
+<p>Type <code>yes</code> and then press Enter.</p>
+<pre><code>## Warning: Permanently added &#39;159.203.134.88&#39; (ECDSA) to the list of known hosts.
+## root@159.203.134.88&#39;s password:</code></pre>
+<p>This password should be in the email you received from DigitalOcean. Copy and paste the password into the terminal, then press Enter.</p>
+<pre><code>## You are required to change your password immediately (root enforced)
+## Welcome to Ubuntu 16.04.2 LTS (GNU/Linux 4.4.0-78-generic x86_64)
+## 
+##  * Documentation:  https://help.ubuntu.com
+##  * Management:     https://landscape.canonical.com
+##  * Support:        https://ubuntu.com/advantage
+## 
+##   Get cloud support with Ubuntu Advantage Cloud Guest:
+##     http://www.ubuntu.com/business/services/cloud
+## 
+## 0 packages can be updated.
+## 0 updates are security updates.
+## 
+## 
+## 
+## The programs included with the Ubuntu system are free software;
+## the exact distribution terms for each program are described in the
+## individual files in /usr/share/doc/*/copyright.
+## 
+## Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+## applicable law.
+## 
+## Changing password for root.
+## (current) UNIX password:</code></pre>
+<p>You now need to create a new password for this server. First paste in the old password and press Enter. Then think of a new, strong password and enter it into the console. Then enter the new password again to confirm. After entering in the new passowrd you should have a prompt! Press enter a few times to make sure that you get the prompt back each time. You’re in!</p>
+<p>Now you have access to all of the Unix commands you would normally have:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">pwd</span></code></pre></div>
+<pre><code>## /root</code></pre>
+<p>In order to disconnect from the server and return to your machine use <code>logout</code>.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">logout</span></code></pre></div>
+<pre><code>## Connection to 159.203.134.88 closed.</code></pre>
+<p>To reconnect to your server use <code>ssh</code> again:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ssh</span> root@159.203.134.88</code></pre></div>
+<pre><code>## root@159.203.134.88&#39;s password:</code></pre>
+<p>Enter your password and you should get the prompt back for your cloud server.</p>
+<div id="summary-17" class="section level3">
+<h3><span class="header-section-number">7.3.1</span> Summary</h3>
+<ul>
+<li><code>ssh</code> connects you to computers that are connected to the internet. The template for the command to connect is <code>ssh [username]@[IP address]</code>.</li>
+<li>To disconnect from an <code>ssh</code> session use the <code>logout</code> command.</li>
+</ul>
+</div>
+</div>
+<div id="cloud-computing-basics" class="section level2">
+<h2><span class="header-section-number">7.4</span> Cloud Computing Basics</h2>
+<div id="moving-files-in-and-out-of-the-cloud" class="section level3">
+<h3><span class="header-section-number">7.4.1</span> Moving Files In and Out of the Cloud</h3>
+<p>So now that you have a cloud computer, what can you do with it? One thing you can do is store and retrieve files from a cloud computer. The program <code>scp</code> allows you to copy local files to a server and it allows you to copy files on a server to your local computer. First let’s connect to our server so we can create a file there:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ssh</span> root@159.203.134.88</code></pre></div>
+<pre><code>## root@159.203.134.88&#39;s password:
+## # (Enter your password)</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">mkdir</span> textfiles
+<span class="kw">echo</span> <span class="st">&quot;From the server&quot;</span> <span class="kw">&gt;</span> textfiles/server-file.txt
+<span class="kw">logout</span></code></pre></div>
+<pre><code>## Connection to 159.203.134.88 closed.</code></pre>
+<p>Now that we’re back at the prompt on our local machine let’s try getting <code>server-file.txt</code> from our server. The arguments for copying files from a server with <code>scp</code> have the following general structure:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">scp</span> [username]@[IP address]:path/to/file/on/server path/on/my/computer</code></pre></div>
+<p>This copies the file located on the server at <code>path/to/file/on/server</code> to a local path at <code>path/on/my/computer</code>. In the same way you can copy an entire folder from a server using the <code>-r</code> flag:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">scp</span> -r [username]@[IP address]:path/to/folder/on/server folder/on/my/computer</code></pre></div>
+<p>Let’s try doing this now from our local computer. Enter your password when you’re asked to do so:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span>
+<span class="kw">pwd</span></code></pre></div>
+<pre><code>## /Users/sean/</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">mkdir</span> Cloud
+<span class="kw">cd</span> Cloud
+<span class="kw">scp</span> root@159.203.134.88:/root/textfiles/server-file.txt downloaded.txt</code></pre></div>
+<pre><code>## root@159.203.134.88&#39;s password:
+## server-file.txt                                         100%   16     1.2KB/s   00:00</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cat</span> downloaded.txt</code></pre></div>
+<pre><code>## From the server</code></pre>
+<p>It worked! Now let’s try uploading a file to our server. The arguments for doing this are just the swapped arguments for downloading a file from a server:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">scp</span> path/on/my/computer [username]@[IP address]:path/to/file/on/server </code></pre></div>
+<p>Let’s create a file and upload it to our server:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">echo</span> <span class="st">&quot;from local computer&quot;</span> <span class="kw">&gt;</span> to-upload.txt
+<span class="kw">scp</span> to-upload.txt root@159.203.134.88:/root/textfiles/uploaded-file.txt</code></pre></div>
+<pre><code>## root@159.203.134.88&#39;s password:
+## to-upload.txt                                           100%   20     1.8KB/s   00:00</code></pre>
+<p>Now let’s log in to our server and we’ll see if it’s there:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ssh</span> root@159.203.134.88
+<span class="kw">cat</span> textfiles/uploaded-file.txt</code></pre></div>
+<pre><code>## from local computer</code></pre>
+<p>Looks like it worked! Keeping files in the cloud allows you to work with the same files in the same workspace as long as you have access to a terminal and <code>ssh</code>.</p>
+</div>
+<div id="talking-to-other-servers" class="section level3">
+<h3><span class="header-section-number">7.4.2</span> Talking to Other Servers</h3>
+<p>There are tons of servers out there on the internet! The way you’re probably used to talking to a server is through a web browser, but there are other ways we can talk to servers on the command line. One of the most popular command line programs for talking to other servers is <code>curl</code>. The <code>curl</code> command allows you to send requests and information to other servers.</p>
+<p>One easy task that we can use <code>curl</code> for is downloading files that are available online. For example, this entire book and all of the files associated with it are hosted on a server! You can find the Markdown file for one of the first chapters of this book <a href="http://seankross.com/the-unix-workbench/01-What-is-Unix.md">here</a>. To download a file with <code>curl</code>, you simply need to provide the <code>-O</code> flag and the URL of the file:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">curl</span> -O http://website.org/textfile.txt</code></pre></div>
+<p>Let’s try downloading the Markdown file from my website:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">curl</span> -O http://seankross.com/the-unix-workbench/01-What-is-Unix.md</code></pre></div>
+<pre><code>##   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+##                                  Dload  Upload   Total   Spent    Left  Speed
+## 100  1198  100  1198    0     0  13681      0 --:--:-- --:--:-- --:--:-- 13770</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">head</span> -n 5 01-What-is-Unix.md</code></pre></div>
+<pre><code>## # What is Unix?
+## 
+## Unix is an operating system and a set of tools. The tool we&#39;ll be using the
+## most in this book is a shell, which is a computer program that provides a
+## command line interface. You&#39;ve probably seen a command line interface in the</code></pre>
+<p>As we know servers have files on them</p>
+</div>
+<div id="automating-tasks" class="section level3">
+<h3><span class="header-section-number">7.4.3</span> Automating Tasks</h3>
+<p>One wonderful</p>
+</div>
+</div>
+<div id="shutting-down-your-server" class="section level2">
+<h2><span class="header-section-number">7.5</span> Shutting Down Your Server</h2>
+<p>curl, cron, ps</p>
+
+</div>
 </div>
             </section>
 

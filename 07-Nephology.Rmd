@@ -685,9 +685,12 @@ look at some examples of more complex table entries:
 
 Besides numbers and the star there are a few other characters that you can use
 in `cron` table columns including a hyphen (`-`) for specifying ranges and a
-comma (`,`) for specifying lists of items. Let's take a look at another example
+comma (`,`) for specifying lists of items. For example `00-29` in the Minutes
+column would specify the first thirty minutes of an hour, while `1,5` in the
+Day of Week column would specify Monday and Friday.
+Let's take a look at another example
 of a `cron` table that uses hyphens and ranges so you can get a sense of how
-each of these characters works.
+each character works.
 
 ```
 # m h  dom mon dow   command
@@ -705,12 +708,53 @@ can stretch! If you're familiar with the social network
 accounts which create posts automatically like
 [Emoji Aquarium](https://twitter.com/emojiaquarium),
 [Old Fruit Pictures](https://twitter.com/pomological), or
-[Endless Screaming](https://twitter.com/infinite_scream).
+[Endless Screaming](https://twitter.com/infinite_scream). Many of these "bot"
+accounts are powered by `cron`, which uses Twitter's HTTP API to post tweets
+regularly.
 
 ### Summary
 
+- `scp` copies files between a cloud computer and your personal computer. Use
+the `-r` flag in order to copy directories.
+- `curl` allows you to send HTTP requests to other servers. Use the `-O` flag to
+download files with `curl`.
+- `ps -A` lists all of the programs running in the background of your computer.
+- `cron` allows you to schedule when programs are run. Use `crontab -e` in order
+to edit the `cron` table.
+
 ### Exercises
 
-
+1. Write a bash script that takes a file path as an argument and copies that
+file to a designated folder on your server.
+2. Find a file online that changes periodically, then write a program to
+download that file every time it changes.
+2. Try creating your own Twitter or GitHub bot with the 
+[Twitter API](https://dev.twitter.com/rest/public) or the
+[GitHub API](https://developer.github.com/v3/).
 
 ## Shutting Down a Server
+
+In order to avoid using more DigitalOcean credits than we have to or
+being charged for using the service make sure to **destroy** any DigitalOcean
+droplets that you started. When you destroy a droplet all files
+on the droplet are gone forever, so please be sure that you don't have any
+important information on a droplet before you destroy it. If there are files
+you want to save on your droplet use `scp` in order to copy them to your local
+machine. Let's walk through destorying a droplet. Go back to 
+[DigitalOcean](https://m.do.co/c/530d6cfa2b37) and log in. You should then see
+a listing of all of your droplets:
+
+![](img/do-droplets-list.png)
+
+Click on **More** on the right side of the screen and a menu should appear.
+Click **Destroy** at the bottom of this menu. Then this screen should appear:
+
+![](img/do-destroy-button.png)
+
+Click the **Destroy** button and then click **Confirm** in the menu that pops
+up. Your droplet should now be destroyed. If you have no active droplets then
+the main droplets page should look like this:
+
+![](img/do-fresh.png)
+
+Congratulations on your new cloud computing skills!

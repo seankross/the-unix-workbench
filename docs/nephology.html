@@ -26,7 +26,7 @@
 <meta name="author" content="Sean Kross">
 
 
-<meta name="date" content="2017-06-08">
+<meta name="date" content="2017-06-09">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -34,7 +34,7 @@
   
   
 <link rel="prev" href="git-and-github.html">
-
+<link rel="next" href="start-building.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -228,6 +228,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.4.5" data-path="nephology.html"><a href="nephology.html#exercises-18"><i class="fa fa-check"></i><b>7.4.5</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="7.5" data-path="nephology.html"><a href="nephology.html#shutting-down-a-server"><i class="fa fa-check"></i><b>7.5</b> Shutting Down a Server</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="start-building.html"><a href="start-building.html"><i class="fa fa-check"></i><b>8</b> Start Building</a><ul>
+<li class="chapter" data-level="8.1" data-path="start-building.html"><a href="start-building.html#next-steps"><i class="fa fa-check"></i><b>8.1</b> Next Steps</a></li>
+<li class="chapter" data-level="8.2" data-path="start-building.html"><a href="start-building.html#giving-feedback"><i class="fa fa-check"></i><b>8.2</b> Giving Feedback</a></li>
+<li class="chapter" data-level="8.3" data-path="start-building.html"><a href="start-building.html#using-this-book"><i class="fa fa-check"></i><b>8.3</b> Using this Book</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -555,7 +560,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 00 00 05 * * bash /path/to/script.sh   # Runs the 5th day of every month at midnight
 00 00 * 07 * bash /path/to/script.sh   # Runs every day in the month of July at midnight
 00 00 * * 2 bash /path/to/script.sh    # Runs every Tuesday at midnight</code></pre>
-<p>Besides numbers and the star there are a few other characters that you can use in <code>cron</code> table columns including a hyphen (<code>-</code>) for specifying ranges and a comma (<code>,</code>) for specifying lists of items. Let’s take a look at another example of a <code>cron</code> table that uses hyphens and ranges so you can get a sense of how each of these characters works.</p>
+<p>Besides numbers and the star there are a few other characters that you can use in <code>cron</code> table columns including a hyphen (<code>-</code>) for specifying ranges and a comma (<code>,</code>) for specifying lists of items. For example <code>00-29</code> in the Minutes column would specify the first thirty minutes of an hour, while <code>1,5</code> in the Day of Week column would specify Monday and Friday. Let’s take a look at another example of a <code>cron</code> table that uses hyphens and ranges so you can get a sense of how each character works.</p>
 <pre><code># m h  dom mon dow   command
 00-04 * * * * bash /path/to/script.sh       # Runs every minute for the first five minutes of every hour
 00 00 * * 0,6 bash /path/to/script.sh       # Runs at midnight every Saturday and Sunday
@@ -563,17 +568,44 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 00,30 * * * * bash /path/to/script.sh       # Runs at the start and middle of every hour
 00 00,12 * * * bash /path/to/script.sh      # Runs every day at midnight and noon
 00 * 01-07 01,06 * bash /path/to/script.sh  # Runs at the start of every hour for the first seven days of the months of January and June</code></pre>
-<p>A program that is being run by <code>cron</code> is only as powerful as your imagination can stretch! If you’re familiar with the social network <a href="https://twitter.com/">Twitter</a> then you might have come across some Twitter accounts which create posts automatically like <a href="https://twitter.com/emojiaquarium">Emoji Aquarium</a>, <a href="https://twitter.com/pomological">Old Fruit Pictures</a>, or <a href="https://twitter.com/infinite_scream">Endless Screaming</a>.</p>
+<p>A program that is being run by <code>cron</code> is only as powerful as your imagination can stretch! If you’re familiar with the social network <a href="https://twitter.com/">Twitter</a> then you might have come across some Twitter accounts which create posts automatically like <a href="https://twitter.com/emojiaquarium">Emoji Aquarium</a>, <a href="https://twitter.com/pomological">Old Fruit Pictures</a>, or <a href="https://twitter.com/infinite_scream">Endless Screaming</a>. Many of these “bot” accounts are powered by <code>cron</code>, which uses Twitter’s HTTP API to post tweets regularly.</p>
 </div>
 <div id="summary-18" class="section level3">
 <h3><span class="header-section-number">7.4.4</span> Summary</h3>
+<ul>
+<li><code>scp</code> copies files between a cloud computer and your personal computer. Use the <code>-r</code> flag in order to copy directories.</li>
+<li><code>curl</code> allows you to send HTTP requests to other servers. Use the <code>-O</code> flag to download files with <code>curl</code>.</li>
+<li><code>ps -A</code> lists all of the programs running in the background of your computer.</li>
+<li><code>cron</code> allows you to schedule when programs are run. Use <code>crontab -e</code> in order to edit the <code>cron</code> table.</li>
+</ul>
 </div>
 <div id="exercises-18" class="section level3">
 <h3><span class="header-section-number">7.4.5</span> Exercises</h3>
+<ol style="list-style-type: decimal">
+<li>Write a bash script that takes a file path as an argument and copies that file to a designated folder on your server.</li>
+<li>Find a file online that changes periodically, then write a program to download that file every time it changes.</li>
+<li>Try creating your own Twitter or GitHub bot with the <a href="https://dev.twitter.com/rest/public">Twitter API</a> or the <a href="https://developer.github.com/v3/">GitHub API</a>.</li>
+</ol>
 </div>
 </div>
 <div id="shutting-down-a-server" class="section level2">
 <h2><span class="header-section-number">7.5</span> Shutting Down a Server</h2>
+<p>In order to avoid using more DigitalOcean credits than we have to or being charged for using the service make sure to <strong>destroy</strong> any DigitalOcean droplets that you started. When you destroy a droplet all files on the droplet are gone forever, so please be sure that you don’t have any important information on a droplet before you destroy it. If there are files you want to save on your droplet use <code>scp</code> in order to copy them to your local machine. Let’s walk through destorying a droplet. Go back to <a href="https://m.do.co/c/530d6cfa2b37">DigitalOcean</a> and log in. You should then see a listing of all of your droplets:</p>
+<div class="figure">
+<img src="img/do-droplets-list.png" />
+
+</div>
+<p>Click on <strong>More</strong> on the right side of the screen and a menu should appear. Click <strong>Destroy</strong> at the bottom of this menu. Then this screen should appear:</p>
+<div class="figure">
+<img src="img/do-destroy-button.png" />
+
+</div>
+<p>Click the <strong>Destroy</strong> button and then click <strong>Confirm</strong> in the menu that pops up. Your droplet should now be destroyed. If you have no active droplets then the main droplets page should look like this:</p>
+<div class="figure">
+<img src="img/do-fresh.png" />
+
+</div>
+<p>Congratulations on your new cloud computing skills!</p>
 
 </div>
 </div>
@@ -582,8 +614,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="git-and-github.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="git-and-github.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="start-building.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>

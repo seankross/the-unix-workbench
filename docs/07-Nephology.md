@@ -6,13 +6,13 @@
 
 Nephology is the study of clouds. Few modern technology concepts (other than
 maybe data science and artificial intelligence) have been hyped as loudly as "the
-cloud." The cloud is simply a computer which you can access over the interent.
+cloud." The cloud is simply a computer which we can access over the interent.
 In this chapter we'll set up a cloud computer and we'll learn the basics of
 interacting with one.
 
 To get the most out of the this chapter you're going to need your credit or
 debit card, or a [PayPal](https://www.paypal.com) account. We're going to be
-using [DigitalOcean](https://m.do.co/c/530d6cfa2b37), a company which you
+using [DigitalOcean](https://m.do.co/c/530d6cfa2b37), a company which we
 can rent cloud computers from. Throughout this chapter I might refer to cloud
 computers as **servers** (computers connected to the internet) or as
 **droplets**, which a marketing term DigitalOcean uses to refer to their
@@ -23,7 +23,7 @@ DigitalOcean, but in my opinion they have the best user interface and the most
 transparent pricing model.
 
 **Warning:** *At the end of this chapter we will discuss how to shut down any
-servers you've started on DigitalOcean. If you don't shut down your server
+servers we've started on DigitalOcean. If you don't shut down your server
 after two months then your account will be charged real money for using
 DigitalOcean. Please be sure to shut down any servers you start after you are
 finished using them.*
@@ -76,9 +76,9 @@ terminal.
 
 ## Connecting to the Cloud
 
-You can connect to computers on the interenet with the `ssh` program, which
+We can connect to computers on the interenet with the `ssh` program, which
 stands for **S**ecure **Sh**ell. The `ssh` command provides a command line
-interface to whichever computer you point it to. A computer that is connected to
+interface to whichever computer we point it to. A computer that is connected to
 the internet has an addresses (just like a house has an address) which is
 specified by an **IP address**. The command for connecting to a computer with
 `ssh` generally looks like this:
@@ -88,7 +88,7 @@ specified by an **IP address**. The command for connecting to a computer with
 ssh [username]@[IP address]
 ```
 
-Let's connect to your DigitalOcean server using `ssh`. Enter the following
+Let's connect to our DigitalOcean server using `ssh`. Enter the following
 command in the terminal substituting the IP address you received from
 DigitalOcean for the IP address I'm using in this example:
 
@@ -140,13 +140,13 @@ paste the password into the terminal, then press Enter.
 ## (current) UNIX password:
 ```
 
-You now need to create a new password for this server. First paste in the old
+We now need to create a new password for this server. First paste in the old
 password and press Enter. Then think of a new, strong password and enter it into
 the console. Then enter the new password again to confirm. After entering in the
-new passowrd you should have a prompt! Press enter a few times to make sure that
-you get the prompt back each time. You're in!
+new passowrd we should have a prompt! Press enter a few times to make sure that
+you get the prompt back each time. We're in!
 
-Now you have access to all of the Unix commands you would normally have:
+Now we have access to all of the Unix commands we would normally have:
 
 
 ```bash
@@ -168,7 +168,7 @@ logout
 ## Connection to 159.203.134.88 closed.
 ```
 
-To reconnect to your server use `ssh` again:
+To reconnect to the server use `ssh` again:
 
 
 ```bash
@@ -191,10 +191,10 @@ template for the command to connect is `ssh [username]@[IP address]`.
 
 ### Moving Files In and Out of the Cloud
 
-So now that you have a cloud computer, what can you do with it? One thing you
+So now that we have a cloud computer, what can we do with it? One thing we
 can do is store and retrieve files from a cloud computer. The program `scp`
-allows you to copy local files to a server and it allows you to copy files on
-a server to your local computer. First let's connect to our server so we can
+allows us to copy local files to a server and it allows us to copy files on
+a server to our local computer. First let's connect to our server so we can
 create a file there:
 
 
@@ -228,7 +228,7 @@ scp [username]@[IP address]:path/to/file/on/server path/on/my/computer
 ```
 
 This copies the file located on the server at `path/to/file/on/server` to a
-local path at `path/on/my/computer`. In the same way you can copy an entire
+local path at `path/on/my/computer`. In the same way we can copy an entire
 folder from a server using the `-r` flag:
 
 
@@ -237,7 +237,7 @@ scp -r [username]@[IP address]:path/to/folder/on/server folder/on/my/computer
 ```
 
 Let's try doing this now from our local computer. Enter your password when
-you're asked to do so:
+asked to do so:
 
 
 ```bash
@@ -312,14 +312,14 @@ same files in the same workspace as long as you have access to a terminal and
 There are tons of servers out there on the internet! The way you're probably
 used to talking to a server is through a web browser, but there are other ways
 we can talk to servers on the command line. One of the most popular command line
-programs for talking to other servers is `curl`. The `curl` command allows you
+programs for talking to other servers is `curl`. The `curl` command allows us
 to send requests and information to other servers.
 
 One easy task that we can use `curl` for is downloading files that are available
 online. For example, this entire book and all of the files associated with it
 are hosted on a server! You can find the Markdown file for one of the first
 chapters of this book [here](http://seankross.com/the-unix-workbench/01-What-is-Unix.md).
-To download a file with `curl`, you simply need to provide the `-O` flag and the
+To download a file with `curl`, we simply need to provide the `-O` flag and the
 URL of the file:
 
 
@@ -354,17 +354,400 @@ head -n 5 01-What-is-Unix.md
 ## command line interface. You've probably seen a command line interface in the
 ```
 
-As we know servers have files on
-them
+Looks like we got the file! The `curl` command is also commonly used for
+communicating with **API**s. An API stands for an **a**pplication
+**p**rogramming **i**nterface. APIs are a set of rules which allows us to
+communicate with computer programs or with servers on the web. GitHub has a
+[large API](https://developer.github.com/v3/) which allows us to find out
+information about GitHub's users and repositories. Let's use `curl` to look 
+at what programming languages are used by some of my repositories. Let's start
+with the repository for this book:
+
+
+```bash
+curl https://api.github.com/repos/seankross/lego/languages
+```
+
+```
+{
+  "CSS": 2615,
+  "TeX": 22
+}
+```
+
+It looks like most of the repository is dedicated to making the book website
+look pretty! Take a look at the URL in the `curl` command above, and let's
+disect it a little bit. The API itself is located at `https://api.github.com/`.
+Then each word in the rest of the url acts as a sort of argument. We're
+interested in `repos` in this case, specifically a repo belonging to the
+username `seankross` called `the-unix-workbench`, and we want to know about
+which `languages` are used in that repo. Let's take a look ta one more of my
+repositories just to see how the response can be different:
+
+
+```bash
+curl https://api.github.com/repos/seankross/the-unix-workbench/languages
+```
+
+```
+{
+  "R": 4197,
+  "Shell": 442
+}
+```
+
+Use of `curl`, especially when coupled with using APIs can become very
+complicated and much more advanced content has been written on the subject.
+Let's get a little more in depth by looking through some of the exmalpes from
+[httpbin.org](http://httpbin.org/). This website allows us to send requests to
+it with `curl`, and it will return to us a structured version of whatever
+information we sent. This is useful for debuggung our `curl` commands. First
+let's send a request which should return our IP address:
+
+
+```bash
+curl http://httpbin.org/ip
+```
+
+```
+{
+  "origin": "159.203.134.88"
+}
+```
+
+Looks like we're getting the response we expect. Before we go on I should
+clarify: `curl` sends **HTTP requests**. HTTP is a technology for sending
+information over a network, and HTTP powers much of how the internet works.
+There are different categories of HTTP requests, and there categories are often
+called **verbs**. When we use `curl` without any flags we are sending a
+**GET** request (GET is an HTTP verb). A GET request is a message that says to
+a server: "Hi, I live at [IP address]. Would you mind sending some information
+about yourself to that IP?" In the case above we asked for our own IP address,
+which httpbin.org knew to just send back to us.
+
+Let's send a general HTTP GET request to http://httpbin.org/get:
+
+
+```bash
+curl http://httpbin.org/get
+```
+
+```
+{
+  "args": {},
+  "headers": {
+    "Accept": "*/*",
+    "Connection": "close",
+    "Host": "httpbin.org",
+    "User-Agent": "curl/7.47.0"
+  },
+  "origin": "159.203.134.88",
+  "url": "http://httpbin.org/get"
+}
+```
+
+The text that we get back from the request specifies four information groups:
+`args`, `headers`, `origin`, and `url`. The `origin` shows our own IP address,
+and `url` shows where we sent the request. The `headers` group shows some
+interesting information, including the `User-Agent` which shows that httpbin.org
+knows that we sent this request with `curl`. Notice that the `args` groups is
+empty. The `args` group is short for *arguments*, which hints at the fact that
+we can provide arguments in an HTTP request, just like arguments we would use
+for a funciton, or the arguments we used in the GitHub API.
+
+In the general case we can provide arguments to an HTTP API by putting a
+question mark (`?`) after API's URL. Let's try this out:
+
+
+```bash
+curl http://httpbin.org/get?Baltimore
+```
+
+```
+{
+  "args": {
+    "Baltimore": ""
+  },
+  "headers": {
+    "Accept": "*/*",
+    "Connection": "close",
+    "Host": "httpbin.org",
+    "User-Agent": "curl/7.47.0"
+  },
+  "origin": "159.203.134.88",
+  "url": "http://httpbin.org/get?Baltimore"
+}
+```
+
+Looks like `"Baltimore"` showed up in `args`! For most HTTP APIs we need to
+give names to our arguments, unline most arguments in Bash. We can specify
+and argument's name with the template `[argument name]=[argument value]`. Let's
+take a look at a simple example:
+
+
+```bash
+curl http://httpbin.org/get?city=Baltimore
+```
+
+```
+{
+  "args": {
+    "city": "Baltimore"
+  },
+  "headers": {
+    "Accept": "*/*",
+    "Connection": "close",
+    "Host": "httpbin.org",
+    "User-Agent": "curl/7.47.0"
+  },
+  "origin": "159.203.134.88",
+  "url": "http://httpbin.org/get?city=Baltimore"
+}
+```
+
+Now we can see that in `args` there's a correspondence between `city` and
+`Baltimore`. We can add more named arguments by seperating them with an 
+ampersand (`&`):
+
+
+
+```bash
+curl "http://httpbin.org/get?city=Baltimore&state=Maryland"
+```
+
+```
+{
+  "args": {
+    "city": "Baltimore",
+    "state": "Maryland"
+  },
+  "headers": {
+    "Accept": "*/*",
+    "Connection": "close",
+    "Host": "httpbin.org",
+    "User-Agent": "curl/7.47.0"
+  },
+  "origin": "159.203.134.88",
+  "url": "http://httpbin.org/get?city=Baltimore&state=Maryland"
+}
+```
+
+Perhaps you could imagine building a server that accepts HTTP requests, and
+sends back different information depending on what arguments are provided (for
+example, send back a weather report given a location). Building these kinds of
+servers is an advanced topic that is outside the scope of this book, but there
+are lots of resources out there if you're interested in building your own HTTP
+API on a web server.
+
 
 ### Automating Tasks
 
-One wonderful
+One of the most compelling features about any web server is that it's always
+powered on and always connected to the internet. This means that we can instruct
+our server to perform tasks automatically, with us needing to enter a command
+into a shell. One of the most commonly used programs for executing programs
+with a regular frequency is called `cron`. Let's take a look at how to use
+`cron` to schedule a program to be run.
+
+If you're not already connected to the server use `ssh` to connect.
+
+
+```bash
+ssh root@159.203.134.88
+```
+
+The `cron` program is part of a family of programs called **daemons**. A daemon
+is a program that is always running in the background of our computer. First, 
+let's see if `cron` is running. We can get a list of all running programs
+with the `ps` command while using the `-A` flag:
+
+
+```bash
+ps -A
+```
+
+```
+##  PID TTY          TIME CMD
+##    1 ?        00:00:13 systemd
+##    2 ?        00:00:00 kthreadd
+##    3 ?        00:00:03 ksoftirqd/0
+##    5 ?        00:00:00 kworker/0:0H
+##    7 ?        00:00:11 rcu_sched
+##    8 ?        00:00:00 rcu_bh
+##    9 ?        00:00:00 migration/0
+## ...
+```
+
+You probably have a huge list of programs in your terminal now! Instead of
+sifting through this listing line-by-line, let's pipe the output of this command
+to `grep` and we'll look for `cron`:
+
+
+```bash
+ps -A | grep "cron"
+```
+
+```
+##  1273 ?        00:00:01 cron
+```
+
+Looks like the `cron` daemon is running! In order to assign programs to be
+executed with `cron` we need to edit a special text file called the `cron`
+table. Before we edit the `cron` table we need to select the default text
+editor. If you like using `nano` (the text editor we've been using throughout
+this book) then enter `select-editor` into the console, type in the number
+that corresponds to `nano` (usually `2`) and then press enter:
+
+
+```bash
+select-editor
+```
+
+```
+## Select an editor.  To change later, run 'select-editor'.
+##   1. /bin/ed
+##   2. /bin/nano        <---- easiest
+##   3. /usr/bin/vim.basic
+##   4. /usr/bin/vim.tiny
+## 
+## Choose 1-4 [2]:
+```
+
+Now that we've chosen a text editor we can edit the `cron` table using the
+command `crontab -e` (**`cron`** **tab**le **e**dit) which will automatically
+open `nano` with the appropriate file.
+
+
+```bash
+crontab -e
+```
+
+```
+# Edit this file to introduce tasks to be run by cron.
+#
+# m h  dom mon dow   command
+
+```
+
+Let's go over the layout of the `cron` table. First you should notice that any
+text after a pound sign (`#`) is a comment, so it's not seen by `cron` (just
+like bash comments). The `cron` table has six columns:
+
+1. Minute (`m`)
+2. Hour (`h`)
+3. Day of Month (`dom`)
+4. Month (`mon`)
+5. Day of Week (`dow`)
+6. Command to be run (`command`)
+
+Each column is separated by a single space in the table.
+The first five columns allow you specify when you want a particular command to
+be run. Only certain values are valid in each column:
+
+1. Minute: `00 - 59` (A particular minute in an hour)
+2. Hour: `00 - 23` (0 is the midnight hour)
+3. Day of Month: `01 - 31` (1 is the first day of the month)
+4. Month: `01 - 12` (1 is January)
+5. Day of Week `0 - 6` (0 is Sunday)
+
+There are also a few other characters that are valid in the `cron` table. The
+most commonly used character is a star (`*`) which represents *all* of the
+possible values in a column. So a star in the Minute column means "run every
+minute," and a star in the Hour column means "run during every hour."
+Knowing this let's make our first entry in the `cron` table. If we want a
+command to be executed every minute, during every hour, on every day of the
+month, during every month, on every day of the week, then we can put stars in
+all of the first five
+columns, followed by the command that we want to run. In this case the command
+that `cron` will run every minute will be `date >> ~/date-file.txt`, which will
+append the date and time when the command is executed to a file in our home
+directory called `date-file.txt`. This is what your `cron` table should look
+like before you save and exit from `nano`:
+
+```
+# Edit this file to introduce tasks to be run by cron.
+#
+# m h  dom mon dow   command
+* * * * * date >> ~/date-file.txt
+```
+
+Save and exit `nano` just like you would for a regular text file and then wait
+a little bit! After a minite has gone by use `cat` to look at `~/date-file.txt`:
+
+
+```bash
+cd
+cat date-file.txt
+```
+
+```
+## Thu Jun  8 18:50:01 UTC 2017
+```
+
+Look like our entry in the `cron` table is working! Wait another minute and then
+look at the file again:
+
+
+```bash
+cat date-file.txt
+```
+
+```
+## Thu Jun  8 18:50:01 UTC 2017
+## Thu Jun  8 18:51:01 UTC 2017
+```
+
+Unless we delete the line that we entered in the `cron` table, the output from
+`date` will be appended to `date-file.txt` every minute.
+
+The single line of bash `date >> ~/date-file.txt` is a much simpler program than
+we would probably use in a `cron` table, though it's good for illustrating how
+a `cron` table works. If you want to do more complex tasks with `cron` it's
+better for `cron` to execute a bash script that you've written in advance. That
+way you can just specify `bash /path/to/script.sh` in the last column of the
+table.
+
+Using stars in all columns is the simplest line of a `cron` table, so let's 
+look at some examples of more complex table entries:
+
+```
+# m h  dom mon dow   command
+00 * * * * bash /path/to/script.sh     # Runs every hour at the start of the hour
+00 12 * * * bash /path/to/script.sh    # Runs every day at noon
+* 12 * * * bash /path/to/script.sh     # Runs every minute between 12pm and 12:59pm
+00 00 05 * * bash /path/to/script.sh   # Runs the 5th day of every month at midnight
+00 00 * 07 * bash /path/to/script.sh   # Runs every day in the month of July at midnight
+00 00 * * 2 bash /path/to/script.sh    # Runs every Tuesday at midnight
+```
+
+Besides numbers and the star there are a few other characters that you can use
+in `cron` table columns including a hyphen (`-`) for specifying ranges and a
+comma (`,`) for specifying lists of items. Let's take a look at another example
+of a `cron` table that uses hyphens and ranges so you can get a sense of how
+each of these characters works.
+
+```
+# m h  dom mon dow   command
+00-04 * * * * bash /path/to/script.sh       # Runs every minute for the first five minutes of every hour
+00 00 * * 0,6 bash /path/to/script.sh       # Runs at midnight every Saturday and Sunday
+00 03 01-15 * * bash /path/to/script.sh     # Runs at 3am for the first fifteen days of every month 
+00,30 * * * * bash /path/to/script.sh       # Runs at the start and middle of every hour
+00 00,12 * * * bash /path/to/script.sh      # Runs every day at midnight and noon
+00 * 01-07 01,06 * bash /path/to/script.sh  # Runs at the start of every hour for the first seven days of the months of January and June
+```
+
+A program that is being run by `cron` is only as powerful as your imagination
+can stretch! If you're familiar with the social network
+[Twitter](https://twitter.com/) then you might have come across some Twitter
+accounts which create posts automatically like
+[Emoji Aquarium](https://twitter.com/emojiaquarium),
+[Old Fruit Pictures](https://twitter.com/pomological), or
+[Endless Screaming](https://twitter.com/infinite_scream).
+
+### Summary
+
+### Exercises
 
 
 
-
-
-## Shutting Down Your Server
-
- curl, cron, ps
+## Shutting Down a Server

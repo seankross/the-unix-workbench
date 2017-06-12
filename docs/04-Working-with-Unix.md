@@ -1008,13 +1008,150 @@ files it contains.
 
 ## Make
 
+Once upon a time there were no web browsers, file browsers, start menus, or
+search bars. When somebody booted up a computer all they got a was a shell
+prompt, and all of the work they did started from that prompt. Back then people
+still loved to share software, but there was always the problem how software
+should be installed. The `make` program is the best attempt at solving this
+problem, and `make`'s elegance has carried it so far that it is still in wide
+use today. The guiding design goal of the `make` program is that in order to
+install some new piece of software one would:
+
+1. Download all of the files required for installation into a directory.
+2. `cd` into that directory.
+3. Run `make`.
+
+This is accomplished by specifying a file called `makefile`, which describes the
+relationships between different files and programs.
+
+### Summary
+
+### Exercises
+
 ## Configure
 
-- .bash_profile, .bash_history, alias, PATH and other env vars
+### History
+
+Near the start of this book we discussed how you can browse the commands
+that you recently entered into the prompt using the `Up` and `Down` arrow keys.
+Bash keeps track of all of your recent commands, and you can browse your command
+history two different ways. The commands that we've used since opening our
+terminal can be accessed via the `history` command. Let's try it out:
+
+
+```bash
+history
+```
+
+```
+## ...
+## 48 egrep "^M" states.txt
+## 49 egrep "s$" states.txt
+## 50 egrep "North|South" states.txt
+## 51 egrep "North|South|East|West" states.txt
+## 52 egrep -n "t$" states.txt
+## 53 egrep "New" states.txt canada.txt
+## 54 egrep "^[AEIOU]{1}.+[aeiou]{1}$" states.txt
+## 55 cd
+## 56 pwd
+## 57 find . -name "states.txt"
+## 58 find . -name "*.jpg"
+## 59 history
+```
+
+We've had our terminal open for a while so there are tons of commands in our
+history! Whenever we close a terminal our recent commands are written to the
+`~/.bash_history` file. Let's a take a look at the beginning of this file:
+
+
+```bash
+head -n 5 ~/.bash_history
+```
+
+```
+## echo "Hello World!"
+## pwd
+## cd
+## pwd
+## ls
+```
+
+Looks like the very first commands we entered into the terminal! Searching your
+`~/.bash_history` file can be particularly useful if you're trying to recall
+a command you've used in the past. The `~/.bash_history` file is just a regular
+text file, so you can search it with `grep`. Here's a simple example:
+
+
+```bash
+grep "canada" ~/.bash_history
+```
+
+```
+## egrep "New" states.txt canada.txt
+```
+
+### Customizing Bash
+
+Besides `~/.bash_history`, another text file in our home directory that we
+should be aware of is `~/.bash_profile`. The `~/.bash_profile` is a list of
+Unix commands that are run every time we open our terminal, usually with a
+different command on every line. One of the most common commands used in a
+`~/.bash_profile` is the `alias` command, which creates a shorter name for a
+command. Let's take a look at a `~/.bash_profile`:
+
+```
+alias docs='cd ~/Documents'
+alias edbp='nano ~/.bash_profile'
+```
+
+The first `alias` creates a new command `docs`. Now entering `docs` into the
+command line is the equivalent of entering `cd ~/Documents` into the comamnd
+line. Open let's edit our `~/.bash_profile` with `nano`. If there's anything
+in your `~/.bash_profile` already then start adding lines at the end of the
+file. Add the line `alias docs='cd ~/Documents'`, then save the file and quit
+`nano`. In order to make the changes to our `~/.bash_profile` take effect we
+need to run `source ~/.bash_profile` in the console:
+
+
+```bash
+source ~/.bash_profile
+```
+
+Now let's try using `docs`:
+
+
+```bash
+docs
+pwd
+```
+
+```
+## /Users/sean/Documents
+```
+
+It works! Setting different `alias`es allows you to save time if there are long
+commands that use often. In the example `~/.bash_profile` above, the second
+line, `alias edbp='nano ~/.bash_profile'` creates the command `edbp` (**ed**it
+**b**ash **p**rofile) so that you can quickly add `alias`es. Try adding it to
+your `~/.bash_profile` and take your new command for a spin!
+
+There are a few other details about the `~/.bash_profile` that are important
+when you're writing software which we'll discuss in the Bash Programming
+chapter.
+
+### Summary
+
+- `history` displays what commands we've entered into the console
+since opening our current terminal.
+- The `~/.bash_history` file lists commands we've used in the past.
+- `alias` creates a command that can be used as a substitute for a longer
+command that we use often.
+- The `~/.bash_profile` is a text file that is run every time we start a shell,
+and it's the best place to assign `alias`es.
 
 ## Differentiate
 
-Sometimes you need to be able examine differences between files. First let's
+It's important to be able to examine differences between files. First let's
 make two small simple text files in the Documents directory.
 
 
@@ -1055,19 +1192,28 @@ sdiff four.txt six.txt
 ## 							      >	Colorado
 ```
 
-Sometimes you might be sent a file, or you might download a file from the 
+In a common situation you might be sent a file, or you might download a file from the 
 internet that comes with code known as a **checksum** or a **hash**. Hashing
 programs generate a unique code based on the contents of a file. People
-distribute hashes with files so that you can be sure that the file you think
-you're downloading is the genuine file????????????????????????
-
-
+distribute hashes with files so that we can be sure that the file we think
+we've downloaded is the genuine file. One way we can prevent malicious
+individuals from sending us harmful files is to check to make sure the computed
+hash matches the provided hash. 
 There are a few commonly used file hashes but we'll talk about two called MD5
 and SHA-1.
+
+Since hashes are generated based on file contents, then two identical files
+should have the same hash. Let's test this my making a copy of `states.txt`.
 
 
 ```bash
 cp states.txt states_copy.txt
+```
+
+To compute the MD5 hash of a file we can use the `md5` command:
+
+
+```bash
 md5 states.txt
 ```
 
@@ -1083,6 +1229,9 @@ md5 states_copy.txt
 ```
 ## MD5 (states_copy.txt) = 8d7dd71ff51614e69339b03bd1cb86ac
 ```
+
+As we expected they're the same! We can compute the SHA-1 hash using the
+`shasum` command:
 
 
 ```bash
@@ -1102,6 +1251,119 @@ shasum states_copy.txt
 ## 588e9de7ffa97268b2448927df41760abd3369a9  states_copy.txt
 ```
 
-## Connect
+Once again, both copies produce the same hash. Let's make a change to one of the
+files, just to illustrate the fact that the hash changes if file contents are
+different:
 
-- pipes, input redirection
+
+```bash
+head -n 5 states_copy.txt > states_copy.txt
+shasum states_copy.txt
+```
+
+```
+## b1c1c805f123f31795c77f78dd15c9f7ac5732d4  states_copy.txt
+```
+
+### Summary
+
+- The `md5` and `shasum` commands use different algorithms to create codes
+(called hashes or checksums) that are unique to the contents of a file.
+- These hashes can be used to ensure that a file is genuine.
+
+## Pipes
+
+One of the most powerful features of the command line is skilled use of the
+**pipe** (`|`) which you can usually find above the backslash (`\`) on your
+keyboard. The pipe allows us to take the output of a command, which would
+normally be printed to the console, and use it as the input to another command.
+It's like fitting an actual pipe between the end of one program and connecting
+it to the top of another program!
+Let's take a look at a basic example. We know the `cat` command takes the
+contents of a text file and prints it to the console:
+
+
+```bash
+cd ~/Documents
+cat canada.txt
+```
+
+```
+## Nunavut
+## Quebec
+## Northwest Territories
+## Ontario
+## British Columbia
+## Alberta
+## Saskatchewan
+## Manitoba
+## Yukon
+## Newfoundland and Labrador
+## New Brunswick
+## Nova Scotia
+## Prince Edward Island
+```
+
+This output from `cat canada.txt` will go into our pipe, and we'll attach the
+dispensing end of the pipe to `head`, which we use to look at the first few
+lines of a file:
+
+
+```bash
+cat canada.txt | head -n 5
+```
+
+```
+Nunavut
+Quebec
+Northwest Territories
+Ontario
+British Columbia
+```
+
+Notice that this is the same result we would get from `head -n 5 canada.txt`,
+we just used `cat` to illustrate how the pipe works. The general syntax of the
+pipe is 
+`[program that produces output] | [program uses pipe output as input instead of a file]`.
+
+A more common and useful example where we could use the pipe is answering the
+question: "How many US states end in a vowel?" We could use `grep` and regular
+expressions to list all of the state names that end with a vowel, then we could
+use `wc` to count all of the matching state names:
+
+
+```bash
+grep "[aeiou]$" states.txt | wc -l
+```
+
+```
+## 32
+```
+
+The pipe can also be used multiple times in one command in order to take
+the output from one piped command and use it as the input to yet another program!
+For example we could use three pipes with `ls`, `grep`, and `less` so that we
+could scroll through the files in out current directory were created in February:
+
+
+```bash
+ls -al | grep "Feb" | less
+```
+
+```
+-rw-r--r--   1 sean  staff   472 Feb 22 13:47 states.txt
+```
+
+Remember you can use the `Q` key to quit `less` and return to the prompt.
+
+### Summary
+
+- The pipe (`|`) takes the output of the program on its left side and directs
+the output to be the input for the program on its right side.
+
+### Exercises
+
+1. Use pipes to figure out how many US states contain the word "New."
+2. Examine your `~/.bash_history` to try to figure out how many unique commands
+you've ever used. (You may need to look up how to use the `uniq` and `sort`
+commands).

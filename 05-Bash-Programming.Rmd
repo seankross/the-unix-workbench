@@ -1254,6 +1254,15 @@ command
 
 ## Writing Programs
 
+### Evironmental Variables
+
+
+An environmental variable is a place where bash stores data about your current
+computing environment.
+
+PATH, HOME, 
+
+
 ### Exercises
 
 Write a program that takes one number as an argument and prints

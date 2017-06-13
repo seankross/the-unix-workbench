@@ -514,7 +514,7 @@ API on a web server.
 One of the most compelling features about any web server is that it's always
 powered on and always connected to the internet. This means that we can instruct
 our server to perform tasks automatically, without us needing to enter a command
-into a shell. One of the most commonly used utilities for executing programs
+into a shell. One of the most commonly used programs for executing *other programs*
 with a regular frequency is called `cron`. Let's take a look at how to use
 `cron` to schedule a program to be run.
 

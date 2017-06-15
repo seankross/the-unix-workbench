@@ -1162,12 +1162,12 @@ sdiff four.txt six.txt
 ```
 
 ```
-## Alabama							Alabama
-## Alaska								Alaska
-## Arizona							Arizona
-## Arkansas							Arkansas
-## 							      >	California
-## 							      >	Colorado
+## Alabama              Alabama
+## Alaska               Alaska
+## Arizona              Arizona
+## Arkansas             Arkansas
+##                    > California
+##                    > Colorado
 ```
 
 In a common situation you might be sent a file, or you might download a file from the 

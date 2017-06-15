@@ -833,12 +833,12 @@ alias edbp=&#39;nano ~/.bash_profile&#39;</code></pre>
 ## &gt; Colorado</code></pre>
 <p>Only the differing lines are printed to the console. We could also compare differing lines in a side-by-side comparison using <code>sdiff</code>:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sdiff</span> four.txt six.txt</code></pre></div>
-<pre><code>## Alabama                          Alabama
-## Alaska                               Alaska
-## Arizona                          Arizona
-## Arkansas                         Arkansas
-##                                &gt; California
-##                                &gt; Colorado</code></pre>
+<pre><code>## Alabama              Alabama
+## Alaska               Alaska
+## Arizona              Arizona
+## Arkansas             Arkansas
+##                    &gt; California
+##                    &gt; Colorado</code></pre>
 <p>In a common situation you might be sent a file, or you might download a file from the internet that comes with code known as a <strong>checksum</strong> or a <strong>hash</strong>. Hashing programs generate a unique code based on the contents of a file. People distribute hashes with files so that we can be sure that the file we think we’ve downloaded is the genuine file. One way we can prevent malicious individuals from sending us harmful files is to check to make sure the computed hash matches the provided hash. There are a few commonly used file hashes but we’ll talk about two called MD5 and SHA-1.</p>
 <p>Since hashes are generated based on file contents, then two identical files should have the same hash. Let’s test this my making a copy of <code>states.txt</code>.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cp</span> states.txt states_copy.txt</code></pre></div>

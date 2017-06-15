@@ -1,7 +1,7 @@
 --- 
 title: "The Unix Workbench"
 author: "Sean Kross"
-date: "2017-06-12"
+date: "2017-06-14"
 site: bookdown::bookdown_site
 output:
  bookdown::html_chapters:
@@ -23,7 +23,7 @@ description: ""
 
 Cover Image: *A Goldsmith in his Shop* by Petrus Christus
 
-[![CC0](https://licensebuttons.net/p/zero/1.0/88x31.png)](https://creativecommons.org/publicdomain/zero/1.0/)
+[![CC0](img/cc0.png)](https://creativecommons.org/publicdomain/zero/1.0/)
 
 This work by [Sean Kross](http://seankross.com) is licensed 
 [CC0](https://creativecommons.org/publicdomain/zero/1.0/). Zero rights reserved.

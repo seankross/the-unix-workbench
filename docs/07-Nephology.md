@@ -6,16 +6,16 @@
 
 Nephology is the study of clouds. Few modern technology concepts (other than
 maybe data science and artificial intelligence) have been hyped as loudly as "the
-cloud." The cloud is simply a computer which we can access over the interent.
+cloud." The cloud is simply a computer which we can access over the internet.
 In this chapter we'll set up a cloud computer and we'll learn the basics of
 interacting with one.
 
-To get the most out of the this chapter you're going to need your credit or
+To get the most out of this chapter you're going to need your credit or
 debit card, or a [PayPal](https://www.paypal.com) account. We're going to be
 using [DigitalOcean](https://m.do.co/c/530d6cfa2b37), a company which we
 can rent cloud computers from. Throughout this chapter I might refer to cloud
 computers as **servers** (computers connected to the internet) or as
-**droplets**, which a marketing term DigitalOcean uses to refer to their
+**droplets**, which is a marketing term DigitalOcean uses to refer to their
 servers (a droplet is *not* a technical term). Renting from DigitalOcean won't
 cost you any money since I'm giving you a coupon for two free months of service!
 There are several companies that offer similar services compared to
@@ -30,12 +30,11 @@ finished using them.*
 
 ## Setting Up DigitalOcean
 
-To get started with DigitalOcean we need rent a server from their website.
+To get started with DigitalOcean we need to rent a server from their website.
 [Click this link](https://m.do.co/c/530d6cfa2b37) to sign up for DigitalOcean
 in order to get two free months of server use. (If you don't use this link then
 you don't get two free months). Click **Sign Up** in the upper right corner,
-then enter your email address and choose your
-password.
+then enter your email address and choose your password.
 
 ![](img/do-main.png)
 
@@ -76,10 +75,10 @@ terminal.
 
 ## Connecting to the Cloud
 
-We can connect to computers on the interenet with the `ssh` program, which
+We can connect to computers on the internet with the `ssh` program, which
 stands for **S**ecure **Sh**ell. The `ssh` command provides a command line
 interface to whichever computer we point it to. A computer that is connected to
-the internet has an addresses (just like a house has an address) which is
+the internet has an address (just like a house has an address) which is
 specified by an **IP address**. The command for connecting to a computer with
 `ssh` generally looks like this:
 
@@ -143,7 +142,7 @@ paste the password into the terminal, then press Enter.
 We now need to create a new password for this server. First paste in the old
 password and press Enter. Then think of a new, strong password and enter it into
 the console. Then enter the new password again to confirm. After entering in the
-new passowrd we should have a prompt! Press enter a few times to make sure that
+new password we should have a prompt! Press enter a few times to make sure that
 you get the prompt back each time. We're in!
 
 Now we have access to all of the Unix commands we would normally have:
@@ -355,8 +354,8 @@ head -n 5 01-What-is-Unix.md
 ```
 
 Looks like we got the file! The `curl` command is also commonly used for
-communicating with **API**s. An API stands for an **a**pplication
-**p**rogramming **i**nterface. APIs are a set of rules which allows us to
+communicating with **API**s. API stands for **a**pplication
+**p**rogramming **i**nterface. APIs are a set of rules which allow us to
 communicate with computer programs or with servers on the web. GitHub has a
 [large API](https://developer.github.com/v3/) which allows us to find out
 information about GitHub's users and repositories. Let's use `curl` to look 
@@ -365,7 +364,7 @@ with the repository for this book:
 
 
 ```bash
-curl https://api.github.com/repos/seankross/lego/languages
+curl https://api.github.com/repos/seankross/the-unix-workbench/languages
 ```
 
 ```
@@ -377,16 +376,16 @@ curl https://api.github.com/repos/seankross/lego/languages
 
 It looks like most of the repository is dedicated to making the book website
 look pretty! Take a look at the URL in the `curl` command above, and let's
-disect it a little bit. The API itself is located at `https://api.github.com/`.
+dissect it a little bit. The API itself is located at `https://api.github.com/`.
 Then each word in the rest of the url acts as a sort of argument. We're
 interested in `repos` in this case, specifically a repo belonging to the
 username `seankross` called `the-unix-workbench`, and we want to know about
-which `languages` are used in that repo. Let's take a look ta one more of my
+which `languages` are used in that repo. Let's take a look at one more of my
 repositories just to see how the response can be different:
 
 
 ```bash
-curl https://api.github.com/repos/seankross/the-unix-workbench/languages
+curl https://api.github.com/repos/seankross/lego/languages
 ```
 
 ```
@@ -398,10 +397,10 @@ curl https://api.github.com/repos/seankross/the-unix-workbench/languages
 
 Use of `curl`, especially when coupled with using APIs can become very
 complicated and much more advanced content has been written on the subject.
-Let's get a little more in depth by looking through some of the exmalpes from
+Let's get a little more in depth by looking through some of the examples from
 [httpbin.org](http://httpbin.org/). This website allows us to send requests to
 it with `curl`, and it will return to us a structured version of whatever
-information we sent. This is useful for debuggung our `curl` commands. First
+information we sent. This is useful for debugging our `curl` commands. First
 let's send a request which should return our IP address:
 
 
@@ -418,7 +417,7 @@ curl http://httpbin.org/ip
 Looks like we're getting the response we expect. Before we go on I should
 clarify: `curl` sends **HTTP requests**. HTTP is a technology for sending
 information over a network, and HTTP powers much of how the internet works.
-There are different categories of HTTP requests, and there categories are often
+There are different categories of HTTP requests, and the categories are often
 called **verbs**. When we use `curl` without any flags we are sending a
 **GET** request (GET is an HTTP verb). A GET request is a message that says to
 a server: "Hi, I live at [IP address]. Would you mind sending some information
@@ -450,13 +449,13 @@ The text that we get back from the request specifies four information groups:
 `args`, `headers`, `origin`, and `url`. The `origin` shows our own IP address,
 and `url` shows where we sent the request. The `headers` group shows some
 interesting information, including the `User-Agent` which shows that httpbin.org
-knows that we sent this request with `curl`. Notice that the `args` groups is
+knows that we sent this request with `curl`. Notice that the `args` group is
 empty. The `args` group is short for *arguments*, which hints at the fact that
 we can provide arguments in an HTTP request, just like arguments we would use
-for a funciton, or the arguments we used in the GitHub API.
+for a function, or the arguments we used in the GitHub API.
 
 In the general case we can provide arguments to an HTTP API by putting a
-question mark (`?`) after API's URL. Let's try this out:
+question mark (`?`) after the API's URL. Let's try this out:
 
 
 ```bash
@@ -480,8 +479,8 @@ curl http://httpbin.org/get?Baltimore
 ```
 
 Looks like `"Baltimore"` showed up in `args`! For most HTTP APIs we need to
-give names to our arguments, unline most arguments in Bash. We can specify
-and argument's name with the template `[argument name]=[argument value]`. Let's
+give names to our arguments, unlike most arguments in Bash. We can specify
+an argument's name with the template `[argument name]=[argument value]`. Let's
 take a look at a simple example:
 
 
@@ -506,7 +505,7 @@ curl http://httpbin.org/get?city=Baltimore
 ```
 
 Now we can see that in `args` there's a correspondence between `city` and
-`Baltimore`. We can add more named arguments by seperating them with an 
+`Baltimore`. We can add more named arguments by separating them with an 
 ampersand (`&`):
 
 
@@ -544,8 +543,8 @@ API on a web server.
 
 One of the most compelling features about any web server is that it's always
 powered on and always connected to the internet. This means that we can instruct
-our server to perform tasks automatically, with us needing to enter a command
-into a shell. One of the most commonly used programs for executing programs
+our server to perform tasks automatically, without us needing to enter a command
+into a shell. One of the most commonly used programs for executing *other programs*
 with a regular frequency is called `cron`. Let's take a look at how to use
 `cron` to schedule a program to be run.
 
@@ -640,9 +639,9 @@ like bash comments). The `cron` table has six columns:
 5. Day of Week (`dow`)
 6. Command to be run (`command`)
 
-Each column is separated by a single space in the table.
-The first five columns allow you specify when you want a particular command to
-be run. Only certain values are valid in each column:
+Each column is separated by a single space in the table. The first five columns 
+allow you to specify when you want a particular command to be run. Only certain 
+values are valid in each column:
 
 1. Minute: `00 - 59` (A particular minute in an hour)
 2. Hour: `00 - 23` (0 is the midnight hour)
@@ -672,7 +671,7 @@ like before you save and exit from `nano`:
 ```
 
 Save and exit `nano` just like you would for a regular text file and then wait
-a little bit! After a minite has gone by use `cat` to look at `~/date-file.txt`:
+a little bit! After a minute has gone by use `cat` to look at `~/date-file.txt`:
 
 
 ```bash
@@ -725,9 +724,9 @@ in `cron` table columns including a hyphen (`-`) for specifying ranges and a
 comma (`,`) for specifying lists of items. For example `00-29` in the Minutes
 column would specify the first thirty minutes of an hour, while `1,5` in the
 Day of Week column would specify Monday and Friday.
-Let's take a look at another example
-of a `cron` table that uses hyphens and ranges so you can get a sense of how
-each character works.
+
+Let's take a look at another example of a `cron` table that uses hyphens and 
+ranges so you can get a sense of how each character works.
 
 ```
 # m h  dom mon dow   command
@@ -777,7 +776,7 @@ droplets that you started. When you destroy a droplet all files
 on the droplet are gone forever, so please be sure that you don't have any
 important information on a droplet before you destroy it. If there are files
 you want to save on your droplet use `scp` in order to copy them to your local
-machine. Let's walk through destorying a droplet. Go back to 
+machine. Let's walk through destroying a droplet. Go back to 
 [DigitalOcean](https://m.do.co/c/530d6cfa2b37) and log in. You should then see
 a listing of all of your droplets:
 

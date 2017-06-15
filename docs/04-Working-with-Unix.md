@@ -1006,28 +1006,6 @@ each of the five vowels.
 3. Download the GitHub repository for this book and find out how many `.html` 
 files it contains.
 
-## Make
-
-Once upon a time there were no web browsers, file browsers, start menus, or
-search bars. When somebody booted up a computer all they got a was a shell
-prompt, and all of the work they did started from that prompt. Back then people
-still loved to share software, but there was always the problem how software
-should be installed. The `make` program is the best attempt at solving this
-problem, and `make`'s elegance has carried it so far that it is still in wide
-use today. The guiding design goal of the `make` program is that in order to
-install some new piece of software one would:
-
-1. Download all of the files required for installation into a directory.
-2. `cd` into that directory.
-3. Run `make`.
-
-This is accomplished by specifying a file called `makefile`, which describes the
-relationships between different files and programs.
-
-### Summary
-
-### Exercises
-
 ## Configure
 
 ### History
@@ -1367,3 +1345,106 @@ the output to be the input for the program on its right side.
 2. Examine your `~/.bash_history` to try to figure out how many unique commands
 you've ever used. (You may need to look up how to use the `uniq` and `sort`
 commands).
+
+## Make
+
+Once upon a time there were no web browsers, file browsers, start menus, or
+search bars. When somebody booted up a computer all they got a was a shell
+prompt, and all of the work they did started from that prompt. Back then people
+still loved to share software, but there was always the problem of how software
+should be installed. The `make` program is the best attempt at solving this
+problem, and `make`'s elegance has carried it so far that it is still in wide
+use today. The guiding design goal of `make` is that in order to
+install some new piece of software one would:
+
+1. Download all of the files required for installation into a directory.
+2. `cd` into that directory.
+3. Run `make`.
+
+This is accomplished by specifying a file called `makefile`, which describes the
+relationships between different files and programs. In addition to installing
+programs, `make` is also useful for creating documents automatically. Let's build
+up a `makefile` that creates a `readme.txt` file which is automatically
+populated with some information about our current directory.
+
+Let's start by creating a very basic `makefile` with `nano`:
+
+
+```bash
+cd ~/Documents/Journal
+nano `makefile`
+```
+
+```
+draft_journal_entry.txt:
+  touch draft_journal_entry.txt
+```
+
+The simple `makefile` above shows illustrates a **rule** which has the
+following general format:
+
+```
+[target]: [dependencies...]
+  [commands...]
+```
+
+In the simple example we created `draft_journal_entry.txt` is the **target**, a
+file which is created as the result of the **command(s)**. It's very important
+to note that any commands under a target **must be indented with a `Tab`**. If
+we don't use `Tab`s to indent the commands then `make` will fail.
+Let's save and close the `makefile`, then we can run the following in the
+console:
+
+
+```bash
+ls
+```
+
+```
+## makefile
+```
+
+Let's use the `make` command with the target we want to be "made" as the only
+argument:
+
+
+```bash
+make draft_journal_entry.txt
+```
+
+```
+## touch draft_journal_entry.txt
+```
+
+
+```bash
+ls
+```
+
+```
+## draft_journal_entry.txt
+## makefile
+```
+
+The commands that are indented under our definition of the rule for the
+`draft_journal_entry.txt` target were executed, so now `draft_journal_entry.txt`
+exists! Let's try running the same `make` command again:
+
+
+```bash
+make draft_journal_entry.txt
+```
+
+```
+## make: 'draft_journal_entry.txt' is up to date.
+```
+
+Since the target file already exists no action is taken, and instead we're
+informed that the rule for `draft_journal_entry.txt` is "up to date" (there's
+nothing to be done).
+
+
+
+### Summary
+
+### Exercises

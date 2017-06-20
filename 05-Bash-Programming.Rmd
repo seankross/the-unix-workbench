@@ -1127,11 +1127,13 @@ echo {Who,What,Why,When,How}?
 
 ## Loops
 
+### FOR
+
 Loops are one of the most important programming structures in the Bash language.
 All of the programs we've written so far are executed from the first line of the
 script until the last line, but loops allow you to repeat lines of code based on
 logical conditions or by following a sequence. The first kind of loop that we'll
-discuss is a FOR loop. FOR loops iterate through every element of a sequence
+discuss is a FOR loop. **FOR loops** iterate through every element of a sequence
 that you specify. Let's take a look at a small example FOR loop:
 
 ```
@@ -1221,6 +1223,10 @@ do
 done
 ```
 
+```{r, engine='bash', eval=FALSE}
+bash manyloops.sh
+```
+
 ```
 ## Explicit list:
 ## picture is equal to img001.jpg
@@ -1247,8 +1253,72 @@ done
 ```
 
 The example above illustrates three other methods of creating sequences for FOR
-loops: typing out an explicit list, using an array, getting the result of a
-command 
+loops: typing out an explicit list, using an array, and getting the result of a
+command substitution. In each case a variable name is declared after the `for`,
+and the value of tha variable changes through each iteration of the loop until
+the corresponding sequence has been exhausted. Right now you should take a
+moment to write a few FOR loops yourself, generating sequences in all of the
+ways that we've gone over, just to reinforce your understanding of how a FOR
+loop works. Loops and conditional statements are two of the most important
+structures that we have at our disposal as programmers.
+
+### WHILE
+
+Now that we've gotten a few FOR loops working let's move on to WHILE loops. The
+**WHILE loop** is truly the [Reese's Peanut Butter Cup](https://youtu.be/O7oD_oX-Gio)
+of programming structures, combining parts of the FOR loop and the IF statement.
+Let's take a look at an example WHILE loop so you can see what I mean:
+
+```
+#!/usr/bin/env bash
+# File: whileloop.sh
+
+count=3
+
+while [[ $count -gt 0 ]]
+do
+  echo "count is equal to $count"
+  let count=$count-1
+done
+```
+
+The WHILE loop begins first with the `while` keyword followed by a conditional
+expression. As long as the conditional expression is equivalent to `true` when
+an iteration of the loop begins, then
+the code within the WHILE loop will continue to be executed. Based on the code
+for `whileloop.sh` what do you think will be printed to the console when we run
+this script? Let's find out:
+
+```{r, engine='bash', eval=FALSE}
+bash whileloop.sh
+```
+
+```
+## count is equal to 3
+## count is equal to 2
+## count is equal to 1
+```
+
+Before the WHILE the `count` variable is set to be equal to 3, but then each
+time the WHILE loop is executed 1 is subtracted from the value of `count`. The
+loop then starts from the top again and the conditional expression is
+re-checked. After three iterations through the loop `count` is equal to 0, so
+the logical expression `[[ $count -gt 0 ]]` is no longer equal to `true` and
+the loop ends. By changing the value of the variable in the logical expression 
+inside of the loop we're able to ensure that the logical expression will
+eventually be equivalent to `false`, and therefore the loop will eventually end.
+
+If the logical expression is never equivalent to `false` then we've created an
+*infinite loop*, so loop never ends and the program runs forever. Obviously we
+would like for our programs to end eventually, and therefore creating infinite
+loops is undesirable. However let's create an infinite loop so we know what to
+do if we get into a sitation where our program won't terminate.
+
+### Nesting
+
+### Summary
+
+### Exercises
 
 ## Functions
 

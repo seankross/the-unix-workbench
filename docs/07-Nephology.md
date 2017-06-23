@@ -36,7 +36,7 @@ in order to get two free months of server use. (If you don't use this link then
 you don't get two free months). Click **Sign Up** in the upper right corner,
 then enter your email address and choose your password.
 
-![](img/do-main.png)
+![](images/do-main.png)
 
 Check your email for a message from DigitalOcean and click the enclosed link to
 confirm your email. Then you'll need to enter your credit or debit card
@@ -44,26 +44,26 @@ information, or your Paypal account details. As long as you close down all of
 your servers less than two months after you start them you will not be charged.
 After entering in your payment information you should see this screen:
 
-![](img/do-create-drop.png)
+![](images/do-create-drop.png)
 
 Click the big blue **Create a new Droplet** button which should then bring you
 to a screen where you can customize the server you're going to be renting. Make
 sure you have Ubuntu chosen as your distribution, and select the $5 per month
 size option:
 
-![](img/do-distro-size.png)
+![](images/do-distro-size.png)
 
 Scroll down the page and then select the region that is geographically closest
 to you. Some regions have multiple data centers, it doesn't matter which data
 center you pick. Currently I'm in Baltimore, Maryland, USA, so I'm going to pick
 the number 1 data center in New York:
 
-![](img/do-region.png)
+![](images/do-region.png)
 
 Finally at the bottom of the page click the big green **Create** button in order
 to start your server!
 
-![](img/do-create-confirm.png)
+![](images/do-create-confirm.png)
 
 It will take a minute to launch the server, but once launched
 you should receive an email from Digital Ocean with the details about your
@@ -780,17 +780,17 @@ machine. Let's walk through destroying a droplet. Go back to
 [DigitalOcean](https://m.do.co/c/530d6cfa2b37) and log in. You should then see
 a listing of all of your droplets:
 
-![](img/do-droplets-list.png)
+![](images/do-droplets-list.png)
 
 Click on **More** on the right side of the screen and a menu should appear.
 Click **Destroy** at the bottom of this menu. Then this screen should appear:
 
-![](img/do-destroy-button.png)
+![](images/do-destroy-button.png)
 
 Click the **Destroy** button and then click **Confirm** in the menu that pops
 up. Your droplet should now be destroyed. If you have no active droplets then
 the main droplets page should look like this:
 
-![](img/do-fresh.png)
+![](images/do-fresh.png)
 
 Congratulations on your new cloud computing skills!

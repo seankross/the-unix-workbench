@@ -1299,11 +1299,13 @@ echo {Who,What,Why,When,How}?
 
 ## Loops
 
+### FOR
+
 Loops are one of the most important programming structures in the Bash language.
 All of the programs we've written so far are executed from the first line of the
 script until the last line, but loops allow you to repeat lines of code based on
 logical conditions or by following a sequence. The first kind of loop that we'll
-discuss is a FOR loop. FOR loops iterate through every element of a sequence
+discuss is a FOR loop. **FOR loops** iterate through every element of a sequence
 that you specify. Let's take a look at a small example FOR loop:
 
 ```
@@ -1394,6 +1396,11 @@ do
 done
 ```
 
+
+```bash
+bash manyloops.sh
+```
+
 ```
 ## Explicit list:
 ## picture is equal to img001.jpg
@@ -1420,8 +1427,203 @@ done
 ```
 
 The example above illustrates three other methods of creating sequences for FOR
-loops: typing out an explicit list, using an array, getting the result of a
-command 
+loops: typing out an explicit list, using an array, and getting the result of a
+command substitution. In each case a variable name is declared after the `for`,
+and the value of tha variable changes through each iteration of the loop until
+the corresponding sequence has been exhausted. Right now you should take a
+moment to write a few FOR loops yourself, generating sequences in all of the
+ways that we've gone over, just to reinforce your understanding of how a FOR
+loop works. Loops and conditional statements are two of the most important
+structures that we have at our disposal as programmers.
+
+### WHILE
+
+Now that we've gotten a few FOR loops working let's move on to WHILE loops. The
+**WHILE loop** is truly the [Reese's Peanut Butter Cup](https://youtu.be/O7oD_oX-Gio)
+of programming structures, combining parts of the FOR loop and the IF statement.
+Let's take a look at an example WHILE loop so you can see what I mean:
+
+```
+#!/usr/bin/env bash
+# File: whileloop.sh
+
+count=3
+
+while [[ $count -gt 0 ]]
+do
+  echo "count is equal to $count"
+  let count=$count-1
+done
+```
+
+The WHILE loop begins first with the `while` keyword followed by a conditional
+expression. As long as the conditional expression is equivalent to `true` when
+an iteration of the loop begins, then
+the code within the WHILE loop will continue to be executed. Based on the code
+for `whileloop.sh` what do you think will be printed to the console when we run
+this script? Let's find out:
+
+
+```bash
+bash whileloop.sh
+```
+
+```
+## count is equal to 3
+## count is equal to 2
+## count is equal to 1
+```
+
+Before the WHILE the `count` variable is set to be 3, but then each
+time the WHILE loop is executed 1 is subtracted from the value of `count`. The
+loop then starts from the top again and the conditional expression is
+re-checked to see if it's still equivalent to `true`. After three iterations
+through the loop `count` is equal to 0 since 1 is subtracted from `count` in
+every iteration. Therefore
+the logical expression `[[ $count -gt 0 ]]` is no longer equal to `true` and
+the loop ends. By changing the value of the variable in the logical expression 
+inside of the loop we're able to ensure that the logical expression will
+eventually be equivalent to `false`, and therefore the loop will eventually end.
+
+If the logical expression is never equivalent to `false` then we've created an
+*infinite loop*, so the loop never ends and the program runs forever. Obviously we
+would like for our programs to end eventually, and therefore creating infinite
+loops is undesirable. However let's create an infinite loop so we know what to
+do if we get into a sitation where our program won't terminate. With a simple
+"typo" we can change the program above so that it runs forever but substituting
+the minus sign `-` with a plus sign `+` so that `count` is always greater than
+zero (and growing) after every iteration.
+
+```
+#!/usr/bin/env bash
+# File: foreverloop.sh
+
+count=3
+
+while [[ $count -gt 0 ]]
+do
+  echo "count is equal to $count"
+  let count=$count+1              # We only changed this line!
+done
+```
+
+```
+## ...
+## count is equal to 29026
+## count is equal to 29027
+## count is equal to 29028
+## count is equal to 29029
+## count is equal to 29030
+## ...
+```
+
+If the program is working, then `count` is being incremented very rapidly and
+you're watching number wiz by in your terminal! Don't fret, you can terminate
+any program that's stuck in an infinite loop using `Control` + `C`. Use
+`Control` + `C` to get the prompt back so that we can continue.
+
+When constructing WHILE loops, make absolutely sure that you've structured the
+program so that the loop will terminate! If the logical expression after `while`
+never becomes `false` then the program will run forever, which is probably not
+the kind of behavior you were planning for your program.
+
+### Nesting
+
+Just like IF statements `for` and `while` loops can be nested within each other.
+In the example below a FOR loop is nested inside of another FOR loop.
+
+```
+#!/usr/bin/env bash
+# File: nestedloops.sh
+
+for number in {1..3}
+do
+  for letter in a b
+  do
+    echo "number is $number, letter is $letter"
+  done
+done
+```
+
+Based on what we know about FOR loops try to predict what this program will
+print out before we run the program. Now that you've written down or typed out
+your prediction let's run it.
+
+
+```bash
+bash nestedloops.sh
+```
+
+```
+## number is 1, letter is a
+## number is 1, letter is b
+## number is 2, letter is a
+## number is 2, letter is b
+## number is 3, letter is a
+## number is 3, letter is b
+```
+
+Let's closely examine what's going on here. The outer most FOR loop starts
+iterating through the sequence generated by `{1..3}`. On the first pass through
+the loop, the inner loop iterates through the sequence `a b` which first prints
+`number is 1, letter is a` followed by `number is 1, letter is b`. The first
+iteration of the outer loop is then finished and the whole process starts over
+with `number` having a value of 2. This process continues going through the
+inner loop until the sequence for the outer loop is exhausted. I again strongly
+encourage you to pause for a moment and write some of your own nested loops
+based on the code above. Try to predict what your nested loop program will print
+before you run your program. If the printed result does not match your
+prediction trace your way through the program and try to figure out why. Don't
+just limit yourself to nested FOR loops, use nested WHILE loops, or FOR and
+WHILE loops in nested combinations.
+
+Besides nesting loops within each other you can also nest loops within IF
+statements and IF statemnets within loops. Let's take a look at an example:
+
+```
+#!/usr/bin/env bash
+# File: ifloop.sh
+
+for number in {1..10}
+do
+  if [[ $number -lt 3 ]] || [[ $number -gt 8 ]]
+  then
+    echo $number
+  fi
+done
+```
+
+Before we run this example try once more to guess what the output will be.
+
+
+```bash
+bash ifloop.sh
+```
+
+```
+## 1
+## 2
+## 9
+## 10
+```
+
+For each iteration of the loop above, the value of `number` was checked in the
+IF statement, and the `echo` command was only run if `number` was outside the
+range from 3 to 8.
+
+There are endless combinations for nesting IF statements and loops, but one good
+rule of thumb you should remember is that your nesting should never go more than
+two or possibly three layers deep. If you find yourself writing code with lots
+of nesting, you should consider restructuring your program. Deeply nested code
+is difficult to read and even more difficult to debug if your program contains
+mistakes.
+
+### Summary
+
+### Exercises
+
+ Enter the `yes` command into the console, then stop the program from running.
+ Take a look at the `man` page for `yes` to learn more about the program.
 
 ## Functions
 

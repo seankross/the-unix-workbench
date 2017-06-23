@@ -8,7 +8,7 @@ output:
    includes:
      in_header: style.css
 documentclass: book
-cover-image: "img/cover.png"
+cover-image: "images/cover.png"
 bibliography: [book.bib]
 biblio-style: apalike
 link-citations: yes
@@ -19,11 +19,11 @@ description: ""
 
 # Title Page {-}
 
-<img src="img/cover.png" width="350" height="560" alt="Cover image" />
+<img src="images/cover.png" width="350" height="560" alt="Cover image" />
 
 Cover Image: *A Goldsmith in his Shop* by Petrus Christus
 
-[![CC0](img/cc0.png)](https://creativecommons.org/publicdomain/zero/1.0/)
+[![CC0](images/cc0.png)](https://creativecommons.org/publicdomain/zero/1.0/)
 
 This work by [Sean Kross](http://seankross.com) is licensed 
 [CC0](https://creativecommons.org/publicdomain/zero/1.0/). Zero rights reserved.
@@ -36,7 +36,6 @@ In memory of Toby Kross.
 
 Thank you to Jeff Leek, Roger Peng, and Brian Caffo for your advice and support.
 Also thank you to Jon Calder and Elissa Redmiles for your edits and suggestions.
-
 
 # Introduction {-}
 

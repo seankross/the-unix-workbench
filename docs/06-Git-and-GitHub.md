@@ -1129,12 +1129,12 @@ should see a plus-sign near the top-right corner of your web browser. Click the
 plus-sign and a little menu should appear, then click "New repository." You
 should now see a screen that looks like this:
 
-![](img/new-repo.png)
+![](images/new-repo.png)
 
 In the text box under **Repository name** type `my-first-repo` and then click
 the green **Create repository** button. Now you should see a page like this:
 
-![](img/quick-setup.png)
+![](images/quick-setup.png)
 GitHub offers a few suggestions about what to do with our new remote repository.
 We've already been using a local Git repository, and what GitHub provides is a
 **remote** Git repository. A remote Git repository is just a Git repository
@@ -1206,7 +1206,7 @@ GitHub, and it set up the `master` branch of the `origin` remote repository as
 the default remote repository. Looking back at the web page for your repository
 on GitHub, it should look something like this:
 
-![](img/first-push.png)
+![](images/first-push.png)
 
 One neat feature of GitHub is that readme files are rendered on the repository
 page so you can write documents which explain the contents of your repository.
@@ -1294,7 +1294,7 @@ now simply enter `git push` in order to send our latest commits to the `master`
 branch on the `origin` remote. Now the page on GitHub for your repository should
 look something like this:
 
-![](img/md-readme.png)
+![](images/md-readme.png)
 
 We've got a much more complex readme file! Notice how the plain text that we
 wrote has been rendered according to a few rules:
@@ -1462,7 +1462,7 @@ Now let's go back to the GitHub page for our repository. On the left side of the
 page you should see a button that says "Branch: master." Click on that button
 and a little drop-down menu should appear, as you can see below:
 
-![](img/branch-button.png)
+![](images/branch-button.png)
 
 Click "update-readme" in the menu in order to view the files in that branch. You
 should see that the `README.md` files are different! You can switch back and
@@ -1474,7 +1474,7 @@ start the pull request click the "New pull request" button next to the branch
 button (see the upper left corner of the image above). That button should take
 you to a page like this:
 
-![](img/create-pr.png)
+![](images/create-pr.png)
 
 There are a few important details on this page, so let's go through them. First
 under the "Open a pull request" heading you can see the names of two branches.
@@ -1493,7 +1493,7 @@ branch compared to the "base" branch. When you've finished going over these
 changes click the green "Create pull request" button in order to open the pull
 request. You should now see a screen like this:
 
-![](img/opened-pr.png)
+![](images/opened-pr.png)
 
 Congratulations on opening your first pull request! Let's take a look at what's
 happening on this page. Below the title of the pull request we can see three
@@ -1576,14 +1576,14 @@ top. Scroll down the page until you see a box that says **GitHub Pages**. Then
 click on the drop-down menu that says **None**. You should see a screen like
 this:
 
-![](img/select-pages.png)
+![](images/select-pages.png)
 
 Click *master branch* and then click *Save*. Now go to the website
 [your-github-username].github.io/my-first-repo (in my case the address is
 [seankross.github.io/my-first-repo](http://seankross.github.io/my-first-repo))
 and you should see your very own website!
 
-![](img/my-website.png)
+![](images/my-website.png)
 
 How cool is that!? If you want to change your new website all you need to do
 is edit your `README.md` then commit and push the changes! Websites like these
@@ -1624,7 +1624,7 @@ of my repository now. On the right side of the repository page you should see
 a green button that says **Clone or download**. Click that button and the
 following menu should appear:
 
-![](img/clone-wb.png)
+![](images/clone-wb.png)
 
 Click on the little clipboard icon which will copy the Git URL. Now go back to
 the terminal and change your working directory to your home directory.

@@ -7,7 +7,7 @@
 Once you have opened up Terminal then you should see a window that 
 looks something like this:
 
-![](img/shell1.png)
+![](images/shell1.png)
 
 What you're looking at is the bash shell! Your shell will surely look different 
 than mine, but all bash shells have the same essential parts. As you can see in
@@ -17,7 +17,7 @@ there to let you know that the shell is ready for you to type in a command.
 Press `Enter` on your keyboard a few times to see what happens with the prompt.
 Your shell should now look like this:
 
-![](img/shell2.png)
+![](images/shell2.png)
 
 If you don't type anything after the prompt and you press enter then nothing
 happens and you get a new prompt under the old prompt. The white rectangle 
@@ -92,17 +92,17 @@ directories and these terms are interchangeable. This directory hierarchy forms
 a tree, like the diagram below. You can use the command line to navigate these
 trees on your computer.
 
-![](img/musictree1.png)
+![](images/musictree1.png)
 
 As you can see in the image below, my Debussy directory is contained in my Music 
 directory. This is the simplest case of how directories are structured.
 
-![](img/musictree2.png)
+![](images/musictree2.png)
 
 The directory structure on most computers is much more complicated, but the 
 structure on your computer probably looks something like this:
 
-![](img/bigtree1.png)
+![](images/bigtree1.png)
 
 There are a few special directories that you should be aware of on your 
 computer. The directory at the top of this tree is called the root directory. 
@@ -117,7 +117,7 @@ directories from your root directory to the directory you're currently in. This
 sequence of directories is called a **path**. The diagram below illustrates the
 path from a hypothetical root directory to the home directory.
 
-![](img/redtree.png)
+![](images/redtree.png)
 
 This path can be written as `/Users/sean`.
 

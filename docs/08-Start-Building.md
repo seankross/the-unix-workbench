@@ -62,7 +62,7 @@ This book is released under a [CC0](https://creativecommons.org/publicdomain/zer
 license, meaning that it is dedicated to the public domain. If you think this
 book is worth paying for or you want to support the creation of more open source 
 educational materials then consider buying the book 
-on [Leanpub](https://leanpub.com/theunixworkbench) where you are free to pay 
+on [Leanpub](https://leanpub.com/unix) where you are free to pay 
 what you want, or send me a few dollars via [PayPal](https://www.paypal.me/seankross/5).
 
 If you use this book as part of a course or in any other setting please let me

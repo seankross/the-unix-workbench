@@ -1758,8 +1758,27 @@ Let's take a detailed look at some of the code files in our current working
 directory:
 
 ```{r, engine='bash', eval=FALSE}
-ls -l
+ls -l | head -n 3
 ```
+
+```
+## -rw-rw-r-- 1 sean sean 138 Jun 26 12:51 addseq.sh
+## -rw-rw-r-- 1 sean sean 146 Jun 26 14:45 addseq2.sh
+## -rw-rw-r-- 1 sean sean 140 Jan 29 10:06 bigmath.sh
+```
+
+The left column of this table contains a series of individual characters and
+dashes. The first hyphen (`-`) signifies that each of the entries in this list
+are files. If any of them were directories then instead of a hyphen there would
+be a `d`. Excluding the first hyphen we have the following string: `rw-rw-r--`.
+This string reflects the **permissions** that are set up for this file. There
+are three permissions that we can grant: the ability to **read** the file (`r`),
+**write** to or edit the file (`w`), or **execute** the file (`x`) as a program.
+These three permissions can be granted on three different levels of access which
+correspond to each of the three sets of `rwx` in the permissions string: the
+owner of the file, the group that the file belongs to, or everyone. Since you
+created the file you are the owner of the file, and you can set the permissions
+for files that you own using the `chmod` command.
 
 ### Evironmental Variables
 

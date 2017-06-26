@@ -1608,7 +1608,21 @@ By breaking down a large problem we were able to write a nice little function!
 
 ### Getting Values from Functions
 
-Let's `source` `addseq.sh` and run it one more time:
+Functions are used for two primary purposes: *computing values* and
+*side effects*. In the `addseq` command in the previous section we provide the
+command with a sequence of numbers and then the command provides us with the sum
+of the sequence which is a value that we're iterested in. In this case we can
+see that `addseq` has computed a value based on a few input values.
+Many other commads,
+like `pwd` for example, return a value without affecting the state of the file
+on our computer. There are however fuctions like `mv` or `cp` which move and
+copy files on our computer. A side effect occurs whenever a function creates or
+changes files on our computer. These commands don't print any value if they
+succeed.
+
+We'll often write functions in order to calculate some value, and it's important
+to understand how to store the result of a function in a variable so that it can
+be used later. Let's `source` `addseq.sh` and run it one more time:
 
 ```{r, engine='bash', eval=FALSE}
 source addseq.sh
@@ -1633,15 +1647,119 @@ echo $sum
 ## 10
 ```
 
-- when you write functions you often want the value from a function.
+This is an example of one strategy we can use to retrieve values that a function
+has calculated. Unfortunately this approach is problematic becuase it changes
+the values of variables that we might be using in our shell. For example if we
+were storing some other important value in a variable called `sum` we would
+destroy that value by accident by running `addseq`. In order to avoid this
+problem it's important that we use the `local` keyword when assigning variables
+within a function. The `local` keyword ensures that variables outside of our
+function are not overwitten by our function. Let's create a new version of
+`addseq` called `addseq2` which uses `local` when assigning variables.
 
-- introduce `local`
+```
+#!/usr/bin/env bash
+# File: addseq2.sh
+
+function addseq2 {
+  local sum=0
+
+  for element in $@
+  do
+    let sum=sum+$element
+  done
+
+  echo $sum
+}
+```
+
+Now let's `source` both files so we demonstrate how `local` helps us avoid
+overwriting variables.
+
+```{r, engine='bash', eval=FALSE}
+source addseq.sh
+source addseq2.sh
+sum=4444
+addseq 5 10 15 20
+echo $sum
+```
+
+```
+## 50
+## 50
+```
+
+Our original `addseq` overwrites the value we assigned to `sum`. Now let's try
+`addseq2`.
+
+```{r, engine='bash', eval=FALSE}
+sum=4444
+addseq2 5 10 15 20
+echo $sum
+```
+
+```
+## 50
+## 4444
+```
+
+By using `local` within our function the value of `sum` is preserved! In order
+to correctly capture the value of the result of `addseq2` we can use command
+substitution.
+
+```{r, engine='bash', eval=FALSE}
+my_sum=$(addseq2 5 10 15 20)
+echo $my_sum
+```
+
+```
+## 50
+```
 
 ### Summary
 
 ### Exercises
 
 ## Writing Programs
+
+### The Unix Philosophy
+
+Perhaps there are some design patters that you've been noticing since we started
+talking about Unix tools, and now we're going to discuss them explicitly. Unix
+tools were designed along a set of guidelines which are best summarized by
+[Ken Thompson](https://en.wikipedia.org/wiki/Ken_Thompson)'s idea that each Unix
+program should **do one thing well**. Following this rule when writing functions
+and programs accomplished several goals:
+
+- Limiting a program to only doing one thing reduces the length of the program,
+and the shorter a program is the easier it is to fix if it contains bugs or if
+it needs to be revised. 
+- Writing short programs also helps the users of your code
+understand what's going on in your code in the evet that they need to read your
+code. Reading a poem induces a different cognitive load compared to reading a
+novel.
+- Folks who don't read the source code of your program (most users won't -
+they shouldn't have to) will be able to understand the inputs, outputs, and side
+effects of your program more easily.
+- Using small programs to write a new program will increase the likelihood that
+the new program will also be small. **Composability** is the concept of 
+stringing small programs together to create a new program.
+
+The concept of composability in Unix is best illustrated by the use of the pipe
+operator (`|`) for creating pipelines of programs.
+When you're considering what inputs your program is going to have and what your
+program is going to print to the console you should consider whether or not your
+program might be used in a pipeline, and you should organize your program
+accordingly.
+
+### `chmod`
+
+Let's take a detailed look at some of the code files in our current working
+directory:
+
+```{r, engine='bash', eval=FALSE}
+ls -l
+```
 
 ### Evironmental Variables
 

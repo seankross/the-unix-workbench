@@ -1299,7 +1299,7 @@ echo {Who,What,Why,When,How}?
 
 ## Loops
 
-### FOR
+### `for`
 
 Loops are one of the most important programming structures in the Bash language.
 All of the programs we've written so far are executed from the first line of the
@@ -1436,7 +1436,7 @@ ways that we've gone over, just to reinforce your understanding of how a FOR
 loop works. Loops and conditional statements are two of the most important
 structures that we have at our disposal as programmers.
 
-### WHILE
+### `while`
 
 Now that we've gotten a few FOR loops working let's move on to WHILE loops. The
 **WHILE loop** is truly the [Reese's Peanut Butter Cup](https://youtu.be/O7oD_oX-Gio)
@@ -1620,14 +1620,442 @@ mistakes.
 
 ### Summary
 
+- Loops allows you repeat sections of your program.
+- FOR loops iterate through a sequence so that a variable that you assign
+takes on the value of every element of the sequence in every iteration of the
+loop.
+- WHILE loops check a conditional statement at the beginning of every iteration.
+If the condition is equivalent to `true` then one iteration of the loop is
+executed and then the conditional statement is checked again. Otherwise the
+loop ends.
+- IF statements and loops can be nested in order to make more powerful
+programming structures.
+
 ### Exercises
 
- Enter the `yes` command into the console, then stop the program from running.
- Take a look at the `man` page for `yes` to learn more about the program.
+- Write serval programs with three levels of nesting and include FOR loops,
+WHILE loops, and IF statements. Before you run your program try to predict what
+your program is going to print. If the result is different from your prediction
+try to figure out why.
+- Enter the `yes` command into the console, then stop the program from running.
+Take a look at the `man` page for `yes` to learn more about the program.
 
 ## Functions
 
+### Writing Functions
+
+A function is a small piece of code that has a name. Writing functions allows
+us to re-use the same code multiple times across programs. Functions have the
+the following sytax:
+
+```
+function [name of function] {
+  # code here
+}
+```
+
+Pretty simple, right? Let's open up a new file called `hello.sh` so we can write
+our first simple function.
+
+```
+#!/usr/bin/env bash
+# File: hello.sh
+
+function hello {
+  echo "Hello"
+}
+
+hello
+hello
+hello
+```
+
+The entire structure of the function including the `function` keyword,the name
+of the function, and the code for the function written inside of the brackets
+serves as the **function definition**. The function definition assigns the code
+within the function to the name of the function (`hello` in this case). After a
+function is defined it can be used like any other command. Using our `hello`
+command three times should be the equivalent of using `echo "Hello"` three
+times. Let's run this script to find out:
+
+
+```bash
+bash hello.sh
+```
+
+```
+## Hello
+## Hello
+## Hello
+```
+
+It looks like this function works exactly like we expected.
+
+Functions share lots of their behavior with individual bash scripts including
+how they handle arguments. The usual bash script arguments like `$1`, `$2`, and
+`$@` all work within a function, which allows you to specify function arguments.
+Let's create a slightly modified version of `hello.sh` which we'll call
+`ntmy.sh`:
+
+```
+#!/usr/bin/env bash
+# File: ntmy.sh
+
+function ntmy {
+  echo "Nice to meet you $1"
+}
+```
+
+In the file above notice that we're not using the `ntmy` function after we've
+defined it. That's because we're going to start using the functions that we
+define as command line programs. So far in this chapter we've been using the
+sytax of `bash [name of script]` in order to execute the contents of a script.
+Now we're going to start using the `source` command, which allows us to use
+function definitions in bash scripts as command line commands. Let's use
+`source` with this file so that we can then use the `ntmy` command:
+
+
+```bash
+source ntmy.sh
+ntmy Jeff
+ntmy Philip
+ntmy Jenny
+```
+
+```
+## Nice to meet you Jeff
+## Nice to meet you Philip
+## Nice to meet you Jenny
+```
+
+And just like that you've created your very own command! Once you close your
+current shell you'll lose access to the `ntmy` command, but in the next section
+we'll discuss how to set up your own commands so that you always have access to
+them.
+
+Let's write a more complicated function. Imagine that we wanted to add up
+a sequence of numbers from the command line, but we had no way of knowing how
+many numbers would be in the sequence. What components would we need to write
+this function? First we would need a way to capture a list of arguments which
+can have variable length, second we would need a way to iterate through that
+list so we could add up each element, and we would need a way to store the
+cumulative sum of the sequence. These three requirements can be satisfied by
+using the `$@` variable, a FOR loop, and variable where we can store the sum.
+It's important to break down a larger goal into a series of inidividual
+components before writing a program, that way we more easily can indentify which
+features and tools will be required. Let's write this program in a file called
+`addseq.sh`.
+
+```
+#!/usr/bin/env bash
+# File: addseq.sh
+
+function addseq {
+  sum=0
+
+  for element in $@
+  do
+    let sum=sum+$element
+  done
+
+  echo $sum
+}
+```
+
+In the program above we initialize the `sum` variable to be 0 so that we can
+add other values in the sequence to `sum`. We then use a FOR loop to iterate
+through every element of `$@`, which is an array of all the arguments we provide
+to `addseq`. Finally we `echo` the value of `sum`. Let's `source` this program
+and test it out:
+
+
+```bash
+source addseq.sh
+addseq 12 90 3
+addseq 0 1 1 2 3 5 8 13
+addseq
+addseq 4 6 6 6 4
+```
+
+```
+## 105
+## 33
+## 0
+## 26
+```
+
+By breaking down a large problem we were able to write a nice little function!
+
+### Getting Values from Functions
+
+Functions are used for two primary purposes: *computing values* and
+*side effects*. In the `addseq` command in the previous section we provide the
+command with a sequence of numbers and then the command provides us with the sum
+of the sequence which is a value that we're iterested in. In this case we can
+see that `addseq` has computed a value based on a few input values.
+Many other commads,
+like `pwd` for example, return a value without affecting the state of the file
+on our computer. There are however fuctions like `mv` or `cp` which move and
+copy files on our computer. A side effect occurs whenever a function creates or
+changes files on our computer. These commands don't print any value if they
+succeed.
+
+We'll often write functions in order to calculate some value, and it's important
+to understand how to store the result of a function in a variable so that it can
+be used later. Let's `source` `addseq.sh` and run it one more time:
+
+
+```bash
+source addseq.sh
+addseq 3 0 0 7
+```
+
+```
+## 10
+```
+
+If we look back at the code for `addseq.sh` we can see that we created a
+variable in the function called `sum`. When you create variables in functions
+those variables become **globally accessible**, meaning that even after the
+program is finshed that variable retains its value in your shell. We can easily
+verify this by `echo`ing the value of `sum`:
+
+
+```bash
+echo $sum
+```
+
+```
+## 10
+```
+
+This is an example of one strategy we can use to retrieve values that a function
+has calculated. Unfortunately this approach is problematic becuase it changes
+the values of variables that we might be using in our shell. For example if we
+were storing some other important value in a variable called `sum` we would
+destroy that value by accident by running `addseq`. In order to avoid this
+problem it's important that we use the `local` keyword when assigning variables
+within a function. The `local` keyword ensures that variables outside of our
+function are not overwitten by our function. Let's create a new version of
+`addseq` called `addseq2` which uses `local` when assigning variables.
+
+```
+#!/usr/bin/env bash
+# File: addseq2.sh
+
+function addseq2 {
+  local sum=0
+
+  for element in $@
+  do
+    let sum=sum+$element
+  done
+
+  echo $sum
+}
+```
+
+Now let's `source` both files so we demonstrate how `local` helps us avoid
+overwriting variables.
+
+
+```bash
+source addseq.sh
+source addseq2.sh
+sum=4444
+addseq 5 10 15 20
+echo $sum
+```
+
+```
+## 50
+## 50
+```
+
+Our original `addseq` overwrites the value we assigned to `sum`. Now let's try
+`addseq2`.
+
+
+```bash
+sum=4444
+addseq2 5 10 15 20
+echo $sum
+```
+
+```
+## 50
+## 4444
+```
+
+By using `local` within our function the value of `sum` is preserved! In order
+to correctly capture the value of the result of `addseq2` we can use command
+substitution.
+
+
+```bash
+my_sum=$(addseq2 5 10 15 20)
+echo $my_sum
+```
+
+```
+## 50
+```
+
+### Summary
+
+- Functions start with the `function` keyword followed by the name of the
+function and curly brackets (`{}`).
+- Functions are small, reusable pieces of code that behave just like commands.
+- You can use variables like `$1`, `$2`, and `$@` in order to provide arguments
+to functions, just like a Bash script.
+- Use the `source` command in order to read in a Bash script with function
+definitions so that you can use your functions in your shell.
+- Use the `local` keyword to prevent your function from creating or modifying
+global variables.
+- Be sure to `echo` thr results of your function (if there are any) so that 
+they can be captured with command substitution.
+
+### Exercises
+
+Below this list of exercises you can find examples of how these programs should
+work when used on the command line.
+
+1. Write a function called `plier` which multiplies together a sequence of
+numbers.
+2. Write a function called `isiteven` that prints `1` if a number is even or
+`0` a number is not even.
+3. Write a function called `nevens` which prints the number of even numbers when
+provided with a sequence of numbers. Use `isiteven` when writing this function.
+4. Write a function called `howodd` which prints the percentage of odd numbers
+in a sequence of numbers. Use `nevens` when writing this function.
+5. Write a function called `fib` which prints the number of
+[fibonacci](https://en.wikipedia.org/wiki/Fibonacci_number) numbers specified.
+
+
+```bash
+plier 7 2 3
+```
+
+```
+## 42
+```
+
+
+```bash
+isiteven 42
+```
+
+```
+## 1
+```
+
+
+```bash
+nevens 42 6 7 9 33
+```
+
+```
+## 2
+```
+
+
+```bash
+howodd 42 6 7 9 33
+```
+
+```
+## .40
+```
+
+
+```bash
+howodd 42 6 7 9 33
+```
+
+```
+## .40
+```
+
+
+```bash
+fib 4
+```
+
+```
+## 0 1 1 2
+```
+
+
+```bash
+fib 10
+```
+
+```
+## 0 1 1 2 3 5 8 13 21 34
+```
+
 ## Writing Programs
+
+### The Unix Philosophy
+
+Perhaps there are some design patters that you've been noticing since we started
+talking about Unix tools, and now we're going to discuss them explicitly. Unix
+tools were designed along a set of guidelines which are best summarized by
+[Ken Thompson](https://en.wikipedia.org/wiki/Ken_Thompson)'s idea that each Unix
+program should **do one thing well**. Following this rule when writing functions
+and programs accomplished several goals:
+
+- Limiting a program to only doing one thing reduces the length of the program,
+and the shorter a program is the easier it is to fix if it contains bugs or if
+it needs to be revised. 
+- Writing short programs also helps the users of your code
+understand what's going on in your code in the evet that they need to read your
+code. Reading a poem induces a different cognitive load compared to reading a
+novel.
+- Folks who don't read the source code of your program (most users won't -
+they shouldn't have to) will be able to understand the inputs, outputs, and side
+effects of your program more easily.
+- Using small programs to write a new program will increase the likelihood that
+the new program will also be small. **Composability** is the concept of 
+stringing small programs together to create a new program.
+
+The concept of composability in Unix is best illustrated by the use of the pipe
+operator (`|`) for creating pipelines of programs.
+When you're considering what inputs your program is going to have and what your
+program is going to print to the console you should consider whether or not your
+program might be used in a pipeline, and you should organize your program
+accordingly.
+
+- A WORD ON NO MESSAGE WHEN SIDE EFFECT SUCCEEDS
+
+### `chmod`
+
+Let's take a detailed look at some of the code files in our current working
+directory:
+
+
+```bash
+ls -l | head -n 3
+```
+
+```
+## -rw-rw-r-- 1 sean sean 138 Jun 26 12:51 addseq.sh
+## -rw-rw-r-- 1 sean sean 146 Jun 26 14:45 addseq2.sh
+## -rw-rw-r-- 1 sean sean 140 Jan 29 10:06 bigmath.sh
+```
+
+The left column of this table contains a series of individual characters and
+dashes. The first hyphen (`-`) signifies that each of the entries in this list
+are files. If any of them were directories then instead of a hyphen there would
+be a `d`. Excluding the first hyphen we have the following string: `rw-rw-r--`.
+This string reflects the **permissions** that are set up for this file. There
+are three permissions that we can grant: the ability to **read** the file (`r`),
+**write** to or edit the file (`w`), or **execute** the file (`x`) as a program.
+These three permissions can be granted on three different levels of access which
+correspond to each of the three sets of `rwx` in the permissions string: the
+owner of the file, the group that the file belongs to, or everyone. Since you
+created the file you are the owner of the file, and you can set the permissions
+for files that you own using the `chmod` command.
 
 ### Evironmental Variables
 
@@ -1637,6 +2065,7 @@ computing environment.
 
 PATH, HOME, 
 
+### Summary
 
 ### Exercises
 

@@ -1969,15 +1969,6 @@ howodd 42 6 7 9 33
 
 
 ```bash
-howodd 42 6 7 9 33
-```
-
-```
-## .40
-```
-
-
-```bash
 fib 4
 ```
 
@@ -2026,9 +2017,16 @@ program is going to print to the console you should consider whether or not your
 program might be used in a pipeline, and you should organize your program
 accordingly.
 
-- A WORD ON NO MESSAGE WHEN SIDE EFFECT SUCCEEDS
+In the previous section we discussed the difference between functions that 
+compute values and functions that produce side effects. You should notice that
+the side effect functions like `mv` and `cp` do not print any text to the
+console if they are successful. The concept of *quietness* is another important
+part of the Unix philosophy. Quietness in this case means that a function should
+not print to the console unless it is necessary, either to inform the user of a
+value (`pwd`), to display the result of a computation (`bc`), or to warn the
+user that an error has occurred.
 
-### `chmod`
+### Making Programs Executable
 
 Let's take a detailed look at some of the code files in our current working
 directory:
@@ -2053,11 +2051,116 @@ are three permissions that we can grant: the ability to **read** the file (`r`),
 **write** to or edit the file (`w`), or **execute** the file (`x`) as a program.
 These three permissions can be granted on three different levels of access which
 correspond to each of the three sets of `rwx` in the permissions string: the
-owner of the file, the group that the file belongs to, or everyone. Since you
+owner of the file, the group that the file belongs to, and everyone other than
+the owner and the members of a group. Since you
 created the file you are the owner of the file, and you can set the permissions
-for files that you own using the `chmod` command.
+for files that you own using the `chmod` command. 
+
+The `chmod` command takes two arguments. The first argument is a string which
+specifies how we're going to change permissions for a file, and the second
+argument is the path to the file. The first argument has to be composed in a
+very specific way. First we can specify which set of users we're going to change
+permissions for:
+
+|Character  |Meaning |
+|:----------|:-------|
+|`u` |The owner of the file |
+|`g` |The group that the file belongs to |
+|`o` |Everyone else  |
+|`a` |Everyone above |
+
+We then need to specify whether we're going to add, remove, or set the
+permission:
+
+|Character  |Meaning |
+|:----------|:-------|
+|`+` |Add permission |
+|`-` |Remove permission |
+|`=` |Set permission  |
+
+Finally we specify what permission we're changing:
+
+|Character  |Meaning |
+|:----------|:-------|
+|`r` |Read a file |
+|`w` |Write to or edit a file |
+|`x` |Execute a file  |
+
+Let's use `echo` to write a very short program which we'll call `short`.
+
+
+```bash
+echo 'echo "a small program"' > short
+```
+
+Normally if we wanted to run `short` we would enter `bash short` into the
+console. If we make this file executable we would only need to enter `short`
+into the command line to run the program, just like a command!
+Let's take a look at the permissions for `short`.
+
+
+```bash
+ls -l short
+```
+
+```
+## -rw-r--r--  1 sean  staff  23 Jun 28 09:47 short
+```
+
+We want to make this file executable and we're the owner of this file since we
+created it. This means we can combine `u`, `+`, and `x` in order make `short`
+executable. Let's try it:
+
+
+```bash
+chmod u+x short
+ls -l short
+```
+
+```
+## -rwxr--r--  1 sean  staff  23 Jun 28 09:47 short
+```
+
+We successfully added the `x`! To run an executable file we need to specify the
+path to the file, even if the path is in the current directory, meaning we need
+to prepend `./` to `short`. Now let's try running the program.
+
+
+```bash
+./short
+```
+
+```
+## a small program
+```
+
+Looks like it works! There is one small detail we should add to this program
+though. Even though we've made our file executable, if we give our program to
+somebody else they might be using a shell that doesn't know how to execute our
+program. We need to indicate how the program should be run by adding
+a special line of text to the beginning of our program called a **shebang**.
+The shebang always begins with `#!` followed by the path to the program which
+will execute the code in our file. The shebang for indicating that we want to
+use Bash is `#!/usr/bin/env bash`, which we've been adding to the start of our
+scripts for a while now! Let's rewrite this program to include the Bash shebang
+and then let's run the program.
+
+
+```bash
+echo '#!/usr/bin/env bash' > short
+echo 'echo "a small program"' >> short
+```
+
+```
+## a small program
+```
+
+Now our Bash script is ready to go!
 
 ### Evironmental Variables
+
+We're one step away from being able to use our scripts and functions as shell
+commands
 
 
 An environmental variable is a place where bash stores data about your current
@@ -2069,51 +2172,22 @@ PATH, HOME,
 
 ### Exercises
 
-Write a program that takes one number as an argument and prints
-"the number is even" if the number is even, "the number is odd" if the number
-is odd, and "the number is less than 1" if the number is less than 1.
+1. Write a program that takes one number as an argument and prints all of the
+numbers between that num
+
+2. Write a program called `extremes` which prints the maximum and minimum values of
+a sequence of numbers.
 
 
 ```bash
-evenodd 6
+extremes 8 2 9 4 0 3
 ```
 
 ```
-## the number is even
+## 0 9
 ```
 
 
-```bash
-evenodd 19
-```
-
-```
-## the number is odd
-```
-
-
-```bash
-evenodd 0
-```
-
-```
-## the number is less than 1
-```
-
-Write a program that takes many numbers as arguments and prints the largest
-number. Add a flag to specify whether it prints the minimum or maximum number.
-
-
-```bash
-findn -max 8 2 9 4 0 3
-```
-
-```
-## 9
-```
-
-Write a program that takes one number as an argument and prints all of the
-numbers
 
 
 

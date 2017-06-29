@@ -17,5 +17,5 @@ Bash on Ubuntu on Windows. You can find the installation guide from Microsoft
 If you don't have the latest version of Windows 10 you should download 
 [VirtualBox](https://www.virtualbox.org/) and then set up the latest version of
 Ubuntu with VirtualBox. Instructions for doing this tend to change slightly
-over time, so I suggest using Google to search for "how to install Ubunutu on
+over time, so I suggest using Google to search for "how to install Ubuntu on
 Windows with VirtualBox" and then you can follow the instructions that you find.

@@ -6,11 +6,11 @@ The last two chapters have discussed how to use the bash shell. Bash itself is a
 little programming language, and this chapter we're going to discuss how you can
 write your own computer programs in Bash. Programming in Bash is useful to know
 because of how seamlessly it integrates with all of the command line programs
-you've already learned. By the end of this chapter you should be able to write 
+you've already learned. By the end of this chapter you should be able to write
 your own command line tools!
 
 You can use `nano` to write all of the programs we're going to discuss in this
-chapter, however I recommend using the [Atom](https://atom.io/) text editor 
+chapter, however I recommend using the [Atom](https://atom.io/) text editor
 because it's more user friendly.
 
 Now let's create a new file called `math.sh` in the `~/Code/` directory
@@ -38,7 +38,7 @@ is a little different from typing an email, and you should practice typing the
 code out yourself as much as possible. Both of these lines start with the pound
 symbol (`#`) and in the Bash programming language anything that is typed after
 a pound symbol is ignored (unless the pound symbol is between curly brackets
-(`{ }`), but that's only in very specific situations). The pound symbol allows 
+(`{ }`), but that's only in very specific situations). The pound symbol allows
 you to make **comments** in
 your code which you can use to annotate code so that another human being who is
 reading your code can understand how your program is designed to function.
@@ -345,8 +345,8 @@ bash vars.sh red blue green
 Your script can accept arguments just like a command line program! The first
 argument to your script is stored in `$1`, the second argument is stored in
 `$2`, etc, etc. An array of all of the arguments passed to your script is stored
-in `$@`, and we'll discuss how to handle arrays later on in this chapter. The 
-total number of arguments passed to your script is stored in `$#`. Now that you 
+in `$@`, and we'll discuss how to handle arrays later on in this chapter. The
+total number of arguments passed to your script is stored in `$#`. Now that you
 know how to pass arguments to your scripts you can start writing your own command
 line tools!
 
@@ -399,7 +399,7 @@ bash letsread.sh
 
 ```
 ## Type in a string and then press Enter:
-## 
+##
 ```
 
 Let's type `Hello!` into the console, then press enter:
@@ -484,7 +484,7 @@ echo $?
 
 ```
 ## I will succeed.
-## 0 
+## 0
 ```
 
 So the exit status of a successful program is 0. Now let's take a look at the
@@ -652,8 +652,8 @@ echo $?
 ## 1
 ```
 
-Ah-ha! Obviously 3 is not greater than 4, so this false logical expression 
-resulted in an exit status of 1, which is the same exit status as `false`! 
+Ah-ha! Obviously 3 is not greater than 4, so this false logical expression
+resulted in an exit status of 1, which is the same exit status as `false`!
 Because they have the same exit status `[[ 3 -gt 4 ]]` and `false` are
 essentially equivalent. To quickly test the logical value of a conditional
 expression, we can use the AND and OR operators so that an expression will
@@ -1345,14 +1345,14 @@ inside of the loop that corresponds to an element in the sequence you provide
 after `in`, starting with the first element of the sequence, followed by every
 subsequent element. Valid sequences include brace expansions, explicit lists of strings,
 arrays, and command substitutions. In this instance we're using the brace
-expansion `{1..3}` which we know expands to the string `"1 2 3"`. The code 
+expansion `{1..3}` which we know expands to the string `"1 2 3"`. The code
 executed in each iteration of the loop is written
 between `do` and `done`. In the first iteration of the loop, the variable `$i`
 contains the value 1. The string `"i is equal to 1"` is printed to the console.
 There are more elements in the brace expansion after 1, so after
-reaching `done` the first time, the program starts executing back at the 
-`do` statement. The second time through the loop variable `$i` contains the 
-value 2. The string 
+reaching `done` the first time, the program starts executing back at the
+`do` statement. The second time through the loop variable `$i` contains the
+value 2. The string
 `"i is equal to 2"` is printed to the console, then the loop goes back to the
 `do` statement since there are still elements left in the sequence. The `$i`
 variable is now equal to 3, so `"i is equal to 3"` is printed to the console.
@@ -1406,12 +1406,12 @@ bash manyloops.sh
 ## picture is equal to img001.jpg
 ## picture is equal to img002.jpg
 ## picture is equal to img451.jpg
-## 
+##
 ## Array:
 ## Current stooge: curly
 ## Current stooge: larry
 ## Current stooge: moe
-## 
+##
 ## Command substitution:
 ## bigmath.sh is a bash script
 ## condexif.sh is a bash script
@@ -1481,7 +1481,7 @@ re-checked to see if it's still equivalent to `true`. After three iterations
 through the loop `count` is equal to 0 since 1 is subtracted from `count` in
 every iteration. Therefore
 the logical expression `[[ $count -gt 0 ]]` is no longer equal to `true` and
-the loop ends. By changing the value of the variable in the logical expression 
+the loop ends. By changing the value of the variable in the logical expression
 inside of the loop we're able to ensure that the logical expression will
 eventually be equivalent to `false`, and therefore the loop will eventually end.
 
@@ -1489,7 +1489,7 @@ If the logical expression is never equivalent to `false` then we've created an
 *infinite loop*, so the loop never ends and the program runs forever. Obviously we
 would like for our programs to end eventually, and therefore creating infinite
 loops is undesirable. However let's create an infinite loop so we know what to
-do if we get into a sitation where our program won't terminate. With a simple
+do if we get into a situation where our program won't terminate. With a simple
 "typo" we can change the program above so that it runs forever but substituting
 the minus sign `-` with a plus sign `+` so that `count` is always greater than
 zero (and growing) after every iteration.
@@ -1578,7 +1578,7 @@ just limit yourself to nested FOR loops, use nested WHILE loops, or FOR and
 WHILE loops in nested combinations.
 
 Besides nesting loops within each other you can also nest loops within IF
-statements and IF statemnets within loops. Let's take a look at an example:
+statements and IF statements within loops. Let's take a look at an example:
 
 ```
 #!/usr/bin/env bash
@@ -1646,7 +1646,7 @@ Take a look at the `man` page for `yes` to learn more about the program.
 
 A function is a small piece of code that has a name. Writing functions allows
 us to re-use the same code multiple times across programs. Functions have the
-the following sytax:
+the following syntax:
 
 ```
 function [name of function] {
@@ -1670,7 +1670,7 @@ hello
 hello
 ```
 
-The entire structure of the function including the `function` keyword,the name
+The entire structure of the function including the `function` keyword, the name
 of the function, and the code for the function written inside of the brackets
 serves as the **function definition**. The function definition assigns the code
 within the function to the name of the function (`hello` in this case). After a
@@ -1709,7 +1709,7 @@ function ntmy {
 In the file above notice that we're not using the `ntmy` function after we've
 defined it. That's because we're going to start using the functions that we
 define as command line programs. So far in this chapter we've been using the
-sytax of `bash [name of script]` in order to execute the contents of a script.
+syntax of `bash [name of script]` in order to execute the contents of a script.
 Now we're going to start using the `source` command, which allows us to use
 function definitions in bash scripts as command line commands. Let's use
 `source` with this file so that we can then use the `ntmy` command:
@@ -1741,8 +1741,8 @@ can have variable length, second we would need a way to iterate through that
 list so we could add up each element, and we would need a way to store the
 cumulative sum of the sequence. These three requirements can be satisfied by
 using the `$@` variable, a FOR loop, and variable where we can store the sum.
-It's important to break down a larger goal into a series of inidividual
-components before writing a program, that way we more easily can indentify which
+It's important to break down a larger goal into a series of individual
+components before writing a program, that way we more easily can identify which
 features and tools will be required. Let's write this program in a file called
 `addseq.sh`.
 
@@ -1791,11 +1791,11 @@ By breaking down a large problem we were able to write a nice little function!
 Functions are used for two primary purposes: *computing values* and
 *side effects*. In the `addseq` command in the previous section we provide the
 command with a sequence of numbers and then the command provides us with the sum
-of the sequence which is a value that we're iterested in. In this case we can
+of the sequence which is a value that we're interested in. In this case we can
 see that `addseq` has computed a value based on a few input values.
-Many other commads,
+Many other commands,
 like `pwd` for example, return a value without affecting the state of the file
-on our computer. There are however fuctions like `mv` or `cp` which move and
+on our computer. There are however functions like `mv` or `cp` which move and
 copy files on our computer. A side effect occurs whenever a function creates or
 changes files on our computer. These commands don't print any value if they
 succeed.
@@ -1817,7 +1817,7 @@ addseq 3 0 0 7
 If we look back at the code for `addseq.sh` we can see that we created a
 variable in the function called `sum`. When you create variables in functions
 those variables become **globally accessible**, meaning that even after the
-program is finshed that variable retains its value in your shell. We can easily
+program is finished that variable retains its value in your shell. We can easily
 verify this by `echo`ing the value of `sum`:
 
 
@@ -1830,13 +1830,13 @@ echo $sum
 ```
 
 This is an example of one strategy we can use to retrieve values that a function
-has calculated. Unfortunately this approach is problematic becuase it changes
+has calculated. Unfortunately this approach is problematic because it changes
 the values of variables that we might be using in our shell. For example if we
 were storing some other important value in a variable called `sum` we would
 destroy that value by accident by running `addseq`. In order to avoid this
 problem it's important that we use the `local` keyword when assigning variables
 within a function. The `local` keyword ensures that variables outside of our
-function are not overwitten by our function. Let's create a new version of
+function are not overwritten by our function. Let's create a new version of
 `addseq` called `addseq2` which uses `local` when assigning variables.
 
 ```
@@ -1912,7 +1912,7 @@ to functions, just like a Bash script.
 definitions so that you can use your functions in your shell.
 - Use the `local` keyword to prevent your function from creating or modifying
 global variables.
-- Be sure to `echo` thr results of your function (if there are any) so that 
+- Be sure to `echo` the results of your function (if there are any) so that
 they can be captured with command substitution.
 
 ### Exercises
@@ -1998,16 +1998,16 @@ and programs accomplished several goals:
 
 - Limiting a program to only doing one thing reduces the length of the program,
 and the shorter a program is the easier it is to fix if it contains bugs or if
-it needs to be revised. 
+it needs to be revised.
 - Writing short programs also helps the users of your code
-understand what's going on in your code in the evet that they need to read your
+understand what's going on in your code in the event that they need to read your
 code. Reading a poem induces a different cognitive load compared to reading a
 novel.
 - Folks who don't read the source code of your program (most users won't -
 they shouldn't have to) will be able to understand the inputs, outputs, and side
 effects of your program more easily.
 - Using small programs to write a new program will increase the likelihood that
-the new program will also be small. **Composability** is the concept of 
+the new program will also be small. **Composability** is the concept of
 stringing small programs together to create a new program.
 
 The concept of composability in Unix is best illustrated by the use of the pipe
@@ -2017,7 +2017,7 @@ program is going to print to the console you should consider whether or not your
 program might be used in a pipeline, and you should organize your program
 accordingly.
 
-In the previous section we discussed the difference between functions that 
+In the previous section we discussed the difference between functions that
 compute values and functions that produce side effects. You should notice that
 the side effect functions like `mv` and `cp` do not print any text to the
 console if they are successful. The concept of *quietness* is another important
@@ -2054,7 +2054,7 @@ correspond to each of the three sets of `rwx` in the permissions string: the
 owner of the file, the group that the file belongs to, and everyone other than
 the owner and the members of a group. Since you
 created the file you are the owner of the file, and you can set the permissions
-for files that you own using the `chmod` command. 
+for files that you own using the `chmod` command.
 
 The `chmod` command takes two arguments. The first argument is a string which
 specifies how we're going to change permissions for a file, and the second
@@ -2157,26 +2157,155 @@ echo 'echo "a small program"' >> short
 
 Now our Bash script is ready to go!
 
-### Evironmental Variables
+### Environmental Variables
 
 We're one step away from being able to use our scripts and functions as shell
-commands
+commands, but first we need to learn about environmental variables.
+An environmental variable is a variable that Bash creates where data about your
+current computing environment is stored. Environmental variable names use all
+capitalized letters. Let's look at the values for some of these variables. The
+`HOME` variable contains the path to our home directory, and the `PWD` variable
+contains the path to our current directory.
 
 
-An environmental variable is a place where bash stores data about your current
-computing environment.
+```bash
+echo $HOME
+echo $PWD
+```
 
-PATH, HOME, 
+```
+## /Users/sean
+## /Users/sean/Code
+```
+
+If we want one of our functions to be available always as a command then we need
+to change the `PATH` variable. Let's take a look at this variable first.
+
+
+```bash
+echo $PATH
+```
+
+```
+## /usr/local/bin:/usr/bin:/bin:/usr/local/git/bin
+```
+
+The `PATH` variable contains a sequence of paths on our computer separated by
+colons. When the shell starts it searches these paths for executable files, and
+then makes those executable commands available in our shell. One approach to
+making our scripts available is to add a directory to the `PATH`. Bash scripts
+in the directory that are executable can be used as commands. We need to modify
+`PATH` every time we start a shell, so we can ammend our `~/.bash_profile` so
+that our directory for executable scripts is always in the `PATH`. To modify an
+environmental variable we need to use the `export` keyword.
+
+First let's create a new directory called `Commands` in our `Code` directory
+where we can keep our executable scripts. Then we'll add a line to our
+`~/.bash_profile` so that `Commands` is added to the `PATH`.
+
+
+```bash
+mkdir Commands
+nano ~/.bash_profile
+```
+
+```
+alias docs='cd ~/Documents'
+alias edbp='nano ~/.bash_profile'
+
+export PATH=~/Code/Commands:$PATH
+```
+
+Save `~/.bash_profile` and close `nano`. Now let's `source` our Bash profile
+(we only need to do this once) and move `short` into the `Commands` directory.
+Then we should be able to use `short` as a command!
+
+
+```bash
+source ~/.bash_profile
+short
+```
+
+```
+## a small program
+```
+
+Looks like it works!
+
+Alternatively to making individual scripts executable we can add a `source`
+command to our `~/.bash_profile` so that we can use a Bash function on the
+command line. Let's use `nano` to open up our `~/.bash_profile` again.
+
+
+```bash
+nano ~/.bash_profile
+```
+
+```
+alias docs='cd ~/Documents'
+alias edbp='nano ~/.bash_profile'
+
+export PATH=~/Code/Commands:$PATH
+source ~/Code/addseq2.sh
+```
+
+Save the `~/.bash_profile`, quit `nano`, and now let's `source` our
+`~/.bash_profile` so we can test if we can use `addseq2`.
+
+
+```bash
+source ~/.bash_profile
+addseq2 9 8 7
+```
+
+```
+## 24
+```
+
+Again it works! If you have multiple Bash functions that you'd like to be able
+to use on the command line then it's a good idea to define these functions in
+one of a few files so that you don't have to `source` every individual function
+that you want to have available.
 
 ### Summary
 
+- According to the Unix Philosophy you should keep your programs short, simple,
+and quiet.
+- Use `chmod` to make your programs executable.
+- You can modify your `~/.bash_profile` in order to make scripts and functions
+available to use on the command line.
+- Use `export` to change an environmental variable.
+
 ### Exercises
 
-1. Write a program that takes one number as an argument and prints all of the
-numbers between that num
+Below this list of exercises you can find examples of how the programs described
+here should work when used on the command line.
 
-2. Write a program called `extremes` which prints the maximum and minimum values of
-a sequence of numbers.
+1. Make a script executable.
+2. Put that script in a directory that you create and make that directory part
+of your `PATH`.
+3. Write a program called `range` that takes one number as an argument and
+prints all of the numbers between that number and 0.
+4. Write a program called `extremes` which prints the maximum and minimum 
+values of a sequence of numbers.
+
+
+```bash
+range 6
+```
+
+```
+## 0 1 2 3 4 5 6
+```
+
+
+```bash
+range -3
+```
+
+```
+## -3 -2 -1 0
+```
 
 
 ```bash
@@ -2186,9 +2315,3 @@ extremes 8 2 9 4 0 3
 ```
 ## 0 9
 ```
-
-
-
-
-
-

@@ -26,7 +26,7 @@
 <meta name="author" content="Sean Kross">
 
 
-<meta name="date" content="2017-06-30">
+<meta name="date" content="2017-07-03">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -479,7 +479,7 @@ echo &quot;You entered: $response&quot;</code></pre>
 <p>At first it doesn’t look like they do much. In order to see how they work, we’re going to need to look under the hood of Unix a little bit. Whenever you execute a program on the command line, in general one of two things will happen: either the command is executed successfully, or there’s an error. In terms of errors there are many ways that a program can go wrong, and Unix can take different actions depending on what kind of error occurs. For example if I enter the name of a command that does not exist into the terminal, then I’ll see an error:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">this_command_does_not_exist</span></code></pre></div>
 <pre><code>## Error in running command bash</code></pre>
-<p>Since that command does not exist, it creates a specific kind of error which is indicated by the program’s <strong>exit status</strong>. The exit status of a program is an integer, the exit status of the last program run is stored in the question mark variable (<code>$?</code>). We can take a look at the exit status of the last program with <code>echo</code>:</p>
+<p>Since that command does not exist, it creates a specific kind of error which is indicated by the program’s <strong>exit status</strong>. The exit status of a program is an integer which indicates whether the program was executed successfully or if an error occurred. The exit status of the last program run is stored in the question mark variable (<code>$?</code>). We can take a look at the exit status of the last program with <code>echo</code>:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">echo</span> <span class="ot">$?</span></code></pre></div>
 <pre><code>## 127</code></pre>
 <p>This particular exit status made an indication to the shell that it should print an error message to the console. What’s the exit status of a program that runs successfully? Let’s take a look:</p>

@@ -459,7 +459,9 @@ this_command_does_not_exist
 
 Since that command does not exist, it creates a specific kind of error which is
 indicated by the program's **exit status**. The exit status of a program is an
-integer, the exit status of the last program run is stored in the question mark
+integer which indicates whether the program was executed successfully or if
+an error occurred.
+The exit status of the last program run is stored in the question mark
 variable (`$?`). We can take a look at the exit status of the last program with
 `echo`:
 

@@ -1,7 +1,7 @@
 --- 
 title: "The Unix Workbench"
 author: "Sean Kross"
-date: "2017-07-03"
+date: "2017-07-18"
 site: bookdown::bookdown_site
 output:
  bookdown::html_chapters:
@@ -29,6 +29,9 @@ This work by [Sean Kross](http://seankross.com) is licensed
 [CC0](https://creativecommons.org/publicdomain/zero/1.0/). Zero rights reserved.
 
 This book is available for purchase on [Leanpub.com](https://leanpub.com/unix).
+
+This book can be used on its own, however it's also the companion textbook to
+a course of the same name on [Coursera.org](https://www.coursera.org/learn/unix).
 
 # Dedication {-}
 

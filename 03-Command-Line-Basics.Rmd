@@ -25,7 +25,7 @@ after the prompt is just a cursor that allows you to edit what you've typed
 into the shell. Your cursor might look like a rectangle, a line, or an
 underscore, but all cursors behave the same way. After typing something into
 the command line you can move the cursor back and forth with the left and right
-arrow keys.
+arrow keys, just like you would when typing an email.
 
 Don't you think your shell looks messy with all of those old prompts? Don't
 worry, you're about to learn your first shell command which will clear up your
@@ -43,11 +43,11 @@ Some simple commands like `clear` don't require any options or arguments.
 Options are usually preceded by a hyphen (`-`) and they tweak the behavior
 of the command. Arguments can be names of files, raw data, or other options
 that the command requires. A simple command that has an argument is `echo`.
-The `echo` command prints a phrase to the console. Enter `echo "Hello World!"`
+The `echo` command prints a phrase to the console. Enter `echo 'Hello World!'`
 into the command line to see what happens:
 
 ```{r, engine='bash'}
-echo "Hello World!"
+echo 'Hello World!'
 ```
 
 We'll be using the above syntax for the rest of the book, where on one line there

@@ -4,7 +4,7 @@ Unix is an operating system and a set of tools. The tool we'll be using the
 most in this book is a shell, which is a computer program that provides a
 command line interface. You've probably seen a command line interface in the
 movies: an elite computer hacker sits in front of a black screen with green 
-glowing text, furiously typing in commands and saying something like 
+glowing text, furiously typing in commands and shouting something like 
 "Spike them!" Using the command line interface lets you enter lines of code into
 a shell (also called a console) and that code instructs your computer to
 perform a specific task. Throughout this book I may use the terms command line,

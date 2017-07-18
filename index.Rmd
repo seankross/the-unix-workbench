@@ -30,6 +30,9 @@ This work by [Sean Kross](http://seankross.com) is licensed
 
 This book is available for purchase on [Leanpub.com](https://leanpub.com/unix).
 
+This book can be used on its own, however it's also the companion textbook to
+a course of the same name on [Coursera.org](https://www.coursera.org/learn/unix).
+
 # Dedication {-}
 
 In memory of Toby Kross.

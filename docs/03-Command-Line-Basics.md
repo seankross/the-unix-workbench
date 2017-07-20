@@ -917,7 +917,7 @@ consult with a computer professional or your IT department so they can try to
 recover the file.
 
 Now that you've been warned, let's discuss `rm`, the
-[Avada Kedavra](http://en.wikipedia.org/wiki/List_of_spells_in_Harry_Potter)
+[Avada Kedavra](https://en.wikipedia.org/wiki/Magic_in_Harry_Potter#Unforgivable_Curses)
 of command line programs. When **r**e**m**oving files `rm` only requires the path to a
 file in order to delete it. Let's test its destructive power on `echo-out.txt`:
 

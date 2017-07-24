@@ -312,8 +312,9 @@ science course and the pictures I took in the lab into their own folders?
 
 The ability to search through files and folders can greatly improve your
 productivity using Unix. First we'll cover searching through text files.
-I recently downloaded a list of the names of the states in the US. Let's take a
-look at this file:
+I recently downloaded a list of the names of the states in the US which you
+can find [here](http://seankross.com/notes/states.txt). Let's take a look at 
+this file:
 
 
 ```bash

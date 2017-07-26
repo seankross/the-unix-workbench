@@ -1109,7 +1109,7 @@ pwd
 ```
 
 It works! Setting different `alias`es allows you to save time if there are long
-commands that use often. In the example `~/.bash_profile` above, the second
+commands that you use often. In the example `~/.bash_profile` above, the second
 line, `alias edbp='nano ~/.bash_profile'` creates the command `edbp` (**ed**it
 **b**ash **p**rofile) so that you can quickly add `alias`es. Try adding it to
 your `~/.bash_profile` and take your new command for a spin!

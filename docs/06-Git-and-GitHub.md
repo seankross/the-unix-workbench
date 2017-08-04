@@ -1523,7 +1523,7 @@ keep your local repository up to date with the latest changes in the remote
 repository. Let's go back to your terminal where you have `my-first-repo` set
 as the current working directory.
 
-When working on a remote GitHub repository with many other folks thess pull
+When working on a remote GitHub repository with many other folks these pull
 requests and merges can happen without you being involved at all if the commits
 effect parts of the code that you're not working on. Still it's important to
 keep your local repository up to date with the latest changes in the remote
@@ -1563,7 +1563,7 @@ git pull
 With `git pull` Git finds the `master` branch on the `origin` remote repository
 and updates our local repository with the new commits. You've now completed the
 full pull request life cycle! In the **Forking** section of this chapter we'll
-come back to how discussing how GitHub super-charges pull requests in order to
+come back to discussing how GitHub super-charges pull requests in order to
 foster a greater coding community.
 
 ### Pages

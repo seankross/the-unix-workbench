@@ -25,7 +25,7 @@
 <meta name="author" content="Sean Kross">
 
 
-<meta name="date" content="2017-07-26">
+<meta name="date" content="2017-08-04">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -956,7 +956,7 @@ The best way to get in touch with me is [on Twitter](https://twitter.com/seankro
 <p>Congratulations on opening your first pull request! Let’s take a look at what’s happening on this page. Below the title of the pull request we can see three tabs called <strong>Conversation</strong>, <strong>Commits</strong>, and <strong>Files changed</strong>. In the <strong>Conversation</strong> tab we can add comments to the pull request which can be formatted with Markdown. The <strong>Commits</strong> tab lists the commits that have been made to the “compare” branch in this pull request. Finally the <strong>Files changed</strong> tab shows the same line-by-line comparison we saw before.</p>
 <p>Usually when you’re working with collaborators there’s a great deal of discussion that occurs after you open a pull request. Git commits that are pushed to the “compare” branch (<code>update-readme</code> in the case) of the GitHub repository will be reflected in a pull request even after the request has been opened. This way changes that are made as a result of the discussion can be easily incorporated. Once you’re ready go back to the <strong>Conversation</strong> tab and click the green “Merge pull request” button, then click the green “Confirm merge” button that appears. This will <code>git merge</code> the “compare” branch into the “base” branch on our remote repository. You just merged your first pull request! Now click near the top left corner of this page on the <strong>&lt;&gt; Code</strong> tab, and you should see that the changes from the <code>update-readme</code> branch have been merged into <code>master</code>.</p>
 <p>When working on a remote GitHub repository with many other folks theses pull requests and merges can happen without you being involved at all, if the commits effect parts of the code that you’re not working on. Still it’s important to keep your local repository up to date with the latest changes in the remote repository. Let’s go back to your terminal where you have <code>my-first-repo</code> set as the current working directory.</p>
-<p>When working on a remote GitHub repository with many other folks thess pull requests and merges can happen without you being involved at all if the commits effect parts of the code that you’re not working on. Still it’s important to keep your local repository up to date with the latest changes in the remote repository. Let’s go back to your terminal where you have <code>my-first-repo</code> set as the current working directory. First let’s switch to the <code>master</code> branch.</p>
+<p>When working on a remote GitHub repository with many other folks these pull requests and merges can happen without you being involved at all if the commits effect parts of the code that you’re not working on. Still it’s important to keep your local repository up to date with the latest changes in the remote repository. Let’s go back to your terminal where you have <code>my-first-repo</code> set as the current working directory. First let’s switch to the <code>master</code> branch.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> checkout master</code></pre></div>
 <p>Now let’s update our local master branch with the commits that have been merged into the master branch on our remote repository. We can accomplish this with the command <code>git pull</code>:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> pull</code></pre></div>
@@ -973,7 +973,7 @@ The best way to get in touch with me is [on Twitter](https://twitter.com/seankro
 ##  3 files changed, 18 insertions(+), 20 deletions(-)
 ##  delete mode 100644 file1.txt
 ##  delete mode 100644 file2.txt</code></pre>
-<p>With <code>git pull</code> Git finds the <code>master</code> branch on the <code>origin</code> remote repository and updates our local repository with the new commits. You’ve now completed the full pull request life cycle! In the <strong>Forking</strong> section of this chapter we’ll come back to how discussing how GitHub super-charges pull requests in order to foster a greater coding community.</p>
+<p>With <code>git pull</code> Git finds the <code>master</code> branch on the <code>origin</code> remote repository and updates our local repository with the new commits. You’ve now completed the full pull request life cycle! In the <strong>Forking</strong> section of this chapter we’ll come back to discussing how GitHub super-charges pull requests in order to foster a greater coding community.</p>
 </div>
 <div id="pages" class="section level3">
 <h3><span class="header-section-number">6.6.3</span> Pages</h3>

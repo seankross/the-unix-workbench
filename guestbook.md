@@ -1,3 +1,4 @@
 # Guest Book
 
-- Sean Kross-Jose M Salan
+- Sean Kross
+- Jose M Salan

@@ -1506,7 +1506,7 @@ How cool is that!? If you want to change your new website all you need to do
 is edit your `README.md` then commit and push the changes! Websites like these
 are great for showing off projects, providing software documentation, creating
 online resumes, or writing a blog! GitHub pages websites can be as simple as a
-few Markdown documents, or if you're know some web programming you can turn
+few Markdown documents, or if you know some web programming you can turn
 them into complex websites. For more information about GitHub Pages you can
 check out the [documentation here](https://pages.github.com/).
 

@@ -53,7 +53,7 @@ echo 'Hello World!'
 We'll be using the above syntax for the rest of the book, where on one line there
 will be a command that I've entered into the command line, and then below that
 command the console output of the command will appear (if there is any
-console output). You can use `echo` to print any phase surrounded by double
+console output). You can use `echo` to print any phrase surrounded by double
 quotes (`""`) to the console.
 
 If you want to see the last command press the `Up` arrow key. You can press

@@ -53,13 +53,13 @@ echo 'Hello World!'
 We'll be using the above syntax for the rest of the book, where on one line there
 will be a command that I've entered into the command line, and then below that
 command the console output of the command will appear (if there is any
-console output). You can use `echo` to print any phase surrounded by double
-quotes (`""`) to the console.
+console output). You can use `echo` to print any phrase surrounded by single
+quotes (`''`) to the console.
 
 If you want to see the last command press the `Up` arrow key. You can press
 `Up` and `Down` in order to scroll through the history of commands that you've
 entered. If you want to re-execute a past command, you can scroll to that
-command then press `Enter`. Try getting back to the `echo "Hello World!"`
+command then press `Enter`. Try getting back to the `echo 'Hello World!'`
 command and execute it again.
 
 ### Summary

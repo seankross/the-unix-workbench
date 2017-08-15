@@ -25,7 +25,7 @@
 <meta name="author" content="Sean Kross">
 
 
-<meta name="date" content="2017-08-04">
+<meta name="date" content="2017-08-15">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -322,9 +322,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="connecting-to-the-cloud" class="section level2">
 <h2><span class="header-section-number">7.3</span> Connecting to the Cloud</h2>
 <p>We can connect to computers on the internet with the <code>ssh</code> program, which stands for <strong>S</strong>ecure <strong>Sh</strong>ell. The <code>ssh</code> command provides a command line interface to whichever computer we point it to. A computer that is connected to the internet has an address (just like a house has an address) which is specified by an <strong>IP address</strong>. The command for connecting to a computer with <code>ssh</code> generally looks like this:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ssh</span> [username]@[IP address]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ssh</span> [username]@[IP address]</code></pre></div>
 <p>Let’s connect to our DigitalOcean server using <code>ssh</code>. Enter the following command in the terminal substituting the IP address you received from DigitalOcean for the IP address I’m using in this example:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ssh</span> root@159.203.134.88</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ssh</span> root@159.203.134.88</code></pre></div>
 <pre><code>## The authenticity of host &#39;159.203.134.88 (159.203.134.88)&#39; can&#39;t be established.
 ## ECDSA key fingerprint is SHA256:UhtoIx/3c6/MmAIE+H8w5oGE06PsbXdzRRsAUhKtjhs.
 ## Are you sure you want to continue connecting (yes/no)?</code></pre>
@@ -358,13 +358,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## (current) UNIX password:</code></pre>
 <p>We now need to create a new password for this server. First paste in the old password and press Enter. Then think of a new, strong password and enter it into the console. Then enter the new password again to confirm. After entering in the new password we should have a prompt! Press enter a few times to make sure that you get the prompt back each time. We’re in!</p>
 <p>Now we have access to all of the Unix commands we would normally have:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">pwd</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">pwd</span></code></pre></div>
 <pre><code>## /root</code></pre>
 <p>In order to disconnect from the server and return to your machine use <code>logout</code>.</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">logout</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">logout</span></code></pre></div>
 <pre><code>## Connection to 159.203.134.88 closed.</code></pre>
 <p>To reconnect to the server use <code>ssh</code> again:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ssh</span> root@159.203.134.88</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ssh</span> root@159.203.134.88</code></pre></div>
 <pre><code>## root@159.203.134.88&#39;s password:</code></pre>
 <p>Enter your password and you should get the prompt back for your cloud server.</p>
 <div id="summary-24" class="section level3">
@@ -380,38 +380,38 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="moving-files-in-and-out-of-the-cloud" class="section level3">
 <h3><span class="header-section-number">7.4.1</span> Moving Files In and Out of the Cloud</h3>
 <p>So now that we have a cloud computer, what can we do with it? One thing we can do is store and retrieve files from a cloud computer. The program <code>scp</code> allows us to copy local files to a server and it allows us to copy files on a server to our local computer. First let’s connect to our server so we can create a file there:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ssh</span> root@159.203.134.88</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ssh</span> root@159.203.134.88</code></pre></div>
 <pre><code>## root@159.203.134.88&#39;s password:
 ## # (Enter your password)</code></pre>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">mkdir</span> textfiles
-<span class="kw">echo</span> <span class="st">&quot;From the server&quot;</span> <span class="kw">&gt;</span> textfiles/server-file.txt
-<span class="kw">logout</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">mkdir</span> textfiles
+<span class="bu">echo</span> <span class="st">&quot;From the server&quot;</span> <span class="op">&gt;</span> textfiles/server-file.txt
+<span class="bu">logout</span></code></pre></div>
 <pre><code>## Connection to 159.203.134.88 closed.</code></pre>
 <p>Now that we’re back at the prompt on our local machine let’s try getting <code>server-file.txt</code> from our server. The arguments for copying files from a server with <code>scp</code> have the following general structure:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">scp</span> [username]@[IP address]:path/to/file/on/server path/on/my/computer</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">scp</span> [username]@[IP address]:path/to/file/on/server path/on/my/computer</code></pre></div>
 <p>This copies the file located on the server at <code>path/to/file/on/server</code> to a local path at <code>path/on/my/computer</code>. In the same way we can copy an entire folder from a server using the <code>-r</code> flag:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">scp</span> -r [username]@[IP address]:path/to/folder/on/server folder/on/my/computer</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">scp</span> -r [username]@[IP address]:path/to/folder/on/server folder/on/my/computer</code></pre></div>
 <p>Let’s try doing this now from our local computer. Enter your password when asked to do so:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span>
-<span class="kw">pwd</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span>
+<span class="bu">pwd</span></code></pre></div>
 <pre><code>## /Users/sean/</code></pre>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">mkdir</span> Cloud
-<span class="kw">cd</span> Cloud
-<span class="kw">scp</span> root@159.203.134.88:/root/textfiles/server-file.txt downloaded.txt</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">mkdir</span> Cloud
+<span class="bu">cd</span> Cloud
+<span class="fu">scp</span> root@159.203.134.88:/root/textfiles/server-file.txt downloaded.txt</code></pre></div>
 <pre><code>## root@159.203.134.88&#39;s password:
 ## server-file.txt                                         100%   16     1.2KB/s   00:00</code></pre>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cat</span> downloaded.txt</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">cat</span> downloaded.txt</code></pre></div>
 <pre><code>## From the server</code></pre>
 <p>It worked! Now let’s try uploading a file to our server. The arguments for doing this are just the swapped arguments for downloading a file from a server:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">scp</span> path/on/my/computer [username]@[IP address]:path/to/file/on/server </code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">scp</span> path/on/my/computer [username]@[IP address]:path/to/file/on/server </code></pre></div>
 <p>Let’s create a file and upload it to our server:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">echo</span> <span class="st">&quot;from local computer&quot;</span> <span class="kw">&gt;</span> to-upload.txt
-<span class="kw">scp</span> to-upload.txt root@159.203.134.88:/root/textfiles/uploaded-file.txt</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="st">&quot;from local computer&quot;</span> <span class="op">&gt;</span> to-upload.txt
+<span class="fu">scp</span> to-upload.txt root@159.203.134.88:/root/textfiles/uploaded-file.txt</code></pre></div>
 <pre><code>## root@159.203.134.88&#39;s password:
 ## to-upload.txt                                           100%   20     1.8KB/s   00:00</code></pre>
 <p>Now let’s log in to our server and we’ll see if it’s there:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ssh</span> root@159.203.134.88
-<span class="kw">cat</span> textfiles/uploaded-file.txt</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ssh</span> root@159.203.134.88
+<span class="fu">cat</span> textfiles/uploaded-file.txt</code></pre></div>
 <pre><code>## from local computer</code></pre>
 <p>Looks like it worked! Keeping files in the cloud allows you to work with the same files in the same workspace as long as you have access to a terminal and <code>ssh</code>.</p>
 </div>
@@ -419,38 +419,38 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h3><span class="header-section-number">7.4.2</span> Talking to Other Servers</h3>
 <p>There are tons of servers out there on the internet! The way you’re probably used to talking to a server is through a web browser, but there are other ways we can talk to servers on the command line. One of the most popular command line programs for talking to other servers is <code>curl</code>. The <code>curl</code> command allows us to send requests and information to other servers.</p>
 <p>One easy task that we can use <code>curl</code> for is downloading files that are available online. For example, this entire book and all of the files associated with it are hosted on a server! You can find the Markdown file for one of the first chapters of this book <a href="http://seankross.com/the-unix-workbench/01-What-is-Unix.md">here</a>. To download a file with <code>curl</code>, we simply need to provide the <code>-O</code> flag and the URL of the file:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">curl</span> -O http://website.org/textfile.txt</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">curl</span> -O http://website.org/textfile.txt</code></pre></div>
 <p>Let’s try downloading the Markdown file from my website:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">curl</span> -O http://seankross.com/the-unix-workbench/01-What-is-Unix.md</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">curl</span> -O http://seankross.com/the-unix-workbench/01-What-is-Unix.md</code></pre></div>
 <pre><code>##   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
 ##                                  Dload  Upload   Total   Spent    Left  Speed
 ## 100  1198  100  1198    0     0  13681      0 --:--:-- --:--:-- --:--:-- 13770</code></pre>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">head</span> -n 5 01-What-is-Unix.md</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">head</span> -n 5 01-What-is-Unix.md</code></pre></div>
 <pre><code>## # What is Unix?
 ## 
 ## Unix is an operating system and a set of tools. The tool we&#39;ll be using the
 ## most in this book is a shell, which is a computer program that provides a
 ## command line interface. You&#39;ve probably seen a command line interface in the</code></pre>
 <p>Looks like we got the file! The <code>curl</code> command is also commonly used for communicating with <strong>API</strong>s. API stands for <strong>a</strong>pplication <strong>p</strong>rogramming <strong>i</strong>nterface. APIs are a set of rules which allow us to communicate with computer programs or with servers on the web. GitHub has a <a href="https://developer.github.com/v3/">large API</a> which allows us to find out information about GitHub’s users and repositories. Let’s use <code>curl</code> to look at what programming languages are used by some of my repositories. Let’s start with the repository for this book:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">curl</span> https://api.github.com/repos/seankross/the-unix-workbench/languages</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">curl</span> https://api.github.com/repos/seankross/the-unix-workbench/languages</code></pre></div>
 <pre><code>{
   &quot;CSS&quot;: 2615,
   &quot;TeX&quot;: 22
 }</code></pre>
 <p>It looks like most of the repository is dedicated to making the book website look pretty! Take a look at the URL in the <code>curl</code> command above, and let’s dissect it a little bit. The API itself is located at <code>https://api.github.com/</code>. Then each word in the rest of the url acts as a sort of argument. We’re interested in <code>repos</code> in this case, specifically a repo belonging to the username <code>seankross</code> called <code>the-unix-workbench</code>, and we want to know about which <code>languages</code> are used in that repo. Let’s take a look at one more of my repositories just to see how the response can be different:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">curl</span> https://api.github.com/repos/seankross/lego/languages</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">curl</span> https://api.github.com/repos/seankross/lego/languages</code></pre></div>
 <pre><code>{
   &quot;R&quot;: 4197,
   &quot;Shell&quot;: 442
 }</code></pre>
 <p>Use of <code>curl</code>, especially when coupled with using APIs can become very complicated and much more advanced content has been written on the subject. Let’s get a little more in depth by looking through some of the examples from <a href="http://httpbin.org/">httpbin.org</a>. This website allows us to send requests to it with <code>curl</code>, and it will return to us a structured version of whatever information we sent. This is useful for debugging our <code>curl</code> commands. First let’s send a request which should return our IP address:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">curl</span> http://httpbin.org/ip</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">curl</span> http://httpbin.org/ip</code></pre></div>
 <pre><code>{
   &quot;origin&quot;: &quot;159.203.134.88&quot;
 }</code></pre>
 <p>Looks like we’re getting the response we expect. Before we go on I should clarify: <code>curl</code> sends <strong>HTTP requests</strong>. HTTP is a technology for sending information over a network, and HTTP powers much of how the internet works. There are different categories of HTTP requests, and the categories are often called <strong>verbs</strong>. When we use <code>curl</code> without any flags we are sending a <strong>GET</strong> request (GET is an HTTP verb). A GET request is a message that says to a server: “Hi, I live at [IP address]. Would you mind sending some information about yourself to that IP?” In the case above we asked for our own IP address, which httpbin.org knew to just send back to us.</p>
 <p>Let’s send a general HTTP GET request to <a href="http://httpbin.org/get" class="uri">http://httpbin.org/get</a>:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">curl</span> http://httpbin.org/get</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">curl</span> http://httpbin.org/get</code></pre></div>
 <pre><code>{
   &quot;args&quot;: {},
   &quot;headers&quot;: {
@@ -464,7 +464,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 }</code></pre>
 <p>The text that we get back from the request specifies four information groups: <code>args</code>, <code>headers</code>, <code>origin</code>, and <code>url</code>. The <code>origin</code> shows our own IP address, and <code>url</code> shows where we sent the request. The <code>headers</code> group shows some interesting information, including the <code>User-Agent</code> which shows that httpbin.org knows that we sent this request with <code>curl</code>. Notice that the <code>args</code> group is empty. The <code>args</code> group is short for <em>arguments</em>, which hints at the fact that we can provide arguments in an HTTP request, just like arguments we would use for a function, or the arguments we used in the GitHub API.</p>
 <p>In the general case we can provide arguments to an HTTP API by putting a question mark (<code>?</code>) after the API’s URL. Let’s try this out:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">curl</span> http://httpbin.org/get?Baltimore</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">curl</span> http://httpbin.org/get?Baltimore</code></pre></div>
 <pre><code>{
   &quot;args&quot;: {
     &quot;Baltimore&quot;: &quot;&quot;
@@ -479,7 +479,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   &quot;url&quot;: &quot;http://httpbin.org/get?Baltimore&quot;
 }</code></pre>
 <p>Looks like <code>&quot;Baltimore&quot;</code> showed up in <code>args</code>! For most HTTP APIs we need to give names to our arguments, unlike most arguments in Bash. We can specify an argument’s name with the template <code>[argument name]=[argument value]</code>. Let’s take a look at a simple example:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">curl</span> http://httpbin.org/get?city=Baltimore</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">curl</span> http://httpbin.org/get?city=Baltimore</code></pre></div>
 <pre><code>{
   &quot;args&quot;: {
     &quot;city&quot;: &quot;Baltimore&quot;
@@ -494,7 +494,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   &quot;url&quot;: &quot;http://httpbin.org/get?city=Baltimore&quot;
 }</code></pre>
 <p>Now we can see that in <code>args</code> there’s a correspondence between <code>city</code> and <code>Baltimore</code>. We can add more named arguments by separating them with an ampersand (<code>&amp;</code>):</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">curl</span> <span class="st">&quot;http://httpbin.org/get?city=Baltimore&amp;state=Maryland&quot;</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;http://httpbin.org/get?city=Baltimore&amp;state=Maryland&quot;</span></code></pre></div>
 <pre><code>{
   &quot;args&quot;: {
     &quot;city&quot;: &quot;Baltimore&quot;,
@@ -515,9 +515,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h3><span class="header-section-number">7.4.3</span> Automating Tasks</h3>
 <p>One of the most compelling features about any web server is that it’s always powered on and always connected to the internet. This means that we can instruct our server to perform tasks automatically, without us needing to enter a command into a shell. One of the most commonly used programs for executing <em>other programs</em> with a regular frequency is called <code>cron</code>. Let’s take a look at how to use <code>cron</code> to schedule a program to be run.</p>
 <p>If you’re not already connected to the server use <code>ssh</code> to connect.</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ssh</span> root@159.203.134.88</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ssh</span> root@159.203.134.88</code></pre></div>
 <p>The <code>cron</code> program is part of a family of programs called <strong>daemons</strong>. A daemon is a program that is always running in the background of our computer. First, let’s see if <code>cron</code> is running. We can get a list of all running programs with the <code>ps</code> command while using the <code>-A</code> flag:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ps</span> -A</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ps</span> -A</code></pre></div>
 <pre><code>##  PID TTY          TIME CMD
 ##    1 ?        00:00:13 systemd
 ##    2 ?        00:00:00 kthreadd
@@ -528,10 +528,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ##    9 ?        00:00:00 migration/0
 ## ...</code></pre>
 <p>You probably have a huge list of programs in your terminal now! Instead of sifting through this listing line-by-line, let’s pipe the output of this command to <code>grep</code> and we’ll look for <code>cron</code>:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ps</span> -A <span class="kw">|</span> <span class="kw">grep</span> <span class="st">&quot;cron&quot;</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ps</span> -A <span class="kw">|</span> <span class="fu">grep</span> <span class="st">&quot;cron&quot;</span></code></pre></div>
 <pre><code>##  1273 ?        00:00:01 cron</code></pre>
 <p>Looks like the <code>cron</code> daemon is running! In order to assign programs to be executed with <code>cron</code> we need to edit a special text file called the <code>cron</code> table. Before we edit the <code>cron</code> table we need to select the default text editor. If you like using <code>nano</code> (the text editor we’ve been using throughout this book) then enter <code>select-editor</code> into the console, type in the number that corresponds to <code>nano</code> (usually <code>2</code>) and then press enter:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">select-editor</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">select-editor</span></code></pre></div>
 <pre><code>## Select an editor.  To change later, run &#39;select-editor&#39;.
 ##   1. /bin/ed
 ##   2. /bin/nano        &lt;---- easiest
@@ -540,7 +540,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## 
 ## Choose 1-4 [2]:</code></pre>
 <p>Now that we’ve chosen a text editor we can edit the <code>cron</code> table using the command <code>crontab -e</code> (<strong><code>cron</code></strong> <strong>tab</strong>le <strong>e</strong>dit) which will automatically open <code>nano</code> with the appropriate file.</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">crontab</span> -e</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">crontab</span> -e</code></pre></div>
 <pre><code># Edit this file to introduce tasks to be run by cron.
 #
 # m h  dom mon dow   command
@@ -568,11 +568,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 # m h  dom mon dow   command
 * * * * * date &gt;&gt; ~/date-file.txt</code></pre>
 <p>Save and exit <code>nano</code> just like you would for a regular text file and then wait a little bit! After a minute has gone by use <code>cat</code> to look at <code>~/date-file.txt</code>:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span>
-<span class="kw">cat</span> date-file.txt</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span>
+<span class="fu">cat</span> date-file.txt</code></pre></div>
 <pre><code>## Thu Jun  8 18:50:01 UTC 2017</code></pre>
 <p>Look like our entry in the <code>cron</code> table is working! Wait another minute and then look at the file again:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cat</span> date-file.txt</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">cat</span> date-file.txt</code></pre></div>
 <pre><code>## Thu Jun  8 18:50:01 UTC 2017
 ## Thu Jun  8 18:51:01 UTC 2017</code></pre>
 <p>Unless we delete the line that we entered in the <code>cron</code> table, the output from <code>date</code> will be appended to <code>date-file.txt</code> every minute.</p>

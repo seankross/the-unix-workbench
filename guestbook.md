@@ -8,3 +8,4 @@
 - Adrian Foo
 - Anton Heister
 - Nawaz Rahman
+- Kevin De Baere

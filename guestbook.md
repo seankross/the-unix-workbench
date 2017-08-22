@@ -9,3 +9,4 @@
 - Anton Heister
 - Nawaz Rahman
 - Kevin De Baere
+- Peter Bates

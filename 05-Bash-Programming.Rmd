@@ -81,8 +81,7 @@ bash math.sh
 Let's break down what's going on in the Bash script you just created. Bash
 executes programs in order from the fist line in your file to the last line.
 The `expr` command can be used to **evaluate** Bash **expressions**.
-An expression is just
-a valid string of Bash code that, when run, produces a result. The arithmetic
+An expression is just a valid string of Bash code that, when run, produces a result. The arithmetic
 operators that you're already familiar with for addition (`+`), subtraction
 (`-`), and multiplication (`*`) work like you would expect them to. Notice that
 when doing multiplication you need to escape the star character, otherwise
@@ -100,7 +99,7 @@ expr 40 / 20
 ```
 
 The other numerical operator you should be aware of that you might not be
-familiar with is the modulus operator (`%`). The modulus operator returns the
+familiar with is the **modulus** operator (`%`). The modulus operator returns the
 **remainder** after integer division. In integer division if A / B = C, and
 A % B = D, then B * C + D = A. Let's take a look at some examples on the command
 line:
@@ -170,7 +169,7 @@ argument to `bc`.
 
 ## Variables
 
-In Bash you can store data in variables. In chapter 4 we discussed environmental
+In Bash you can store data in **variables**. In chapter 4 we discussed environmental
 variables that are set by your operating system. You can also create your own
 variables. Make sure you follow these rules when you're naming variables:
 
@@ -459,17 +458,17 @@ false
 echo $?
 ```
 
-As you can see `true` has an exit status of 0 and `false` has an exit status of
-1. Since these programs don't do much else, you could define `true` as a program
+As you can see `true` has an exit status of **0** and `false` has an exit status of
+**1**. Since these programs don't do much else, you could define `true` as a program
 that always has an exit status of 0 and `false` as a program that always has an
 exit status of 1.
 
 Knowing the exit status of these programs is important when discussing the
-**logical operators**: the AND operator (`&&`) and the OR operator (`||`). The
-AND and OR operators can be used for conditional execution of programs on the
+**logical operators**: the **AND** operator (`&&`) and the **OR** operator (`||`). The
+**AND** and **OR** operators can be used for conditional execution of programs on the
 command line. Conditional execution occurs when the execution of one program
 depends on the exit status of another program. For example in the case of the
-AND operator, the program on the right hand side of `&&` will only be executed
+**AND** operator, the program on the right hand side of `&&` will only be executed
 if the program on the left hand side of `&&` has an exit status of 0. Let's
 take a look at some small examples:
 
@@ -488,10 +487,10 @@ echo 1 && false && echo 3
 echo Athos && echo Porthos && echo Aramis
 ```
 
-In a series of programs joined together by AND operators, any programs to the
+In a series of programs joined together by **AND** operators, any programs to the
 right of a program that has a non-zero exit status is not executed.
 
-The OR operator (`||`) follows a similar set of principles. Commands on the right
+The **OR** operator (`||`) follows a similar set of principles. Commands on the right
 hand side of `||` are only executed if the command on the left hand side *fails*
 and therefore has an exit status other than 0. Let's take a look at how this
 works:
@@ -502,7 +501,7 @@ false || echo "Program 2 was executed."
 ```
 
 Only `echo "Program 2 was executed."` runs because `false` has a non-zero exit
-status. You can combine multiple OR operators so that only the first program
+status. You can combine multiple **OR** operators so that only the first program
 with an exit status of 0 is executed:
 
 ```{r, engine='bash', error=TRUE}
@@ -511,7 +510,7 @@ echo 3 || false || echo 4
 echo Athos || echo Porthos || echo Aramis
 ```
 
-You can combine AND and OR operators in commands, which are evaluated from left
+You can combine **AND** and **OR** operators in commands, which are evaluated from left
 to right:
 
 ```{r, engine='bash', error=TRUE}
@@ -519,7 +518,7 @@ echo Athos || echo Porthos && echo Aramis
 echo Gaspar && echo Balthasar || echo Melchior
 ```
 
-By combining AND and OR operators you can precisely control the conditions for
+By combining **AND** and **OR** operators you can precisely control the conditions for
 when certain commands should be executed.
 
 ### Conditional Expressions
@@ -575,7 +574,7 @@ Ah-ha! Obviously 3 is not greater than 4, so this false logical expression
 resulted in an exit status of 1, which is the same exit status as `false`!
 Because they have the same exit status `[[ 3 -gt 4 ]]` and `false` are
 essentially equivalent. To quickly test the logical value of a conditional
-expression, we can use the AND and OR operators so that an expression will
+expression, we can use the **AND** and **OR** operators so that an expression will
 print "t" if it's true and "f" if its false:
 
 ```{r, engine='bash', error=TRUE}
@@ -634,8 +633,8 @@ Try using each of these flags on the command line before moving on to the next
 section.
 
 In addition to logical flags there are also logical operators. One of the most
-useful logical operators is the regex match operator `=~`. The regex match
-operator compares a string to a regular expression and if the string is a match
+useful logical operators is the **regex match operator** `=~`. The **regex match
+operator** compares a string to a regular expression and if the string is a match
 for the regex then the expression is equivalent to `true`, otherwise it's
 equivalent to `false`. Let's test this operator a couple different ways:
 
@@ -645,9 +644,9 @@ my_name=sean
 [[ $my_name =~ ^s.+n$ ]] && echo t || echo f
 ```
 
-There's also the NOT operator `!`, which inverts the value of any conditional
-expression. The NOT operator turns true expressions into false expressions and
-vice-versa. Let's take a look at a few examples using the NOT operator:
+There's also the **NOT** operator `!`, which inverts the value of any conditional
+expression. The **NOT** operator turns true expressions into false expressions and
+vice-versa. Let's take a look at a few examples using the **NOT** operator:
 
 ```{r, engine='bash', error=TRUE}
 [[ 7 -gt 2 ]] && echo t || echo f
@@ -670,9 +669,9 @@ reference how they're used later:
 
 Conditional expressions are powerful because you can use them to control how a
 Bash program that you're writing is executed. One of the fundamental constructs
-in Bash programming is the **IF statement**. Code written inside of an IF
+in Bash programming is the **IF** statement. Code written inside of an **IF**
 statement is only executed *if* a certain condition is true, otherwise the code
-is skipped. Let's write a small program with an IF statement:
+is skipped. Let's write a small program with an **IF** statement:
 
 ```
 #!/usr/bin/env bash
@@ -688,10 +687,10 @@ fi
 echo "End program"
 ```
 
-First this program will print "Start program", then the IF statement will check
+First this program will print "Start program", then the **IF** statement will check
 if the conditional expression `[[ $1 -eq 4 ]]` is true. It will only be true if
 you provide `4` as the first argument to the script. If the conditional
-expression if true then it will execute the code in between `then` and `fi`,
+expression is true then it will execute the code in between `then` and `fi`,
 otherwise it will skip over that code. Finally the program will print
 "End program."
 
@@ -720,7 +719,7 @@ bash simpleif.sh 77
 ```
 
 We provided the argument `77`, however 77 is not equal to 4, therefore the code
-within the IF statement was once again skipped. Finally let's provide `4` as an
+within the **IF** statement was once again skipped. Finally let's provide `4` as an
 argument:
 
 ```{r, engine='bash', eval=FALSE}
@@ -734,10 +733,10 @@ bash simpleif.sh 4
 ```
 
 It worked! Since the first argument to this script was `4`, and 4 is equal to 4,
-the code within the IF statement was executed. You can pair IF statements with
-ELSE statements. An ELSE statement only runs if the conditional expression being
-evaluated by the IF statement is false. Let's create a simple program that uses
-an ELSE statement:
+the code within the **IF** statement was executed. You can pair **IF** statements with
+**ELSE** statements. An **ELSE** statement only runs if the conditional expression being
+evaluated by the **IF** statement is false. Let's create a simple program that uses
+an **ELSE** statement:
 
 ```
 #!/usr/bin/env bash
@@ -767,8 +766,8 @@ bash simpleifelse.sh 4
 ## End program
 ```
 
-The conditional expression `[[ $1 -eq 4 ]]` was true so code inside of the IF
-statement was run and the code in the ELSE statement was not run. What do you
+The conditional expression `[[ $1 -eq 4 ]]` was true so code inside of the **IF**
+statement was run and the code in the **ELSE** statement was not run. What do you
 think will happened when we make the conditional expression false?
 
 ```{r, engine='bash', eval=FALSE}
@@ -781,13 +780,13 @@ bash simpleifelse.sh 3
 ## End program
 ```
 
-The conditional expression `[[ $1 -eq 4 ]]` was false so code inside of the ELSE
-statement was run and the code in the IF statement was not run.
+The conditional expression `[[ $1 -eq 4 ]]` was false so code inside of the **ELSE**
+statement was run and the code in the **IF** statement was not run.
 
-Between IF and ELSE statements you can also have ELIF statements. These
+Between **IF** and **ELSE** statements you can also have **ELIF** statements. These
 statements act like IF statements except they're only evaluated if preceding
-IF and ELIF statements have all evaluated false conditional expressions. Let's
-create a brief program using ELIF:
+**IF** and **ELIF** statements have all evaluated false conditional expressions. Let's
+create a brief program using **ELIF**:
 
 ```
 #!/usr/bin/env bash
@@ -814,7 +813,7 @@ bash simpleelif.sh 4
 ## 4 is my favorite number
 ```
 
-The condition in the IF statement was true, so only the first `echo` command was
+The condition in the **IF** statement was true, so only the first `echo` command was
 executed. Now let's run the program with `5` as the first argument:
 
 ```{r, engine='bash', eval=FALSE}
@@ -826,7 +825,7 @@ bash simpleelif.sh 5
 ```
 
 If first condition is false since 5 is not equal to 4, but then the next
-condition in the ELIF statement is true since 5 is greater than 3, so that
+condition in the **ELIF** statement is true since 5 is greater than 3, so that
 echo command is executed and the rest of the statement is skipped. Try to guess
 what will happen if we use `2` as an argument:
 
@@ -838,13 +837,13 @@ bash simpleelif.sh 2
 ## You entered: 2, not what I was looking for.
 ```
 
-Since 2 is neither equal to 4 nor greater than 5, the code in the ELSE statement
+Since 2 is neither equal to 4 nor greater than 5, the code in the **ELSE** statement
 is executed.
 
 You should also know that you can combine conditional execution, conditional
-expressions, and IF/ELIF/ELSE statements. The conditional execution operators
-AND (`&&`) and OR (`||`) can be used in an IF or ELIF statement. Let's look at
-an example using these operators in an IF statement:
+expressions, and **IF**/**ELIF**/**ELSE** statements. The conditional execution operators
+AND (`&&`) and OR (`||`) can be used in an **IF** or **ELIF** statement. Let's look at
+an example using these operators in an **IF** statement:
 
 ```
 #!/usr/bin/env bash
@@ -882,10 +881,10 @@ bash condexif.sh Sean
 
 The conditional execution operators work just like they would on the command
 line. If the entire conditional expression evaluates to the equivalent of `true`
-then the code within the IF statement is executed, otherwise it is skipped.
+then the code within the **IF** statement is executed, otherwise it is skipped.
 
-Finally we should note that IF/ELIF/ELSE statements can be nested inside of
-other IF statements. Here's a small example of a program with nested statements:
+Finally we should note that **IF**/**ELIF**/**ELSE** statements can be nested inside of
+other **IF** statements. Here's a small example of a program with nested statements:
 
 ```
 #!/usr/bin/env bash
@@ -921,10 +920,10 @@ bash nested.sh 6
 ## six
 ```
 
-In order to get to the inner IF statement, the conditions for the outer IF
+In order to get to the inner **IF** statement, the conditions for the outer **IF**
 statement must be met first (the first argument for the script must be between
 3 and 7). As you can see combining variables, arguments, conditional
-expressions, and IF statements allow you to write more powerful Bash programs.
+expressions, and **IF** statements allow you to write more powerful Bash programs.
 
 
 ### Summary
@@ -1131,12 +1130,12 @@ echo {Who,What,Why,When,How}?
 
 ### `for`
 
-Loops are one of the most important programming structures in the Bash language.
+**Loops** are one of the most important programming structures in the Bash language.
 All of the programs we've written so far are executed from the first line of the
-script until the last line, but loops allow you to repeat lines of code based on
+script until the last line, but **loops** allow you to repeat lines of code based on
 logical conditions or by following a sequence. The first kind of loop that we'll
-discuss is a FOR loop. **FOR loops** iterate through every element of a sequence
-that you specify. Let's take a look at a small example FOR loop:
+discuss is a **FOR loop**. **FOR loops** iterate through every element of a sequence
+that you specify. Let's take a look at a small example **FOR** loop:
 
 ```
 #!/usr/bin/env bash
@@ -1167,7 +1166,7 @@ bash forloop.sh
 ```
 
 Let's walk through `forloop.sh` line-by-line. First `"Before Loop"` is printed
-before the FOR loop, then the loop begins. FOR loops start with the syntax
+before the **FOR** loop, then the loop begins. **FOR** loops start with the syntax
 `for [variable name] in [sequence]` followed by `do` on the next line. The
 variable name that you define immediately after `for` will take on a value
 inside of the loop that corresponds to an element in the sequence you provide
@@ -1186,7 +1185,7 @@ value 2. The string
 `do` statement since there are still elements left in the sequence. The `$i`
 variable is now equal to 3, so `"i is equal to 3"` is printed to the console.
 There are no elements left in the sequence, so the program moves beyond the
-FOR loop and finally prints `"After Loop"`. Stop for a moment and edit this loop
+**FOR** loop and finally prints `"After Loop"`. Stop for a moment and edit this loop
 yourself. Try changing the brace expansion to include other sequences of
 numbers, letters, or words, then execute the modified code. Before you execute
 your modified program, write down what you think will be printed. How do the
@@ -1254,22 +1253,22 @@ bash manyloops.sh
 ## vars.sh is a bash script
 ```
 
-The example above illustrates three other methods of creating sequences for FOR
+The example above illustrates three other methods of creating sequences for **FOR**
 loops: typing out an explicit list, using an array, and getting the result of a
 command substitution. In each case a variable name is declared after the `for`,
 and the value of tha variable changes through each iteration of the loop until
 the corresponding sequence has been exhausted. Right now you should take a
-moment to write a few FOR loops yourself, generating sequences in all of the
-ways that we've gone over, just to reinforce your understanding of how a FOR
+moment to write a few **FOR** loops yourself, generating sequences in all of the
+ways that we've gone over, just to reinforce your understanding of how a **FOR**
 loop works. Loops and conditional statements are two of the most important
 structures that we have at our disposal as programmers.
 
 ### `while`
 
-Now that we've gotten a few FOR loops working let's move on to WHILE loops. The
+Now that we've gotten a few **FOR** loops working let's move on to **WHILE loops**. The
 **WHILE loop** is truly the [Reese's Peanut Butter Cup](https://youtu.be/O7oD_oX-Gio)
-of programming structures, combining parts of the FOR loop and the IF statement.
-Let's take a look at an example WHILE loop so you can see what I mean:
+of programming structures, combining parts of the **FOR** loop and the **IF** statement.
+Let's take a look at an example **WHILE** loop so you can see what I mean:
 
 ```
 #!/usr/bin/env bash
@@ -1284,10 +1283,10 @@ do
 done
 ```
 
-The WHILE loop begins first with the `while` keyword followed by a conditional
+The **WHILE** loop begins first with the `while` keyword followed by a conditional
 expression. As long as the conditional expression is equivalent to `true` when
 an iteration of the loop begins, then
-the code within the WHILE loop will continue to be executed. Based on the code
+the code within the **WHILE** loop will continue to be executed. Based on the code
 for `whileloop.sh` what do you think will be printed to the console when we run
 this script? Let's find out:
 
@@ -1301,8 +1300,8 @@ bash whileloop.sh
 ## count is equal to 1
 ```
 
-Before the WHILE the `count` variable is set to be 3, but then each
-time the WHILE loop is executed 1 is subtracted from the value of `count`. The
+Before the **WHILE** the `count` variable is set to be 3, but then each
+time the **WHILE** loop is executed 1 is subtracted from the value of `count`. The
 loop then starts from the top again and the conditional expression is
 re-checked to see if it's still equivalent to `true`. After three iterations
 through the loop `count` is equal to 0 since 1 is subtracted from `count` in
@@ -1349,15 +1348,15 @@ you're watching number wiz by in your terminal! Don't fret, you can terminate
 any program that's stuck in an infinite loop using `Control` + `C`. Use
 `Control` + `C` to get the prompt back so that we can continue.
 
-When constructing WHILE loops, make absolutely sure that you've structured the
+When constructing **WHILE** loops, make absolutely sure that you've structured the
 program so that the loop will terminate! If the logical expression after `while`
 never becomes `false` then the program will run forever, which is probably not
 the kind of behavior you were planning for your program.
 
 ### Nesting
 
-Just like IF statements `for` and `while` loops can be nested within each other.
-In the example below a FOR loop is nested inside of another FOR loop.
+Just like **IF** statements `for` and `while` loops can be nested within each other.
+In the example below a **FOR** loop is nested inside of another **FOR** loop.
 
 ```
 #!/usr/bin/env bash
@@ -1372,7 +1371,7 @@ do
 done
 ```
 
-Based on what we know about FOR loops try to predict what this program will
+Based on what we know about **FOR** loops try to predict what this program will
 print out before we run the program. Now that you've written down or typed out
 your prediction let's run it.
 
@@ -1389,7 +1388,7 @@ bash nestedloops.sh
 ## number is 3, letter is b
 ```
 
-Let's closely examine what's going on here. The outer most FOR loop starts
+Let's closely examine what's going on here. The outer most **FOR** loop starts
 iterating through the sequence generated by `{1..3}`. On the first pass through
 the loop, the inner loop iterates through the sequence `a b` which first prints
 `number is 1, letter is a` followed by `number is 1, letter is b`. The first
@@ -1400,11 +1399,11 @@ encourage you to pause for a moment and write some of your own nested loops
 based on the code above. Try to predict what your nested loop program will print
 before you run your program. If the printed result does not match your
 prediction trace your way through the program and try to figure out why. Don't
-just limit yourself to nested FOR loops, use nested WHILE loops, or FOR and
-WHILE loops in nested combinations.
+just limit yourself to nested **FOR** loops, use nested **WHILE** loops, or **FOR** and
+**WHILE** loops in nested combinations.
 
-Besides nesting loops within each other you can also nest loops within IF
-statements and IF statements within loops. Let's take a look at an example:
+Besides nesting loops within each other you can also nest loops within **IF**
+statements and **IF** statements within loops. Let's take a look at an example:
 
 ```
 #!/usr/bin/env bash
@@ -1433,10 +1432,10 @@ bash ifloop.sh
 ```
 
 For each iteration of the loop above, the value of `number` was checked in the
-IF statement, and the `echo` command was only run if `number` was outside the
+**IF** statement, and the `echo` command was only run if `number` was outside the
 range from 3 to 8.
 
-There are endless combinations for nesting IF statements and loops, but one good
+There are endless combinations for nesting **IF** statements and loops, but one good
 rule of thumb you should remember is that your nesting should never go more than
 two or possibly three layers deep. If you find yourself writing code with lots
 of nesting, you should consider restructuring your program. Deeply nested code
@@ -1469,7 +1468,7 @@ Take a look at the `man` page for `yes` to learn more about the program.
 
 ### Writing Functions
 
-A function is a small piece of code that has a name. Writing functions allows
+A **function** is a small piece of code that has a name. Writing functions allows
 us to re-use the same code multiple times across programs. Functions have the
 the following syntax:
 
@@ -1800,7 +1799,7 @@ fib 10
 
 ### The Unix Philosophy
 
-Perhaps there are some design patters that you've been noticing since we started
+Perhaps there are some design patterns that you've been noticing since we started
 talking about Unix tools, and now we're going to discuss them explicitly. Unix
 tools were designed along a set of guidelines which are best summarized by
 [Ken Thompson](https://en.wikipedia.org/wiki/Ken_Thompson)'s idea that each Unix
@@ -1821,7 +1820,7 @@ effects of your program more easily.
 the new program will also be small. **Composability** is the concept of
 stringing small programs together to create a new program.
 
-The concept of composability in Unix is best illustrated by the use of the pipe
+The concept of composability in Unix is best illustrated by the use of the **pipe**
 operator (`|`) for creating pipelines of programs.
 When you're considering what inputs your program is going to have and what your
 program is going to print to the console you should consider whether or not your
@@ -1861,7 +1860,7 @@ are three permissions that we can grant: the ability to **read** the file (`r`),
 **write** to or edit the file (`w`), or **execute** the file (`x`) as a program.
 These three permissions can be granted on three different levels of access which
 correspond to each of the three sets of `rwx` in the permissions string: the
-owner of the file, the group that the file belongs to, and everyone other than
+**owner** (`u`) of the file, the **group** (`g`) that the file belongs to, and **everyone** (`o`) other than
 the owner and the members of a group. Since you
 created the file you are the owner of the file, and you can set the permissions
 for files that you own using the `chmod` command.
@@ -1965,7 +1964,7 @@ Now our Bash script is ready to go!
 ### Environmental Variables
 
 We're one step away from being able to use our scripts and functions as shell
-commands, but first we need to learn about environmental variables.
+commands, but first we need to learn about **environmental variables**.
 An environmental variable is a variable that Bash creates where data about your
 current computing environment is stored. Environmental variable names use all
 capitalized letters. Let's look at the values for some of these variables. The

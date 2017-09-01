@@ -731,7 +731,7 @@ yet exist and then save your changes to that file.
 - `>>` will append command output to the end of a file.
 - Print a text file to the command line using `cat`.
 - Inspect properties of a text file with `wc`.
-- Peak at the beginning and end of a text file with `head` and `tail`.
+- Peek at the beginning and end of a text file with `head` and `tail`.
 - Scroll through a large text file with `less`.
 - `nano` is simple text editor.
 

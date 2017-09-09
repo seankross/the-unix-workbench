@@ -19,3 +19,4 @@
 - Sanjoy Karmakar
 - Franco Iovi
 - John Oliver
+- Tracy Nash

@@ -20,3 +20,4 @@
 - Franco Iovi
 - John Oliver
 - Tracy Nash
+- Mario Rossi

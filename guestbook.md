@@ -22,3 +22,4 @@
 - Tracy Nash
 - Tatiana Itzcovich  
 - Data and Drones
+- Vineet Bhat

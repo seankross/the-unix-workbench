@@ -20,4 +20,6 @@
 - Franco Iovi
 - John Oliver
 - Tracy Nash
+- Tatiana Itzcovich  
+- Data and Drones
 - Vineet Bhat

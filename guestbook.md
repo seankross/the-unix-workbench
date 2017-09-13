@@ -20,4 +20,5 @@
 - Franco Iovi
 - John Oliver
 - Tracy Nash
--Data and Drones
+- Tatiana Itzcovich  
+- Data and Drones

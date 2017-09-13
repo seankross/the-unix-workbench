@@ -23,3 +23,4 @@
 - Tatiana Itzcovich  
 - Data and Drones
 - Vineet Bhat
+- Emily Grossman

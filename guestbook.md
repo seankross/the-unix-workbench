@@ -24,3 +24,4 @@
 - Data and Drones
 - Vineet Bhat
 - Emily Grossman
+- ecruz3

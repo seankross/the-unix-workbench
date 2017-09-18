@@ -25,3 +25,4 @@
 - Vineet Bhat
 - Emily Grossman
 - Umar
+- Hisham Elkassih

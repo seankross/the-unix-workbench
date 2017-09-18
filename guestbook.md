@@ -24,4 +24,4 @@
 - Data and Drones
 - Vineet Bhat
 - Emily Grossman
-George
+- George

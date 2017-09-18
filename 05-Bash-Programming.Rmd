@@ -79,7 +79,7 @@ bash math.sh
 ```
 
 Let's break down what's going on in the Bash script you just created. Bash
-executes programs in order from the fist line in your file to the last line.
+executes programs in order from the first line in your file to the last line.
 The `expr` command can be used to **evaluate** Bash **expressions**.
 An expression is just
 a valid string of Bash code that, when run, produces a result. The arithmetic

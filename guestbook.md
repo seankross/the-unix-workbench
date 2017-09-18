@@ -26,3 +26,4 @@
 - Emily Grossman
 - Umar
 - Hisham Elkassih
+- Nadia Mazur

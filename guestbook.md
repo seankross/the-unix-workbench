@@ -27,3 +27,4 @@
 - Umar
 - Hisham Elkassih
 - Nadia Mazur
+- George

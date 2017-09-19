@@ -29,3 +29,4 @@
 - Nadia Mazur
 - George
 - ecruz3
+- Mario Rossi

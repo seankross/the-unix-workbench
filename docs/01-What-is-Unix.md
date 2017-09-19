@@ -7,7 +7,7 @@ movies: an elite computer hacker sits in front of a black screen with green
 glowing text, furiously typing in commands and shouting something like 
 "Spike them!" Using the command line interface lets you enter lines of code into
 a shell (also called a console) and that code instructs your computer to
-perform a specific task. Throughout this book I may use the terms command line,
+perform a specific task. Throughout this book, I may use the terms command line,
 shell, and console interchangeably. You'll learn about using the command line in
 the Command Line Basics chapter.
 
@@ -17,5 +17,5 @@ havoc on yourself and on others. Like
 [Benjamin Parker](https://en.wikipedia.org/wiki/Uncle_Ben) once 
 said: "With great power comes great responsibility."
 
-There are several popular shell programs but in this book we'll be using a shell 
+There are several popular shell programs but in this book, we'll be using a shell 
 called Bash because it's the default shell program on Mac and Ubuntu.

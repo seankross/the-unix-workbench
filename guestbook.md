@@ -31,3 +31,4 @@
 - ecruz3
 - Mario Rossi
 Neeraj Pandey @neal0829
+- Giulia G

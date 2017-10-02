@@ -35,3 +35,4 @@
 - amir rezaei
 - Hadar Golan
 - Evan Chan
+- Jean-Paul Cardinal

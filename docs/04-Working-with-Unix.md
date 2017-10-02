@@ -1450,8 +1450,8 @@ file that the target depends on in order to be built. If a dependency has
 been updated since the last time `make` was run for a target then the target is
 not "up to date." This means that the commands for that target will be run the
 next time `make` is run for that target. This way, the changes to the dependency
-are incorperated into the target. The commands are only run when the dependencies
-or change, or when the target doesn't exist at all, in order to avoid running
+are incorporated into the target. The commands are only run when the dependencies
+change, or when the target doesn't exist at all, in order to avoid running
 commands unnecessarily.
 
 Let's update our `makefile` to include a `readme.txt` that is built

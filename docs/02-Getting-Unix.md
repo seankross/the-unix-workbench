@@ -1,6 +1,6 @@
 # Getting Unix
 
-> An indispensible thing never has much value. - Russian proverb
+> An indispensable thing never has much value. - Russian proverb
 
 ## Mac & Ubuntu Users
 

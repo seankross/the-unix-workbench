@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>The Unix Workbench</title>
   <meta name="description" content="The Unix Workbench">
-  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
 
   <meta property="og:title" content="The Unix Workbench" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Sean Kross">
 
 
-<meta name="date" content="2017-08-15">
+<meta name="date" content="2017-10-02">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -954,7 +954,7 @@ British Columbia</code></pre>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">make</span> draft_journal_entry.txt</code></pre></div>
 <pre><code>## make: &#39;draft_journal_entry.txt&#39; is up to date.</code></pre>
 <p>Since the target file already exists no action is taken, and instead we’re informed that the rule for <code>draft_journal_entry.txt</code> is “up to date” (there’s nothing to be done).</p>
-<p>If we look at the general rule format we previously sketched out, we can see that we didn’t specify any dependencies for this rule. A <strong>dependency</strong> is a file that the target depends on in order to be built. If a dependency has been updated since the last time <code>make</code> was run for a target then the target is not “up to date.” This means that the commands for that target will be run the next time <code>make</code> is run for that target. This way, the changes to the dependency are incorperated into the target. The commands are only run when the dependencies or change, or when the target doesn’t exist at all, in order to avoid running commands unnecessarily.</p>
+<p>If we look at the general rule format we previously sketched out, we can see that we didn’t specify any dependencies for this rule. A <strong>dependency</strong> is a file that the target depends on in order to be built. If a dependency has been updated since the last time <code>make</code> was run for a target then the target is not “up to date.” This means that the commands for that target will be run the next time <code>make</code> is run for that target. This way, the changes to the dependency are incorporated into the target. The commands are only run when the dependencies change, or when the target doesn’t exist at all, in order to avoid running commands unnecessarily.</p>
 <p>Let’s update our <code>makefile</code> to include a <code>readme.txt</code> that is built automatically. First, let’s add a table of contents for our journal:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="st">&quot;1. 2017-06-15-In-Boston&quot;</span> <span class="op">&gt;</span> toc.txt</code></pre></div>
 <p>Now let’s update our <code>makefile</code> with <code>nano</code> to automatically generate a <code>readme.txt</code>:</p>
@@ -1054,7 +1054,7 @@ clean:
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,

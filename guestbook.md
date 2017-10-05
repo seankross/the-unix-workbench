@@ -38,4 +38,5 @@
 - Jean-Paul Cardinal
 - Michael Ward
 - Jerome Cholewa
+- Elbin Elias
 - Krishna Biradar

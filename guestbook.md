@@ -38,4 +38,7 @@
 - Jean-Paul Cardinal
 - Michael Ward
 - Jerome Cholewa
--Mala Deep
+- Mala Deep
+- Elbin Elias
+- Krishna Biradar
+

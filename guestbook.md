@@ -41,5 +41,6 @@
 - Mala Deep
 - Elbin Elias
 - Krishna Biradar
-
--Aana Hahn
+- Ana Maria Hernandez
+- Hsiaochi Chelsea Liao
+- Aana Hahn

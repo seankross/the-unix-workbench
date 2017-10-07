@@ -134,6 +134,7 @@ following:
 echo "22 / 7" | bc -l
 echo "4.2 * 9.15" | bc -l
 echo "(6.5 / 0.5) + (6 * 2.2)" | bc -l
+echo "scale=0; 3 % 2" |  bc -l
 ```
 
 Save `bigmath.sh` and then run this script in your shell:
@@ -146,6 +147,7 @@ bash bigmath.sh
 ## 3.14285714285714285714
 ## 38.430
 ## 26.2
+## 1
 ```
 
 You can pipe any mathematical string to `bc` with the `-l` flag in order to

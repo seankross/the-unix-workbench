@@ -38,3 +38,9 @@
 - Jean-Paul Cardinal
 - Michael Ward
 - Jerome Cholewa
+- Mala Deep
+- Elbin Elias
+- Krishna Biradar
+- Ana Maria Hernandez
+- Hsiaochi Chelsea Liao
+- Aana Hahn

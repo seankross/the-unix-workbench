@@ -45,3 +45,4 @@
 - Hsiaochi Chelsea Liao
 - Aana Hahn
 - Marc Weisenberg
+- Kent Mok

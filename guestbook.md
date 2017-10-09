@@ -44,4 +44,6 @@
 - Ana Maria Hernandez
 - Hsiaochi Chelsea Liao
 - Aana Hahn
+- Marc Weisenberg
+- Kent Mok
 - A T

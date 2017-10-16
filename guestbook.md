@@ -55,3 +55,4 @@
 - Alicia Tsai
 - Josh Sulkers
 - Jamie Henzy
+- Aliaksei Kuzmin

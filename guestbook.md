@@ -57,4 +57,5 @@
 - Jamie Henzy
 - Aliaksei Kuzmin
 - Francisco Lima
--Suchir Bhatnagar
+- Suchir Bhatnagar
+- Alexandra Villamizar

@@ -60,4 +60,6 @@
 - Suchir Bhatnagar
 - Alexandra Villamizar
 - Roberto Noorduijn Londono
+- Darren Jacquet
+- Joonil Ahn
 - Phuc K Nguyen

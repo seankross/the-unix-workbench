@@ -65,3 +65,4 @@
 - Phuc K Nguyen
 - Mark Boehler
 - Stefano Manca
+- Aleksandar Lazić

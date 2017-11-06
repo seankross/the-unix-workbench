@@ -78,3 +78,4 @@
 - Albert Barragan Laso
 - Nicholas D'Cruz
 - Bharadwaj Enagandula
+- Nick Arnold

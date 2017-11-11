@@ -82,3 +82,4 @@
 - Wayne
 - Paul Bridge
 - Carlos A.
+- Paolo Vagnini

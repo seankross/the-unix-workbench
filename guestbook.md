@@ -83,3 +83,4 @@
 - Paul Bridge
 - Carlos A.
 - Daniel A. Rodríguez Caballero
+- Paolo Vagnini

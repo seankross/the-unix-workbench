@@ -1458,7 +1458,7 @@ programming structures.
 
 ### Exercises
 
-- Write serval programs with three levels of nesting and include FOR loops,
+- Write several programs with three levels of nesting and include FOR loops,
 WHILE loops, and IF statements. Before you run your program try to predict what
 your program is going to print. If the result is different from your prediction
 try to figure out why.

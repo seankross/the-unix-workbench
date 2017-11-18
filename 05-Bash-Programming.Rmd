@@ -838,7 +838,7 @@ bash simpleelif.sh 2
 ## You entered: 2, not what I was looking for.
 ```
 
-Since 2 is neither equal to 4 nor greater than 5, the code in the ELSE statement
+Since 2 is neither equal to 4 nor greater than 3, the code in the ELSE statement
 is executed.
 
 You should also know that you can combine conditional execution, conditional

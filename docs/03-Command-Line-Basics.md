@@ -681,7 +681,7 @@ nano todo.txt
 
 Once you've started `nano` you can start editing the text file. The top line of
 the `nano` editor shows the file you're currently working on, and the bottom two
-lines show a few commands that you can use in `nano`. The carrot character (`^`)
+lines show a few commands that you can use in `nano`. The caret character (`^`)
 represents the `Control` key on your keyboard, so you can for example type
 `Control` + `O` in order to save the changes you've made to the text file, or
 `Control` + `X` in order to exit `nano` and go back to the prompt. 

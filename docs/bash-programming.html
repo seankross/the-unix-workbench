@@ -25,7 +25,7 @@
 <meta name="author" content="Sean Kross">
 
 
-<meta name="date" content="2017-10-02">
+<meta name="date" content="2017-11-21">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -743,7 +743,7 @@ fi</code></pre>
 <p>If first condition is false since 5 is not equal to 4, but then the next condition in the ELIF statement is true since 5 is greater than 3, so that echo command is executed and the rest of the statement is skipped. Try to guess what will happen if we use <code>2</code> as an argument:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> simpleelif.sh 2</code></pre></div>
 <pre><code>## You entered: 2, not what I was looking for.</code></pre>
-<p>Since 2 is neither equal to 4 nor greater than 5, the code in the ELSE statement is executed.</p>
+<p>Since 2 is neither equal to 4 nor greater than 3, the code in the ELSE statement is executed.</p>
 <p>You should also know that you can combine conditional execution, conditional expressions, and IF/ELIF/ELSE statements. The conditional execution operators AND (<code>&amp;&amp;</code>) and OR (<code>||</code>) can be used in an IF or ELIF statement. Let’s look at an example using these operators in an IF statement:</p>
 <pre><code>#!/usr/bin/env bash
 # File: condexif.sh
@@ -1083,7 +1083,7 @@ done</code></pre>
 <div id="exercises-14" class="section level3">
 <h3><span class="header-section-number">5.7.5</span> Exercises</h3>
 <ul>
-<li>Write serval programs with three levels of nesting and include FOR loops, WHILE loops, and IF statements. Before you run your program try to predict what your program is going to print. If the result is different from your prediction try to figure out why.</li>
+<li>Write several programs with three levels of nesting and include FOR loops, WHILE loops, and IF statements. Before you run your program try to predict what your program is going to print. If the result is different from your prediction try to figure out why.</li>
 <li>Enter the <code>yes</code> command into the console, then stop the program from running. Take a look at the <code>man</code> page for <code>yes</code> to learn more about the program.</li>
 </ul>
 </div>

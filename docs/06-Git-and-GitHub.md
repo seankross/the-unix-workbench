@@ -45,7 +45,7 @@ git --version
 ```
 
 ```
-## git version 2.13.5 (Apple Git-94)
+## git version 2.13.6 (Apple Git-96)
 ```
 
 If you don't get a response back telling you the version of Git that you have

@@ -401,7 +401,7 @@ the status of your repository after the commit?
 
 ## Important Git Features
 
-### Gitting Help, Logs, and Diffs
+### Getting Help, Logs, and Diffs
 
 Git commands have their own `man` pages. You can access them with
 `git help [name of command]`. For example here's the start of the help page
@@ -1632,7 +1632,7 @@ internet.
 - Add commits to your remote repository with `git push [name-of-remote] [name-of-branch]`
 or just `git push` if you've set up a default remote and branch.
 - To merge commits on a remote repository into your local repository use
-`git pull [name-of-remote] [name-of-branch]` or just `git pull` if you've set 
+`git pull [name-of-remote] [name-of-branch]` or just `git pull` if you've set
 up a default remote and branch.
 - A pull request allows you to interactively compare two different branches
 before you merge them.

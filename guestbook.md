@@ -91,3 +91,4 @@
 - David Conrad
 - M McPhail
 - Marcus Rodrigues de Araujo
+- Stefan M

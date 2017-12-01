@@ -93,3 +93,4 @@
 - Marcus Rodrigues de Araujo
 - Stefan M
 - S. A.
+- Chase LeCroy

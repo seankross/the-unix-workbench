@@ -102,3 +102,4 @@
 - Angela Laios
 - Sergio Diaz
 - Femi
+- Jaakko Järvinen

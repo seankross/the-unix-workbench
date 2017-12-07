@@ -105,3 +105,4 @@
 - Jaakko Järvinen
 - Christopher Michael Reece
 - Ksenia Koroleva
+- Amit Bhatia

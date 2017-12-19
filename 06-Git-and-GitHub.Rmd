@@ -35,7 +35,7 @@ offers many other useful features which we will discuss at length.
 ## Setting Up Git and GitHub
 
 Before setting up Git, go to [GitHub](https://github.com/) and create a free
-account. Take note of which email address you use and which username you choose.
+account. Take note of which email address you use and which user name you choose.
 
 To see if you have Git installed open up your terminal and enter the following:
 
@@ -844,11 +844,11 @@ git commit -m "added weather info"
 
 This is a small example of how to use Git branching, but you can see how you
 can make incremental edits to plain text (usually code files) without
-effecting the `master` branch (the tested and working copy of your software)
-and without effecting any other branches. You can imagine how
+affecting the `master` branch (the tested and working copy of your software)
+and without affecting any other branches. You can imagine how
 this system could be used for multiple people to work on the same codebase at
 the same time, or how you could develop and test multiple software features
-without them interfering with each other. Now that we've made a couple of
+without their interfering with each other. Now that we've made a couple of
 changes to `readme.txt`, let's combine those changes with what we have in the
 `master` branch. This is made possible by a Git **merge**. Merging allows you
 to elegantly combine the changes that have been made between two branches. Let's
@@ -1227,7 +1227,7 @@ wrote has been rendered according to a few rules:
 - Pound signs (`#`, `##`) make headings.
 - A word surrounded by single asterisks (`*word*`) makes that word *italicized*.
 - A word surrounded by double asterisks (`**word**`) makes that word **bold**.
-- You can create lists with hyphens (`-`) or numbers (`1., 2., 3.`).
+- You can create lists with hyphens (`-`) or numbers (`1.`, `2.`, `3.`).
 - Code can be placed in the middle of a line with single backticks (`` `code` ``).
 - A code block can be created by putting code in between a set of triple
 backticks (`` ``` ``).
@@ -1437,7 +1437,7 @@ into `master`.
 
 When working on a remote GitHub repository with many other folks theses pull
 requests and merges can happen without you being involved at all, if the commits
-effect parts of the code that you're not working on. Still it's important to
+affect parts of the code that you're not working on. Still it's important to
 keep your local repository up to date with the latest changes in the remote
 repository. Let's go back to your terminal where you have `my-first-repo` set
 as the current working directory.
@@ -1532,9 +1532,9 @@ in the upper right corner. GitHub will then ask you what account you want to
 use to fork the repository. If you're a new GitHub user then you only have one
 account, so select that account. After a brief "please wait" screen you should
 then see the forked repository at the URL
-https://github.com/[your-github-username]/the-unix-workbench. You've now forked
+https\://github.com/[your-github-username]/the-unix-workbench. You've now forked
 the repository for this book! In order to get
-get a local copy of the repository you'll need to use the `git clone` command.
+a local copy of the repository you'll need to use the `git clone` command.
 Cloning a repository copies a Git repository to your computer while keeping
 track of the remote repository that it originated from. Let's clone your fork
 of my repository now. On the right side of the repository page you should see
@@ -1631,7 +1631,7 @@ to see in a public GitHub repository, fork that repository and make the change!
 
 ### Summary
 
-- You can use GitHub you create and host remote Git repositories.
+- You can use GitHub to create and host remote Git repositories.
 - A remote Git repository is a Git repository that is always connected to the
 internet.
 - List remote repositories with `git remote`.
@@ -1653,7 +1653,7 @@ be merged into the upstream repository!
 1. Create a new repository on GitHub. Clone your repository and add a
 `README.md` file. Push this file to GitHub and create a GitHub Pages website
 for this repository.
-2. Fork an existing repository (try one of mine https://github.com/seankross)
+2. Fork an existing repository (try one of mine: https://github.com/seankross)
 and try to identify something valuable you could contribute. Make changes or
 additions to that repository, then open a pull request.
 3. Read through [GitHub's Guides](https://guides.github.com/).

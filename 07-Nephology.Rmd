@@ -54,7 +54,7 @@ size option:
 ![](images/do-distro-size.png)
 
 Scroll down the page and then select the region that is geographically closest
-to you. Some regions have multiple data centers, it doesn't matter which data
+to you. Some regions have multiple data centers; it doesn't matter which data
 center you pick. Currently I'm in Baltimore, Maryland, USA, so I'm going to pick
 the number 1 data center in New York:
 

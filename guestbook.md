@@ -123,4 +123,6 @@
 - Kris Hampel
 - Nala
 - Seung Hoon Ha
--Lara L.
+- Pia Backmann
+- Vivek Rudrapatna
+- Lara L.

@@ -123,7 +123,9 @@
 - Kris Hampel
 - Nala
 - Seung Hoon Ha
+<<<<<<< HEAD
 - Pia Backmann
 - Vivek Rudrapatna
 - Lara L.
 - Raimund Strauck
+- Eden Mugg

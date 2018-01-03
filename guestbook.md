@@ -124,3 +124,6 @@
 - Nala
 - Seung Hoon Ha
 - Arsenii Mustafin
+- Pia Backmann
+- Vivek Rudrapatna
+- Lara L.

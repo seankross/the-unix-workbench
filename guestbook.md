@@ -125,4 +125,5 @@
 - Seung Hoon Ha
 - Pia Backmann
 - Vivek Rudrapatna
+- Lara L.
 - Raimund Strauck

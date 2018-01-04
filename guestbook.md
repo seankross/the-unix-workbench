@@ -129,3 +129,4 @@
 - Lara L.
 - Raimund Strauck
 - Eden Mugg
+- Rachit Kinger

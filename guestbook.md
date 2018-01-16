@@ -140,3 +140,4 @@
 - Saliha Xiaoxuan Wang
 - Trevorr Marshall
 - Santi Santichaivekin
+- Huajun Zhou

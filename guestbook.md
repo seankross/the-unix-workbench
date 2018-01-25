@@ -149,3 +149,4 @@
 - stickey
 - Koenraad Van Hoorde
 - Holly Grimm
+- Soledad López Gambino

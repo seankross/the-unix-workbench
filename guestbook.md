@@ -155,3 +155,4 @@
 - Emilie Wolf
 - Victor Golf
 - Vladimir Kanchev
+- Angela Renggli

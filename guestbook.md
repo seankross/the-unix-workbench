@@ -158,3 +158,4 @@
 - Angela Renggli
 - Josue Garcia
 - Alexandre Cadima
+- Palatip Jopanya John

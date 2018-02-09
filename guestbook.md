@@ -163,3 +163,4 @@
 - Kalki Sharma
 - Daniel Hall
 - Michel Sun
+- Siddhesh Dalvi

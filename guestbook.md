@@ -164,3 +164,4 @@
 - Daniel Hall
 - Michel Sun
 - Siddhesh Dalvi
+- Nathan Rooney

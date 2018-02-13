@@ -45,7 +45,7 @@ git --version
 ```
 
 ```
-## git version 2.11.0 (Apple Git-81)
+## git version 2.13.6 (Apple Git-96)
 ```
 
 If you don't get a response back telling you the version of Git that you have
@@ -1515,13 +1515,6 @@ branch on our remote repository. You just merged your first pull request! Now
 click near the top left corner of this page on the **<> Code** tab, and you
 should see that the changes from the `update-readme` branch have been merged
 into `master`.
-
-When working on a remote GitHub repository with many other folks theses pull
-requests and merges can happen without you being involved at all, if the commits
-effect parts of the code that you're not working on. Still it's important to
-keep your local repository up to date with the latest changes in the remote
-repository. Let's go back to your terminal where you have `my-first-repo` set
-as the current working directory.
 
 When working on a remote GitHub repository with many other folks these pull
 requests and merges can happen without you being involved at all if the commits

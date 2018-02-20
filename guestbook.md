@@ -170,5 +170,6 @@
 - Dhruman Goradia
 - Nina P
 - Anmol Patil
- - Yaz Belinskiy
+- Yaz Belinskiy
 - Twsa Liu
+- Xin Guo

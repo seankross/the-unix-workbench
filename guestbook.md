@@ -177,4 +177,5 @@
 - benedictor
 - Darwin Huang
 - Santi
--Sajjad Bin Samad
+- Sajjad Bin Samad
+- Eleftheria Theodoropoulou

@@ -1627,7 +1627,7 @@ to see in a public GitHub repository, fork that repository and make the change!
 - A remote Git repository is a Git repository that is always connected to the
 internet.
 - List remote repositories with `git remote`.
-- Add remote repositiories with `git remote add [name-of-remote] https://github.com/[username]/[repo-name].git`
+- Add remote repositories with `git remote add [name-of-remote] https://github.com/[username]/[repo-name].git`
 - Add commits to your remote repository with `git push [name-of-remote] [name-of-branch]`
 or just `git push` if you've set up a default remote and branch.
 - To merge commits on a remote repository into your local repository use

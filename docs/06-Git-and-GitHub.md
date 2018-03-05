@@ -45,7 +45,7 @@ git --version
 ```
 
 ```
-## git version 2.13.6 (Apple Git-96)
+## git version 2.14.3 (Apple Git-98)
 ```
 
 If you don't get a response back telling you the version of Git that you have
@@ -427,7 +427,7 @@ the status of your repository after the commit?
 
 ## Important Git Features
 
-### Gitting Help, Logs, and Diffs
+### Getting Help, Logs, and Diffs
 
 Git commands have their own `man` pages. You can access them with
 `git help [name of command]`. For example here's the start of the help page
@@ -1518,7 +1518,7 @@ into `master`.
 
 When working on a remote GitHub repository with many other folks these pull
 requests and merges can happen without you being involved at all if the commits
-effect parts of the code that you're not working on. Still it's important to
+affect parts of the code that you're not working on. Still it's important to
 keep your local repository up to date with the latest changes in the remote
 repository. Let's go back to your terminal where you have `my-first-repo` set
 as the current working directory. First let's switch to the `master` branch.
@@ -1609,13 +1609,12 @@ use to fork the repository. If you're a new GitHub user then you only have one
 account, so select that account. After a brief "please wait" screen you should
 then see the forked repository at the URL
 https://github.com/[your-github-username]/the-unix-workbench. You've now forked
-the repository for this book! In order to get
-get a local copy of the repository you'll need to use the `git clone` command.
-Cloning a repository copies a Git repository to your computer while keeping
-track of the remote repository that it originated from. Let's clone your fork
-of my repository now. On the right side of the repository page you should see
-a green button that says **Clone or download**. Click that button and the
-following menu should appear:
+the repository for this book! In order to get a local copy of the repository 
+you'll need to use the `git clone` command. Cloning a repository copies a Git 
+repository to your computer while keeping track of the remote repository that 
+it originated from. Let's clone your fork of my repository now. On the right 
+side of the repository page you should see a green button that says **Clone or 
+download**. Click that button and the following menu should appear:
 
 ![](images/clone-wb.png)
 
@@ -1713,15 +1712,15 @@ to see in a public GitHub repository, fork that repository and make the change!
 
 ### Summary
 
-- You can use GitHub you create and host remote Git repositories.
+- You can use GitHub to create and host remote Git repositories.
 - A remote Git repository is a Git repository that is always connected to the
 internet.
 - List remote repositories with `git remote`.
-- Add remote repositiories with `git remote add [name-of-remote] https://github.com/[username]/[repo-name].git`
+- Add remote repositories with `git remote add [name-of-remote] https://github.com/[username]/[repo-name].git`
 - Add commits to your remote repository with `git push [name-of-remote] [name-of-branch]`
 or just `git push` if you've set up a default remote and branch.
 - To merge commits on a remote repository into your local repository use
-`git pull [name-of-remote] [name-of-branch]` or just `git pull` if you've set 
+`git pull [name-of-remote] [name-of-branch]` or just `git pull` if you've set
 up a default remote and branch.
 - A pull request allows you to interactively compare two different branches
 before you merge them.

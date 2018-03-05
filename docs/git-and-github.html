@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>The Unix Workbench</title>
   <meta name="description" content="The Unix Workbench">
-  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.6 and GitBook 2.6.7">
 
   <meta property="og:title" content="The Unix Workbench" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Sean Kross">
 
 
-<meta name="date" content="2017-11-21">
+<meta name="date" content="2018-03-05">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -221,7 +221,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.3.2" data-path="git-and-github.html"><a href="git-and-github.html#exercises-17"><i class="fa fa-check"></i><b>6.3.2</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="git-and-github.html"><a href="git-and-github.html#important-git-features"><i class="fa fa-check"></i><b>6.4</b> Important Git Features</a><ul>
-<li class="chapter" data-level="6.4.1" data-path="git-and-github.html"><a href="git-and-github.html#gitting-help-logs-and-diffs"><i class="fa fa-check"></i><b>6.4.1</b> Gitting Help, Logs, and Diffs</a></li>
+<li class="chapter" data-level="6.4.1" data-path="git-and-github.html"><a href="git-and-github.html#getting-help-logs-and-diffs"><i class="fa fa-check"></i><b>6.4.1</b> Getting Help, Logs, and Diffs</a></li>
 <li class="chapter" data-level="6.4.2" data-path="git-and-github.html"><a href="git-and-github.html#ignoring-files"><i class="fa fa-check"></i><b>6.4.2</b> Ignoring Files</a></li>
 <li class="chapter" data-level="6.4.3" data-path="git-and-github.html"><a href="git-and-github.html#summary-21"><i class="fa fa-check"></i><b>6.4.3</b> Summary</a></li>
 <li class="chapter" data-level="6.4.4" data-path="git-and-github.html"><a href="git-and-github.html#exercises-18"><i class="fa fa-check"></i><b>6.4.4</b> Exercises</a></li>
@@ -295,7 +295,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Before setting up Git, go to <a href="https://github.com/">GitHub</a> and create a free account. Take note of which email address you use and which username you choose.</p>
 <p>To see if you have Git installed open up your terminal and enter the following:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> --version</code></pre></div>
-<pre><code>## git version 2.13.6 (Apple Git-96)</code></pre>
+<pre><code>## git version 2.14.3 (Apple Git-98)</code></pre>
 <p>If you don’t get a response back telling you the version of Git that you have installed then you need to install Git. You can find instructions for installing Git on your operating system <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">here</a>.</p>
 <p>Open up your shell once you have git installed and run <code>git --version</code> again to make sure that installation succeeded (you may need to restart your shell or your computer). After Git is installed we need to set up two environmental variables, but we only need to do this once. The first variable we need to set up with Git is your GitHub user name, and the second variable is the email address that you used to create your GitHub account:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> config --global user.name <span class="st">&quot;myUserName&quot;</span>
@@ -478,8 +478,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="important-git-features" class="section level2">
 <h2><span class="header-section-number">6.4</span> Important Git Features</h2>
-<div id="gitting-help-logs-and-diffs" class="section level3">
-<h3><span class="header-section-number">6.4.1</span> Gitting Help, Logs, and Diffs</h3>
+<div id="getting-help-logs-and-diffs" class="section level3">
+<h3><span class="header-section-number">6.4.1</span> Getting Help, Logs, and Diffs</h3>
 <p>Git commands have their own <code>man</code> pages. You can access them with <code>git help [name of command]</code>. For example here’s the start of the help page for <code>git status</code>:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> help status</code></pre></div>
 <pre><code>GIT-STATUS(1)                                Git Manual                               GIT-STATUS(1)
@@ -955,7 +955,7 @@ The best way to get in touch with me is [on Twitter](https://twitter.com/seankro
 </div>
 <p>Congratulations on opening your first pull request! Let’s take a look at what’s happening on this page. Below the title of the pull request we can see three tabs called <strong>Conversation</strong>, <strong>Commits</strong>, and <strong>Files changed</strong>. In the <strong>Conversation</strong> tab we can add comments to the pull request which can be formatted with Markdown. The <strong>Commits</strong> tab lists the commits that have been made to the “compare” branch in this pull request. Finally the <strong>Files changed</strong> tab shows the same line-by-line comparison we saw before.</p>
 <p>Usually when you’re working with collaborators there’s a great deal of discussion that occurs after you open a pull request. Git commits that are pushed to the “compare” branch (<code>update-readme</code> in the case) of the GitHub repository will be reflected in a pull request even after the request has been opened. This way changes that are made as a result of the discussion can be easily incorporated. Once you’re ready go back to the <strong>Conversation</strong> tab and click the green “Merge pull request” button, then click the green “Confirm merge” button that appears. This will <code>git merge</code> the “compare” branch into the “base” branch on our remote repository. You just merged your first pull request! Now click near the top left corner of this page on the <strong>&lt;&gt; Code</strong> tab, and you should see that the changes from the <code>update-readme</code> branch have been merged into <code>master</code>.</p>
-<p>When working on a remote GitHub repository with many other folks these pull requests and merges can happen without you being involved at all if the commits effect parts of the code that you’re not working on. Still it’s important to keep your local repository up to date with the latest changes in the remote repository. Let’s go back to your terminal where you have <code>my-first-repo</code> set as the current working directory. First let’s switch to the <code>master</code> branch.</p>
+<p>When working on a remote GitHub repository with many other folks these pull requests and merges can happen without you being involved at all if the commits affect parts of the code that you’re not working on. Still it’s important to keep your local repository up to date with the latest changes in the remote repository. Let’s go back to your terminal where you have <code>my-first-repo</code> set as the current working directory. First let’s switch to the <code>master</code> branch.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> checkout master</code></pre></div>
 <p>Now let’s update our local master branch with the commits that have been merged into the master branch on our remote repository. We can accomplish this with the command <code>git pull</code>:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> pull</code></pre></div>
@@ -991,7 +991,7 @@ The best way to get in touch with me is [on Twitter](https://twitter.com/seankro
 <div id="forking" class="section level3">
 <h3><span class="header-section-number">6.6.4</span> Forking</h3>
 <p>If you’re reading this book it’s fairly safe to say that you probably interact with software every day. Software powers your computer, the internet, your phone, and this book. Considering all of the software you use, have you ever thought about modifying that software? Perhaps you could write some code to add a new feature you think would be useful or to fix a glitch that you’ve noticed. GitHub makes modifying other people’s software easy through the process of <strong>forking</strong>. Forking a GitHub repository copies somebody else’s GitHub repository into your GitHub account. You can then modify this copy of their software however you like. After you’ve added some commits to your copy of the repository you can keep the new commits to yourself, share them with others, or you can open up a <strong>pull request</strong> for your new commits to be merged into the original source repository. This original source repository (the repository you forked) is often called the <em>upstream</em> repository.</p>
-<p>Let’s try forking a repository now. Go to <a href="https://github.com/seankross/the-unix-workbench" class="uri">https://github.com/seankross/the-unix-workbench</a> and click the <strong>Fork</strong> button in the upper right corner. GitHub will then ask you what account you want to use to fork the repository. If you’re a new GitHub user then you only have one account, so select that account. After a brief “please wait” screen you should then see the forked repository at the URL <a href="https://github.com/%5Byour-github-username%5D/the-unix-workbench" class="uri">https://github.com/[your-github-username]/the-unix-workbench</a>. You’ve now forked the repository for this book! In order to get get a local copy of the repository you’ll need to use the <code>git clone</code> command. Cloning a repository copies a Git repository to your computer while keeping track of the remote repository that it originated from. Let’s clone your fork of my repository now. On the right side of the repository page you should see a green button that says <strong>Clone or download</strong>. Click that button and the following menu should appear:</p>
+<p>Let’s try forking a repository now. Go to <a href="https://github.com/seankross/the-unix-workbench" class="uri">https://github.com/seankross/the-unix-workbench</a> and click the <strong>Fork</strong> button in the upper right corner. GitHub will then ask you what account you want to use to fork the repository. If you’re a new GitHub user then you only have one account, so select that account. After a brief “please wait” screen you should then see the forked repository at the URL <a href="https://github.com/%5Byour-github-username%5D/the-unix-workbench" class="uri">https://github.com/[your-github-username]/the-unix-workbench</a>. You’ve now forked the repository for this book! In order to get a local copy of the repository you’ll need to use the <code>git clone</code> command. Cloning a repository copies a Git repository to your computer while keeping track of the remote repository that it originated from. Let’s clone your fork of my repository now. On the right side of the repository page you should see a green button that says <strong>Clone or download</strong>. Click that button and the following menu should appear:</p>
 <div class="figure">
 <img src="images/clone-wb.png" />
 
@@ -1030,10 +1030,10 @@ The best way to get in touch with me is [on Twitter](https://twitter.com/seankro
 <div id="summary-23" class="section level3">
 <h3><span class="header-section-number">6.6.5</span> Summary</h3>
 <ul>
-<li>You can use GitHub you create and host remote Git repositories.</li>
+<li>You can use GitHub to create and host remote Git repositories.</li>
 <li>A remote Git repository is a Git repository that is always connected to the internet.</li>
 <li>List remote repositories with <code>git remote</code>.</li>
-<li>Add remote repositiories with <code>git remote add [name-of-remote] https://github.com/[username]/[repo-name].git</code></li>
+<li>Add remote repositories with <code>git remote add [name-of-remote] https://github.com/[username]/[repo-name].git</code></li>
 <li>Add commits to your remote repository with <code>git push [name-of-remote] [name-of-branch]</code> or just <code>git push</code> if you’ve set up a default remote and branch.</li>
 <li>To merge commits on a remote repository into your local repository use <code>git pull [name-of-remote] [name-of-branch]</code> or just <code>git pull</code> if you’ve set up a default remote and branch.</li>
 <li>A pull request allows you to interactively compare two different branches before you merge them.</li>

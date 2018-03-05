@@ -174,7 +174,7 @@ In Bash you can store data in variables. In chapter 4 we discussed environmental
 variables that are set by your operating system. You can also create your own
 variables. Make sure you follow these rules when you're naming variables:
 
-- Every character should be lowercase.
+- Every letter should be lowercase.
 - The variable name should start with a letter.
 - The name should only contain alphanumeric characters and underscores (`_`).
 - Words in the name should be separated by underscores.

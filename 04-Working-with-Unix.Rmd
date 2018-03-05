@@ -418,6 +418,8 @@ strings, the real power of regular expressions come from using
 **metacharacters**. Remember that metacharacters are characters that can be used
 to represent other characters. To take full advantage of all of the metacharacters
 we should use `grep`'s cousin `egrep`, which just extends `grep`'s capabilities.
+If you're using Ubuntu you should use `grep -P` instead of `egrep` for results
+that are consistent with this chapter.
 The first metacharacter we should discuss is the `"."` (period) metacharacter, 
 which represents *any* character. If for example I wanted to search `states.txt` 
 for the character "i", followed by any character, followed by the character "g" 

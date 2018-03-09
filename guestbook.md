@@ -188,3 +188,4 @@
 - Makoto I.
 - Tah Ren Yie
 - Erica M
+- Marie-Eve Michel

@@ -189,3 +189,4 @@
 - Tah Ren Yie
 - Erica M
 - Marie-Eve Michel
+Pietro Tavazzi

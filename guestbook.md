@@ -190,3 +190,4 @@
 - Erica M
 - Marie-Eve Michel
 Pietro Tavazzi
+- Artem Novikov

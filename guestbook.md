@@ -189,6 +189,7 @@
 - Tah Ren Yie
 - Erica M
 - Marie-Eve Michel
-Pietro Tavazzi
+- Pietro Tavazzi
 - Artem Novikov
 - Miguel Rodriguez
+- Marx Ortiz

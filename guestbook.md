@@ -193,3 +193,4 @@
 - Artem Novikov
 - Miguel Rodriguez
 - Marx Ortiz
+- Jiayi Li

@@ -191,3 +191,4 @@
 - Marie-Eve Michel
 Pietro Tavazzi
 - Artem Novikov
+- Jiayi Li

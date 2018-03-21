@@ -194,3 +194,4 @@
 - Miguel Rodriguez
 - Marx Ortiz
 - Jiayi Li
+- Claire Fahy

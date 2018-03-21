@@ -195,3 +195,4 @@
 - Marx Ortiz
 - Jiayi Li
 - Claire Fahy
+- Deep Shekhar

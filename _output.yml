@@ -8,6 +8,8 @@ bookdown::gitbook:
         <li><a href="./">The Unix Workbench</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+  includes:
+    in_header: [google_analytics.html]
 bookdown::html_chapters:
   css: [style.css, toc.css]
 bookdown::pdf_book:

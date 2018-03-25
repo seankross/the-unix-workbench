@@ -197,3 +197,4 @@
 - Claire Fahy
 - Deep Shekhar
 - Cristina Leoni
+Steve LaRock

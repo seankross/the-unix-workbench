@@ -52,6 +52,7 @@
 - Lovro
 - Chris Geissler
 - Steve D
+<<<<<<< HEAD
 - Alicia Tsai
 - Josh Sulkers
 - Jamie Henzy
@@ -201,3 +202,4 @@
 - Reza Noghabaie
 - Steve LaRock
 - Pragati Sharma
+- Andreu C

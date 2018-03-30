@@ -52,7 +52,6 @@
 - Lovro
 - Chris Geissler
 - Steve D
-<<<<<<< HEAD
 - Alicia Tsai
 - Josh Sulkers
 - Jamie Henzy
@@ -206,3 +205,4 @@
 - Juan San Martín
 - Tom Fee
 - Simón Villanueva
+- Alexey Goloviznin

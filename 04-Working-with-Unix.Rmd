@@ -1186,6 +1186,7 @@ shasum states_copy.txt
 - The `md5` and `shasum` commands use different algorithms to create codes
 (called hashes or checksums) that are unique to the contents of a file.
 - These hashes can be used to ensure that a file is genuine.
+- In some version of Ubuntu instead of `md5` only `md5sum` could work.
 
 ## Pipes
 

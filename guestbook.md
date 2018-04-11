@@ -211,8 +211,4 @@
 - Akila
 - Pranav
 - matan niv
-<<<<<<< HEAD
 - sunday sun
-=======
-- sunday-sun
->>>>>>> d160c48380c2d8a789f866dba271d6640c343bd4

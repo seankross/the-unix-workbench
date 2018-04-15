@@ -1131,10 +1131,10 @@ should have the same hash. Let's test this my making a copy of `states.txt`.
 cp states.txt states_copy.txt
 ```
 
-To compute the MD5 hash of a file we can use the `md5` command:
+To compute the MD5 hash of a file we can use the `md5sum` command:
 
 ```{r, engine='bash', eval=FALSE}
-md5 states.txt
+md5sum states.txt
 ```
 
 ```
@@ -1142,7 +1142,7 @@ md5 states.txt
 ```
 
 ```{r, engine='bash', eval=FALSE}
-md5 states_copy.txt
+md5sum states_copy.txt
 ```
 
 ```
@@ -1183,7 +1183,7 @@ shasum states_copy.txt
 
 ### Summary
 
-- The `md5` and `shasum` commands use different algorithms to create codes
+- The `md5sum` and `shasum` commands use different algorithms to create codes
 (called hashes or checksums) that are unique to the contents of a file.
 - These hashes can be used to ensure that a file is genuine.
 

@@ -215,3 +215,4 @@
 - Tormod Rogne
 - Me
 - sunday sun
+- Sean Kross

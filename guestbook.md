@@ -221,3 +221,4 @@
 - T. Mittra
 - Stanton Dowd
 - Mani Krishna
+- Louis Solo

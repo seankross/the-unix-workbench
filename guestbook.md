@@ -225,3 +225,4 @@
 - Edgardo Salazar
 - Kim Kwa
 - James Patrick Conlon
+- Philippe Schindelohlz

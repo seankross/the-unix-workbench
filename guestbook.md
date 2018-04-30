@@ -226,3 +226,4 @@
 - Kim Kwa
 - James Patrick Conlon
 - Philippe Schindelohlz
+- Clint Steed

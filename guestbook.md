@@ -239,7 +239,8 @@
 - Dileep Nackathaya
 - Luiz Felipe Brito
 - Jerome Gransac
-- Ana D 
+- Ana D
 - Abhi Thadeshwar
 - David 
 - Reinoud Bosch
+- Himanshu Rawal

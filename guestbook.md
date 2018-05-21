@@ -242,3 +242,4 @@
 - Ana D 
 - Abhi Thadeshwar
 - David 
+- Claude Molinaro

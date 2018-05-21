@@ -244,3 +244,4 @@
 - David 
 - Reinoud Bosch
 - Himanshu Rawal
+- Claude Molinaro

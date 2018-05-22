@@ -246,3 +246,4 @@
 - Himanshu Rawal
 - Claude Molinaro
 - Riley Mahn
+- Themistocles Anagno

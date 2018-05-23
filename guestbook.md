@@ -246,4 +246,5 @@
 - Himanshu Rawal
 - Claude Molinaro
 - Riley Mahn
+- Khal Drogo
 - Themistocles Anagno

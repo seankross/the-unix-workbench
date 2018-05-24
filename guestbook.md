@@ -249,3 +249,4 @@
 - Mirko
 - Khal Drogo
 - Themistocles Anagno
+- Daniel Yukimura

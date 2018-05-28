@@ -250,5 +250,6 @@
 - Khal Drogo
 - Themistocles Anagno
 - Daniel Yukimura
--Anirudh Srivastava
+- Anirudh Srivastava
 - Micah Bell
+- Naznin Shaikh

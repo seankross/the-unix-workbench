@@ -254,4 +254,4 @@
 - Micah Bell
 - Naznin Shaikh
 - Ivan Santana
-- fanzhiao
+- Zhihao Fan

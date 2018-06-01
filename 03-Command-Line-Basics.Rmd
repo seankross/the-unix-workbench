@@ -9,7 +9,7 @@ looks something like this:
 
 ![](images/shell1.png)
 
-What you're looking at is the bash shell! Your shell will surely look different 
+What you are looking at is the bash shell! Your shell will surely look different 
 than mine, but all bash shells have the same essential parts. As you can see in
 my shell it says `seans-air:~ sean$`. This string of characters is called the
 **prompt**. You type command line commands after the prompt. The prompt is just
@@ -19,18 +19,19 @@ Your shell should now look like this:
 
 ![](images/shell2.png)
 
-If you don't type anything after the prompt and you press enter then nothing
+If you don't type anything after the prompt and you press `Enter` then nothing
 happens and you get a new prompt under the old prompt. The white rectangle 
-after the prompt is just a cursor that allows you to edit what you've typed
+after the prompt is just a cursor that allows you to edit what you have typed
 into the shell. Your cursor might look like a rectangle, a line, or an
 underscore, but all cursors behave the same way. After typing something into
 the command line you can move the cursor back and forth with the left and right
 arrow keys, just like you would when typing an email.
 
-Don't you think your shell looks messy with all of those old prompts? Don't
-worry, you're about to learn your first shell command which will clear up your
-shell! Type `clear` at the prompt and then hit enter. Voila! Your shell
-is back to how you started.
+Now that we have pressed `Enter` several times our shell looks messy with all of 
+those old prompts! Do not worry, you are about to learn your first shell command 
+which will clear all of those old prompts from your shell. Type `clear` at the 
+prompt and then hit `Enter`. Voila! Your shell now only has the current prompt,
+just like when you first opened the terminal.
 
 Every command line command is actually a little computer program, even commands
 as simple as `clear`. These commands all tend to have the following structure:
@@ -39,7 +40,7 @@ as simple as `clear`. These commands all tend to have the following structure:
 [command] [options] [arguments]
 ```
 
-Some simple commands like `clear` don't require any options or arguments.
+Some simple commands like `clear` do not require any options or arguments.
 Options are usually preceded by a hyphen (`-`) and they tweak the behavior
 of the command. Arguments can be names of files, raw data, or other options
 that the command requires. A simple command that has an argument is `echo`.
@@ -50,8 +51,8 @@ into the command line to see what happens:
 echo 'Hello World!'
 ```
 
-We'll be using the above syntax for the rest of the book, where on one line there
-will be a command that I've entered into the command line, and then below that
+We will be using the above syntax for the rest of the book, where on one line there
+will be a command that I have entered into the command line, and then below that
 command the console output of the command will appear (if there is any
 console output). You can use `echo` to print any phrase surrounded by single
 quotes (`''`) to the console.
@@ -77,7 +78,7 @@ keys.
 
 ## Navigating the Command Line
 
-You've learned two command line commands (`clear` and `echo`) which is pretty
+You have learned two command line commands (`clear` and `echo`) which is pretty
 good! Before you learn more commands we need to discuss how files and folders 
 are organized on your computer.
 

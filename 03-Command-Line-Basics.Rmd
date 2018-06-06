@@ -98,29 +98,30 @@ directory. This is the simplest case of how directories are structured.
 The directory structure on most computers is much more complicated, but the 
 structure on your computer probably looks something like this:
 
-![](images/bigtree1.png)
+![](images/ft1.png)
 
 There are a few special directories that you should be aware of on your 
 computer. The directory at the top of this tree is called the root directory. 
 The root directory contains all other directories, and is represented by a 
-slash (`/`).
+slash (`/`). The home directory is another special directory which contains your 
+personal files, like your photos, documents, and the contents of your desktop.
+The tilde (`~`) represents a shorthand for your home directory. 
 
-The home directory is another special directory that is represented by a tilde 
-(`~`). Your home directory contains your personal files, like your photos, 
-documents, and the contents of your desktop. When you first open up your shell
-you usually start off in your home directory. Imagine tracing all of the 
-directories from your root directory to the directory you're currently in. This
-sequence of directories is called a **path**. The diagram below illustrates the
-path from a hypothetical root directory to the home directory.
+Imagine tracing all of the directories from your root directory to the 
+directory you are currently viewing. This sequence of directories is called a 
+**path**. The diagram below illustrates the path from the root 
+directory to a directory called *sean*. This directory happens to be my home
+directory.
 
-![](images/redtree.png)
+![](images/ft2.png)
 
-This path can be written as `/Users/sean`.
+This path can be written as `/Users/sean`. Since this is my home directory, We
+can also use `~` as a shorter way to refer to the same path. We will see this
+demonstrated soon.
 
-Open the command line if you closed it.
-Your shell starts in your home directory. Whatever directory your shell is in
-is called the **working directory**. Enter the `pwd` command into your shell
-to **p**rint the **w**orking **d**irectory.
+Open the command line if you closed it. Your shell is always in a directory,
+and the directory that your shell starts in your home directory. Whatever 
+directory your shell is in is called the **working directory**. Enter the `pwd` command into your shell to **p**rint the **w**orking **d**irectory.
 
 ```{r, engine='bash', eval=FALSE}
 pwd
@@ -215,9 +216,11 @@ pwd
 ## /Users/sean/Music
 ```
 
-It doesn't matter what directory I'm in since I'm using an absolute path, I can
-jump straight to that directory (Remember that `~` is a shortcut for the path to
-your home folder). Of course you shouldn't expect yourself to have every
+It does not matter what directory the shell is in since we are using an 
+absolute path. Therefore we can jump straight to a directory as long as we specify
+the absolute path. Notice above that we used `~` as shortcut for `/Users/sean/`. 
+
+Of course you should not expect yourself to have every
 absolute path on your computer memorized! You can use a terminal feature called
 **tab completion** in order to speed up typing paths and other commands. Enter
 the following into your shell, and then try pressing the `Tab` key (on some
@@ -239,7 +242,7 @@ cd ~/
 
 Pressing tab shows you a list of all files and folders inside of the `~/`
 directory. Now I'm going to type `~/D` into my terminal and you can see what
-happens when I press tab again:
+happens when I press `Tab` again:
 
 ```{r, engine='bash', eval=FALSE}
 cd ~/D
@@ -254,10 +257,10 @@ cd ~/D
 
 Since I added a "D" to the path, only folders with names that start with a "D"
 are listed. If I type `cd ~/De` into the console and then press `Tab` then the
-command will autocomplete to `cd ~/Desktop/`. If I press tab again, the console
+command will autocomplete to `cd ~/Desktop/`. If I press `Tab` again, the console
 will list all of the files and folders on my desktop.
 
-Make sure to pause and try this yourself in your own terminal! You won't have
+Make sure to pause and try this yourself in your own terminal! You will not have
 the same files or folders that I do, but you should try using `cd` and tab 
 completion with directories and files that start with the same letters.
 
@@ -267,6 +270,9 @@ completion with directories and files that start with the same letters.
 - The root directory (`/`) contains all of the folders and files on your
 computer.
 - Your home directory (`~`) is the directory where your terminal always starts.
+- Your terminal is always inside of a working directory.
+- When you open your terminal your working directory will be set to the home
+directory.
 - Use the `cd` command to **c**hange your working **d**irectory.
 - The `pwd` command will **p**rint the **w**orking **d**irectory.
 - The `ls` command will **l**i**s**t files and folders in a directory.
@@ -283,8 +289,8 @@ set your working directory to that folder using the terminal.
 ## Creation and Inspection
 
 Now that you can fluidly use your terminal to bound between directories all
-over your computer I'll show you some actions you can perform on folders and
-files. One of the first actions you'll probably want to take when opening up a
+over your computer, it is time to learn some actions you can perform on folders and
+files. One of the first actions you will probably want to take when opening up a
 fresh terminal is to create a new folder or file. You can **m**a**k**e a 
 **dir**ectory with the `mkdir` command, followed by the path to the new
 directory. First let's look at the contents of my home directory:
@@ -302,8 +308,8 @@ ls
 ## todo.txt
 ```
 
-I want to create a new directory to store some code files I'm going to write
-later, so I'll use `mkdir` to create a new directory called `Code`:
+I want to create a new directory to store some code files I am going to write
+later, so I will use `mkdir` to create a new directory called `Code`:
 
 ```{r, engine='bash', eval=FALSE}
 mkdir Code

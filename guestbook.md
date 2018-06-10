@@ -259,3 +259,4 @@
 - Lian Aldrich
 - Yovan Petrovich
 - Nikola Aksentijevic
+- John Smith

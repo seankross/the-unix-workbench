@@ -844,8 +844,8 @@ git commit -m "added weather info"
 
 This is a small example of how to use Git branching, but you can see how you
 can make incremental edits to plain text (usually code files) without
-effecting the `master` branch (the tested and working copy of your software)
-and without effecting any other branches. You can imagine how
+affecting the `master` branch (the tested and working copy of your software)
+and without affecting any other branches. You can imagine how
 this system could be used for multiple people to work on the same codebase at
 the same time, or how you could develop and test multiple software features
 without them interfering with each other. Now that we've made a couple of
@@ -1227,7 +1227,7 @@ wrote has been rendered according to a few rules:
 - Pound signs (`#`, `##`) make headings.
 - A word surrounded by single asterisks (`*word*`) makes that word *italicized*.
 - A word surrounded by double asterisks (`**word**`) makes that word **bold**.
-- You can create lists with hyphens (`-`) or numbers (`1., 2., 3.`).
+- You can create lists with hyphens (`-`) or numbers (`1.`, `2.`, `3.`).
 - Code can be placed in the middle of a line with single backticks (`` `code` ``).
 - A code block can be created by putting code in between a set of triple
 backticks (`` ``` ``).
@@ -1645,7 +1645,7 @@ be merged into the upstream repository!
 1. Create a new repository on GitHub. Clone your repository and add a
 `README.md` file. Push this file to GitHub and create a GitHub Pages website
 for this repository.
-2. Fork an existing repository (try one of mine https://github.com/seankross)
+2. Fork an existing repository (try one of mine: https://github.com/seankross)
 and try to identify something valuable you could contribute. Make changes or
 additions to that repository, then open a pull request.
 3. Read through [GitHub's Guides](https://guides.github.com/).

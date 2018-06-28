@@ -35,7 +35,7 @@ offers many other useful features which we will discuss at length.
 ## Setting Up Git and GitHub
 
 Before setting up Git, go to [GitHub](https://github.com/) and create a free
-account. Take note of which email address you use and which username you choose.
+account. Take note of which email address you use and which user name you choose.
 
 To see if you have Git installed open up your terminal and enter the following:
 
@@ -848,7 +848,7 @@ affecting the `master` branch (the tested and working copy of your software)
 and without affecting any other branches. You can imagine how
 this system could be used for multiple people to work on the same codebase at
 the same time, or how you could develop and test multiple software features
-without them interfering with each other. Now that we've made a couple of
+without their interfering with each other. Now that we've made a couple of
 changes to `readme.txt`, let's combine those changes with what we have in the
 `master` branch. This is made possible by a Git **merge**. Merging allows you
 to elegantly combine the changes that have been made between two branches. Let's
@@ -1525,6 +1525,7 @@ in the upper right corner. GitHub will then ask you what account you want to
 use to fork the repository. If you're a new GitHub user then you only have one
 account, so select that account. After a brief "please wait" screen you should
 then see the forked repository at the URL
+
 https://github.com/[your-github-username]/the-unix-workbench. You've now forked
 the repository for this book! In order to get a local copy of the repository 
 you'll need to use the `git clone` command. Cloning a repository copies a Git 

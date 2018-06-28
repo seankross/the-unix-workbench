@@ -10,8 +10,8 @@ you've already learned. By the end of this chapter you should be able to write
 your own command line tools!
 
 You can use `nano` to write all of the programs we're going to discuss in this
-chapter, however I recommend using the [Atom](https://atom.io/) text editor
-because it's more user friendly.
+chapter; however I recommend using the [Atom](https://atom.io/) text editor
+because it's more user-friendly.
 
 Now let's create a new file called `math.sh` in the `~/Code/` directory
 and let's open that file with either `nano` or Atom.
@@ -602,7 +602,7 @@ cd ~/Code
 
 As you can see the file `math.sh` exists! Most of the time when you're writing
 bash scripts you won't be comparing two raw values or trying to find something
-out about one raw value, instead you'll want to create a logical statement
+out about one raw value; instead you'll want to create a logical statement
 about a value contained in a variable. Variables behave just like raw values in
 logical expressions. Let's take a look at a few examples:
 

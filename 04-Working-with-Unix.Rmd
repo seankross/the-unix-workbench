@@ -439,7 +439,7 @@ egrep "i.g" states.txt
 The regular expression "i.g" matches the sub-string "irg" in V*irg*inia, and
 West V*irg*inia, and it matches the sub-string "ing" in Wash*ing*ton and
 Wyom*ing*. The period metacharacter is a stand-in for the "r" in "irg" and the
-"n" in "ing" in the example above. The period metacharacter is extremely liberal,
+"n" in "ing" in the example above. The period metacharacter is extremely liberal;
 for example the command `egrep "." states.txt` would return every line of
 states.txt since the regular expression `"."` would match one occurrence of any
 character on every line (there's at least one character on every line). 
@@ -1321,7 +1321,7 @@ following general format:
   [commands...]
 ```
 
-In the simple example we created `draft_journal_entry.txt` is the **target**, a
+In the simple example we created, `draft_journal_entry.txt` is the **target**, a
 file which is created as the result of the **command(s)**. It's very important
 to note that any commands under a target **must be indented with a `Tab`**. If
 we don't use `Tab`s to indent the commands then `make` will fail.

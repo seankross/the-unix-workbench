@@ -810,7 +810,7 @@ todo-2017-01-24.txt
 
 Looks like it worked nicely. Similar to the `mv` command, the `cp` command
 **c**o**p**ies a file or folder from one location to another. As you can see `cp` is
-used exactly like `mv` when copying files, the file or folder you wish to copy
+used exactly like `mv` when copying files; the file or folder you wish to copy
 is the first argument, followed by the path to the folder where you want the
 copy to be made:
 
@@ -837,7 +837,7 @@ ls Desktop
 echo-out.txt
 ```
 
-Be aware that there is one difference between copying files and folders, when
+Be aware that there is one difference between copying files and folders: when
 copying folders you need to specify the `-r` option, which is short for
 *recursive*. This ensures that the underlying directory structure of the
 directory you wish to copy remains intact. Let's try copying my `Documents`
@@ -860,7 +860,7 @@ folders on the command line because as we've discussed before there is
 to your computer functioning you may cause irreparable damage. I *highly* 
 recommend moving files or folders to a designated trash folder and then deleting
 them the way you would normally delete files and folders outside of the command
-line (The path to the Trash Bin is `~/.Trash` on Mac and `~/.local/share/Trash`
+line (the path to the Trash Bin is `~/.Trash` on Mac and `~/.local/share/Trash`
 on Ubuntu). If you decide to delete 
 a file or folder on your computer make absolutely
 sure that the command you've typed is correct before you press `Enter`. If you do

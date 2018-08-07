@@ -289,3 +289,4 @@
 - Rob Harrand
 - Oren Tal
 - Danya Martsinovich
+- awesome Kratos

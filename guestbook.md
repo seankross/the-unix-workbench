@@ -280,6 +280,7 @@
 - Dana Bentley
 - Abhinav Agarwal
 - Pradyumna
+- Sanket Rajgarhia
 - Mohsin Raza
 - Esteban Mendoza
 - IvanY
@@ -293,4 +294,5 @@
 - P
 - Ebi Chukwudi
 - Reza Ebadi
+- Sylvia Lods
 - Victor Yu

@@ -300,3 +300,4 @@
 - Gaurav Vijaywargia
 - Ivan Petrov
 - Alex Mac
+- Trung Nguyen T

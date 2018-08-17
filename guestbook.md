@@ -301,3 +301,4 @@
 - Ivan Petrov
 - Alex Mac
 - Trung Nguyen T
+- Tushar Teji

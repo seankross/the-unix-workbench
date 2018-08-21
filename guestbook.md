@@ -303,3 +303,4 @@
 - Trung Nguyen T
 - Tushar Teji
 - Hank JIN
+- Shane Davitt

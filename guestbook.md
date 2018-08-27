@@ -305,4 +305,5 @@
 - Hank JIN
 - Shane Davitt
 - Ajit Velhal
+- Dmitrii Zhavoronkov
 - Mohamed Refaat

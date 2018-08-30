@@ -307,3 +307,4 @@
 - Ajit Velhal
 - Dmitrii Zhavoronkov
 - Mohamed Refaat
+- Fred

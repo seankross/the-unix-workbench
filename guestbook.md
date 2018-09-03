@@ -310,3 +310,4 @@
 - Jamie Hutchins
 - Fred
 - Anestis Kotidis
+- Sue Wang

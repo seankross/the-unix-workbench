@@ -280,6 +280,7 @@
 - Dana Bentley
 - Abhinav Agarwal
 - Pradyumna
+- Sanket Rajgarhia
 - Mohsin Raza
 - Esteban Mendoza
 - IvanY
@@ -290,3 +291,25 @@
 - Oren Tal
 - Danya Martsinovich
 - awesome Kratos
+- P
+- Ebi Chukwudi
+- Reza Ebadi
+- Sylvia Lods
+- Victor Yu
+- Christian San Jose
+- Gaurav Vijaywargia
+- Ivan Petrov
+- Alex Mac
+- Trung Nguyen T
+- Tushar Teji
+- Hank JIN
+- Shane Davitt
+- Ajit Velhal
+- Dmitrii Zhavoronkov
+- Mohamed Refaat
+- Jamie Hutchins
+- Fred
+- Anestis Kotidis
+- Sue Wang
+- Tiago Salema
+- Rojin

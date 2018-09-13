@@ -316,4 +316,4 @@
 - Jose Zancudo
 - Munib Ahsan
 - Panagiotis T.
-- Chiadika
+- Mazi Chiadi

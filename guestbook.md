@@ -31,8 +31,7 @@
 - ecruz3
 - Mario Rossi
 - Neeraj Pandey @neal0829
-- Giulia G
-- amir rezaei
+- Giulia G- amir rezaei
 - Hadar Golan
 - Evan Chan
 - Jean-Paul Cardinal
@@ -317,4 +316,4 @@
 - Jose Zancudo
 - Munib Ahsan
 - Panagiotis T.
-- Chiadi
+- Chiadika

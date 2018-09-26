@@ -313,3 +313,8 @@
 - Sue Wang
 - Tiago Salema
 - Rojin
+- Vladimir Mazin
+- Jose Zancudo
+- Munib Ahsan
+- Panagiotis T.
+- Mazi Chiadikobi

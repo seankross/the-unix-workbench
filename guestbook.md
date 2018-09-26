@@ -317,4 +317,6 @@
 - Jose Zancudo
 - Munib Ahsan
 - Panagiotis T.
+- Mazi Chiadikobi
+- Karen Jones
 - Ray Larone

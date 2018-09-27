@@ -317,4 +317,9 @@
 - Jose Zancudo
 - Munib Ahsan
 - Panagiotis T.
--Abdul
+- Mazi Chiadikobi
+- Karen Jones
+- Ray Larone
+- Andrew Burger
+- Fanny Taborsak-Lines
+- Abdul

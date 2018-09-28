@@ -301,8 +301,8 @@ ls
 ## todo.txt
 ```
 
-I want to create a new directory to store some code files I'm going to write
-later, so I'll use `mkdir` to create a new directory called `Code`:
+Let's create a new directory to store some code files we am going to write
+later. We can use `mkdir` to create a new directory called `Code`:
 
 ```{r, engine='bash', eval=FALSE}
 mkdir Code
@@ -318,15 +318,15 @@ ls
 ## Code
 ```
 
-It worked! Notice that the argument `Code` to `mkdir` is a relative path, 
-however I could have specified an absolute path. In general you should
+It worked! Notice that the argument `Code` to the command `mkdir` is a relative 
+path, however we could have specified an absolute path. In general you should
 expect Unix tools that take paths as arguments to accept both relative and
 absolute paths.
 
 There are a few different ways to create a new file on the command line. The
 most simple way to create a blank file is to use the `touch` command, followed
-by the path to the file you want to create. In this example I'm going to create
-a new journal entry using touch:
+by the path to the file you want to create. In this example we are going to create
+a new journal entry using `touch`:
 
 ```{r, engine='bash', eval=FALSE}
 touch journal-2017-01-24.txt
@@ -343,8 +343,8 @@ ls
 ## journal-2017-01-24.txt
 ```
 
-A new file has been created! I've been using `ls` to list the files and folders
-in the current directory, but using `ls` alone doesn't differentiate between
+A new file has been created! We have been using `ls` to list the files and folders
+in the current directory, but using `ls` alone does not differentiate between
 which of the listed items are folders and which are files. Thankfully you can
 use the `-l` option with `ls` in order to get a **l**ong listing of files in
 a directory.
@@ -369,12 +369,12 @@ otherwise the information in the row corresponds to a file. As you can see in my
 home directory there are five directories and two files. The string of
 characters following the `d` in the case of a directory or following the first
 `-` in the case of a file represent the permissions for that file or directory.
-We'll cover permissions in a later section. The columns of this table also show
-who created the file, the group that the creator of the file belongs to (we'll
+We will cover permissions in a later section. The columns of this table also show
+who created the file, the group that the creator of the file belongs to (we will
 cover groups later when we cover permissions), the size of the file, the time
 and date when the file was last modified, and then finally the name of the file.
 
-Now that we've created a file there are a few different ways that we can inspect
+Now that we have created a file there are a few different ways that we can inspect
 and edit this file. First let's use the `wc` command to view the **w**ord
 **c**ount and other information about the file:
 
@@ -401,7 +401,7 @@ cat todo.txt
 ```
 
 The `cat` command is often used to print text files to the terminal, despite
-the fact that it's really meant to con**cat**enate files. You can see this
+the fact that it is really meant to con**cat**enate files. You can see this
 concatenation in action in the following example:
 
 ```{r, engine='bash', eval=FALSE}
@@ -419,7 +419,7 @@ cat todo.txt todo.txt
 
 The `cat` command will combine every text file that is provided as an argument.
 
-Let's take a look at how we could view a larger file. There's a file inside
+Let's take a look at how we could view a larger file. There is a file inside
 the Documents directory:
 
 ```{r, engine='bash', eval=FALSE}
@@ -430,7 +430,7 @@ ls Documents
 ## a-tale-of-two-cities.txt
 ```
 
-Let's examine this file to see if it's reasonable to read it with `cat`:
+Let's examine this file to see if it is reasonable to read it with `cat`:
 
 ```{r, engine='bash', eval=FALSE}
 wc Documents/a-tale-of-two-cities.txt

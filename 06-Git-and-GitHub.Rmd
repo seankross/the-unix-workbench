@@ -1110,9 +1110,7 @@ our local Git repository. This first Git push you do when setting up a remote
 on GitHub with a local repository is a little different from future Git pushes.
 We'll need to use the `-u` flag in order to set `origin` as the default remote
 repository so we don't have to provide its name every time we want to interact
-with it. *If* you have enabled two-factor authentication then your password
-will not work by itself and you will need to provide a [personal access token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) 
-instead. Enter the following command, modified so that you're using your GitHub
+with it. Enter the following command, modified so that you're using your GitHub
 user name:
 
 ```{r, engine='bash', eval=FALSE}

@@ -325,5 +325,5 @@
 - Abdul
 - Claudia Kiesewetter
 - Chenda
-- Sean Kross
+- Liam Konidaris
 - Bilal Gamal

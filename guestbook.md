@@ -326,3 +326,12 @@
 - Claudia Kiesewetter
 - Chenda
 - Liam Konidaris
+- Bilal Gamal
+- Tomer
+- Ludovic M
+- Ilia Pankratov
+- Hylton Socher
+- Millan ME
+- Núria Rivera Brugués
+- Elwira Kobusiewicz
+- Fränki

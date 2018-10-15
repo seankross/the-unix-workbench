@@ -1125,7 +1125,7 @@ There are a few commonly used file hashes but we'll talk about two called MD5
 and SHA-1.
 
 Since hashes are generated based on file contents, then two identical files
-should have the same hash. Let's test this my making a copy of `states.txt`.
+should have the same hash. Let's test this by making a copy of `states.txt`.
 
 ```{r, engine='bash', eval=FALSE}
 cp states.txt states_copy.txt

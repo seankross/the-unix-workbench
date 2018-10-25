@@ -335,3 +335,8 @@
 - Núria Rivera Brugués
 - Elwira Kobusiewicz
 - Fränki
+- Konstantinos Yeles
+- Jason F.
+- Luis Alberto Alaniz Castillo
+- Siddharth D Jaiswal
+- Navid Shayanfar

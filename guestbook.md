@@ -341,3 +341,4 @@
 - Siddharth D Jaiswal
 - Navid Shayanfar
 - Kangk
+- Rick Petry

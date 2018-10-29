@@ -341,4 +341,5 @@
 - Siddharth D Jaiswal
 - Navid Shayanfar
 - Kangk
+- Rick Petry
 - Rene Porto

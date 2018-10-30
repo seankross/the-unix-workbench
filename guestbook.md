@@ -344,3 +344,4 @@
 - Rick Petry
 - Rene Porto
 - Ilia Galaktionov
+- Alex Sandro

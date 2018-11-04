@@ -348,3 +348,4 @@
 - Ardilla Latifasari
 - Tim Gretler
 - Anthony Alfimov
+- Vlad Kuzin

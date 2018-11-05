@@ -348,4 +348,8 @@
 - Ardilla Latifasari
 - Tim Gretler
 - Anthony Alfimov
+- Sara Ghanem
+- Samba SG
+- Vlad Kuzin
+- Dmitry Bobylev
 - Baurzhan Ryskaliyev

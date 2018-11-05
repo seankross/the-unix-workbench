@@ -350,3 +350,4 @@
 - Anthony Alfimov
 - Sara Ghanem
 - Samba SG
+- Vlad Kuzin

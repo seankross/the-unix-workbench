@@ -348,4 +348,4 @@
 - Ardilla Latifasari
 - Tim Gretler
 - Anthony Alfimov
-- Baurik
+- Baurzhan Ryskaliyev

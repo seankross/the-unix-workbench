@@ -352,3 +352,4 @@
 - Samba SG
 - Vlad Kuzin
 - Dmitry Bobylev
+- Baurzhan Ryskaliyev

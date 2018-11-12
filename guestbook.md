@@ -355,4 +355,5 @@
 - Baurzhan Ryskaliyev
 - yeshwanth
 - Arjun Sengupta
+- Jeremy Carrothers
 - Przemek Raczkowski

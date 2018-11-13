@@ -10,8 +10,8 @@ Windows.
 
 ## Windows
 
-If you're using the latest version of Windows 10 you should enable and install
-Bash on Ubuntu on Windows. You can find the installation guide from Microsoft
+If you're using version 1607 of Windows 10 or higher you should enable and install
+Windows Subsystem for Linux. You can find the installation guide from Microsoft
 [here](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide).
 
 If you don't have the latest version of Windows 10 you should download 

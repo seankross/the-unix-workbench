@@ -357,4 +357,7 @@
 - Arjun Sengupta
 - Jeremy Carrothers
 - Lingshen He
+- Przemek Raczkowski
+- Ala Barjasteh
+- Kevin Chu
 - Liza Shaburova

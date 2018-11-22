@@ -364,3 +364,4 @@
 - Cristiano Berhanu
 - Justin Knutzen
 - David Hsu
+- Stefano

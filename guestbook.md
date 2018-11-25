@@ -367,3 +367,4 @@
 - Stefano
 - Andrey Radchenko
 - eric
+- Mary Taylor

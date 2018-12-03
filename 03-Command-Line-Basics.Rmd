@@ -281,7 +281,7 @@ set your working directory to that folder using the terminal.
 
 ## Creation and Inspection
 
-Now that you can fluidly use your terminal to bound between directories all
+Now that you can fluidly use your terminal to bounce between directories all
 over your computer I'll show you some actions you can perform on folders and
 files. One of the first actions you'll probably want to take when opening up a
 fresh terminal is to create a new folder or file. You can **m**a**k**e a 
@@ -319,7 +319,7 @@ ls
 ```
 
 It worked! Notice that the argument `Code` to the command `mkdir` is a relative 
-path, however we could have specified an absolute path. In general you should
+path. However, we could have specified an absolute path. In general, you should
 expect Unix tools that take paths as arguments to accept both relative and
 absolute paths.
 
@@ -364,8 +364,8 @@ ls -l
 ```
 
 There is a row in the resulting table for each file or folder. If the entry in the
-first column is a `d`, then the row in the table corresponds to a **d**irectory,
-otherwise the information in the row corresponds to a file. As you can see in my
+first column is a `d`, then the row in the table corresponds to a **d**irectory.
+Otherwise, the information in the row corresponds to a file. As you can see, in my
 home directory there are five directories and two files. The string of
 characters following the `d` in the case of a directory or following the first
 `-` in the case of a file represent the permissions for that file or directory.
@@ -375,7 +375,7 @@ cover groups later when we cover permissions), the size of the file, the time
 and date when the file was last modified, and then finally the name of the file.
 
 Now that we have created a file there are a few different ways that we can inspect
-and edit this file. First let's use the `wc` command to view the **w**ord
+and edit this file. First, let's use the `wc` command to view the **w**ord
 **c**ount and other information about the file:
 
 ```{r, engine='bash', eval=FALSE}
@@ -440,7 +440,7 @@ wc Documents/a-tale-of-two-cities.txt
 ##      17    1005    5799 Documents/a-tale-of-two-cities.txt
 ```
 
-Wow, over 1000 words! If we use `cat` on this file it's liable to take up our
+Wow, over 1000 words! If we use `cat` on this file, it's liable to take up our
 entire terminal. Instead of using `cat` for this large file we should use
 `less`, which is a program designed for viewing multi-page files. Let's try
 using `less`:
@@ -467,7 +467,7 @@ Documents/a-tale-of-two-cities.txt
 ```
 
 You can scroll up and down the file line-by-line using the up and down arrow 
-keys, and if you want to scroll faster you can use the `spacebar` to go to the
+keys, and if you want to scroll faster, you can use the `spacebar` to go to the
 next page and the `b` key to go to the previous page. In order to quit `less`
 and go back to the prompt press the `q` key.
 
@@ -532,7 +532,7 @@ roads that lay before them.
 
 We've now gone over a few tools for inspecting files, folders, and their
 contents including `ls`, `wc`, `cat`, `less`, `head`, and `tail`. Before the 
-end of this section
+end of this section,
 we should discuss a few more techniques for creating and also editing files. One
 easy way to create a file is using **output redirection**. Output redirection
 stores text that would be normally printed to the command line in a text file.
@@ -605,7 +605,7 @@ cat echo-out.txt
 ## A third line.
 ```
 
-Unfortunately I have unintentionally overwritten what was already contained in
+Unfortunately, I have unintentionally overwritten what was already contained in
 `echo-out.txt`. There's no undo button in Unix so I'll have to live with this
 mistake. This is the first of several lessons demonstrating the damage that you
 should try to avoid inflicting with Unix. Make sure to take extra care when
@@ -615,12 +615,12 @@ yourself from mistakes, including managing permissions for files, and tracking
 versions of your files with Git, which we will discuss thoroughly in a later
 chapter.
 
-Finally we should discuss how to edit text files. There are several file editors
+Finally, we should discuss how to edit text files. There are several file editors
 that are available for your terminal including 
 [`vim`](https://en.wikipedia.org/wiki/Vim_(text_editor)) 
 and [`emacs`](https://en.wikipedia.org/wiki/Emacs). Entire books have been
 written about how to use both of these text editors, and if you're interested
-in one of them you should look for resources online about how to use them. The
+in one of them, you should look for resources online about how to use them. The
 one text editor we will discuss using is called `nano`. Just like `less`, `nano`
 uses your entire terminal window. Let's edit `todo.txt` using `nano`:
 
@@ -644,7 +644,7 @@ nano todo.txt
 Once you've started `nano` you can start editing the text file. The top line of
 the `nano` editor shows the file you're currently working on, and the bottom two
 lines show a few commands that you can use in `nano`. The caret character (`^`)
-represents the `Control` key on your keyboard, so you can for example type
+represents the `Control` key on your keyboard, so you can, for example, type
 `Control` + `O` in order to save the changes you've made to the text file, or
 `Control` + `X` in order to exit `nano` and go back to the prompt. 
 
@@ -692,14 +692,14 @@ yet exist and then save your changes to that file.
 - `>>` will append command output to the end of a file.
 - Print a text file to the command line using `cat`.
 - Inspect properties of a text file with `wc`.
-- Peak at the beginning and end of a text file with `head` and `tail`.
+- Peek at the beginning and end of a text file with `head` and `tail`.
 - Scroll through a large text file with `less`.
 - `nano` is simple text editor.
 
 ### Exercises
 
 1. Create a new directory called `workbench` in your home directory.
-2. Without changing directories create a file called `readme.txt` inside of 
+2. Without changing directories, create a file called `readme.txt` inside of 
 `workbench`.
 3. Append the numbers 1, 2, and 3 to `readme.txt` so that each number appears on
 it's own line.
@@ -711,8 +711,8 @@ printing it to the command line.
 
 ## Migration and Destruction
 
-In this section we'll discuss moving, renaming, copying, and deleting files and
-folders. First let's revisit the contents of our current working directory:
+In this section, we'll discuss moving, renaming, copying, and deleting files and
+folders. First, let's revisit the contents of our current working directory:
 
 ```{r, engine='bash', eval=FALSE}
 ls
@@ -791,7 +791,7 @@ a-tale-of-two-cities.txt
 Looks good! Another hidden use of the `mv` command is that you can use it to
 rename files and folders. The first argument is the path to the folder or file
 that you want to rename, and the second argument is a path with the new name
-for the file or folder. Let's rename `todo.txt` so it includes today's date:
+for the file or folder. Let's rename `todo.txt` so that it includes today's date:
 
 ```{r, engine='bash', eval=FALSE}
 mv todo.txt todo-2017-01-24.txt
@@ -837,8 +837,8 @@ ls Desktop
 echo-out.txt
 ```
 
-Be aware that there is one difference between copying files and folders, when
-copying folders you need to specify the `-r` option, which is short for
+Be aware that there is one difference between copying files and folders. When
+copying folders, you need to specify the `-r` option, which is short for
 *recursive*. This ensures that the underlying directory structure of the
 directory you wish to copy remains intact. Let's try copying my `Documents`
 directory into the `Desktop` directory:
@@ -870,7 +870,7 @@ recover the file.
 
 Now that you've been warned, let's discuss `rm`, the
 [Avada Kedavra](https://en.wikipedia.org/wiki/Magic_in_Harry_Potter#Unforgivable_Curses)
-of command line programs. When **r**e**m**oving files `rm` only requires the path to a
+of command line programs. When **r**e**m**oving files, `rm` only requires the path to a
 file in order to delete it. Let's test its destructive power on `echo-out.txt`:
 
 ```{r, engine='bash', eval=FALSE}

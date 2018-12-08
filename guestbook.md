@@ -376,4 +376,4 @@
 - Ran Wang
 - Mounes S
 - Rebecca Crane
-- Nitin Kundani
+- Nitin

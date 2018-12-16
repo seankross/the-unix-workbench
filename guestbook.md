@@ -241,7 +241,7 @@
 - Jerome Gransac
 - Ana D
 - Abhi Thadeshwar
-- David 
+- David
 - Reinoud Bosch
 - Himanshu Rawal
 - Claude Molinaro
@@ -384,3 +384,4 @@
 - Oiliba
 - Filippo Corri
 - Mudassar Raza
+- Bernhard S

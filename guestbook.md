@@ -393,3 +393,4 @@
 - Keshari Nandan
 - JK
 - J Yu
+- Sergey Lazarev

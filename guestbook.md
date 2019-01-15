@@ -399,3 +399,4 @@
 - schan
 - Zikun Qin
 - Cindy Flórez
+- Patrick Hennessey

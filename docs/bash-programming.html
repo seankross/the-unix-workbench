@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>The Unix Workbench</title>
-  <meta name="description" content="The Unix Workbench">
-  <meta name="generator" content="bookdown 0.6 and GitBook 2.6.7">
+  <title>Chapter 5 Bash Programming | The Unix Workbench</title>
+  <meta name="description" content="Chapter 5 Bash Programming | The Unix Workbench">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="The Unix Workbench" />
+  <meta property="og:title" content="Chapter 5 Bash Programming | The Unix Workbench" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://github.com/seankross/the-unix-workbench" />
   <meta property="og:image" content="https://github.com/seankross/the-unix-workbenchimages/cover.png" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="seankross/the-unix-workbench" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="The Unix Workbench" />
+  <meta name="twitter:title" content="Chapter 5 Bash Programming | The Unix Workbench" />
   
   
   <meta name="twitter:image" content="https://github.com/seankross/the-unix-workbenchimages/cover.png" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Sean Kross">
 
 
-<meta name="date" content="2018-03-21">
+<meta name="date" content="2019-01-22">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="git-and-github.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -59,41 +60,67 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -293,19 +320,46 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <blockquote>
 <p>Communities begin by building their kitchen. - French proverb</p>
 </blockquote>
-<p>The last two chapters have discussed how to use the bash shell. Bash itself is a little programming language, and this chapter we’re going to discuss how you can write your own computer programs in Bash. Programming in Bash is useful to know because of how seamlessly it integrates with all of the command line programs you’ve already learned. By the end of this chapter you should be able to write your own command line tools!</p>
-<p>You can use <code>nano</code> to write all of the programs we’re going to discuss in this chapter, however I recommend using the <a href="https://atom.io/">Atom</a> text editor because it’s more user friendly.</p>
-<p>Now let’s create a new file called <code>math.sh</code> in the <code>~/Code/</code> directory and let’s open that file with either <code>nano</code> or Atom.</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span> ~/Code/
-<span class="fu">nano</span> math.sh</code></pre></div>
-<p>You should now have a new, clean text file open. Any code block in the following chapters that starts with the code (or similar) below should indicate to you that we’re working on a particular text file.</p>
+<p>The last two chapters have discussed how to use the bash shell. Bash itself is a
+little programming language, and this chapter we’re going to discuss how you can
+write your own computer programs in Bash. Programming in Bash is useful to know
+because of how seamlessly it integrates with all of the command line programs
+you’ve already learned. By the end of this chapter you should be able to write
+your own command line tools!</p>
+<p>You can use <code>nano</code> to write all of the programs we’re going to discuss in this
+chapter, however I recommend using the <a href="https://atom.io/">Atom</a> text editor
+because it’s more user friendly.</p>
+<p>Now let’s create a new file called <code>math.sh</code> in the <code>~/Code/</code> directory
+and let’s open that file with either <code>nano</code> or Atom.</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span> ~/Code/
+<span class="fu">nano</span> math.sh</code></pre>
+<p>You should now have a new, clean text file open. Any code block in the following
+chapters that starts with the code (or similar) below should indicate to you
+that we’re working on a particular text file.</p>
 <pre><code>#!/usr/bin/env bash
 # File: math.sh</code></pre>
-<p>You do not need to add these lines to your file, though you should type exactly what I have typed below these lines. <strong>Note</strong>: please type all of the lines out for every program that we’re going to write, do not copy and paste. Typing code is a little different from typing an email, and you should practice typing the code out yourself as much as possible. Both of these lines start with the pound symbol (<code>#</code>) and in the Bash programming language anything that is typed after a pound symbol is ignored (unless the pound symbol is between curly brackets (<code>{ }</code>), but that’s only in very specific situations). The pound symbol allows you to make <strong>comments</strong> in your code which you can use to annotate code so that another human being who is reading your code can understand how your program is designed to function.</p>
-<p>If you’re using <code>nano</code> or another shell-based text editor you should perhaps open up two terminals, one where you can edit and save the programs you’re working on, and one where you can run your programs. One advantage of using Atom is that you can keep Atom open in a separate window and then run your programs in your terminal window.</p>
+<p>You do not need to add these lines to your file, though you should type exactly
+what I have typed below these lines. <strong>Note</strong>: please type all of the lines out
+for every program that we’re going to write, do not copy and paste. Typing code
+is a little different from typing an email, and you should practice typing the
+code out yourself as much as possible. Both of these lines start with the pound
+symbol (<code>#</code>) and in the Bash programming language anything that is typed after
+a pound symbol is ignored (unless the pound symbol is between curly brackets
+(<code>{ }</code>), but that’s only in very specific situations). The pound symbol allows
+you to make <strong>comments</strong> in
+your code which you can use to annotate code so that another human being who is
+reading your code can understand how your program is designed to function.</p>
+<p>If you’re using <code>nano</code> or another shell-based text editor you should perhaps
+open up two terminals, one where you can edit and save the programs you’re
+working on, and one where you can run your programs. One advantage of using Atom
+is that you can keep Atom open in a separate window and then run your programs
+in your terminal window.</p>
 <div id="math" class="section level2">
 <h2><span class="header-section-number">5.1</span> Math</h2>
-<p>The Bash programming language can do very basic arithmetic, which we’ll demonstrate in this section. Now that you have <code>math.sh</code> open in your preferred text editor type the following into your text editor:</p>
+<p>The Bash programming language can do very basic arithmetic, which we’ll
+demonstrate in this section.
+Now that you have <code>math.sh</code> open in your preferred text editor type the following
+into your text editor:</p>
 <pre><code>#!/usr/bin/env bash
 # File: math.sh
 
@@ -314,31 +368,51 @@ expr 5 - 2
 expr 5 \* 2
 expr 5 / 2</code></pre>
 <p>Save <code>math.sh</code> and then run this script in your shell:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> math.sh</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> math.sh</code></pre>
 <pre><code>## 7
 ## 3
 ## 10
 ## 2</code></pre>
-<p>Let’s break down what’s going on in the Bash script you just created. Bash executes programs in order from the first line in your file to the last line. The <code>expr</code> command can be used to <strong>evaluate</strong> Bash <strong>expressions</strong>. An expression is just a valid string of Bash code that, when run, produces a result. The arithmetic operators that you’re already familiar with for addition (<code>+</code>), subtraction (<code>-</code>), and multiplication (<code>*</code>) work like you would expect them to. Notice that when doing multiplication you need to escape the star character, otherwise Bash thinks you’re trying to create a regular expression! The division operator (<code>/</code>) does not work as you might expect it to since 5 / 2 = 2.5. Bash does <strong>integer division</strong>, which means that the result of dividing one number by another is always rounded down to the nearest integer. Let’s take a look at a few examples on the command line:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">expr</span> 1 / 3
+<p>Let’s break down what’s going on in the Bash script you just created. Bash
+executes programs in order from the first line in your file to the last line.
+The <code>expr</code> command can be used to <strong>evaluate</strong> Bash <strong>expressions</strong>.
+An expression is just
+a valid string of Bash code that, when run, produces a result. The arithmetic
+operators that you’re already familiar with for addition (<code>+</code>), subtraction
+(<code>-</code>), and multiplication (<code>*</code>) work like you would expect them to. Notice that
+when doing multiplication you need to escape the star character, otherwise
+Bash thinks you’re trying to create a regular expression! The division operator
+(<code>/</code>) does not work as you might expect it to since 5 / 2 = 2.5. Bash does
+<strong>integer division</strong>, which means that the result of dividing one number by
+another is always rounded down to the nearest integer. Let’s take a look at a
+few examples on the command line:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">expr</span> 1 / 3
 <span class="fu">expr</span> 10 / 3
 <span class="fu">expr</span> 40 / 21
-<span class="fu">expr</span> 40 / 20</code></pre></div>
+<span class="fu">expr</span> 40 / 20</code></pre>
 <pre><code>## 0
 ## 3
 ## 1
 ## 2</code></pre>
-<p>The other numerical operator you should be aware of that you might not be familiar with is the modulus operator (<code>%</code>). The modulus operator returns the <strong>remainder</strong> after integer division. In integer division if A / B = C, and A % B = D, then B * C + D = A. Let’s take a look at some examples on the command line:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">expr</span> 1 % 3
+<p>The other numerical operator you should be aware of that you might not be
+familiar with is the modulus operator (<code>%</code>). The modulus operator returns the
+<strong>remainder</strong> after integer division. In integer division if A / B = C, and
+A % B = D, then B * C + D = A. Let’s take a look at some examples on the command
+line:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">expr</span> 1 % 3
 <span class="fu">expr</span> 10 % 3
 <span class="fu">expr</span> 40 % 21
-<span class="fu">expr</span> 40 % 20</code></pre></div>
+<span class="fu">expr</span> 40 % 20</code></pre>
 <pre><code>## 1
 ## 1
 ## 19
 ## 0</code></pre>
-<p>Notice that when one number is completely divisible by another number then the result of the modulus is zero.</p>
-<p>If you want to do more complex math, for example math with fractions and numbers with decimals then I highly suggest combining <code>echo</code> and the <strong>b</strong>ench <strong>c</strong>alculator program called <code>bc</code>. Open up a new file called <code>bigmath.sh</code> and type in the following:</p>
+<p>Notice that when one number is completely divisible by another number then the
+result of the modulus is zero.</p>
+<p>If you want to do more complex math, for example math with fractions and numbers
+with decimals then I highly suggest combining <code>echo</code> and the <strong>b</strong>ench <strong>c</strong>alculator
+program called <code>bc</code>. Open up a new file called <code>bigmath.sh</code> and type in the
+following:</p>
 <pre><code>#!/usr/bin/env bash
 # File: bigmath.sh
 
@@ -346,18 +420,22 @@ echo &quot;22 / 7&quot; | bc -l
 echo &quot;4.2 * 9.15&quot; | bc -l
 echo &quot;(6.5 / 0.5) + (6 * 2.2)&quot; | bc -l</code></pre>
 <p>Save <code>bigmath.sh</code> and then run this script in your shell:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> bigmath.sh</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> bigmath.sh</code></pre>
 <pre><code>## 3.14285714285714285714
 ## 38.430
 ## 26.2</code></pre>
-<p>You can pipe any mathematical string to <code>bc</code> with the <code>-l</code> flag in order to use decimal numbers in your calculations.</p>
+<p>You can pipe any mathematical string to <code>bc</code> with the <code>-l</code> flag in order to
+use decimal numbers in your calculations.</p>
 <div id="summary-11" class="section level3">
 <h3><span class="header-section-number">5.1.1</span> Summary</h3>
 <ul>
-<li>Bash programs are executed in order from the first line in a file until the last line.</li>
-<li>Anything written after a pound sign (<code>#</code>) is a comment and is not executed by Bash.</li>
+<li>Bash programs are executed in order from the first line in a file until the
+last line.</li>
+<li>Anything written after a pound sign (<code>#</code>) is a comment and is not executed by
+Bash.</li>
 <li>You can do simple arithmetic with the <code>expr</code> command.</li>
-<li>Perform more complicated arithmetic by piping a string expression into <code>bc</code> using <code>echo</code>.</li>
+<li>Perform more complicated arithmetic by piping a string expression into <code>bc</code>
+using <code>echo</code>.</li>
 </ul>
 </div>
 <div id="exercises-8" class="section level3">
@@ -365,44 +443,63 @@ echo &quot;(6.5 / 0.5) + (6 * 2.2)&quot; | bc -l</code></pre>
 <ol style="list-style-type: decimal">
 <li>Look at the <code>man</code> pages for <code>bc</code>.</li>
 <li>Try doing some math in <code>bc</code> interactively.</li>
-<li>Try writing some equations in a file and then provide that file as an argument to <code>bc</code>.</li>
+<li>Try writing some equations in a file and then provide that file as an
+argument to <code>bc</code>.</li>
 </ol>
 </div>
 </div>
 <div id="variables" class="section level2">
 <h2><span class="header-section-number">5.2</span> Variables</h2>
-<p>In Bash you can store data in variables. In chapter 4 we discussed environmental variables that are set by your operating system. You can also create your own variables. Make sure you follow these rules when you’re naming variables:</p>
+<p>In Bash you can store data in variables. In chapter 4 we discussed environmental
+variables that are set by your operating system. You can also create your own
+variables. Make sure you follow these rules when you’re naming variables:</p>
 <ul>
 <li>Every letter should be lowercase.</li>
 <li>The variable name should start with a letter.</li>
 <li>The name should only contain alphanumeric characters and underscores (<code>_</code>).</li>
 <li>Words in the name should be separated by underscores.</li>
 </ul>
-<p>If you follow those rules then you can avoid accidentally overwriting data stored in environmental variables.</p>
-<p>You can assign data to a variable using the equals sign (<code>=</code>). The data you store in a variable can either be a string or a number. Let’s create a variable now on the command line:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="va">chapter_number=</span>5</code></pre></div>
-<p>The variable name is on the left hand side of the equals sign, and the data which will be stored in that variable is on the right hand side of the equals sign. Notice that there are no spaces on either side of the equals sign, this is not allowed when assigning variables:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">chapter_number</span> = 5</code></pre></div>
+<p>If you follow those rules then you can avoid accidentally overwriting data
+stored in environmental variables.</p>
+<p>You can assign data to a variable using the equals sign (<code>=</code>). The data you
+store in a variable can either be a string or a number. Let’s create a variable
+now on the command line:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="va">chapter_number=</span>5</code></pre>
+<p>The variable name is on the left hand side of the equals sign, and the data
+which will be stored in that variable is on the right hand side of the equals
+sign. Notice that there are no spaces on either side of the equals sign, this
+is not allowed when assigning variables:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">chapter_number</span> = 5</code></pre>
 <pre><code>## Error in running command bash</code></pre>
-<p>In order to print the data in a variable, also called the value of a variable, we can use <code>echo</code>. When you want to retrieve the value of a variable you must use the dollar sign (<code>$</code>) before the name of the variable. Let’s try this out:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="va">$chapter_number</span></code></pre></div>
+<p>In order to print the data in a variable, also called the value of a variable,
+we can use <code>echo</code>. When you want to retrieve the value of a variable you must
+use the dollar sign (<code>$</code>) before the name of the variable. Let’s try this out:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="va">$chapter_number</span></code></pre>
 <pre><code>## 5</code></pre>
-<p>You can modify the value of a variable using arithmetic operators by using the <code>let</code> command:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">let</span> chapter_number=<span class="va">$chapter_number</span>+1
-<span class="bu">echo</span> <span class="va">$chapter_number</span></code></pre></div>
+<p>You can modify the value of a variable using arithmetic operators by using the
+<code>let</code> command:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">let</span> chapter_number=<span class="va">$chapter_number</span>+1
+<span class="bu">echo</span> <span class="va">$chapter_number</span></code></pre>
 <pre><code>## 6</code></pre>
 <p>You can also store strings in variables:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="va">the_empire_state=</span><span class="st">&quot;New York&quot;</span>
-<span class="bu">echo</span> <span class="va">$the_empire_state</span></code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="va">the_empire_state=</span><span class="st">&quot;New York&quot;</span>
+<span class="bu">echo</span> <span class="va">$the_empire_state</span></code></pre>
 <pre><code>## New York</code></pre>
-<p>Occasionally you might want to run a command like you would on the command line and store the result of that command in a variable. We can do this by wrapping the command in a dollar sign and parentheses (<code>$( )</code>) around a command. This syntax is called <strong>command substitution</strong>. The command is executed and then gets replaced by the string that resulted from running the command. For example if we wanted to store the number of lines in <code>math.sh</code>:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="va">math_lines=$(</span><span class="fu">cat</span> math.sh <span class="kw">|</span> <span class="fu">wc</span> -l<span class="va">)</span>
-<span class="bu">echo</span> <span class="va">$math_lines</span></code></pre></div>
+<p>Occasionally you might want to run a command like you would on the command line
+and store the result of that command in a variable. We can do this by wrapping
+the command in a dollar sign and parentheses (<code>$( )</code>) around a command.
+This syntax is called <strong>command substitution</strong>. The command is executed and then
+gets replaced by the string that resulted from running the command. For
+example if we wanted to store the number of lines in <code>math.sh</code>:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="va">math_lines=$(</span><span class="fu">cat</span> math.sh <span class="kw">|</span> <span class="fu">wc</span> -l<span class="va">)</span>
+<span class="bu">echo</span> <span class="va">$math_lines</span></code></pre>
 <pre><code>## 7</code></pre>
-<p>Variable names with a dollar sign can also be used inside other strings in order to insert the value of the variable into the string:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="st">&quot;I went to school in </span><span class="va">$the_empire_state</span><span class="st">.&quot;</span></code></pre></div>
+<p>Variable names with a dollar sign can also be used inside other strings in
+order to insert the value of the variable into the string:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="st">&quot;I went to school in </span><span class="va">$the_empire_state</span><span class="st">.&quot;</span></code></pre>
 <pre><code>## I went to school in New York.</code></pre>
-<p>When writing a Bash script, the script gives you a few variables for free. Let’s create a new file called <code>vars.sh</code> with the following code:</p>
+<p>When writing a Bash script, the script gives you a few variables for free. Let’s
+create a new file called <code>vars.sh</code> with the following code:</p>
 <pre><code>#!/usr/bin/env bash
 # File: vars.sh
 
@@ -410,45 +507,64 @@ echo &quot;Script arguments: $@&quot;
 echo &quot;First arg: $1. Second arg: $2.&quot;
 echo &quot;Number of arguments: $#&quot;</code></pre>
 <p>Now let’s try running the script a few times in a few different ways:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> vars.sh</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> vars.sh</code></pre>
 <pre><code>## Script arguments:
 ## First arg: . Second arg: .
 ## Number of arguments: 0</code></pre>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> vars.sh red</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> vars.sh red</code></pre>
 <pre><code>## Script arguments: red
 ## First arg: red. Second arg: .
 ## Number of arguments: 1</code></pre>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> vars.sh red blue</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> vars.sh red blue</code></pre>
 <pre><code>## Script arguments: red blue
 ## First arg: red. Second arg: blue.
 ## Number of arguments: 2</code></pre>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> vars.sh red blue green</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> vars.sh red blue green</code></pre>
 <pre><code>## Script arguments: red blue green
 ## First arg: red. Second arg: blue.
 ## Number of arguments: 3</code></pre>
-<p>Your script can accept arguments just like a command line program! The first argument to your script is stored in <code>$1</code>, the second argument is stored in <code>$2</code>, etc, etc. An array of all of the arguments passed to your script is stored in <code>$@</code>, and we’ll discuss how to handle arrays later on in this chapter. The total number of arguments passed to your script is stored in <code>$#</code>. Now that you know how to pass arguments to your scripts you can start writing your own command line tools!</p>
+<p>Your script can accept arguments just like a command line program! The first
+argument to your script is stored in <code>$1</code>, the second argument is stored in
+<code>$2</code>, etc, etc. An array of all of the arguments passed to your script is stored
+in <code>$@</code>, and we’ll discuss how to handle arrays later on in this chapter. The
+total number of arguments passed to your script is stored in <code>$#</code>. Now that you
+know how to pass arguments to your scripts you can start writing your own command
+line tools!</p>
 <div id="summary-12" class="section level3">
 <h3><span class="header-section-number">5.2.1</span> Summary</h3>
 <ul>
 <li>Variables can be assigned with the equal sign (<code>=</code>) operator.</li>
 <li>Strings or numbers can be assigned to variables.</li>
-<li>The value of a variable can be accessed with the dollar sign (<code>$</code>) before the variable name.</li>
-<li>You can use the dollar sign and parentheses syntax (command substitution) to execute a command and save the output in a variable.</li>
-<li>You can access command line arguments within your own scripts using the dollar sign followed by the number of the argument.</li>
+<li>The value of a variable can be accessed with the dollar sign (<code>$</code>) before the
+variable name.</li>
+<li>You can use the dollar sign and parentheses syntax (command substitution) to
+execute a command and save the output in a variable.</li>
+<li>You can access command line arguments within your own scripts using the dollar
+sign followed by the number of the argument.</li>
 </ul>
 </div>
 <div id="exercises-9" class="section level3">
 <h3><span class="header-section-number">5.2.2</span> Exercises</h3>
 <ol style="list-style-type: decimal">
-<li>Write a Bash program where you assign two numbers to different variables, and then the program prints the sum of those variables.</li>
-<li>Write another Bash program where you assign two strings to different variables, and then the program prints both of those strings. Write a version where the strings are printed on the same line, and a version where the strings are printed on different lines.</li>
-<li>Write a Bash program that prints the number of arguments provided to that program multiplied by the first argument provided to the program.</li>
+<li>Write a Bash program where you assign two numbers to different variables,
+and then the program prints the sum of those variables.</li>
+<li>Write another Bash program where you assign two strings to different
+variables, and then the program prints both of those strings. Write a version
+where the strings are printed on the same line, and a version where the strings
+are printed on different lines.</li>
+<li>Write a Bash program that prints the number of arguments provided to that
+program multiplied by the first argument provided to the program.</li>
 </ol>
 </div>
 </div>
 <div id="user-input" class="section level2">
 <h2><span class="header-section-number">5.3</span> User Input</h2>
-<p>If you’re making Bash programs for you or for others to use one way you can get user input is to specify arguments for users to provide to your program, as we discussed in the previous section. You could also ask users to type in a string on the command line by temporarily stopping the execution of your program using the <code>read</code> command. Let’s a write a small script where you can see how the read command works:</p>
+<p>If you’re making Bash programs for you or for others to use one way you can get
+user input is to specify arguments for users to provide to your program, as we
+discussed in the previous section. You could also ask users to type in a string
+on the command line by temporarily stopping the execution of your program using
+the <code>read</code> command. Let’s a write a small script where you can see how the read
+command works:</p>
 <pre><code>#!/usr/bin/env bash
 # File: letsread.sh
 
@@ -456,14 +572,16 @@ echo &quot;Type in a string and then press Enter:&quot;
 read response
 echo &quot;You entered: $response&quot;</code></pre>
 <p>Now let’s run this script:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> letsread.sh</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> letsread.sh</code></pre>
 <pre><code>## Type in a string and then press Enter:
 ##</code></pre>
 <p>Let’s type <code>Hello!</code> into the console, then press enter:</p>
 <pre><code>## Type in a string and then press Enter:
 ## Hello!
 ## You entered: Hello!</code></pre>
-<p>The <code>read</code> command prompts the user to type in a string, and the string that the user provides is stored in the variable that is given to the <code>read</code> command in the script.</p>
+<p>The <code>read</code> command prompts the user to type in a string, and the string that the
+user provides is stored in the variable that is given to the <code>read</code> command in
+the script.</p>
 <div id="summary-13" class="section level3">
 <h3><span class="header-section-number">5.3.1</span> Summary</h3>
 <ul>
@@ -473,7 +591,8 @@ echo &quot;You entered: $response&quot;</code></pre>
 <div id="exercises-10" class="section level3">
 <h3><span class="header-section-number">5.3.2</span> Exercises</h3>
 <ol style="list-style-type: decimal">
-<li>Write a script that asks the user for an adjective, a noun, and a verb, and then use those words in a sentence (like <a href="https://en.wikipedia.org/wiki/Mad_Libs">Mad Libs</a>).</li>
+<li>Write a script that asks the user for an adjective, a noun, and a verb, and
+then use those words in a sentence (like <a href="https://en.wikipedia.org/wiki/Mad_Libs">Mad Libs</a>).</li>
 </ol>
 </div>
 </div>
@@ -481,92 +600,162 @@ echo &quot;You entered: $response&quot;</code></pre>
 <h2><span class="header-section-number">5.4</span> Logic and If/Else</h2>
 <div id="conditional-execution" class="section level3">
 <h3><span class="header-section-number">5.4.1</span> Conditional Execution</h3>
-<p>When writing computer programs it is often useful for your program to be able to make decisions based on inputs like arguments, files, and environmental variables. Bash provides mechanisms for creating <strong>logical expressions</strong> which resemble mathematical equations. These logical expressions can be evaluated until they are either true or false. In fact, <code>true</code> and <code>false</code> are both simple Bash commands! Let’s try them both out now:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">true</span>
-<span class="fu">false</span></code></pre></div>
-<p>At first it doesn’t look like they do much. In order to see how they work, we’re going to need to look under the hood of Unix a little bit. Whenever you execute a program on the command line, in general one of two things will happen: either the command is executed successfully, or there’s an error. In terms of errors there are many ways that a program can go wrong, and Unix can take different actions depending on what kind of error occurs. For example if I enter the name of a command that does not exist into the terminal, then I’ll see an error:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">this_command_does_not_exist</span></code></pre></div>
+<p>When writing computer programs it is often useful for your program to be able to
+make decisions based on inputs like arguments, files, and environmental
+variables. Bash provides mechanisms for creating <strong>logical expressions</strong> which
+resemble mathematical equations. These logical expressions can be evaluated
+until they are either true or false. In fact, <code>true</code> and <code>false</code> are both simple
+Bash commands! Let’s try them both out now:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">true</span>
+<span class="fu">false</span></code></pre>
+<p>At first it doesn’t look like they do much. In order to see how they work, we’re
+going to need to look under the hood of Unix a little bit. Whenever you execute
+a program on the command line, in general one of two things will happen: either
+the command is executed successfully, or there’s an error. In terms of errors
+there are many ways that a program can go wrong, and Unix can take different
+actions depending on what kind of error occurs. For example if I enter the name
+of a command that does not exist into the terminal, then I’ll see an error:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">this_command_does_not_exist</span></code></pre>
 <pre><code>## Error in running command bash</code></pre>
-<p>Since that command does not exist, it creates a specific kind of error which is indicated by the program’s <strong>exit status</strong>. The exit status of a program is an integer which indicates whether the program was executed successfully or if an error occurred. The exit status of the last program run is stored in the question mark variable (<code>$?</code>). We can take a look at the exit status of the last program with <code>echo</code>:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="va">$?</span></code></pre></div>
+<p>Since that command does not exist, it creates a specific kind of error which is
+indicated by the program’s <strong>exit status</strong>. The exit status of a program is an
+integer which indicates whether the program was executed successfully or if
+an error occurred.
+The exit status of the last program run is stored in the question mark
+variable (<code>$?</code>). We can take a look at the exit status of the last program with
+<code>echo</code>:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="va">$?</span></code></pre>
 <pre><code>## 127</code></pre>
-<p>This particular exit status made an indication to the shell that it should print an error message to the console. What’s the exit status of a program that runs successfully? Let’s take a look:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> I will succeed.
-<span class="bu">echo</span> <span class="va">$?</span></code></pre></div>
+<p>This particular exit status made an indication to the shell that it should
+print an error message to the console. What’s the exit status of a program that
+runs successfully? Let’s take a look:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> I will succeed.
+<span class="bu">echo</span> <span class="va">$?</span></code></pre>
 <pre><code>## I will succeed.
 ## 0</code></pre>
-<p>So the exit status of a successful program is 0. Now let’s take a look at the exit statuses of <code>true</code> and <code>false</code>:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">true</span>
+<p>So the exit status of a successful program is 0. Now let’s take a look at the
+exit statuses of <code>true</code> and <code>false</code>:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">true</span>
 <span class="bu">echo</span> <span class="va">$?</span>
 <span class="fu">false</span>
-<span class="bu">echo</span> <span class="va">$?</span></code></pre></div>
+<span class="bu">echo</span> <span class="va">$?</span></code></pre>
 <pre><code>## 0
 ## 1</code></pre>
-<p>As you can see <code>true</code> has an exit status of 0 and <code>false</code> has an exit status of 1. Since these programs don’t do much else, you could define <code>true</code> as a program that always has an exit status of 0 and <code>false</code> as a program that always has an exit status of 1.</p>
-<p>Knowing the exit status of these programs is important when discussing the <strong>logical operators</strong>: the AND operator (<code>&amp;&amp;</code>) and the OR operator (<code>||</code>). The AND and OR operators can be used for conditional execution of programs on the command line. Conditional execution occurs when the execution of one program depends on the exit status of another program. For example in the case of the AND operator, the program on the right hand side of <code>&amp;&amp;</code> will only be executed if the program on the left hand side of <code>&amp;&amp;</code> has an exit status of 0. Let’s take a look at some small examples:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">true</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> <span class="st">&quot;Program 1 was executed.&quot;</span>
-<span class="fu">false</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> <span class="st">&quot;Program 2 was executed.&quot;</span></code></pre></div>
+<p>As you can see <code>true</code> has an exit status of 0 and <code>false</code> has an exit status of
+1. Since these programs don’t do much else, you could define <code>true</code> as a program
+that always has an exit status of 0 and <code>false</code> as a program that always has an
+exit status of 1.</p>
+<p>Knowing the exit status of these programs is important when discussing the
+<strong>logical operators</strong>: the AND operator (<code>&amp;&amp;</code>) and the OR operator (<code>||</code>). The
+AND and OR operators can be used for conditional execution of programs on the
+command line. Conditional execution occurs when the execution of one program
+depends on the exit status of another program. For example in the case of the
+AND operator, the program on the right hand side of <code>&amp;&amp;</code> will only be executed
+if the program on the left hand side of <code>&amp;&amp;</code> has an exit status of 0. Let’s
+take a look at some small examples:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">true</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> <span class="st">&quot;Program 1 was executed.&quot;</span>
+<span class="fu">false</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> <span class="st">&quot;Program 2 was executed.&quot;</span></code></pre>
 <pre><code>## Program 1 was executed.</code></pre>
-<p>Since <code>false</code> has an exit status of 1, the program <code>echo &quot;Program 2 was executed.&quot;</code> is not executed, so nothing is printed to the console for that command. Several AND operators can be chained together like so:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">false</span> <span class="kw">&amp;&amp;</span> <span class="fu">true</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> Hello
+<p>Since <code>false</code> has an exit status of 1, the program <code>echo &quot;Program 2 was executed.&quot;</code>
+is not executed, so nothing is printed to the console for that command.
+Several AND operators can be chained together like so:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">false</span> <span class="kw">&amp;&amp;</span> <span class="fu">true</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> Hello
 <span class="bu">echo</span> 1 <span class="kw">&amp;&amp;</span> <span class="fu">false</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> 3
-<span class="bu">echo</span> Athos <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> Porthos <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> Aramis</code></pre></div>
+<span class="bu">echo</span> Athos <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> Porthos <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> Aramis</code></pre>
 <pre><code>## 1
 ## Athos
 ## Porthos
 ## Aramis</code></pre>
-<p>In a series of programs joined together by AND operators, any programs to the right of a program that has a non-zero exit status is not executed.</p>
-<p>The OR operator (<code>||</code>) follows a similar set of principles. Commands on the right hand side of <code>||</code> are only executed if the command on the left hand side <em>fails</em> and therefore has an exit status other than 0. Let’s take a look at how this works:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">true</span> <span class="kw">||</span> <span class="bu">echo</span> <span class="st">&quot;Program 1 was executed.&quot;</span>
-<span class="fu">false</span> <span class="kw">||</span> <span class="bu">echo</span> <span class="st">&quot;Program 2 was executed.&quot;</span></code></pre></div>
+<p>In a series of programs joined together by AND operators, any programs to the
+right of a program that has a non-zero exit status is not executed.</p>
+<p>The OR operator (<code>||</code>) follows a similar set of principles. Commands on the right
+hand side of <code>||</code> are only executed if the command on the left hand side <em>fails</em>
+and therefore has an exit status other than 0. Let’s take a look at how this
+works:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">true</span> <span class="kw">||</span> <span class="bu">echo</span> <span class="st">&quot;Program 1 was executed.&quot;</span>
+<span class="fu">false</span> <span class="kw">||</span> <span class="bu">echo</span> <span class="st">&quot;Program 2 was executed.&quot;</span></code></pre>
 <pre><code>## Program 2 was executed.</code></pre>
-<p>Only <code>echo &quot;Program 2 was executed.&quot;</code> runs because <code>false</code> has a non-zero exit status. You can combine multiple OR operators so that only the first program with an exit status of 0 is executed:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">false</span> <span class="kw">||</span> <span class="bu">echo</span> 1 <span class="kw">||</span> <span class="bu">echo</span> 2
+<p>Only <code>echo &quot;Program 2 was executed.&quot;</code> runs because <code>false</code> has a non-zero exit
+status. You can combine multiple OR operators so that only the first program
+with an exit status of 0 is executed:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">false</span> <span class="kw">||</span> <span class="bu">echo</span> 1 <span class="kw">||</span> <span class="bu">echo</span> 2
 <span class="bu">echo</span> 3 <span class="kw">||</span> <span class="fu">false</span> <span class="kw">||</span> <span class="bu">echo</span> 4
-<span class="bu">echo</span> Athos <span class="kw">||</span> <span class="bu">echo</span> Porthos <span class="kw">||</span> <span class="bu">echo</span> Aramis</code></pre></div>
+<span class="bu">echo</span> Athos <span class="kw">||</span> <span class="bu">echo</span> Porthos <span class="kw">||</span> <span class="bu">echo</span> Aramis</code></pre>
 <pre><code>## 1
 ## 3
 ## Athos</code></pre>
-<p>You can combine AND and OR operators in commands, which are evaluated from left to right:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> Athos <span class="kw">||</span> <span class="bu">echo</span> Porthos <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> Aramis
-<span class="bu">echo</span> Gaspar <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> Balthasar <span class="kw">||</span> <span class="bu">echo</span> Melchior</code></pre></div>
+<p>You can combine AND and OR operators in commands, which are evaluated from left
+to right:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> Athos <span class="kw">||</span> <span class="bu">echo</span> Porthos <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> Aramis
+<span class="bu">echo</span> Gaspar <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> Balthasar <span class="kw">||</span> <span class="bu">echo</span> Melchior</code></pre>
 <pre><code>## Athos
 ## Aramis
 ## Gaspar
 ## Balthasar</code></pre>
-<p>By combining AND and OR operators you can precisely control the conditions for when certain commands should be executed.</p>
+<p>By combining AND and OR operators you can precisely control the conditions for
+when certain commands should be executed.</p>
 </div>
 <div id="conditional-expressions" class="section level3">
 <h3><span class="header-section-number">5.4.2</span> Conditional Expressions</h3>
-<p>Enabling your Bash script to make decisions is extremely useful. Conditional execution allows you to control the circumstances where certain programs are executed based on whether those programs succeed or fail, but you can also construct <strong>conditional expressions</strong> which are logical statements that are either equivalent to <code>true</code> or <code>false</code>. Conditional expressions either compare two values, or they ask a question about one value. Conditional expressions are always between double brackets (<code>[[ ]]</code>), and they either use <strong>logical flags</strong> or <strong>logical operators</strong>. For example, there are several logical flags you could use for comparing two integers. If we wanted to see if one integer was greater than another we could use <code>-gt</code>, the <strong>g</strong>reater <strong>t</strong>han flag. Enter this simple conditional expression into the command line:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">[[</span> 4 <span class="ot">-gt</span> 3<span class="kw"> ]]</span></code></pre></div>
-<p>The logical expression above is asking: Is 4 greater than 3? No result is printed to the console so let’s check the exit status of that expression.</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="va">$?</span></code></pre></div>
+<p>Enabling your Bash script to make decisions is extremely useful. Conditional
+execution allows you to control the circumstances where certain programs are
+executed based on whether those programs succeed or fail, but you can also
+construct <strong>conditional expressions</strong> which are logical statements that are
+either equivalent to <code>true</code> or <code>false</code>. Conditional expressions either compare
+two values, or they ask a question about one value. Conditional expressions are
+always between double brackets (<code>[[ ]]</code>), and they either use <strong>logical flags</strong>
+or <strong>logical operators</strong>. For example, there are several logical flags you could
+use for comparing two integers. If we wanted to see if one integer was greater
+than another we could use <code>-gt</code>, the <strong>g</strong>reater <strong>t</strong>han flag. Enter this
+simple conditional expression into the command line:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">[[</span> 4 <span class="ot">-gt</span> 3<span class="kw"> ]]</span></code></pre>
+<p>The logical expression above is asking: Is 4 greater than 3? No result is
+printed to the console so let’s check the exit status of that expression.</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="va">$?</span></code></pre>
 <pre><code>## 0</code></pre>
-<p>It looks like the exit status of this program is 0, the same exit status as <code>true</code>. This conditional expression is saying that <code>[[ 4 -gt 3 ]]</code> is equivalent to <code>true</code>, which of course we know is logically consistent, 4 is in fact greater than 3! Let’s see what happens if we flip the expression around so we’re asking if 3 is greater than 4:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">[[</span> 3 <span class="ot">-gt</span> 4<span class="kw"> ]]</span></code></pre></div>
+<p>It looks like the exit status of this program is 0, the same exit status as
+<code>true</code>. This conditional expression is saying that <code>[[ 4 -gt 3 ]]</code> is equivalent
+to <code>true</code>, which of course we know is logically consistent, 4 is in fact greater
+than 3! Let’s see what happens if we flip the expression around so we’re asking
+if 3 is greater than 4:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">[[</span> 3 <span class="ot">-gt</span> 4<span class="kw"> ]]</span></code></pre>
 <p>Again, nothing is printed to the console so we’ll look at the exit status:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="va">$?</span></code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="va">$?</span></code></pre>
 <pre><code>## 1</code></pre>
-<p>Ah-ha! Obviously 3 is not greater than 4, so this false logical expression resulted in an exit status of 1, which is the same exit status as <code>false</code>! Because they have the same exit status <code>[[ 3 -gt 4 ]]</code> and <code>false</code> are essentially equivalent. To quickly test the logical value of a conditional expression, we can use the AND and OR operators so that an expression will print “t” if it’s true and “f” if its false:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">[[</span> 4 <span class="ot">-gt</span> 3<span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> t <span class="kw">||</span> <span class="bu">echo</span> f
-<span class="kw">[[</span> 3 <span class="ot">-gt</span> 4<span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> t <span class="kw">||</span> <span class="bu">echo</span> f</code></pre></div>
+<p>Ah-ha! Obviously 3 is not greater than 4, so this false logical expression
+resulted in an exit status of 1, which is the same exit status as <code>false</code>!
+Because they have the same exit status <code>[[ 3 -gt 4 ]]</code> and <code>false</code> are
+essentially equivalent. To quickly test the logical value of a conditional
+expression, we can use the AND and OR operators so that an expression will
+print “t” if it’s true and “f” if its false:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">[[</span> 4 <span class="ot">-gt</span> 3<span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> t <span class="kw">||</span> <span class="bu">echo</span> f
+<span class="kw">[[</span> 3 <span class="ot">-gt</span> 4<span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> t <span class="kw">||</span> <span class="bu">echo</span> f</code></pre>
 <pre><code>## t
 ## f</code></pre>
-<p>This is a little trick you can use to quickly look at the resulting value of a logical expression.</p>
-<p>These <strong>binary</strong> logical expressions compare two values, but there are also <strong>unary</strong> logical expressions that only look at one value. For example, you can test whether or not a file exists using the <code>-e</code> logical flag. Let’s take a look at this flag in action:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span> ~/Code
-<span class="kw">[[</span> <span class="ot">-e</span> math.sh<span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> t <span class="kw">||</span> <span class="bu">echo</span> f</code></pre></div>
+<p>This is a little trick you can use to quickly look at the resulting value of a
+logical expression.</p>
+<p>These <strong>binary</strong> logical expressions compare two values, but there are also
+<strong>unary</strong> logical expressions that only look at one value. For example, you can
+test whether or not a file exists using the <code>-e</code> logical flag. Let’s take a look
+at this flag in action:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span> ~/Code
+<span class="kw">[[</span> <span class="ot">-e</span> math.sh<span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> t <span class="kw">||</span> <span class="bu">echo</span> f</code></pre>
 <pre><code>## t</code></pre>
-<p>As you can see the file <code>math.sh</code> exists! Most of the time when you’re writing bash scripts you won’t be comparing two raw values or trying to find something out about one raw value, instead you’ll want to create a logical statement about a value contained in a variable. Variables behave just like raw values in logical expressions. Let’s take a look at a few examples:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="va">number=</span>7
+<p>As you can see the file <code>math.sh</code> exists! Most of the time when you’re writing
+bash scripts you won’t be comparing two raw values or trying to find something
+out about one raw value, instead you’ll want to create a logical statement
+about a value contained in a variable. Variables behave just like raw values in
+logical expressions. Let’s take a look at a few examples:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="va">number=</span>7
 <span class="kw">[[</span> <span class="va">$number</span> <span class="ot">-gt</span> 3<span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> t <span class="kw">||</span> <span class="bu">echo</span> f
 <span class="kw">[[</span> <span class="va">$number</span> <span class="ot">-gt</span> 10<span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> t <span class="kw">||</span> <span class="bu">echo</span> f
-<span class="kw">[[</span> <span class="ot">-e</span> <span class="va">$number</span><span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> t <span class="kw">||</span> <span class="bu">echo</span> f</code></pre></div>
+<span class="kw">[[</span> <span class="ot">-e</span> <span class="va">$number</span><span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> t <span class="kw">||</span> <span class="bu">echo</span> f</code></pre>
 <pre><code>## t
 ## f
 ## f</code></pre>
-<p>As you can see 7 is greater than 3 though it is not greater than 10, and there is not file in this directory called <code>7</code>. There are several other varieties of logical flags, and you can find a table of several of these flags below.</p>
+<p>As you can see 7 is greater than 3 though it is not greater than 10, and there
+is not file in this directory called <code>7</code>. There are several other varieties of
+logical flags, and you can find a table of several of these flags below.</p>
 <table>
 <thead>
 <tr class="header">
@@ -628,23 +817,31 @@ echo &quot;You entered: $response&quot;</code></pre>
 </tr>
 </tbody>
 </table>
-<p>Try using each of these flags on the command line before moving on to the next section.</p>
-<p>In addition to logical flags there are also logical operators. One of the most useful logical operators is the regex match operator <code>=~</code>. The regex match operator compares a string to a regular expression and if the string is a match for the regex then the expression is equivalent to <code>true</code>, otherwise it’s equivalent to <code>false</code>. Let’s test this operator a couple different ways:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">[[</span> rhythms =~ [aeiou]<span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> t <span class="kw">||</span> <span class="bu">echo</span> f
+<p>Try using each of these flags on the command line before moving on to the next
+section.</p>
+<p>In addition to logical flags there are also logical operators. One of the most
+useful logical operators is the regex match operator <code>=~</code>. The regex match
+operator compares a string to a regular expression and if the string is a match
+for the regex then the expression is equivalent to <code>true</code>, otherwise it’s
+equivalent to <code>false</code>. Let’s test this operator a couple different ways:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">[[</span> rhythms =~ [aeiou]<span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> t <span class="kw">||</span> <span class="bu">echo</span> f
 <span class="va">my_name=</span>sean
-<span class="kw">[[</span> <span class="va">$my_name</span> =~ ^s.+n$<span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> t <span class="kw">||</span> <span class="bu">echo</span> f</code></pre></div>
+<span class="kw">[[</span> <span class="va">$my_name</span> =~ ^s.+n$<span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> t <span class="kw">||</span> <span class="bu">echo</span> f</code></pre>
 <pre><code>## f
 ## t</code></pre>
-<p>There’s also the NOT operator <code>!</code>, which inverts the value of any conditional expression. The NOT operator turns true expressions into false expressions and vice-versa. Let’s take a look at a few examples using the NOT operator:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">[[</span> 7 <span class="ot">-gt</span> 2<span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> t <span class="kw">||</span> <span class="bu">echo</span> f
+<p>There’s also the NOT operator <code>!</code>, which inverts the value of any conditional
+expression. The NOT operator turns true expressions into false expressions and
+vice-versa. Let’s take a look at a few examples using the NOT operator:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">[[</span> 7 <span class="ot">-gt</span> 2<span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> t <span class="kw">||</span> <span class="bu">echo</span> f
 <span class="kw">[[</span> <span class="ot">!</span> 7 <span class="ot">-gt</span> 2<span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> t <span class="kw">||</span> <span class="bu">echo</span> f
 <span class="kw">[[</span> 6 <span class="ot">-ne</span> 3<span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> t <span class="kw">||</span> <span class="bu">echo</span> f
-<span class="kw">[[</span> <span class="ot">!</span> 6 <span class="ot">-ne</span> 3<span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> t <span class="kw">||</span> <span class="bu">echo</span> f</code></pre></div>
+<span class="kw">[[</span> <span class="ot">!</span> 6 <span class="ot">-ne</span> 3<span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> t <span class="kw">||</span> <span class="bu">echo</span> f</code></pre>
 <pre><code>## t
 ## f
 ## t
 ## f</code></pre>
-<p>Here’s a table of some of the useful logical operators in case you need to reference how they’re used later:</p>
+<p>Here’s a table of some of the useful logical operators in case you need to
+reference how they’re used later:</p>
 <table>
 <thead>
 <tr class="header">
@@ -679,7 +876,11 @@ echo &quot;You entered: $response&quot;</code></pre>
 </div>
 <div id="if-and-else" class="section level3">
 <h3><span class="header-section-number">5.4.3</span> If and Else</h3>
-<p>Conditional expressions are powerful because you can use them to control how a Bash program that you’re writing is executed. One of the fundamental constructs in Bash programming is the <strong>IF statement</strong>. Code written inside of an IF statement is only executed <em>if</em> a certain condition is true, otherwise the code is skipped. Let’s write a small program with an IF statement:</p>
+<p>Conditional expressions are powerful because you can use them to control how a
+Bash program that you’re writing is executed. One of the fundamental constructs
+in Bash programming is the <strong>IF statement</strong>. Code written inside of an IF
+statement is only executed <em>if</em> a certain condition is true, otherwise the code
+is skipped. Let’s write a small program with an IF statement:</p>
 <pre><code>#!/usr/bin/env bash
 # File: simpleif.sh
 
@@ -691,21 +892,34 @@ then
 fi
 
 echo &quot;End program&quot;</code></pre>
-<p>First this program will print “Start program”, then the IF statement will check if the conditional expression <code>[[ $1 -eq 4 ]]</code> is true. It will only be true if you provide <code>4</code> as the first argument to the script. If the conditional expression if true then it will execute the code in between <code>then</code> and <code>fi</code>, otherwise it will skip over that code. Finally the program will print “End program.”</p>
-<p>Let’s try running this Bash program a few different ways. First we’ll run this program with no arguments:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> simpleif.sh</code></pre></div>
+<p>First this program will print “Start program”, then the IF statement will check
+if the conditional expression <code>[[ $1 -eq 4 ]]</code> is true. It will only be true if
+you provide <code>4</code> as the first argument to the script. If the conditional
+expression if true then it will execute the code in between <code>then</code> and <code>fi</code>,
+otherwise it will skip over that code. Finally the program will print
+“End program.”</p>
+<p>Let’s try running this Bash program a few different ways. First we’ll run this
+program with no arguments:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> simpleif.sh</code></pre>
 <pre><code>## Start program
 ## End program</code></pre>
-<p>Since we didn’t provide any arguments to <code>simpleif.sh</code> the code within the IF statement was skipped! Now let’s try providing an argument to this script:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> simpleif.sh 77</code></pre></div>
+<p>Since we didn’t provide any arguments to <code>simpleif.sh</code> the code within the IF
+statement was skipped! Now let’s try providing an argument to this script:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> simpleif.sh 77</code></pre>
 <pre><code>## Start program
 ## End program</code></pre>
-<p>We provided the argument <code>77</code>, however 77 is not equal to 4, therefore the code within the IF statement was once again skipped. Finally let’s provide <code>4</code> as an argument:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> simpleif.sh 4</code></pre></div>
+<p>We provided the argument <code>77</code>, however 77 is not equal to 4, therefore the code
+within the IF statement was once again skipped. Finally let’s provide <code>4</code> as an
+argument:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> simpleif.sh 4</code></pre>
 <pre><code>## Start program
 ## You entered 4
 ## End program</code></pre>
-<p>It worked! Since the first argument to this script was <code>4</code>, and 4 is equal to 4, the code within the IF statement was executed. You can pair IF statements with ELSE statements. An ELSE statement only runs if the conditional expression being evaluated by the IF statement is false. Let’s create a simple program that uses an ELSE statement:</p>
+<p>It worked! Since the first argument to this script was <code>4</code>, and 4 is equal to 4,
+the code within the IF statement was executed. You can pair IF statements with
+ELSE statements. An ELSE statement only runs if the conditional expression being
+evaluated by the IF statement is false. Let’s create a simple program that uses
+an ELSE statement:</p>
 <pre><code>#!/usr/bin/env bash
 # File: simpleifelse.sh
 
@@ -720,17 +934,23 @@ fi
 
 echo &quot;End program&quot;</code></pre>
 <p>Now let’s try running this program a few different ways:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> simpleifelse.sh 4</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> simpleifelse.sh 4</code></pre>
 <pre><code>## Start program
 ## Thanks for entering 4
 ## End program</code></pre>
-<p>The conditional expression <code>[[ $1 -eq 4 ]]</code> was true so code inside of the IF statement was run and the code in the ELSE statement was not run. What do you think will happened when we make the conditional expression false?</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> simpleifelse.sh 3</code></pre></div>
+<p>The conditional expression <code>[[ $1 -eq 4 ]]</code> was true so code inside of the IF
+statement was run and the code in the ELSE statement was not run. What do you
+think will happened when we make the conditional expression false?</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> simpleifelse.sh 3</code></pre>
 <pre><code>## Start program
 ## You entered: 3, not what I was looking for.
 ## End program</code></pre>
-<p>The conditional expression <code>[[ $1 -eq 4 ]]</code> was false so code inside of the ELSE statement was run and the code in the IF statement was not run.</p>
-<p>Between IF and ELSE statements you can also have ELIF statements. These statements act like IF statements except they’re only evaluated if preceding IF and ELIF statements have all evaluated false conditional expressions. Let’s create a brief program using ELIF:</p>
+<p>The conditional expression <code>[[ $1 -eq 4 ]]</code> was false so code inside of the ELSE
+statement was run and the code in the IF statement was not run.</p>
+<p>Between IF and ELSE statements you can also have ELIF statements. These
+statements act like IF statements except they’re only evaluated if preceding
+IF and ELIF statements have all evaluated false conditional expressions. Let’s
+create a brief program using ELIF:</p>
 <pre><code>#!/usr/bin/env bash
 # File: simpleelif.sh
 
@@ -744,16 +964,24 @@ else
   echo &quot;You entered: $1, not what I was looking for.&quot;
 fi</code></pre>
 <p>First let’s run the program with <code>4</code> as the first argument:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> simpleelif.sh 4</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> simpleelif.sh 4</code></pre>
 <pre><code>## 4 is my favorite number</code></pre>
-<p>The condition in the IF statement was true, so only the first <code>echo</code> command was executed. Now let’s run the program with <code>5</code> as the first argument:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> simpleelif.sh 5</code></pre></div>
+<p>The condition in the IF statement was true, so only the first <code>echo</code> command was
+executed. Now let’s run the program with <code>5</code> as the first argument:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> simpleelif.sh 5</code></pre>
 <pre><code>## 5 is a great number</code></pre>
-<p>If first condition is false since 5 is not equal to 4, but then the next condition in the ELIF statement is true since 5 is greater than 3, so that echo command is executed and the rest of the statement is skipped. Try to guess what will happen if we use <code>2</code> as an argument:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> simpleelif.sh 2</code></pre></div>
+<p>The first condition is false since 5 is not equal to 4, but then the next
+condition in the ELIF statement is true since 5 is greater than 3, so that
+echo command is executed and the rest of the statement is skipped. Try to guess
+what will happen if we use <code>2</code> as an argument:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> simpleelif.sh 2</code></pre>
 <pre><code>## You entered: 2, not what I was looking for.</code></pre>
-<p>Since 2 is neither equal to 4 nor greater than 3, the code in the ELSE statement is executed.</p>
-<p>You should also know that you can combine conditional execution, conditional expressions, and IF/ELIF/ELSE statements. The conditional execution operators AND (<code>&amp;&amp;</code>) and OR (<code>||</code>) can be used in an IF or ELIF statement. Let’s look at an example using these operators in an IF statement:</p>
+<p>Since 2 is neither equal to 4 nor greater than 3, the code in the ELSE statement
+is executed.</p>
+<p>You should also know that you can combine conditional execution, conditional
+expressions, and IF/ELIF/ELSE statements. The conditional execution operators
+AND (<code>&amp;&amp;</code>) and OR (<code>||</code>) can be used in an IF or ELIF statement. Let’s look at
+an example using these operators in an IF statement:</p>
 <pre><code>#!/usr/bin/env bash
 # File: condexif.sh
 
@@ -767,20 +995,23 @@ else
   echo &quot;You entered: $1, not what I was looking for.&quot;
 fi</code></pre>
 <p>Now let’s test this script with a few different arguments:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> condexif.sh 2
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> condexif.sh 2
 <span class="fu">bash</span> condexif.sh 4
 <span class="fu">bash</span> condexif.sh 6
 <span class="fu">bash</span> condexif.sh Jeff
 <span class="fu">bash</span> condexif.sh Brian
-<span class="fu">bash</span> condexif.sh Sean</code></pre></div>
+<span class="fu">bash</span> condexif.sh Sean</code></pre>
 <pre><code>## You entered: 2, not what I was looking for.
 ## 4 is between 3 and 7
 ## 6 is between 3 and 7
 ## Jeff works in the Data Science Lab
 ## Brian works in the Data Science Lab
 ## You entered: Sean, not what I was looking for.</code></pre>
-<p>The conditional execution operators work just like they would on the command line. If the entire conditional expression evaluates to the equivalent of <code>true</code> then the code within the IF statement is executed, otherwise it is skipped.</p>
-<p>Finally we should note that IF/ELIF/ELSE statements can be nested inside of other IF statements. Here’s a small example of a program with nested statements:</p>
+<p>The conditional execution operators work just like they would on the command
+line. If the entire conditional expression evaluates to the equivalent of <code>true</code>
+then the code within the IF statement is executed, otherwise it is skipped.</p>
+<p>Finally we should note that IF/ELIF/ELSE statements can be nested inside of
+other IF statements. Here’s a small example of a program with nested statements:</p>
 <pre><code>#!/usr/bin/env bash
 # File: nested.sh
 
@@ -799,71 +1030,98 @@ else
   echo &quot;You entered: $1, not what I was looking for.&quot;
 fi</code></pre>
 <p>Now let’s run it a few times:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> nested.sh 2
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> nested.sh 2
 <span class="fu">bash</span> nested.sh 4
-<span class="fu">bash</span> nested.sh 6</code></pre></div>
+<span class="fu">bash</span> nested.sh 6</code></pre>
 <pre><code>## You entered: 2, not what I was looking for.
 ## four
 ## six</code></pre>
-<p>In order to get to the inner IF statement, the conditions for the outer IF statement must be met first (the first argument for the script must be between 3 and 7). As you can see combining variables, arguments, conditional expressions, and IF statements allow you to write more powerful Bash programs.</p>
+<p>In order to get to the inner IF statement, the conditions for the outer IF
+statement must be met first (the first argument for the script must be between
+3 and 7). As you can see combining variables, arguments, conditional
+expressions, and IF statements allow you to write more powerful Bash programs.</p>
 </div>
 <div id="summary-14" class="section level3">
 <h3><span class="header-section-number">5.4.4</span> Summary</h3>
 <ul>
-<li>All Bash programs have an exit status. <code>true</code> has an exit status of 0 and <code>false</code> has an exit status of 1.</li>
-<li>Conditional execution uses two operators: AND (<code>&amp;&amp;</code>) and OR (<code>||</code>) which you can use to control what command get executed based on their exit status.</li>
-<li>Conditional expressions are always in double brackets (<code>[[ ]]</code>). They have exit an exit status of 0 if they contain a true assertion or 1 if they contain a false assertion.</li>
-<li>IF statements evaluate conditional expressions. If an expression is true then the code within an IF statement is executed, otherwise it is skipped.</li>
-<li>ELIF and ELSE statements also help control the flow of a Bash program, and IF statements can be nested within other IF statements.</li>
+<li>All Bash programs have an exit status. <code>true</code> has an exit status of 0 and
+<code>false</code> has an exit status of 1.</li>
+<li>Conditional execution uses two operators: AND (<code>&amp;&amp;</code>) and OR (<code>||</code>) which you
+can use to control what command get executed based on their exit status.</li>
+<li>Conditional expressions are always in double brackets (<code>[[ ]]</code>). They have
+an exit status of 0 if they contain a true assertion or 1 if they contain
+a false assertion.</li>
+<li>IF statements evaluate conditional expressions. If an expression is true then
+the code within an IF statement is executed, otherwise it is skipped.</li>
+<li>ELIF and ELSE statements also help control the flow of a Bash program, and IF
+statements can be nested within other IF statements.</li>
 </ul>
 </div>
 <div id="exercises-11" class="section level3">
 <h3><span class="header-section-number">5.4.5</span> Exercises</h3>
 <ol style="list-style-type: decimal">
-<li>Write a Bash script that takes a string as an argument and prints “how proper” if the string starts with a capital letter.</li>
-<li>Write a Bash script that takes one argument and prints “even” if the first argument is an even number or “odd” if the first argument is an odd number.</li>
-<li>Write a Bash script that takes two arguments. If both arguments are numbers, print their sum, otherwise just print both arguments.</li>
-<li>Write a Bash script that prints “Thank Moses it’s Friday” if today is Friday. (Hint: take a look at the <code>date</code> program).</li>
+<li>Write a Bash script that takes a string as an argument and prints
+“how proper” if the string starts with a capital letter.</li>
+<li>Write a Bash script that takes one argument and prints “even” if the first
+argument is an even number or “odd” if the first argument is an odd number.</li>
+<li>Write a Bash script that takes two arguments. If both arguments are numbers,
+print their sum, otherwise just print both arguments.</li>
+<li>Write a Bash script that prints “Thank Moses it’s Friday” if today is Friday.
+(Hint: take a look at the <code>date</code> program).</li>
 </ol>
 </div>
 </div>
 <div id="arrays" class="section level2">
 <h2><span class="header-section-number">5.5</span> Arrays</h2>
-<p>Arrays in Bash are ordered lists of values. You can create a list from scratch by assigning it to a variable name. Lists are created with parentheses (<code>( )</code>) with a space separating each element in the list. Let’s make a list of the plagues of Egypt:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="va">plagues=(</span>blood frogs lice flies sickness boils hail locusts darkness death<span class="va">)</span></code></pre></div>
-<p>To retrieve the array you need to use <strong>parameter expansion</strong>, which involves the dollar sign and curly brackets (<code>${ }</code>). The positions of the elements in the array are numbered starting from zero. To get the first element of this array use <code>${plagues[0]}</code> like so:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="va">${plagues[0]}</span></code></pre></div>
+<p>Arrays in Bash are ordered lists of values. You can create a list from scratch
+by assigning it to a variable name. Lists are created with parentheses (<code>( )</code>)
+with a space separating each element in the list. Let’s make a list of the
+plagues of Egypt:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="va">plagues=(</span>blood frogs lice flies sickness boils hail locusts darkness death<span class="va">)</span></code></pre>
+<p>To retrieve the array you need to use <strong>parameter expansion</strong>, which involves
+the dollar sign and curly brackets (<code>${ }</code>). The positions of the elements in
+the array are numbered starting from zero. To get the first element of this
+array use <code>${plagues[0]}</code> like so:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="va">${plagues[0]}</span></code></pre>
 <pre><code>## blood</code></pre>
-<p>Notice that the first element has an <strong>index</strong> of 0. You can get any of the elements this way, for example the fourth element:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="va">${plagues[3]}</span></code></pre></div>
+<p>Notice that the first element has an <strong>index</strong> of 0. You can get any of the
+elements this way, for example the fourth element:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="va">${plagues[3]}</span></code></pre>
 <pre><code>## flies</code></pre>
-<p>To get all of the elements of <code>plagues</code> use a star (<code>*</code>) between the square brackets:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="va">${plagues[*]}</span></code></pre></div>
+<p>To get all of the elements of <code>plagues</code> use a star (<code>*</code>) between the square
+brackets:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="va">${plagues[*]}</span></code></pre>
 <pre><code>## blood frogs lice flies sickness boils hail locusts darkness death</code></pre>
-<p>You can also change an individual elements in the array by specifying their index with square brackets:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="va">${plagues[*]}</span>
+<p>You can also change an individual elements in the array by specifying their
+index with square brackets:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="va">${plagues[*]}</span>
 <span class="va">plagues[4]=</span>disease
-<span class="bu">echo</span> <span class="va">${plagues[*]}</span></code></pre></div>
+<span class="bu">echo</span> <span class="va">${plagues[*]}</span></code></pre>
 <pre><code>## blood frogs lice flies sickness boils hail locusts darkness death
 ## blood frogs lice flies disease boils hail locusts darkness death</code></pre>
-<p>To get only part of an array you have to specify the index you would like to start at, followed by the number of elements you would like to retrieve from the array, separated by colons:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="va">${plagues[*]:5:3}</span></code></pre></div>
+<p>To get only part of an array you have to specify the index you would like to
+start at, followed by the number of elements you would like to retrieve from the
+array, separated by colons:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="va">${plagues[*]:5:3}</span></code></pre>
 <pre><code>## boils hail locusts</code></pre>
-<p>The above query essentially says: get 3 array elements starting from the sixth element of the array (remember, the sixth element has an index of 5).</p>
+<p>The above query essentially says: get 3 array elements starting from the sixth
+element of the array (remember, the sixth element has an index of 5).</p>
 <p>You can find the length of an array using the pound sign (<code>#</code>):</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="va">${#plagues[*]}</span></code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="va">${#plagues[*]}</span></code></pre>
 <pre><code>## 10</code></pre>
-<p>You can use the plus-equals operator (<code>+=</code>) to add an array onto the end of an array array:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="va">dwarfs=(</span>grumpy sleepy sneezy doc<span class="va">)</span>
+<p>You can use the plus-equals operator (<code>+=</code>) to add an array onto the end of
+an array array:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="va">dwarfs=(</span>grumpy sleepy sneezy doc<span class="va">)</span>
 <span class="bu">echo</span> <span class="va">${dwarfs[*]}</span>
 <span class="va">dwarfs+=(</span>bashful dopey happy<span class="va">)</span>
-<span class="bu">echo</span> <span class="va">${dwarfs[*]}</span></code></pre></div>
+<span class="bu">echo</span> <span class="va">${dwarfs[*]}</span></code></pre>
 <pre><code>## grumpy sleepy sneezy doc
 ## grumpy sleepy sneezy doc bashful dopey happy</code></pre>
 <div id="summary-15" class="section level3">
 <h3><span class="header-section-number">5.5.1</span> Summary</h3>
 <ul>
-<li>Arrays are a linear data structure with ordered elements which can be stored in variables.</li>
+<li>Arrays are a linear data structure with ordered elements which can be stored
+in variables.</li>
 <li>The each element of an array has an index and the first index is 0.</li>
 <li>Individual elements of an array can be accessed using their index.</li>
 </ul>
@@ -871,41 +1129,51 @@ fi</code></pre>
 <div id="exercises-12" class="section level3">
 <h3><span class="header-section-number">5.5.2</span> Exercises</h3>
 <ol style="list-style-type: decimal">
-<li>Write a bash script where you define an array inside of the script, and the first argument for the script indicates the index of the array element that is printed to the console when the script is run.</li>
-<li>Write a bash script where you define two arrays inside of the script, and the sum of the lengths of the arrays are printed to the console when the script is run.</li>
+<li>Write a bash script where you define an array inside of the script, and the
+first argument for the script indicates the index of the array element that is
+printed to the console when the script is run.</li>
+<li>Write a bash script where you define two arrays inside of the script, and the
+sum of the lengths of the arrays are printed to the console when the script is
+run.</li>
 </ol>
 </div>
 </div>
 <div id="braces" class="section level2">
 <h2><span class="header-section-number">5.6</span> Braces</h2>
-<p>Bash has a very handy tool for creating strings out of sequences called <strong>brace expansion</strong>. Brace expansion uses the curly brackets and two periods (<code>{ .. }</code>) to create a sequence of letters or numbers. For example to create a string with all of the numbers between zero and nine you could do the following:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="dt">{0..9}</span></code></pre></div>
+<p>Bash has a very handy tool for creating strings out of sequences called
+<strong>brace expansion</strong>. Brace expansion uses the curly brackets and two periods
+(<code>{ .. }</code>) to create a sequence of letters or numbers. For example to create a
+string with all of the numbers between zero and nine you could do the following:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="dt">{0..9}</span></code></pre>
 <pre><code>## 0 1 2 3 4 5 6 7 8 9</code></pre>
 <p>In addition to numbers you can also create sequences of letters:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="dt">{a..e}</span>
-<span class="bu">echo</span> <span class="dt">{W..Z}</span></code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="dt">{a..e}</span>
+<span class="bu">echo</span> <span class="dt">{W..Z}</span></code></pre>
 <pre><code>## a b c d e
 ## W X Y Z</code></pre>
-<p>You can put strings on either side of the curly brackets and they’ll be “pasted” onto the corresponding end of the sequence:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> a<span class="dt">{0..4}</span>
-<span class="bu">echo</span> b<span class="dt">{0..4}</span>c</code></pre></div>
+<p>You can put strings on either side of the curly brackets and they’ll be “pasted”
+onto the corresponding end of the sequence:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> a<span class="dt">{0..4}</span>
+<span class="bu">echo</span> b<span class="dt">{0..4}</span>c</code></pre>
 <pre><code>## a0 a1 a2 a3 a4
 ## b0c b1c b2c b3c b4c</code></pre>
-<p>You can also combine sequences so that two or more sequences are pasted together:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="dt">{1..3}{A..C}</span></code></pre></div>
+<p>You can also combine sequences so that two or more sequences are pasted
+together:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="dt">{1..3}{A..C}</span></code></pre>
 <pre><code>## 1A 1B 1C 2A 2B 2C 3A 3B 3C</code></pre>
-<p>If you want to use variables in order to define a sequence you need to use the <code>eval</code> command in order to create the sequence:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="va">start=</span>4
+<p>If you want to use variables in order to define a sequence you need to use the
+<code>eval</code> command in order to create the sequence:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="va">start=</span>4
 <span class="va">end=</span>9
 <span class="bu">echo</span> <span class="dt">{$start..$end}</span>
-<span class="bu">eval</span> echo <span class="dt">{$start..$end}</span></code></pre></div>
+<span class="bu">eval</span> echo <span class="dt">{$start..$end}</span></code></pre>
 <pre><code>## {4..9}
 ## 4 5 6 7 8 9</code></pre>
 <p>You can combine sequences with a comma between brackets (<code>{,}</code>):</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="dt">{{1..3},{a..c}}</span></code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="dt">{{1..3},{a..c}}</span></code></pre>
 <pre><code>## 1 2 3 a b c</code></pre>
 <p>In fact you can do this with any number of strings:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="dt">{Who,What,Why,When,How}</span>?</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="dt">{Who,What,Why,When,How}</span>?</code></pre>
 <pre><code>## Who? What? Why? When? How?</code></pre>
 <div id="summary-16" class="section level3">
 <h3><span class="header-section-number">5.6.1</span> Summary</h3>
@@ -925,7 +1193,12 @@ fi</code></pre>
 <h2><span class="header-section-number">5.7</span> Loops</h2>
 <div id="for" class="section level3">
 <h3><span class="header-section-number">5.7.1</span> <code>for</code></h3>
-<p>Loops are one of the most important programming structures in the Bash language. All of the programs we’ve written so far are executed from the first line of the script until the last line, but loops allow you to repeat lines of code based on logical conditions or by following a sequence. The first kind of loop that we’ll discuss is a FOR loop. <strong>FOR loops</strong> iterate through every element of a sequence that you specify. Let’s take a look at a small example FOR loop:</p>
+<p>Loops are one of the most important programming structures in the Bash language.
+All of the programs we’ve written so far are executed from the first line of the
+script until the last line, but loops allow you to repeat lines of code based on
+logical conditions or by following a sequence. The first kind of loop that we’ll
+discuss is a FOR loop. <strong>FOR loops</strong> iterate through every element of a sequence
+that you specify. Let’s take a look at a small example FOR loop:</p>
 <pre><code>#!/usr/bin/env bash
 # File: forloop.sh
 
@@ -938,14 +1211,39 @@ done
 
 echo &quot;After Loop&quot;</code></pre>
 <p>Now let’s execute this script:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> forloop.sh</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> forloop.sh</code></pre>
 <pre><code>## Before Loop
 ## i is equal to 1
 ## i is equal to 2
 ## i is equal to 3
 ## After Loop</code></pre>
-<p>Let’s walk through <code>forloop.sh</code> line-by-line. First <code>&quot;Before Loop&quot;</code> is printed before the FOR loop, then the loop begins. FOR loops start with the syntax <code>for [variable name] in [sequence]</code> followed by <code>do</code> on the next line. The variable name that you define immediately after <code>for</code> will take on a value inside of the loop that corresponds to an element in the sequence you provide after <code>in</code>, starting with the first element of the sequence, followed by every subsequent element. Valid sequences include brace expansions, explicit lists of strings, arrays, and command substitutions. In this instance we’re using the brace expansion <code>{1..3}</code> which we know expands to the string <code>&quot;1 2 3&quot;</code>. The code executed in each iteration of the loop is written between <code>do</code> and <code>done</code>. In the first iteration of the loop, the variable <code>$i</code> contains the value 1. The string <code>&quot;i is equal to 1&quot;</code> is printed to the console. There are more elements in the brace expansion after 1, so after reaching <code>done</code> the first time, the program starts executing back at the <code>do</code> statement. The second time through the loop variable <code>$i</code> contains the value 2. The string <code>&quot;i is equal to 2&quot;</code> is printed to the console, then the loop goes back to the <code>do</code> statement since there are still elements left in the sequence. The <code>$i</code> variable is now equal to 3, so <code>&quot;i is equal to 3&quot;</code> is printed to the console. There are no elements left in the sequence, so the program moves beyond the FOR loop and finally prints <code>&quot;After Loop&quot;</code>. Stop for a moment and edit this loop yourself. Try changing the brace expansion to include other sequences of numbers, letters, or words, then execute the modified code. Before you execute your modified program, write down what you think will be printed. How do the results of executing your program compare with your expectations?</p>
-<p>Once you’ve experimented a little take a look at this example with several other kinds of sequence generating strategies:</p>
+<p>Let’s walk through <code>forloop.sh</code> line-by-line. First <code>&quot;Before Loop&quot;</code> is printed
+before the FOR loop, then the loop begins. FOR loops start with the syntax
+<code>for [variable name] in [sequence]</code> followed by <code>do</code> on the next line. The
+variable name that you define immediately after <code>for</code> will take on a value
+inside of the loop that corresponds to an element in the sequence you provide
+after <code>in</code>, starting with the first element of the sequence, followed by every
+subsequent element. Valid sequences include brace expansions, explicit lists of strings,
+arrays, and command substitutions. In this instance we’re using the brace
+expansion <code>{1..3}</code> which we know expands to the string <code>&quot;1 2 3&quot;</code>. The code
+executed in each iteration of the loop is written
+between <code>do</code> and <code>done</code>. In the first iteration of the loop, the variable <code>$i</code>
+contains the value 1. The string <code>&quot;i is equal to 1&quot;</code> is printed to the console.
+There are more elements in the brace expansion after 1, so after
+reaching <code>done</code> the first time, the program starts executing back at the
+<code>do</code> statement. The second time through the loop variable <code>$i</code> contains the
+value 2. The string
+<code>&quot;i is equal to 2&quot;</code> is printed to the console, then the loop goes back to the
+<code>do</code> statement since there are still elements left in the sequence. The <code>$i</code>
+variable is now equal to 3, so <code>&quot;i is equal to 3&quot;</code> is printed to the console.
+There are no elements left in the sequence, so the program moves beyond the
+FOR loop and finally prints <code>&quot;After Loop&quot;</code>. Stop for a moment and edit this loop
+yourself. Try changing the brace expansion to include other sequences of
+numbers, letters, or words, then execute the modified code. Before you execute
+your modified program, write down what you think will be printed. How do the
+results of executing your program compare with your expectations?</p>
+<p>Once you’ve experimented a little take a look at this example with several
+other kinds of sequence generating strategies:</p>
 <pre><code>#!/usr/bin/env bash
 # File: manyloops.sh
 
@@ -973,7 +1271,7 @@ for code in $(ls)
 do
     echo &quot;$code is a bash script&quot;
 done</code></pre>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> manyloops.sh</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> manyloops.sh</code></pre>
 <pre><code>## Explicit list:
 ## picture is equal to img001.jpg
 ## picture is equal to img002.jpg
@@ -996,11 +1294,22 @@ done</code></pre>
 ## simpleif.sh is a bash script
 ## simpleifelse.sh is a bash script
 ## vars.sh is a bash script</code></pre>
-<p>The example above illustrates three other methods of creating sequences for FOR loops: typing out an explicit list, using an array, and getting the result of a command substitution. In each case a variable name is declared after the <code>for</code>, and the value of tha variable changes through each iteration of the loop until the corresponding sequence has been exhausted. Right now you should take a moment to write a few FOR loops yourself, generating sequences in all of the ways that we’ve gone over, just to reinforce your understanding of how a FOR loop works. Loops and conditional statements are two of the most important structures that we have at our disposal as programmers.</p>
+<p>The example above illustrates three other methods of creating sequences for FOR
+loops: typing out an explicit list, using an array, and getting the result of a
+command substitution. In each case a variable name is declared after the <code>for</code>,
+and the value of tha variable changes through each iteration of the loop until
+the corresponding sequence has been exhausted. Right now you should take a
+moment to write a few FOR loops yourself, generating sequences in all of the
+ways that we’ve gone over, just to reinforce your understanding of how a FOR
+loop works. Loops and conditional statements are two of the most important
+structures that we have at our disposal as programmers.</p>
 </div>
 <div id="while" class="section level3">
 <h3><span class="header-section-number">5.7.2</span> <code>while</code></h3>
-<p>Now that we’ve gotten a few FOR loops working let’s move on to WHILE loops. The <strong>WHILE loop</strong> is truly the <a href="https://youtu.be/O7oD_oX-Gio">Reese’s Peanut Butter Cup</a> of programming structures, combining parts of the FOR loop and the IF statement. Let’s take a look at an example WHILE loop so you can see what I mean:</p>
+<p>Now that we’ve gotten a few FOR loops working let’s move on to WHILE loops. The
+<strong>WHILE loop</strong> is truly the <a href="https://youtu.be/O7oD_oX-Gio">Reese’s Peanut Butter Cup</a>
+of programming structures, combining parts of the FOR loop and the IF statement.
+Let’s take a look at an example WHILE loop so you can see what I mean:</p>
 <pre><code>#!/usr/bin/env bash
 # File: whileloop.sh
 
@@ -1011,13 +1320,34 @@ do
   echo &quot;count is equal to $count&quot;
   let count=$count-1
 done</code></pre>
-<p>The WHILE loop begins first with the <code>while</code> keyword followed by a conditional expression. As long as the conditional expression is equivalent to <code>true</code> when an iteration of the loop begins, then the code within the WHILE loop will continue to be executed. Based on the code for <code>whileloop.sh</code> what do you think will be printed to the console when we run this script? Let’s find out:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> whileloop.sh</code></pre></div>
+<p>The WHILE loop begins first with the <code>while</code> keyword followed by a conditional
+expression. As long as the conditional expression is equivalent to <code>true</code> when
+an iteration of the loop begins, then
+the code within the WHILE loop will continue to be executed. Based on the code
+for <code>whileloop.sh</code> what do you think will be printed to the console when we run
+this script? Let’s find out:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> whileloop.sh</code></pre>
 <pre><code>## count is equal to 3
 ## count is equal to 2
 ## count is equal to 1</code></pre>
-<p>Before the WHILE the <code>count</code> variable is set to be 3, but then each time the WHILE loop is executed 1 is subtracted from the value of <code>count</code>. The loop then starts from the top again and the conditional expression is re-checked to see if it’s still equivalent to <code>true</code>. After three iterations through the loop <code>count</code> is equal to 0 since 1 is subtracted from <code>count</code> in every iteration. Therefore the logical expression <code>[[ $count -gt 0 ]]</code> is no longer equal to <code>true</code> and the loop ends. By changing the value of the variable in the logical expression inside of the loop we’re able to ensure that the logical expression will eventually be equivalent to <code>false</code>, and therefore the loop will eventually end.</p>
-<p>If the logical expression is never equivalent to <code>false</code> then we’ve created an <em>infinite loop</em>, so the loop never ends and the program runs forever. Obviously we would like for our programs to end eventually, and therefore creating infinite loops is undesirable. However let’s create an infinite loop so we know what to do if we get into a situation where our program won’t terminate. With a simple “typo” we can change the program above so that it runs forever but substituting the minus sign <code>-</code> with a plus sign <code>+</code> so that <code>count</code> is always greater than zero (and growing) after every iteration.</p>
+<p>Before the WHILE the <code>count</code> variable is set to be 3, but then each
+time the WHILE loop is executed 1 is subtracted from the value of <code>count</code>. The
+loop then starts from the top again and the conditional expression is
+re-checked to see if it’s still equivalent to <code>true</code>. After three iterations
+through the loop <code>count</code> is equal to 0 since 1 is subtracted from <code>count</code> in
+every iteration. Therefore
+the logical expression <code>[[ $count -gt 0 ]]</code> is no longer equal to <code>true</code> and
+the loop ends. By changing the value of the variable in the logical expression
+inside of the loop we’re able to ensure that the logical expression will
+eventually be equivalent to <code>false</code>, and therefore the loop will eventually end.</p>
+<p>If the logical expression is never equivalent to <code>false</code> then we’ve created an
+<em>infinite loop</em>, so the loop never ends and the program runs forever. Obviously we
+would like for our programs to end eventually, and therefore creating infinite
+loops is undesirable. However let’s create an infinite loop so we know what to
+do if we get into a situation where our program won’t terminate. With a simple
+“typo” we can change the program above so that it runs forever but substituting
+the minus sign <code>-</code> with a plus sign <code>+</code> so that <code>count</code> is always greater than
+zero (and growing) after every iteration.</p>
 <pre><code>#!/usr/bin/env bash
 # File: foreverloop.sh
 
@@ -1035,12 +1365,19 @@ done</code></pre>
 ## count is equal to 29029
 ## count is equal to 29030
 ## ...</code></pre>
-<p>If the program is working, then <code>count</code> is being incremented very rapidly and you’re watching number wiz by in your terminal! Don’t fret, you can terminate any program that’s stuck in an infinite loop using <code>Control</code> + <code>C</code>. Use <code>Control</code> + <code>C</code> to get the prompt back so that we can continue.</p>
-<p>When constructing WHILE loops, make absolutely sure that you’ve structured the program so that the loop will terminate! If the logical expression after <code>while</code> never becomes <code>false</code> then the program will run forever, which is probably not the kind of behavior you were planning for your program.</p>
+<p>If the program is working, then <code>count</code> is being incremented very rapidly and
+you’re watching numbers whiz by in your terminal! Don’t fret, you can terminate
+any program that’s stuck in an infinite loop using <code>Control</code> + <code>C</code>. Use
+<code>Control</code> + <code>C</code> to get the prompt back so that we can continue.</p>
+<p>When constructing WHILE loops, make absolutely sure that you’ve structured the
+program so that the loop will terminate! If the logical expression after <code>while</code>
+never becomes <code>false</code> then the program will run forever, which is probably not
+the kind of behavior you were planning for your program.</p>
 </div>
 <div id="nesting" class="section level3">
 <h3><span class="header-section-number">5.7.3</span> Nesting</h3>
-<p>Just like IF statements <code>for</code> and <code>while</code> loops can be nested within each other. In the example below a FOR loop is nested inside of another FOR loop.</p>
+<p>Just like IF statements <code>for</code> and <code>while</code> loops can be nested within each other.
+In the example below a FOR loop is nested inside of another FOR loop.</p>
 <pre><code>#!/usr/bin/env bash
 # File: nestedloops.sh
 
@@ -1051,16 +1388,31 @@ do
     echo &quot;number is $number, letter is $letter&quot;
   done
 done</code></pre>
-<p>Based on what we know about FOR loops try to predict what this program will print out before we run the program. Now that you’ve written down or typed out your prediction let’s run it.</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> nestedloops.sh</code></pre></div>
+<p>Based on what we know about FOR loops try to predict what this program will
+print out before we run the program. Now that you’ve written down or typed out
+your prediction let’s run it.</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> nestedloops.sh</code></pre>
 <pre><code>## number is 1, letter is a
 ## number is 1, letter is b
 ## number is 2, letter is a
 ## number is 2, letter is b
 ## number is 3, letter is a
 ## number is 3, letter is b</code></pre>
-<p>Let’s closely examine what’s going on here. The outer most FOR loop starts iterating through the sequence generated by <code>{1..3}</code>. On the first pass through the loop, the inner loop iterates through the sequence <code>a b</code> which first prints <code>number is 1, letter is a</code> followed by <code>number is 1, letter is b</code>. The first iteration of the outer loop is then finished and the whole process starts over with <code>number</code> having a value of 2. This process continues going through the inner loop until the sequence for the outer loop is exhausted. I again strongly encourage you to pause for a moment and write some of your own nested loops based on the code above. Try to predict what your nested loop program will print before you run your program. If the printed result does not match your prediction trace your way through the program and try to figure out why. Don’t just limit yourself to nested FOR loops, use nested WHILE loops, or FOR and WHILE loops in nested combinations.</p>
-<p>Besides nesting loops within each other you can also nest loops within IF statements and IF statements within loops. Let’s take a look at an example:</p>
+<p>Let’s closely examine what’s going on here. The outer most FOR loop starts
+iterating through the sequence generated by <code>{1..3}</code>. On the first pass through
+the loop, the inner loop iterates through the sequence <code>a b</code> which first prints
+<code>number is 1, letter is a</code> followed by <code>number is 1, letter is b</code>. The first
+iteration of the outer loop is then finished and the whole process starts over
+with <code>number</code> having a value of 2. This process continues going through the
+inner loop until the sequence for the outer loop is exhausted. I again strongly
+encourage you to pause for a moment and write some of your own nested loops
+based on the code above. Try to predict what your nested loop program will print
+before you run your program. If the printed result does not match your
+prediction trace your way through the program and try to figure out why. Don’t
+just limit yourself to nested FOR loops, use nested WHILE loops, or FOR and
+WHILE loops in nested combinations.</p>
+<p>Besides nesting loops within each other you can also nest loops within IF
+statements and IF statements within loops. Let’s take a look at an example:</p>
 <pre><code>#!/usr/bin/env bash
 # File: ifloop.sh
 
@@ -1072,28 +1424,45 @@ do
   fi
 done</code></pre>
 <p>Before we run this example try once more to guess what the output will be.</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> ifloop.sh</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> ifloop.sh</code></pre>
 <pre><code>## 1
 ## 2
 ## 9
 ## 10</code></pre>
-<p>For each iteration of the loop above, the value of <code>number</code> was checked in the IF statement, and the <code>echo</code> command was only run if <code>number</code> was outside the range from 3 to 8.</p>
-<p>There are endless combinations for nesting IF statements and loops, but one good rule of thumb you should remember is that your nesting should never go more than two or possibly three layers deep. If you find yourself writing code with lots of nesting, you should consider restructuring your program. Deeply nested code is difficult to read and even more difficult to debug if your program contains mistakes.</p>
+<p>For each iteration of the loop above, the value of <code>number</code> was checked in the
+IF statement, and the <code>echo</code> command was only run if <code>number</code> was outside the
+range from 3 to 8.</p>
+<p>There are endless combinations for nesting IF statements and loops, but one good
+rule of thumb you should remember is that your nesting should never go more than
+two or possibly three layers deep. If you find yourself writing code with lots
+of nesting, you should consider restructuring your program. Deeply nested code
+is difficult to read and even more difficult to debug if your program contains
+mistakes.</p>
 </div>
 <div id="summary-17" class="section level3">
 <h3><span class="header-section-number">5.7.4</span> Summary</h3>
 <ul>
 <li>Loops allows you repeat sections of your program.</li>
-<li>FOR loops iterate through a sequence so that a variable that you assign takes on the value of every element of the sequence in every iteration of the loop.</li>
-<li>WHILE loops check a conditional statement at the beginning of every iteration. If the condition is equivalent to <code>true</code> then one iteration of the loop is executed and then the conditional statement is checked again. Otherwise the loop ends.</li>
-<li>IF statements and loops can be nested in order to make more powerful programming structures.</li>
+<li>FOR loops iterate through a sequence so that a variable that you assign
+takes on the value of every element of the sequence in every iteration of the
+loop.</li>
+<li>WHILE loops check a conditional statement at the beginning of every iteration.
+If the condition is equivalent to <code>true</code> then one iteration of the loop is
+executed and then the conditional statement is checked again. Otherwise the
+loop ends.</li>
+<li>IF statements and loops can be nested in order to make more powerful
+programming structures.</li>
 </ul>
 </div>
 <div id="exercises-14" class="section level3">
 <h3><span class="header-section-number">5.7.5</span> Exercises</h3>
 <ul>
-<li>Write several programs with three levels of nesting and include FOR loops, WHILE loops, and IF statements. Before you run your program try to predict what your program is going to print. If the result is different from your prediction try to figure out why.</li>
-<li>Enter the <code>yes</code> command into the console, then stop the program from running. Take a look at the <code>man</code> page for <code>yes</code> to learn more about the program.</li>
+<li>Write several programs with three levels of nesting and include FOR loops,
+WHILE loops, and IF statements. Before you run your program try to predict what
+your program is going to print. If the result is different from your prediction
+try to figure out why.</li>
+<li>Enter the <code>yes</code> command into the console, then stop the program from running.
+Take a look at the <code>man</code> page for <code>yes</code> to learn more about the program.</li>
 </ul>
 </div>
 </div>
@@ -1101,11 +1470,14 @@ done</code></pre>
 <h2><span class="header-section-number">5.8</span> Functions</h2>
 <div id="writing-functions" class="section level3">
 <h3><span class="header-section-number">5.8.1</span> Writing Functions</h3>
-<p>A function is a small piece of code that has a name. Writing functions allows us to re-use the same code multiple times across programs. Functions have the the following syntax:</p>
+<p>A function is a small piece of code that has a name. Writing functions allows
+us to re-use the same code multiple times across programs. Functions have the
+the following syntax:</p>
 <pre><code>function [name of function] {
   # code here
 }</code></pre>
-<p>Pretty simple, right? Let’s open up a new file called <code>hello.sh</code> so we can write our first simple function.</p>
+<p>Pretty simple, right? Let’s open up a new file called <code>hello.sh</code> so we can write
+our first simple function.</p>
 <pre><code>#!/usr/bin/env bash
 # File: hello.sh
 
@@ -1116,29 +1488,59 @@ function hello {
 hello
 hello
 hello</code></pre>
-<p>The entire structure of the function including the <code>function</code> keyword, the name of the function, and the code for the function written inside of the brackets serves as the <strong>function definition</strong>. The function definition assigns the code within the function to the name of the function (<code>hello</code> in this case). After a function is defined it can be used like any other command. Using our <code>hello</code> command three times should be the equivalent of using <code>echo &quot;Hello&quot;</code> three times. Let’s run this script to find out:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> hello.sh</code></pre></div>
+<p>The entire structure of the function including the <code>function</code> keyword, the name
+of the function, and the code for the function written inside of the brackets
+serves as the <strong>function definition</strong>. The function definition assigns the code
+within the function to the name of the function (<code>hello</code> in this case). After a
+function is defined it can be used like any other command. Using our <code>hello</code>
+command three times should be the equivalent of using <code>echo &quot;Hello&quot;</code> three
+times. Let’s run this script to find out:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">bash</span> hello.sh</code></pre>
 <pre><code>## Hello
 ## Hello
 ## Hello</code></pre>
 <p>It looks like this function works exactly like we expected.</p>
-<p>Functions share lots of their behavior with individual bash scripts including how they handle arguments. The usual bash script arguments like <code>$1</code>, <code>$2</code>, and <code>$@</code> all work within a function, which allows you to specify function arguments. Let’s create a slightly modified version of <code>hello.sh</code> which we’ll call <code>ntmy.sh</code>:</p>
+<p>Functions share lots of their behavior with individual bash scripts including
+how they handle arguments. The usual bash script arguments like <code>$1</code>, <code>$2</code>, and
+<code>$@</code> all work within a function, which allows you to specify function arguments.
+Let’s create a slightly modified version of <code>hello.sh</code> which we’ll call
+<code>ntmy.sh</code>:</p>
 <pre><code>#!/usr/bin/env bash
 # File: ntmy.sh
 
 function ntmy {
   echo &quot;Nice to meet you $1&quot;
 }</code></pre>
-<p>In the file above notice that we’re not using the <code>ntmy</code> function after we’ve defined it. That’s because we’re going to start using the functions that we define as command line programs. So far in this chapter we’ve been using the syntax of <code>bash [name of script]</code> in order to execute the contents of a script. Now we’re going to start using the <code>source</code> command, which allows us to use function definitions in bash scripts as command line commands. Let’s use <code>source</code> with this file so that we can then use the <code>ntmy</code> command:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">source</span> ntmy.sh
+<p>In the file above notice that we’re not using the <code>ntmy</code> function after we’ve
+defined it. That’s because we’re going to start using the functions that we
+define as command line programs. So far in this chapter we’ve been using the
+syntax of <code>bash [name of script]</code> in order to execute the contents of a script.
+Now we’re going to start using the <code>source</code> command, which allows us to use
+function definitions in bash scripts as command line commands. Let’s use
+<code>source</code> with this file so that we can then use the <code>ntmy</code> command:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">source</span> ntmy.sh
 <span class="ex">ntmy</span> Jeff
 <span class="ex">ntmy</span> Philip
-<span class="ex">ntmy</span> Jenny</code></pre></div>
+<span class="ex">ntmy</span> Jenny</code></pre>
 <pre><code>## Nice to meet you Jeff
 ## Nice to meet you Philip
 ## Nice to meet you Jenny</code></pre>
-<p>And just like that you’ve created your very own command! Once you close your current shell you’ll lose access to the <code>ntmy</code> command, but in the next section we’ll discuss how to set up your own commands so that you always have access to them.</p>
-<p>Let’s write a more complicated function. Imagine that we wanted to add up a sequence of numbers from the command line, but we had no way of knowing how many numbers would be in the sequence. What components would we need to write this function? First we would need a way to capture a list of arguments which can have variable length, second we would need a way to iterate through that list so we could add up each element, and we would need a way to store the cumulative sum of the sequence. These three requirements can be satisfied by using the <code>$@</code> variable, a FOR loop, and variable where we can store the sum. It’s important to break down a larger goal into a series of individual components before writing a program, that way we more easily can identify which features and tools will be required. Let’s write this program in a file called <code>addseq.sh</code>.</p>
+<p>And just like that you’ve created your very own command! Once you close your
+current shell you’ll lose access to the <code>ntmy</code> command, but in the next section
+we’ll discuss how to set up your own commands so that you always have access to
+them.</p>
+<p>Let’s write a more complicated function. Imagine that we wanted to add up
+a sequence of numbers from the command line, but we had no way of knowing how
+many numbers would be in the sequence. What components would we need to write
+this function? First we would need a way to capture a list of arguments which
+can have variable length, second we would need a way to iterate through that
+list so we could add up each element, and we would need a way to store the
+cumulative sum of the sequence. These three requirements can be satisfied by
+using the <code>$@</code> variable, a FOR loop, and variable where we can store the sum.
+It’s important to break down a larger goal into a series of individual
+components before writing a program, that way we more easily can identify which
+features and tools will be required. Let’s write this program in a file called
+<code>addseq.sh</code>.</p>
 <pre><code>#!/usr/bin/env bash
 # File: addseq.sh
 
@@ -1152,12 +1554,16 @@ function addseq {
 
   echo $sum
 }</code></pre>
-<p>In the program above we initialize the <code>sum</code> variable to be 0 so that we can add other values in the sequence to <code>sum</code>. We then use a FOR loop to iterate through every element of <code>$@</code>, which is an array of all the arguments we provide to <code>addseq</code>. Finally we <code>echo</code> the value of <code>sum</code>. Let’s <code>source</code> this program and test it out:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">source</span> addseq.sh
+<p>In the program above we initialize the <code>sum</code> variable to be 0 so that we can
+add other values in the sequence to <code>sum</code>. We then use a FOR loop to iterate
+through every element of <code>$@</code>, which is an array of all the arguments we provide
+to <code>addseq</code>. Finally we <code>echo</code> the value of <code>sum</code>. Let’s <code>source</code> this program
+and test it out:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">source</span> addseq.sh
 <span class="ex">addseq</span> 12 90 3
 <span class="ex">addseq</span> 0 1 1 2 3 5 8 13
 <span class="ex">addseq</span>
-<span class="ex">addseq</span> 4 6 6 6 4</code></pre></div>
+<span class="ex">addseq</span> 4 6 6 6 4</code></pre>
 <pre><code>## 105
 ## 33
 ## 0
@@ -1166,15 +1572,39 @@ function addseq {
 </div>
 <div id="getting-values-from-functions" class="section level3">
 <h3><span class="header-section-number">5.8.2</span> Getting Values from Functions</h3>
-<p>Functions are used for two primary purposes: <em>computing values</em> and <em>side effects</em>. In the <code>addseq</code> command in the previous section we provide the command with a sequence of numbers and then the command provides us with the sum of the sequence which is a value that we’re interested in. In this case we can see that <code>addseq</code> has computed a value based on a few input values. Many other commands, like <code>pwd</code> for example, return a value without affecting the state of the file on our computer. There are however functions like <code>mv</code> or <code>cp</code> which move and copy files on our computer. A side effect occurs whenever a function creates or changes files on our computer. These commands don’t print any value if they succeed.</p>
-<p>We’ll often write functions in order to calculate some value, and it’s important to understand how to store the result of a function in a variable so that it can be used later. Let’s <code>source</code> <code>addseq.sh</code> and run it one more time:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">source</span> addseq.sh
-<span class="ex">addseq</span> 3 0 0 7</code></pre></div>
+<p>Functions are used for two primary purposes: <em>computing values</em> and
+<em>side effects</em>. In the <code>addseq</code> command in the previous section we provide the
+command with a sequence of numbers and then the command provides us with the sum
+of the sequence which is a value that we’re interested in. In this case we can
+see that <code>addseq</code> has computed a value based on a few input values.
+Many other commands,
+like <code>pwd</code> for example, return a value without affecting the state of the file
+on our computer. There are however functions like <code>mv</code> or <code>cp</code> which move and
+copy files on our computer. A side effect occurs whenever a function creates or
+changes files on our computer. These commands don’t print any value if they
+succeed.</p>
+<p>We’ll often write functions in order to calculate some value, and it’s important
+to understand how to store the result of a function in a variable so that it can
+be used later. Let’s <code>source</code> <code>addseq.sh</code> and run it one more time:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">source</span> addseq.sh
+<span class="ex">addseq</span> 3 0 0 7</code></pre>
 <pre><code>## 10</code></pre>
-<p>If we look back at the code for <code>addseq.sh</code> we can see that we created a variable in the function called <code>sum</code>. When you create variables in functions those variables become <strong>globally accessible</strong>, meaning that even after the program is finished that variable retains its value in your shell. We can easily verify this by <code>echo</code>ing the value of <code>sum</code>:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="va">$sum</span></code></pre></div>
+<p>If we look back at the code for <code>addseq.sh</code> we can see that we created a
+variable in the function called <code>sum</code>. When you create variables in functions
+those variables become <strong>globally accessible</strong>, meaning that even after the
+program is finished that variable retains its value in your shell. We can easily
+verify this by <code>echo</code>ing the value of <code>sum</code>:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="va">$sum</span></code></pre>
 <pre><code>## 10</code></pre>
-<p>This is an example of one strategy we can use to retrieve values that a function has calculated. Unfortunately this approach is problematic because it changes the values of variables that we might be using in our shell. For example if we were storing some other important value in a variable called <code>sum</code> we would destroy that value by accident by running <code>addseq</code>. In order to avoid this problem it’s important that we use the <code>local</code> keyword when assigning variables within a function. The <code>local</code> keyword ensures that variables outside of our function are not overwritten by our function. Let’s create a new version of <code>addseq</code> called <code>addseq2</code> which uses <code>local</code> when assigning variables.</p>
+<p>This is an example of one strategy we can use to retrieve values that a function
+has calculated. Unfortunately this approach is problematic because it changes
+the values of variables that we might be using in our shell. For example if we
+were storing some other important value in a variable called <code>sum</code> we would
+destroy that value by accident by running <code>addseq</code>. In order to avoid this
+problem it’s important that we use the <code>local</code> keyword when assigning variables
+within a function. The <code>local</code> keyword ensures that variables outside of our
+function are not overwritten by our function. Let’s create a new version of
+<code>addseq</code> called <code>addseq2</code> which uses <code>local</code> when assigning variables.</p>
 <pre><code>#!/usr/bin/env bash
 # File: addseq2.sh
 
@@ -1188,57 +1618,72 @@ function addseq2 {
 
   echo $sum
 }</code></pre>
-<p>Now let’s <code>source</code> both files so we demonstrate how <code>local</code> helps us avoid overwriting variables.</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">source</span> addseq.sh
+<p>Now let’s <code>source</code> both files so we demonstrate how <code>local</code> helps us avoid
+overwriting variables.</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">source</span> addseq.sh
 <span class="bu">source</span> addseq2.sh
 <span class="va">sum=</span>4444
 <span class="ex">addseq</span> 5 10 15 20
-<span class="bu">echo</span> <span class="va">$sum</span></code></pre></div>
+<span class="bu">echo</span> <span class="va">$sum</span></code></pre>
 <pre><code>## 50
 ## 50</code></pre>
-<p>Our original <code>addseq</code> overwrites the value we assigned to <code>sum</code>. Now let’s try <code>addseq2</code>.</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="va">sum=</span>4444
+<p>Our original <code>addseq</code> overwrites the value we assigned to <code>sum</code>. Now let’s try
+<code>addseq2</code>.</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="va">sum=</span>4444
 <span class="ex">addseq2</span> 5 10 15 20
-<span class="bu">echo</span> <span class="va">$sum</span></code></pre></div>
+<span class="bu">echo</span> <span class="va">$sum</span></code></pre>
 <pre><code>## 50
 ## 4444</code></pre>
-<p>By using <code>local</code> within our function the value of <code>sum</code> is preserved! In order to correctly capture the value of the result of <code>addseq2</code> we can use command substitution.</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="va">my_sum=$(</span><span class="ex">addseq2</span> 5 10 15 20<span class="va">)</span>
-<span class="bu">echo</span> <span class="va">$my_sum</span></code></pre></div>
+<p>By using <code>local</code> within our function the value of <code>sum</code> is preserved! In order
+to correctly capture the value of the result of <code>addseq2</code> we can use command
+substitution.</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="va">my_sum=$(</span><span class="ex">addseq2</span> 5 10 15 20<span class="va">)</span>
+<span class="bu">echo</span> <span class="va">$my_sum</span></code></pre>
 <pre><code>## 50</code></pre>
 </div>
 <div id="summary-18" class="section level3">
 <h3><span class="header-section-number">5.8.3</span> Summary</h3>
 <ul>
-<li>Functions start with the <code>function</code> keyword followed by the name of the function and curly brackets (<code>{}</code>).</li>
+<li>Functions start with the <code>function</code> keyword followed by the name of the
+function and curly brackets (<code>{}</code>).</li>
 <li>Functions are small, reusable pieces of code that behave just like commands.</li>
-<li>You can use variables like <code>$1</code>, <code>$2</code>, and <code>$@</code> in order to provide arguments to functions, just like a Bash script.</li>
-<li>Use the <code>source</code> command in order to read in a Bash script with function definitions so that you can use your functions in your shell.</li>
-<li>Use the <code>local</code> keyword to prevent your function from creating or modifying global variables.</li>
-<li>Be sure to <code>echo</code> the results of your function (if there are any) so that they can be captured with command substitution.</li>
+<li>You can use variables like <code>$1</code>, <code>$2</code>, and <code>$@</code> in order to provide arguments
+to functions, just like a Bash script.</li>
+<li>Use the <code>source</code> command in order to read in a Bash script with function
+definitions so that you can use your functions in your shell.</li>
+<li>Use the <code>local</code> keyword to prevent your function from creating or modifying
+global variables.</li>
+<li>Be sure to <code>echo</code> the results of your function (if there are any) so that
+they can be captured with command substitution.</li>
 </ul>
 </div>
 <div id="exercises-15" class="section level3">
 <h3><span class="header-section-number">5.8.4</span> Exercises</h3>
-<p>Below this list of exercises you can find examples of how these programs should work when used on the command line.</p>
+<p>Below this list of exercises you can find examples of how these programs should
+work when used on the command line.</p>
 <ol style="list-style-type: decimal">
-<li>Write a function called <code>plier</code> which multiplies together a sequence of numbers.</li>
-<li>Write a function called <code>isiteven</code> that prints <code>1</code> if a number is even or <code>0</code> a number is not even.</li>
-<li>Write a function called <code>nevens</code> which prints the number of even numbers when provided with a sequence of numbers. Use <code>isiteven</code> when writing this function.</li>
-<li>Write a function called <code>howodd</code> which prints the percentage of odd numbers in a sequence of numbers. Use <code>nevens</code> when writing this function.</li>
-<li>Write a function called <code>fib</code> which prints the number of <a href="https://en.wikipedia.org/wiki/Fibonacci_number">fibonacci</a> numbers specified.</li>
+<li>Write a function called <code>plier</code> which multiplies together a sequence of
+numbers.</li>
+<li>Write a function called <code>isiteven</code> that prints <code>1</code> if a number is even or
+<code>0</code> a number is not even.</li>
+<li>Write a function called <code>nevens</code> which prints the number of even numbers when
+provided with a sequence of numbers. Use <code>isiteven</code> when writing this function.</li>
+<li>Write a function called <code>howodd</code> which prints the percentage of odd numbers
+in a sequence of numbers. Use <code>nevens</code> when writing this function.</li>
+<li>Write a function called <code>fib</code> which prints the number of
+<a href="https://en.wikipedia.org/wiki/Fibonacci_number">fibonacci</a> numbers specified.</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">plier</span> 7 2 3</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">plier</span> 7 2 3</code></pre>
 <pre><code>## 42</code></pre>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">isiteven</span> 42</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">isiteven</span> 42</code></pre>
 <pre><code>## 1</code></pre>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">nevens</span> 42 6 7 9 33</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">nevens</span> 42 6 7 9 33</code></pre>
 <pre><code>## 2</code></pre>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">howodd</span> 42 6 7 9 33</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">howodd</span> 42 6 7 9 33</code></pre>
 <pre><code>## .60</code></pre>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">fib</span> 4</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">fib</span> 4</code></pre>
 <pre><code>## 0 1 1 2</code></pre>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">fib</span> 10</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">fib</span> 10</code></pre>
 <pre><code>## 0 1 1 2 3 5 8 13 21 34</code></pre>
 </div>
 </div>
@@ -1246,25 +1691,68 @@ function addseq2 {
 <h2><span class="header-section-number">5.9</span> Writing Programs</h2>
 <div id="the-unix-philosophy" class="section level3">
 <h3><span class="header-section-number">5.9.1</span> The Unix Philosophy</h3>
-<p>Perhaps there are some design patters that you’ve been noticing since we started talking about Unix tools, and now we’re going to discuss them explicitly. Unix tools were designed along a set of guidelines which are best summarized by <a href="https://en.wikipedia.org/wiki/Ken_Thompson">Ken Thompson</a>’s idea that each Unix program should <strong>do one thing well</strong>. Following this rule when writing functions and programs accomplished several goals:</p>
+<p>Perhaps there are some design patters that you’ve been noticing since we started
+talking about Unix tools, and now we’re going to discuss them explicitly. Unix
+tools were designed along a set of guidelines which are best summarized by
+<a href="https://en.wikipedia.org/wiki/Ken_Thompson">Ken Thompson</a>’s idea that each Unix
+program should <strong>do one thing well</strong>. Following this rule when writing functions
+and programs accomplished several goals:</p>
 <ul>
-<li>Limiting a program to only doing one thing reduces the length of the program, and the shorter a program is the easier it is to fix if it contains bugs or if it needs to be revised.</li>
-<li>Writing short programs also helps the users of your code understand what’s going on in your code in the event that they need to read your code. Reading a poem induces a different cognitive load compared to reading a novel.</li>
-<li>Folks who don’t read the source code of your program (most users won’t - they shouldn’t have to) will be able to understand the inputs, outputs, and side effects of your program more easily.</li>
-<li>Using small programs to write a new program will increase the likelihood that the new program will also be small. <strong>Composability</strong> is the concept of stringing small programs together to create a new program.</li>
+<li>Limiting a program to only doing one thing reduces the length of the program,
+and the shorter a program is the easier it is to fix if it contains bugs or if
+it needs to be revised.</li>
+<li>Writing short programs also helps the users of your code
+understand what’s going on in your code in the event that they need to read your
+code. Reading a poem induces a different cognitive load compared to reading a
+novel.</li>
+<li>Folks who don’t read the source code of your program (most users won’t -
+they shouldn’t have to) will be able to understand the inputs, outputs, and side
+effects of your program more easily.</li>
+<li>Using small programs to write a new program will increase the likelihood that
+the new program will also be small. <strong>Composability</strong> is the concept of
+stringing small programs together to create a new program.</li>
 </ul>
-<p>The concept of composability in Unix is best illustrated by the use of the pipe operator (<code>|</code>) for creating pipelines of programs. When you’re considering what inputs your program is going to have and what your program is going to print to the console you should consider whether or not your program might be used in a pipeline, and you should organize your program accordingly.</p>
-<p>In the previous section we discussed the difference between functions that compute values and functions that produce side effects. You should notice that the side effect functions like <code>mv</code> and <code>cp</code> do not print any text to the console if they are successful. The concept of <em>quietness</em> is another important part of the Unix philosophy. Quietness in this case means that a function should not print to the console unless it is necessary, either to inform the user of a value (<code>pwd</code>), to display the result of a computation (<code>bc</code>), or to warn the user that an error has occurred.</p>
+<p>The concept of composability in Unix is best illustrated by the use of the pipe
+operator (<code>|</code>) for creating pipelines of programs.
+When you’re considering what inputs your program is going to have and what your
+program is going to print to the console you should consider whether or not your
+program might be used in a pipeline, and you should organize your program
+accordingly.</p>
+<p>In the previous section we discussed the difference between functions that
+compute values and functions that produce side effects. You should notice that
+the side effect functions like <code>mv</code> and <code>cp</code> do not print any text to the
+console if they are successful. The concept of <em>quietness</em> is another important
+part of the Unix philosophy. Quietness in this case means that a function should
+not print to the console unless it is necessary, either to inform the user of a
+value (<code>pwd</code>), to display the result of a computation (<code>bc</code>), or to warn the
+user that an error has occurred.</p>
 </div>
 <div id="making-programs-executable" class="section level3">
 <h3><span class="header-section-number">5.9.2</span> Making Programs Executable</h3>
-<p>Let’s take a detailed look at some of the code files in our current working directory:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span> -l <span class="kw">|</span> <span class="fu">head</span> -n 3</code></pre></div>
+<p>Let’s take a detailed look at some of the code files in our current working
+directory:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span> -l <span class="kw">|</span> <span class="fu">head</span> -n 3</code></pre>
 <pre><code>## -rw-rw-r-- 1 sean sean 138 Jun 26 12:51 addseq.sh
 ## -rw-rw-r-- 1 sean sean 146 Jun 26 14:45 addseq2.sh
 ## -rw-rw-r-- 1 sean sean 140 Jan 29 10:06 bigmath.sh</code></pre>
-<p>The left column of this table contains a series of individual characters and dashes. The first hyphen (<code>-</code>) signifies that each of the entries in this list are files. If any of them were directories then instead of a hyphen there would be a <code>d</code>. Excluding the first hyphen we have the following string: <code>rw-rw-r--</code>. This string reflects the <strong>permissions</strong> that are set up for this file. There are three permissions that we can grant: the ability to <strong>read</strong> the file (<code>r</code>), <strong>write</strong> to or edit the file (<code>w</code>), or <strong>execute</strong> the file (<code>x</code>) as a program. These three permissions can be granted on three different levels of access which correspond to each of the three sets of <code>rwx</code> in the permissions string: the owner of the file, the group that the file belongs to, and everyone other than the owner and the members of a group. Since you created the file you are the owner of the file, and you can set the permissions for files that you own using the <code>chmod</code> command.</p>
-<p>The <code>chmod</code> command takes two arguments. The first argument is a string which specifies how we’re going to change permissions for a file, and the second argument is the path to the file. The first argument has to be composed in a very specific way. First we can specify which set of users we’re going to change permissions for:</p>
+<p>The left column of this table contains a series of individual characters and
+dashes. The first hyphen (<code>-</code>) signifies that each of the entries in this list
+are files. If any of them were directories then instead of a hyphen there would
+be a <code>d</code>. Excluding the first hyphen we have the following string: <code>rw-rw-r--</code>.
+This string reflects the <strong>permissions</strong> that are set up for this file. There
+are three permissions that we can grant: the ability to <strong>read</strong> the file (<code>r</code>),
+<strong>write</strong> to or edit the file (<code>w</code>), or <strong>execute</strong> the file (<code>x</code>) as a program.
+These three permissions can be granted on three different levels of access which
+correspond to each of the three sets of <code>rwx</code> in the permissions string: the
+owner of the file, the group that the file belongs to, and everyone other than
+the owner and the members of a group. Since you
+created the file you are the owner of the file, and you can set the permissions
+for files that you own using the <code>chmod</code> command.</p>
+<p>The <code>chmod</code> command takes two arguments. The first argument is a string which
+specifies how we’re going to change permissions for a file, and the second
+argument is the path to the file. The first argument has to be composed in a
+very specific way. First we can specify which set of users we’re going to change
+permissions for:</p>
 <table>
 <thead>
 <tr class="header">
@@ -1291,7 +1779,8 @@ function addseq2 {
 </tr>
 </tbody>
 </table>
-<p>We then need to specify whether we’re going to add, remove, or set the permission:</p>
+<p>We then need to specify whether we’re going to add, remove, or set the
+permission:</p>
 <table>
 <thead>
 <tr class="header">
@@ -1338,82 +1827,128 @@ function addseq2 {
 </tbody>
 </table>
 <p>Let’s use <code>echo</code> to write a very short program which we’ll call <code>short</code>.</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="st">&#39;echo &quot;a small program&quot;&#39;</span> <span class="op">&gt;</span> short</code></pre></div>
-<p>Normally if we wanted to run <code>short</code> we would enter <code>bash short</code> into the console. If we make this file executable we would only need to enter <code>short</code> into the command line to run the program, just like a command! Let’s take a look at the permissions for <code>short</code>.</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span> -l short</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="st">&#39;echo &quot;a small program&quot;&#39;</span> <span class="op">&gt;</span> short</code></pre>
+<p>Normally if we wanted to run <code>short</code> we would enter <code>bash short</code> into the
+console. If we make this file executable we would only need to enter <code>short</code>
+into the command line to run the program, just like a command!
+Let’s take a look at the permissions for <code>short</code>.</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span> -l short</code></pre>
 <pre><code>## -rw-r--r--  1 sean  staff  23 Jun 28 09:47 short</code></pre>
-<p>We want to make this file executable and we’re the owner of this file since we created it. This means we can combine <code>u</code>, <code>+</code>, and <code>x</code> in order make <code>short</code> executable. Let’s try it:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">chmod</span> u+x short
-<span class="fu">ls</span> -l short</code></pre></div>
+<p>We want to make this file executable and we’re the owner of this file since we
+created it. This means we can combine <code>u</code>, <code>+</code>, and <code>x</code> in order make <code>short</code>
+executable. Let’s try it:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">chmod</span> u+x short
+<span class="fu">ls</span> -l short</code></pre>
 <pre><code>## -rwxr--r--  1 sean  staff  23 Jun 28 09:47 short</code></pre>
-<p>We successfully added the <code>x</code>! To run an executable file we need to specify the path to the file, even if the path is in the current directory, meaning we need to prepend <code>./</code> to <code>short</code>. Now let’s try running the program.</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">./short</span></code></pre></div>
+<p>We successfully added the <code>x</code>! To run an executable file we need to specify the
+path to the file, even if the path is in the current directory, meaning we need
+to prepend <code>./</code> to <code>short</code>. Now let’s try running the program.</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">./short</span></code></pre>
 <pre><code>## a small program</code></pre>
-<p>Looks like it works! There is one small detail we should add to this program though. Even though we’ve made our file executable, if we give our program to somebody else they might be using a shell that doesn’t know how to execute our program. We need to indicate how the program should be run by adding a special line of text to the beginning of our program called a <strong>shebang</strong>. The shebang always begins with <code>#!</code> followed by the path to the program which will execute the code in our file. The shebang for indicating that we want to use Bash is <code>#!/usr/bin/env bash</code>, which we’ve been adding to the start of our scripts for a while now! Let’s rewrite this program to include the Bash shebang and then let’s run the program.</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="st">&#39;#!/usr/bin/env bash&#39;</span> <span class="op">&gt;</span> short
-<span class="bu">echo</span> <span class="st">&#39;echo &quot;a small program&quot;&#39;</span> <span class="op">&gt;&gt;</span> short</code></pre></div>
+<p>Looks like it works! There is one small detail we should add to this program
+though. Even though we’ve made our file executable, if we give our program to
+somebody else they might be using a shell that doesn’t know how to execute our
+program. We need to indicate how the program should be run by adding
+a special line of text to the beginning of our program called a <strong>shebang</strong>.
+The shebang always begins with <code>#!</code> followed by the path to the program which
+will execute the code in our file. The shebang for indicating that we want to
+use Bash is <code>#!/usr/bin/env bash</code>, which we’ve been adding to the start of our
+scripts for a while now! Let’s rewrite this program to include the Bash shebang
+and then let’s run the program.</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="st">&#39;#!/usr/bin/env bash&#39;</span> <span class="op">&gt;</span> short
+<span class="bu">echo</span> <span class="st">&#39;echo &quot;a small program&quot;&#39;</span> <span class="op">&gt;&gt;</span> short</code></pre>
 <pre><code>## a small program</code></pre>
 <p>Now our Bash script is ready to go!</p>
 </div>
 <div id="environmental-variables" class="section level3">
 <h3><span class="header-section-number">5.9.3</span> Environmental Variables</h3>
-<p>We’re one step away from being able to use our scripts and functions as shell commands, but first we need to learn about environmental variables. An environmental variable is a variable that Bash creates where data about your current computing environment is stored. Environmental variable names use all capitalized letters. Let’s look at the values for some of these variables. The <code>HOME</code> variable contains the path to our home directory, and the <code>PWD</code> variable contains the path to our current directory.</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="va">$HOME</span>
-<span class="bu">echo</span> <span class="va">$PWD</span></code></pre></div>
+<p>We’re one step away from being able to use our scripts and functions as shell
+commands, but first we need to learn about environmental variables.
+An environmental variable is a variable that Bash creates where data about your
+current computing environment is stored. Environmental variable names use all
+capitalized letters. Let’s look at the values for some of these variables. The
+<code>HOME</code> variable contains the path to our home directory, and the <code>PWD</code> variable
+contains the path to our current directory.</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="va">$HOME</span>
+<span class="bu">echo</span> <span class="va">$PWD</span></code></pre>
 <pre><code>## /Users/sean
 ## /Users/sean/Code</code></pre>
-<p>If we want one of our functions to be available always as a command then we need to change the <code>PATH</code> variable. Let’s take a look at this variable first.</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="va">$PATH</span></code></pre></div>
+<p>If we want one of our functions to be available always as a command then we need
+to change the <code>PATH</code> variable. Let’s take a look at this variable first.</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="va">$PATH</span></code></pre>
 <pre><code>## /usr/local/bin:/usr/bin:/bin:/usr/local/git/bin</code></pre>
-<p>The <code>PATH</code> variable contains a sequence of paths on our computer separated by colons. When the shell starts it searches these paths for executable files, and then makes those executable commands available in our shell. One approach to making our scripts available is to add a directory to the <code>PATH</code>. Bash scripts in the directory that are executable can be used as commands. We need to modify <code>PATH</code> every time we start a shell, so we can ammend our <code>~/.bash_profile</code> so that our directory for executable scripts is always in the <code>PATH</code>. To modify an environmental variable we need to use the <code>export</code> keyword.</p>
-<p>First let’s create a new directory called <code>Commands</code> in our <code>Code</code> directory where we can keep our executable scripts. Then we’ll add a line to our <code>~/.bash_profile</code> so that <code>Commands</code> is added to the <code>PATH</code>.</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">mkdir</span> Commands
-<span class="fu">nano</span> ~/.bash_profile</code></pre></div>
+<p>The <code>PATH</code> variable contains a sequence of paths on our computer separated by
+colons. When the shell starts it searches these paths for executable files, and
+then makes those executable commands available in our shell. One approach to
+making our scripts available is to add a directory to the <code>PATH</code>. Bash scripts
+in the directory that are executable can be used as commands. We need to modify
+<code>PATH</code> every time we start a shell, so we can ammend our <code>~/.bash_profile</code> so
+that our directory for executable scripts is always in the <code>PATH</code>. To modify an
+environmental variable we need to use the <code>export</code> keyword.</p>
+<p>First let’s create a new directory called <code>Commands</code> in our <code>Code</code> directory
+where we can keep our executable scripts. Then we’ll add a line to our
+<code>~/.bash_profile</code> so that <code>Commands</code> is added to the <code>PATH</code>.</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">mkdir</span> Commands
+<span class="fu">nano</span> ~/.bash_profile</code></pre>
 <pre><code>alias docs=&#39;cd ~/Documents&#39;
 alias edbp=&#39;nano ~/.bash_profile&#39;
 
 export PATH=~/Code/Commands:$PATH</code></pre>
-<p>Save <code>~/.bash_profile</code> and close <code>nano</code>. Now let’s <code>source</code> our Bash profile (we only need to do this once) and move <code>short</code> into the <code>Commands</code> directory. Then we should be able to use <code>short</code> as a command!</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">source</span> ~/.bash_profile
-<span class="ex">short</span></code></pre></div>
+<p>Save <code>~/.bash_profile</code> and close <code>nano</code>. Now let’s <code>source</code> our Bash profile
+(we only need to do this once) and move <code>short</code> into the <code>Commands</code> directory.
+Then we should be able to use <code>short</code> as a command!</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">source</span> ~/.bash_profile
+<span class="ex">short</span></code></pre>
 <pre><code>## a small program</code></pre>
 <p>Looks like it works!</p>
-<p>Alternatively to making individual scripts executable we can add a <code>source</code> command to our <code>~/.bash_profile</code> so that we can use a Bash function on the command line. Let’s use <code>nano</code> to open up our <code>~/.bash_profile</code> again.</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">nano</span> ~/.bash_profile</code></pre></div>
+<p>Alternatively to making individual scripts executable we can add a <code>source</code>
+command to our <code>~/.bash_profile</code> so that we can use a Bash function on the
+command line. Let’s use <code>nano</code> to open up our <code>~/.bash_profile</code> again.</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">nano</span> ~/.bash_profile</code></pre>
 <pre><code>alias docs=&#39;cd ~/Documents&#39;
 alias edbp=&#39;nano ~/.bash_profile&#39;
 
 export PATH=~/Code/Commands:$PATH
 source ~/Code/addseq2.sh</code></pre>
-<p>Save the <code>~/.bash_profile</code>, quit <code>nano</code>, and now let’s <code>source</code> our <code>~/.bash_profile</code> so we can test if we can use <code>addseq2</code>.</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">source</span> ~/.bash_profile
-<span class="ex">addseq2</span> 9 8 7</code></pre></div>
+<p>Save the <code>~/.bash_profile</code>, quit <code>nano</code>, and now let’s <code>source</code> our
+<code>~/.bash_profile</code> so we can test if we can use <code>addseq2</code>.</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">source</span> ~/.bash_profile
+<span class="ex">addseq2</span> 9 8 7</code></pre>
 <pre><code>## 24</code></pre>
-<p>Again it works! If you have multiple Bash functions that you’d like to be able to use on the command line then it’s a good idea to define these functions in one of a few files so that you don’t have to <code>source</code> every individual function that you want to have available.</p>
+<p>Again it works! If you have multiple Bash functions that you’d like to be able
+to use on the command line then it’s a good idea to define these functions in
+one of a few files so that you don’t have to <code>source</code> every individual function
+that you want to have available.</p>
 </div>
 <div id="summary-19" class="section level3">
 <h3><span class="header-section-number">5.9.4</span> Summary</h3>
 <ul>
-<li>According to the Unix Philosophy you should keep your programs short, simple, and quiet.</li>
+<li>According to the Unix Philosophy you should keep your programs short, simple,
+and quiet.</li>
 <li>Use <code>chmod</code> to make your programs executable.</li>
-<li>You can modify your <code>~/.bash_profile</code> in order to make scripts and functions available to use on the command line.</li>
+<li>You can modify your <code>~/.bash_profile</code> in order to make scripts and functions
+available to use on the command line.</li>
 <li>Use <code>export</code> to change an environmental variable.</li>
 </ul>
 </div>
 <div id="exercises-16" class="section level3">
 <h3><span class="header-section-number">5.9.5</span> Exercises</h3>
-<p>Below this list of exercises you can find examples of how the programs described here should work when used on the command line.</p>
+<p>Below this list of exercises you can find examples of how the programs described
+here should work when used on the command line.</p>
 <ol style="list-style-type: decimal">
 <li>Make a script executable.</li>
-<li>Put that script in a directory that you create and make that directory part of your <code>PATH</code>.</li>
-<li>Write a program called <code>range</code> that takes one number as an argument and prints all of the numbers between that number and 0.</li>
-<li>Write a program called <code>extremes</code> which prints the maximum and minimum values of a sequence of numbers.</li>
+<li>Put that script in a directory that you create and make that directory part
+of your <code>PATH</code>.</li>
+<li>Write a program called <code>range</code> that takes one number as an argument and
+prints all of the numbers between that number and 0.</li>
+<li>Write a program called <code>extremes</code> which prints the maximum and minimum
+values of a sequence of numbers.</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">range</span> 6</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">range</span> 6</code></pre>
 <pre><code>## 0 1 2 3 4 5 6</code></pre>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">range</span> -3</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">range</span> -3</code></pre>
 <pre><code>## -3 -2 -1 0</code></pre>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">extremes</span> 8 2 9 4 0 3</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">extremes</span> 8 2 9 4 0 3</code></pre>
 <pre><code>## 0 9</code></pre>
 
 </div>
@@ -1443,10 +1978,11 @@ gitbook.start({
 "facebook": true,
 "twitter": true,
 "google": false,
+"linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -1454,6 +1990,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
+"link": null,
+"text": null
+},
+"history": {
 "link": null,
 "text": null
 },

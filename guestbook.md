@@ -407,3 +407,4 @@
 - Nick Antonogiannis
 - Frank Tseng
 - Ayoub Haj
+- Ewelina Strużyńska

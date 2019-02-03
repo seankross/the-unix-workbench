@@ -411,3 +411,4 @@
 - Zixin Zhang
 - TX
 - Sergio Chamorro
+- Alfredo Vazquez

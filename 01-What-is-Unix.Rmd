@@ -1,4 +1,4 @@
-# What is Unix?
+# What is Unix? 
 
 Unix is an operating system and a set of tools. The tool we will be using the
 most in this book is a shell, which is a computer program that provides a

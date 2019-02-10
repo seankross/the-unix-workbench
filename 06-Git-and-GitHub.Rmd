@@ -459,7 +459,7 @@ Git can also help show the differences between unstaged changes to your files
 compared to the last commit. Let's add a new line of text to `readme.txt`:
 
 ```{r, engine='bash', eval=FALSE}
-echo "The third line." >> readme.txt
+echo "I added a line." >> readme.txt
 git diff readme.txt
 ```
 

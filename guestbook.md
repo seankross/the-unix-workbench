@@ -428,4 +428,6 @@
 - Tianmin Lyu
 - Colin Burton
 - Sherrill Castrodale
--Kacy Chisom
+- adam paz
+- Kacy Chisom
+- Katya Delikishkina

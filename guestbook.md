@@ -434,4 +434,5 @@
 - Laura Marcos
 - Archit Sengupta
 - 空海
--Brandon Goldenberg
+- Brandon Goldenberg
+- Gabriel Alves Vieira

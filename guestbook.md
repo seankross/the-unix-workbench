@@ -439,3 +439,4 @@
 - Gabriel Alves Vieira
 - Kelvin
 - James B
+- Valentyna K.

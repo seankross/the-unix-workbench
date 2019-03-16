@@ -308,4 +308,4 @@
 - Dmitrii Zhavoronkov
 - Mohamed Refaat
 - Jamie Hutchins
-- Fred
+- FredXie

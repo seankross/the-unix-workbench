@@ -241,7 +241,7 @@
 - Jerome Gransac
 - Ana D
 - Abhi Thadeshwar
-- David 
+- David
 - Reinoud Bosch
 - Himanshu Rawal
 - Claude Molinaro
@@ -308,4 +308,136 @@
 - Dmitrii Zhavoronkov
 - Mohamed Refaat
 - Jamie Hutchins
+- Fred
+- Anestis Kotidis
+- Sue Wang
+- Tiago Salema
+- Rojin
+- Vladimir Mazin
+- Jose Zancudo
+- Munib Ahsan
+- Panagiotis T.
+- Mazi Chiadikobi
+- Karen Jones
+- Ray Larone
+- Andrew Burger
+- Fanny Taborsak-Lines
+- Abdul
+- Claudia Kiesewetter
+- Chenda
+- Liam Konidaris
+- Bilal Gamal
+- Tomer
+- Ludovic M
+- Ilia Pankratov
+- Hylton Socher
+- Millan ME
+- Núria Rivera Brugués
+- Elwira Kobusiewicz
+- Fränki
+- Konstantinos Yeles
+- Jason F.
+- Luis Alberto Alaniz Castillo
+- Siddharth D Jaiswal
+- Navid Shayanfar
+- Kangk
+- Rick Petry
+- Rene Porto
+- Ilia Galaktionov
+- Alex Sandro
+- Ardilla Latifasari
+- Tim Gretler
+- Anthony Alfimov
+- Sara Ghanem
+- Samba SG
+- Vlad Kuzin
+- Dmitry Bobylev
+- Baurzhan Ryskaliyev
+- yeshwanth
+- Arjun Sengupta
+- Jeremy Carrothers
+- Lingshen He
+- Przemek Raczkowski
+- Ala Barjasteh
+- Kevin Chu
+- Liza Shaburova
+- Cristiano Berhanu
+- Justin Knutzen
+- David Hsu
+- Stefano
+- Andrey Radchenko
+- eric
+- Mary Taylor
+- Zhu Zhi
+- Dan Hustmyer
+- Alp Aribal
+- Haseeb
+- Marton Kanasz-Nagy
+- Ran Wang
+- Mounes S
+- Rebecca Crane
+- Nitin
+- Aditya Kakoti
+- Charlie Toothaker
+- Matheus Amaral
+- Karina188
+- Oiliba
+- Filippo Corri
+- Mudassar Raza
+- Bernhard S
+- Sako 
+- Jake SR
+- Vic Harkness
+- Amir Yariv
+- Daniel Shen
+- Keshari Nandan
+- JK
+- J Yu
+- Sergey Lazarev
+- Maddy Powers
+- Giannis Tampakakis
+- schan
+- Zikun Qin
+- Cindy Flórez
+- Patrick Hennessey
+- Ravi Rathore
+- Sanjay 
+- Mitch Edmunds
+- Iris Zimmermann
+- Nick Antonogiannis
+- Frank Tseng
+- Ayoub Haj
+- Ewelina Strużyńska
+- Zixin Zhang
+- TX
+- Sergio Chamorro
+- Alfredo Vazquez
+- Jaineshkumar Patel
+- Nick Wapstra
+- Elena Liga
+- Julian Jose
+- Aaron Wells
+- Alex G
+- Reena
+- Hoang Tran
+- Wiktor W
+- Jamshed Khan
+- Kathi Raja Ravindra
+- Tianli Song
+- Daniel Kuenzle
+- Tianmin Lyu
+- Colin Burton
+- Sherrill Castrodale
+- adam paz
+- Kacy Chisom
+- Katya Delikishkina
+- Laura Marcos
+- Archit Sengupta
+- 空海
+- Brandon Goldenberg
+- Agyey Arya
+- Gabriel Alves Vieira
+- Kelvin
+- James B
+- Sven Abelsson Runing
 - FredXie

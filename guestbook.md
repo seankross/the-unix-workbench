@@ -439,4 +439,6 @@
 - Gabriel Alves Vieira
 - Kelvin
 - James B
+- Sven Abelsson Runing
+- FredXie
 - Valentyna K.

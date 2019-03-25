@@ -23,7 +23,9 @@ GitHub is a website that provides remote Git repositories. A remote repository
 is just a Git repository that you're able to access over an internet connection.
 GitHub allows you to create public remote repositories for free, and anyone can
 see your code in these public repositories. If you want to keep your code private
-then you can pay GitHub for private remote repositories.
+then you can pay GitHub for private remote repositories. Starting from January
+2019, you can also create private repositories for free (on condition that they
+are managed by up to three collaborators).
 
 If you're working
 on code together with a friend GitHub can help you sync changes to code files
@@ -1070,7 +1072,7 @@ the green **Create repository** button. Now you should see a page like this:
 GitHub offers a few suggestions about what to do with our new remote repository.
 We've already been using a local Git repository, and what GitHub provides is a
 **remote** Git repository. A remote Git repository is just a Git repository
-stored on a computer is that always turned on and connected to the internet, so
+stored on a computer that is always turned on and connected to the internet, so
 it can act as a central point where we can share and sync our changes to files
 with our friends and colleagues. We can see which remote repositories our local
 repository is connected to with the `git remote` command while we have our
@@ -1481,7 +1483,7 @@ foster a greater coding community.
 For now we're going to take a little detour to discuss
 [GitHub Pages](https://pages.github.com/). GitHub Pages allows you to create
 and host a website on GitHub using only Git and Markdown. Go back to your
-`my-first-repo` repository page on GitHub on click the *Settings* tab at the
+`my-first-repo` repository page on GitHub and click the *Settings* tab at the
 top. Scroll down the page until you see a box that says **GitHub Pages**. Then
 click on the drop-down menu that says **None**. You should see a screen like
 this:

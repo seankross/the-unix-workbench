@@ -805,7 +805,7 @@ Alternatively, one can use (`(( ))`) to perform similar arithmetic operations as
 ## f
 ```
 
-Here's a similar table of logical flags below.
+Here is a similar table of logical flags below.
 
 | Logical Flag | Meaning | Usage |
 |:-------------|:--------|:------|

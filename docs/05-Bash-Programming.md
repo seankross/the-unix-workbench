@@ -163,6 +163,17 @@ bash bigmath.sh
 You can pipe any mathematical string to `bc` with the `-l` flag in order to
 use decimal numbers in your calculations.
 
+As a warning, we use another syntax for arithmetic expressions like $(( )) that
+works well with integer values as inputs for this sort of expression. Don't 
+attempt to use floating numbers, which are not integers, as inputs.
+
+```bash
+echo $((22 / 7)) | bc -l
+```
+
+```
+# 3
+
 ### Summary
 
 - Bash programs are executed in order from the first line in a file until the
@@ -777,6 +788,34 @@ reference how they're used later:
 | != | String Not Equal To | `[[ $fruit != "banana" ]]` |
 | ! | Not | `[[ ! "apple" =~ ^b ]]` |
 
+Alternatively, one can use (`(( ))`) to perform similar arithmetic operations as shown previously with the (`[[ ]]`) syntax:
+
+```bash
+(( 7 > 2 )) && echo t || echo f
+(( 7 < 2 )) && echo t || echo f
+(( 6 != 3 )) && echo t || echo f
+(( 6 == 3 )) && echo t || echo f
+```
+
+```
+## t
+## f
+## t
+## f
+```
+
+Here's a similar table of logical flags below.
+
+| Logical Flag | Meaning | Usage |
+|:-------------|:--------|:------|
+| > | **G**reater **T**han | `(( $planets > 8 ))` |
+| >= | **G**reater Than or **E**qual To | `(( $votes >= 270 ))` |
+| == | **Eq**ual | `(( $fingers == 10 ))` |
+| != | **N**ot **E**qual | `(( $pages != 0 ))` |
+| <= | **L**ess Than or **E**qual To | `(( $candles <= 9 ))` |
+| < | **L**ess **T**han | `(( $wives < 2 ))` |
+
+
 ### If and Else
 
 Conditional expressions are powerful because you can use them to control how a
@@ -1365,7 +1404,40 @@ numbers, letters, or words, then execute the modified code. Before you execute
 your modified program, write down what you think will be printed. How do the
 results of executing your program compare with your expectations?
 
-Once you've experimented a little take a look at this example with several
+The bash script forloops.sh is another way to write a `for` loop using a
+slightly different conditional expression with a unary operator for addition
+`++` like this:
+
+```
+#!/usr/bin/env bash
+# File: forloops.sh
+
+echo "Before Loop"
+
+for (( i = 1; i <= 3; i++ ))
+do
+        echo "i is equal to $i"
+done
+
+echo "After Loop"
+```
+
+Now let's execute this script again:
+
+
+```bash
+bash forloop.sh
+```
+
+```
+## Before Loop
+## i is equal to 1
+## i is equal to 2
+## i is equal to 3
+## After Loop
+```
+
+Once you've experimented a little, take a look at this example with several
 other kinds of sequence generating strategies:
 
 ```

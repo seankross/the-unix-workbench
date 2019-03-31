@@ -173,6 +173,7 @@ echo $((22 / 7)) | bc -l
 
 ```
 # 3
+```
 
 ### Summary
 
@@ -808,12 +809,12 @@ Here's a similar table of logical flags below.
 
 | Logical Flag | Meaning | Usage |
 |:-------------|:--------|:------|
-| > | **G**reater **T**han | `(( $planets > 8 ))` |
-| >= | **G**reater Than or **E**qual To | `(( $votes >= 270 ))` |
-| == | **Eq**ual | `(( $fingers == 10 ))` |
-| != | **N**ot **E**qual | `(( $pages != 0 ))` |
-| <= | **L**ess Than or **E**qual To | `(( $candles <= 9 ))` |
-| < | **L**ess **T**han | `(( $wives < 2 ))` |
+| > | Greater Than | `(( $planets > 8 ))` |
+| >= | Greater Than or Equal To | `(( $votes >= 270 ))` |
+| == | Equal | `(( $fingers == 10 ))` |
+| != | Not Equal | `(( $pages != 0 ))` |
+| <= | Less Than or Equal To | `(( $candles <= 9 ))` |
+| < | Less Than | `(( $wives < 2 ))` |
 
 
 ### If and Else
@@ -1404,7 +1405,7 @@ numbers, letters, or words, then execute the modified code. Before you execute
 your modified program, write down what you think will be printed. How do the
 results of executing your program compare with your expectations?
 
-The bash script forloops.sh is another way to write a `for` loop using a
+The bash script `forloops.sh` is another way to write a `for` loop using a
 slightly different conditional expression with a unary operator for addition
 `++` like this:
 

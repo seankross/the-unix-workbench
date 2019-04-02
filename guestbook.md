@@ -447,9 +447,13 @@
 - pu chen
 - Naresh Gurbuxani
 - Aisuluu
-- Kevin Heylin
+- Kevin Ceylon
 - Rohan Nayak
 - Jamie Z
 - Mengdan Wan
 - J Planken
+- J Kaze
+- Rishab Rajan
+- Anita Kowalska
+- Misael
 - Fentiss

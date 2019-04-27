@@ -45,7 +45,7 @@ git --version
 ```
 
 ```
-## git version 2.13.6 (Apple Git-96)
+## git version 2.14.3 (Apple Git-98)
 ```
 
 If you don't get a response back telling you the version of Git that you have
@@ -427,7 +427,7 @@ the status of your repository after the commit?
 
 ## Important Git Features
 
-### Gitting Help, Logs, and Diffs
+### Getting Help, Logs, and Diffs
 
 Git commands have their own `man` pages. You can access them with
 `git help [name of command]`. For example here's the start of the help page
@@ -899,8 +899,8 @@ git commit -m "added weather info"
 
 This is a small example of how to use Git branching, but you can see how you
 can make incremental edits to plain text (usually code files) without
-effecting the `master` branch (the tested and working copy of your software)
-and without effecting any other branches. You can imagine how
+affecting the `master` branch (the tested and working copy of your software)
+and without affecting any other branches. You can imagine how
 this system could be used for multiple people to work on the same codebase at
 the same time, or how you could develop and test multiple software features
 without them interfering with each other. Now that we've made a couple of
@@ -1302,7 +1302,7 @@ wrote has been rendered according to a few rules:
 - Pound signs (`#`, `##`) make headings.
 - A word surrounded by single asterisks (`*word*`) makes that word *italicized*.
 - A word surrounded by double asterisks (`**word**`) makes that word **bold**.
-- You can create lists with hyphens (`-`) or numbers (`1., 2., 3.`).
+- You can create lists with hyphens (`-`) or numbers (`1.`, `2.`, `3.`).
 - Code can be placed in the middle of a line with single backticks (`` `code` ``).
 - A code block can be created by putting code in between a set of triple
 backticks (`` ``` ``).
@@ -1518,7 +1518,7 @@ into `master`.
 
 When working on a remote GitHub repository with many other folks these pull
 requests and merges can happen without you being involved at all if the commits
-effect parts of the code that you're not working on. Still it's important to
+affect parts of the code that you're not working on. Still it's important to
 keep your local repository up to date with the latest changes in the remote
 repository. Let's go back to your terminal where you have `my-first-repo` set
 as the current working directory. First let's switch to the `master` branch.
@@ -1609,13 +1609,12 @@ use to fork the repository. If you're a new GitHub user then you only have one
 account, so select that account. After a brief "please wait" screen you should
 then see the forked repository at the URL
 https://github.com/[your-github-username]/the-unix-workbench. You've now forked
-the repository for this book! In order to get
-get a local copy of the repository you'll need to use the `git clone` command.
-Cloning a repository copies a Git repository to your computer while keeping
-track of the remote repository that it originated from. Let's clone your fork
-of my repository now. On the right side of the repository page you should see
-a green button that says **Clone or download**. Click that button and the
-following menu should appear:
+the repository for this book! In order to get a local copy of the repository 
+you'll need to use the `git clone` command. Cloning a repository copies a Git 
+repository to your computer while keeping track of the remote repository that 
+it originated from. Let's clone your fork of my repository now. On the right 
+side of the repository page you should see a green button that says **Clone or 
+download**. Click that button and the following menu should appear:
 
 ![](images/clone-wb.png)
 
@@ -1713,15 +1712,15 @@ to see in a public GitHub repository, fork that repository and make the change!
 
 ### Summary
 
-- You can use GitHub you create and host remote Git repositories.
+- You can use GitHub to create and host remote Git repositories.
 - A remote Git repository is a Git repository that is always connected to the
 internet.
 - List remote repositories with `git remote`.
-- Add remote repositiories with `git remote add [name-of-remote] https://github.com/[username]/[repo-name].git`
+- Add remote repositories with `git remote add [name-of-remote] https://github.com/[username]/[repo-name].git`
 - Add commits to your remote repository with `git push [name-of-remote] [name-of-branch]`
 or just `git push` if you've set up a default remote and branch.
 - To merge commits on a remote repository into your local repository use
-`git pull [name-of-remote] [name-of-branch]` or just `git pull` if you've set 
+`git pull [name-of-remote] [name-of-branch]` or just `git pull` if you've set
 up a default remote and branch.
 - A pull request allows you to interactively compare two different branches
 before you merge them.
@@ -1735,7 +1734,7 @@ be merged into the upstream repository!
 1. Create a new repository on GitHub. Clone your repository and add a
 `README.md` file. Push this file to GitHub and create a GitHub Pages website
 for this repository.
-2. Fork an existing repository (try one of mine https://github.com/seankross)
+2. Fork an existing repository (try one of mine: https://github.com/seankross)
 and try to identify something valuable you could contribute. Make changes or
 additions to that repository, then open a pull request.
 3. Read through [GitHub's Guides](https://guides.github.com/).

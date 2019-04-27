@@ -186,7 +186,7 @@ In Bash you can store data in variables. In chapter 4 we discussed environmental
 variables that are set by your operating system. You can also create your own
 variables. Make sure you follow these rules when you're naming variables:
 
-- Every character should be lowercase.
+- Every letter should be lowercase.
 - The variable name should start with a letter.
 - The name should only contain alphanumeric characters and underscores (`_`).
 - Words in the name should be separated by underscores.
@@ -943,7 +943,7 @@ bash simpleelif.sh 5
 ## 5 is a great number
 ```
 
-If first condition is false since 5 is not equal to 4, but then the next
+The first condition is false since 5 is not equal to 4, but then the next
 condition in the ELIF statement is true since 5 is greater than 3, so that
 echo command is executed and the rest of the statement is skipped. Try to guess
 what will happen if we use `2` as an argument:
@@ -1055,7 +1055,7 @@ expressions, and IF statements allow you to write more powerful Bash programs.
 - Conditional execution uses two operators: AND (`&&`) and OR (`||`) which you
 can use to control what command get executed based on their exit status.
 - Conditional expressions are always in double brackets (`[[ ]]`). They have
-exit an exit status of 0 if they contain a true assertion or 1 if they contain
+an exit status of 0 if they contain a true assertion or 1 if they contain
 a false assertion.
 - IF statements evaluate conditional expressions. If an expression is true then
 the code within an IF statement is executed, otherwise it is skipped.
@@ -1520,7 +1520,7 @@ done
 ```
 
 If the program is working, then `count` is being incremented very rapidly and
-you're watching number wiz by in your terminal! Don't fret, you can terminate
+you're watching numbers whiz by in your terminal! Don't fret, you can terminate
 any program that's stuck in an infinite loop using `Control` + `C`. Use
 `Control` + `C` to get the prompt back so that we can continue.
 
@@ -1966,7 +1966,7 @@ howodd 42 6 7 9 33
 ```
 
 ```
-## .40
+## .60
 ```
 
 

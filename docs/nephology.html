@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>The Unix Workbench</title>
-  <meta name="description" content="The Unix Workbench">
-  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+  <title>Chapter 7 Nephology | The Unix Workbench</title>
+  <meta name="description" content="Chapter 7 Nephology | The Unix Workbench">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="The Unix Workbench" />
+  <meta property="og:title" content="Chapter 7 Nephology | The Unix Workbench" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://github.com/seankross/the-unix-workbench" />
   <meta property="og:image" content="https://github.com/seankross/the-unix-workbenchimages/cover.png" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="seankross/the-unix-workbench" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="The Unix Workbench" />
+  <meta name="twitter:title" content="Chapter 7 Nephology | The Unix Workbench" />
   
   
   <meta name="twitter:image" content="https://github.com/seankross/the-unix-workbenchimages/cover.png" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Sean Kross">
 
 
-<meta name="date" content="2017-11-21">
+<meta name="date" content="2019-01-22">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="start-building.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -47,44 +48,79 @@
 
 
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-47412721-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-47412721-2');
+</script>
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -221,7 +257,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.3.2" data-path="git-and-github.html"><a href="git-and-github.html#exercises-17"><i class="fa fa-check"></i><b>6.3.2</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="git-and-github.html"><a href="git-and-github.html#important-git-features"><i class="fa fa-check"></i><b>6.4</b> Important Git Features</a><ul>
-<li class="chapter" data-level="6.4.1" data-path="git-and-github.html"><a href="git-and-github.html#gitting-help-logs-and-diffs"><i class="fa fa-check"></i><b>6.4.1</b> Gitting Help, Logs, and Diffs</a></li>
+<li class="chapter" data-level="6.4.1" data-path="git-and-github.html"><a href="git-and-github.html#getting-help-logs-and-diffs"><i class="fa fa-check"></i><b>6.4.1</b> Getting Help, Logs, and Diffs</a></li>
 <li class="chapter" data-level="6.4.2" data-path="git-and-github.html"><a href="git-and-github.html#ignoring-files"><i class="fa fa-check"></i><b>6.4.2</b> Ignoring Files</a></li>
 <li class="chapter" data-level="6.4.3" data-path="git-and-github.html"><a href="git-and-github.html#summary-21"><i class="fa fa-check"></i><b>6.4.3</b> Summary</a></li>
 <li class="chapter" data-level="6.4.4" data-path="git-and-github.html"><a href="git-and-github.html#exercises-18"><i class="fa fa-check"></i><b>6.4.4</b> Exercises</a></li>
@@ -286,52 +322,84 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </blockquote>
 <div id="introduction-to-cloud-computing" class="section level2">
 <h2><span class="header-section-number">7.1</span> Introduction to Cloud Computing</h2>
-<p>Nephology is the study of clouds. Few modern technology concepts (other than maybe data science and artificial intelligence) have been hyped as loudly as “the cloud.” The cloud is simply a computer which we can access over the internet. In this chapter we’ll set up a cloud computer and we’ll learn the basics of interacting with one.</p>
-<p>To get the most out of this chapter you’re going to need your credit or debit card, or a <a href="https://www.paypal.com">PayPal</a> account. We’re going to be using <a href="https://m.do.co/c/530d6cfa2b37">DigitalOcean</a>, a company which we can rent cloud computers from. Throughout this chapter I might refer to cloud computers as <strong>servers</strong> (computers connected to the internet) or as <strong>droplets</strong>, which is a marketing term DigitalOcean uses to refer to their servers (a droplet is <em>not</em> a technical term). Renting from DigitalOcean won’t cost you any money since I’m giving you a coupon for two free months of service! There are several companies that offer similar services compared to DigitalOcean, but in my opinion they have the best user interface and the most transparent pricing model.</p>
-<p><strong>Warning:</strong> <em>At the end of this chapter we will discuss how to shut down any servers we’ve started on DigitalOcean. If you don’t shut down your server after two months then your account will be charged real money for using DigitalOcean. Please be sure to shut down any servers you start after you are finished using them.</em></p>
+<p>Nephology is the study of clouds. Few modern technology concepts (other than
+maybe data science and artificial intelligence) have been hyped as loudly as “the
+cloud.” The cloud is simply a computer which we can access over the internet.
+In this chapter we’ll set up a cloud computer and we’ll learn the basics of
+interacting with one.</p>
+<p>To get the most out of this chapter you’re going to need your credit or
+debit card, or a <a href="https://www.paypal.com">PayPal</a> account. We’re going to be
+using <a href="https://m.do.co/c/530d6cfa2b37">DigitalOcean</a>, a company which we
+can rent cloud computers from. Throughout this chapter I might refer to cloud
+computers as <strong>servers</strong> (computers connected to the internet) or as
+<strong>droplets</strong>, which is a marketing term DigitalOcean uses to refer to their
+servers (a droplet is <em>not</em> a technical term). Renting from DigitalOcean won’t
+cost you any money since I’m giving you a coupon for two free months of service!
+There are several companies that offer similar services compared to
+DigitalOcean, but in my opinion they have the best user interface and the most
+transparent pricing model.</p>
+<p><strong>Warning:</strong> <em>At the end of this chapter we will discuss how to shut down any
+servers we’ve started on DigitalOcean. If you don’t shut down your server
+after two months then your account will be charged real money for using
+DigitalOcean. Please be sure to shut down any servers you start after you are
+finished using them.</em></p>
 </div>
 <div id="setting-up-digitalocean" class="section level2">
 <h2><span class="header-section-number">7.2</span> Setting Up DigitalOcean</h2>
-<p>To get started with DigitalOcean we need to rent a server from their website. <a href="https://m.do.co/c/530d6cfa2b37">Click this link</a> to sign up for DigitalOcean in order to get two free months of server use. (If you don’t use this link then you don’t get two free months). Click <strong>Sign Up</strong> in the upper right corner, then enter your email address and choose your password.</p>
-<div class="figure">
-<img src="images/do-main.png" />
-
-</div>
-<p>Check your email for a message from DigitalOcean and click the enclosed link to confirm your email. Then you’ll need to enter your credit or debit card information, or your Paypal account details. As long as you close down all of your servers less than two months after you start them you will not be charged. After entering in your payment information you should see this screen:</p>
-<div class="figure">
-<img src="images/do-create-drop.png" />
-
-</div>
-<p>Click the big blue <strong>Create a new Droplet</strong> button which should then bring you to a screen where you can customize the server you’re going to be renting. Make sure you have Ubuntu chosen as your distribution, and select the $5 per month size option:</p>
-<div class="figure">
-<img src="images/do-distro-size.png" />
-
-</div>
-<p>Scroll down the page and then select the region that is geographically closest to you. Some regions have multiple data centers, it doesn’t matter which data center you pick. Currently I’m in Baltimore, Maryland, USA, so I’m going to pick the number 1 data center in New York:</p>
-<div class="figure">
-<img src="images/do-region.png" />
-
-</div>
-<p>Finally at the bottom of the page click the big green <strong>Create</strong> button in order to start your server!</p>
-<div class="figure">
-<img src="images/do-create-confirm.png" />
-
-</div>
-<p>It will take a minute to launch the server, but once launched you should receive an email from Digital Ocean with the details about your new server. Included in this email you should find the IP address of your server, the default username (which should be <code>root</code>) and a randomly generated password that you will need to connect to your server for the first time. Once you’ve received this email open up a new terminal.</p>
+<p>To get started with DigitalOcean we need to rent a server from their website.
+<a href="https://m.do.co/c/530d6cfa2b37">Click this link</a> to sign up for DigitalOcean
+in order to get two free months of server use. (If you don’t use this link then
+you don’t get two free months). Click <strong>Sign Up</strong> in the upper right corner,
+then enter your email address and choose your password.</p>
+<p><img src="images/do-main.png" /></p>
+<p>Check your email for a message from DigitalOcean and click the enclosed link to
+confirm your email. Then you’ll need to enter your credit or debit card
+information, or your Paypal account details. As long as you close down all of
+your servers less than two months after you start them you will not be charged.
+After entering in your payment information you should see this screen:</p>
+<p><img src="images/do-create-drop.png" /></p>
+<p>Click the big blue <strong>Create a new Droplet</strong> button which should then bring you
+to a screen where you can customize the server you’re going to be renting. Make
+sure you have Ubuntu chosen as your distribution, and select the $5 per month
+size option:</p>
+<p><img src="images/do-distro-size.png" /></p>
+<p>Scroll down the page and then select the region that is geographically closest
+to you. Some regions have multiple data centers, it doesn’t matter which data
+center you pick. Currently I’m in Baltimore, Maryland, USA, so I’m going to pick
+the number 1 data center in New York:</p>
+<p><img src="images/do-region.png" /></p>
+<p>Finally at the bottom of the page click the big green <strong>Create</strong> button in order
+to start your server!</p>
+<p><img src="images/do-create-confirm.png" /></p>
+<p>It will take a minute to launch the server, but once launched
+you should receive an email from Digital Ocean with the details about your
+new server. Included in this email you should find the IP address of your
+server, the default username (which should be <code>root</code>) and a
+randomly generated password that you will need to connect to
+your server for the first time. Once you’ve received this email open up a new
+terminal.</p>
 </div>
 <div id="connecting-to-the-cloud" class="section level2">
 <h2><span class="header-section-number">7.3</span> Connecting to the Cloud</h2>
-<p>We can connect to computers on the internet with the <code>ssh</code> program, which stands for <strong>S</strong>ecure <strong>Sh</strong>ell. The <code>ssh</code> command provides a command line interface to whichever computer we point it to. A computer that is connected to the internet has an address (just like a house has an address) which is specified by an <strong>IP address</strong>. The command for connecting to a computer with <code>ssh</code> generally looks like this:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ssh</span> [username]@[IP address]</code></pre></div>
-<p>Let’s connect to our DigitalOcean server using <code>ssh</code>. Enter the following command in the terminal substituting the IP address you received from DigitalOcean for the IP address I’m using in this example:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ssh</span> root@159.203.134.88</code></pre></div>
+<p>We can connect to computers on the internet with the <code>ssh</code> program, which
+stands for <strong>S</strong>ecure <strong>Sh</strong>ell. The <code>ssh</code> command provides a command line
+interface to whichever computer we point it to. A computer that is connected to
+the internet has an address (just like a house has an address) which is
+specified by an <strong>IP address</strong>. The command for connecting to a computer with
+<code>ssh</code> generally looks like this:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ssh</span> [username]@[IP address]</code></pre>
+<p>Let’s connect to our DigitalOcean server using <code>ssh</code>. Enter the following
+command in the terminal substituting the IP address you received from
+DigitalOcean for the IP address I’m using in this example:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ssh</span> root@159.203.134.88</code></pre>
 <pre><code>## The authenticity of host &#39;159.203.134.88 (159.203.134.88)&#39; can&#39;t be established.
 ## ECDSA key fingerprint is SHA256:UhtoIx/3c6/MmAIE+H8w5oGE06PsbXdzRRsAUhKtjhs.
 ## Are you sure you want to continue connecting (yes/no)?</code></pre>
 <p>Type <code>yes</code> and then press Enter.</p>
 <pre><code>## Warning: Permanently added &#39;159.203.134.88&#39; (ECDSA) to the list of known hosts.
 ## root@159.203.134.88&#39;s password:</code></pre>
-<p>This password should be in the email you received from DigitalOcean. Copy and paste the password into the terminal, then press Enter.</p>
+<p>This password should be in the email you received from DigitalOcean. Copy and
+paste the password into the terminal, then press Enter.</p>
 <pre><code>## You are required to change your password immediately (root enforced)
 ## Welcome to Ubuntu 16.04.2 LTS (GNU/Linux 4.4.0-78-generic x86_64)
 ## 
@@ -356,21 +424,26 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## 
 ## Changing password for root.
 ## (current) UNIX password:</code></pre>
-<p>We now need to create a new password for this server. First paste in the old password and press Enter. Then think of a new, strong password and enter it into the console. Then enter the new password again to confirm. After entering in the new password we should have a prompt! Press enter a few times to make sure that you get the prompt back each time. We’re in!</p>
+<p>We now need to create a new password for this server. First paste in the old
+password and press Enter. Then think of a new, strong password and enter it into
+the console. Then enter the new password again to confirm. After entering in the
+new password we should have a prompt! Press enter a few times to make sure that
+you get the prompt back each time. We’re in!</p>
 <p>Now we have access to all of the Unix commands we would normally have:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">pwd</span></code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">pwd</span></code></pre>
 <pre><code>## /root</code></pre>
 <p>In order to disconnect from the server and return to your machine use <code>logout</code>.</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">logout</span></code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">logout</span></code></pre>
 <pre><code>## Connection to 159.203.134.88 closed.</code></pre>
 <p>To reconnect to the server use <code>ssh</code> again:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ssh</span> root@159.203.134.88</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ssh</span> root@159.203.134.88</code></pre>
 <pre><code>## root@159.203.134.88&#39;s password:</code></pre>
 <p>Enter your password and you should get the prompt back for your cloud server.</p>
 <div id="summary-24" class="section level3">
 <h3><span class="header-section-number">7.3.1</span> Summary</h3>
 <ul>
-<li><code>ssh</code> connects you to computers that are connected to the internet. The template for the command to connect is <code>ssh [username]@[IP address]</code>.</li>
+<li><code>ssh</code> connects you to computers that are connected to the internet. The
+template for the command to connect is <code>ssh [username]@[IP address]</code>.</li>
 <li>To disconnect from an <code>ssh</code> session use the <code>logout</code> command.</li>
 </ul>
 </div>
@@ -379,78 +452,127 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">7.4</span> Cloud Computing Basics</h2>
 <div id="moving-files-in-and-out-of-the-cloud" class="section level3">
 <h3><span class="header-section-number">7.4.1</span> Moving Files In and Out of the Cloud</h3>
-<p>So now that we have a cloud computer, what can we do with it? One thing we can do is store and retrieve files from a cloud computer. The program <code>scp</code> allows us to copy local files to a server and it allows us to copy files on a server to our local computer. First let’s connect to our server so we can create a file there:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ssh</span> root@159.203.134.88</code></pre></div>
+<p>So now that we have a cloud computer, what can we do with it? One thing we
+can do is store and retrieve files from a cloud computer. The program <code>scp</code>
+allows us to copy local files to a server and it allows us to copy files on
+a server to our local computer. First let’s connect to our server so we can
+create a file there:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ssh</span> root@159.203.134.88</code></pre>
 <pre><code>## root@159.203.134.88&#39;s password:
 ## # (Enter your password)</code></pre>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">mkdir</span> textfiles
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">mkdir</span> textfiles
 <span class="bu">echo</span> <span class="st">&quot;From the server&quot;</span> <span class="op">&gt;</span> textfiles/server-file.txt
-<span class="bu">logout</span></code></pre></div>
+<span class="bu">logout</span></code></pre>
 <pre><code>## Connection to 159.203.134.88 closed.</code></pre>
-<p>Now that we’re back at the prompt on our local machine let’s try getting <code>server-file.txt</code> from our server. The arguments for copying files from a server with <code>scp</code> have the following general structure:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">scp</span> [username]@[IP address]:path/to/file/on/server path/on/my/computer</code></pre></div>
-<p>This copies the file located on the server at <code>path/to/file/on/server</code> to a local path at <code>path/on/my/computer</code>. In the same way we can copy an entire folder from a server using the <code>-r</code> flag:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">scp</span> -r [username]@[IP address]:path/to/folder/on/server folder/on/my/computer</code></pre></div>
-<p>Let’s try doing this now from our local computer. Enter your password when asked to do so:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span>
-<span class="bu">pwd</span></code></pre></div>
+<p>Now that we’re back at the prompt on our local machine let’s try getting
+<code>server-file.txt</code> from our server. The arguments for copying files from a server
+with <code>scp</code> have the following general structure:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">scp</span> [username]@[IP address]:path/to/file/on/server path/on/my/computer</code></pre>
+<p>This copies the file located on the server at <code>path/to/file/on/server</code> to a
+local path at <code>path/on/my/computer</code>. In the same way we can copy an entire
+folder from a server using the <code>-r</code> flag:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">scp</span> -r [username]@[IP address]:path/to/folder/on/server folder/on/my/computer</code></pre>
+<p>Let’s try doing this now from our local computer. Enter your password when
+asked to do so:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span>
+<span class="bu">pwd</span></code></pre>
 <pre><code>## /Users/sean/</code></pre>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">mkdir</span> Cloud
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">mkdir</span> Cloud
 <span class="bu">cd</span> Cloud
-<span class="fu">scp</span> root@159.203.134.88:/root/textfiles/server-file.txt downloaded.txt</code></pre></div>
+<span class="fu">scp</span> root@159.203.134.88:/root/textfiles/server-file.txt downloaded.txt</code></pre>
 <pre><code>## root@159.203.134.88&#39;s password:
 ## server-file.txt                                         100%   16     1.2KB/s   00:00</code></pre>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">cat</span> downloaded.txt</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">cat</span> downloaded.txt</code></pre>
 <pre><code>## From the server</code></pre>
-<p>It worked! Now let’s try uploading a file to our server. The arguments for doing this are just the swapped arguments for downloading a file from a server:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">scp</span> path/on/my/computer [username]@[IP address]:path/to/file/on/server </code></pre></div>
+<p>It worked! Now let’s try uploading a file to our server. The arguments for doing
+this are just the swapped arguments for downloading a file from a server:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">scp</span> path/on/my/computer [username]@[IP address]:path/to/file/on/server </code></pre>
 <p>Let’s create a file and upload it to our server:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="st">&quot;from local computer&quot;</span> <span class="op">&gt;</span> to-upload.txt
-<span class="fu">scp</span> to-upload.txt root@159.203.134.88:/root/textfiles/uploaded-file.txt</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="st">&quot;from local computer&quot;</span> <span class="op">&gt;</span> to-upload.txt
+<span class="fu">scp</span> to-upload.txt root@159.203.134.88:/root/textfiles/uploaded-file.txt</code></pre>
 <pre><code>## root@159.203.134.88&#39;s password:
 ## to-upload.txt                                           100%   20     1.8KB/s   00:00</code></pre>
 <p>Now let’s log in to our server and we’ll see if it’s there:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ssh</span> root@159.203.134.88
-<span class="fu">cat</span> textfiles/uploaded-file.txt</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ssh</span> root@159.203.134.88
+<span class="fu">cat</span> textfiles/uploaded-file.txt</code></pre>
 <pre><code>## from local computer</code></pre>
-<p>Looks like it worked! Keeping files in the cloud allows you to work with the same files in the same workspace as long as you have access to a terminal and <code>ssh</code>.</p>
+<p>Looks like it worked! Keeping files in the cloud allows you to work with the
+same files in the same workspace as long as you have access to a terminal and
+<code>ssh</code>.</p>
 </div>
 <div id="talking-to-other-servers" class="section level3">
 <h3><span class="header-section-number">7.4.2</span> Talking to Other Servers</h3>
-<p>There are tons of servers out there on the internet! The way you’re probably used to talking to a server is through a web browser, but there are other ways we can talk to servers on the command line. One of the most popular command line programs for talking to other servers is <code>curl</code>. The <code>curl</code> command allows us to send requests and information to other servers.</p>
-<p>One easy task that we can use <code>curl</code> for is downloading files that are available online. For example, this entire book and all of the files associated with it are hosted on a server! You can find the Markdown file for one of the first chapters of this book <a href="http://seankross.com/the-unix-workbench/01-What-is-Unix.md">here</a>. To download a file with <code>curl</code>, we simply need to provide the <code>-O</code> flag and the URL of the file:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">curl</span> -O http://website.org/textfile.txt</code></pre></div>
+<p>There are tons of servers out there on the internet! The way you’re probably
+used to talking to a server is through a web browser, but there are other ways
+we can talk to servers on the command line. One of the most popular command line
+programs for talking to other servers is <code>curl</code>. The <code>curl</code> command allows us
+to send requests and information to other servers.</p>
+<p>One easy task that we can use <code>curl</code> for is downloading files that are available
+online. For example, this entire book and all of the files associated with it
+are hosted on a server! You can find the Markdown file for one of the first
+chapters of this book <a href="http://seankross.com/the-unix-workbench/01-What-is-Unix.md">here</a>.
+To download a file with <code>curl</code>, we simply need to provide the <code>-O</code> flag and the
+URL of the file:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">curl</span> -O http://website.org/textfile.txt</code></pre>
 <p>Let’s try downloading the Markdown file from my website:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">curl</span> -O http://seankross.com/the-unix-workbench/01-What-is-Unix.md</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">curl</span> -O http://seankross.com/the-unix-workbench/01-What-is-Unix.md</code></pre>
 <pre><code>##   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
 ##                                  Dload  Upload   Total   Spent    Left  Speed
 ## 100  1198  100  1198    0     0  13681      0 --:--:-- --:--:-- --:--:-- 13770</code></pre>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">head</span> -n 5 01-What-is-Unix.md</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">head</span> -n 5 01-What-is-Unix.md</code></pre>
 <pre><code>## # What is Unix?
 ## 
 ## Unix is an operating system and a set of tools. The tool we&#39;ll be using the
 ## most in this book is a shell, which is a computer program that provides a
 ## command line interface. You&#39;ve probably seen a command line interface in the</code></pre>
-<p>Looks like we got the file! The <code>curl</code> command is also commonly used for communicating with <strong>API</strong>s. API stands for <strong>a</strong>pplication <strong>p</strong>rogramming <strong>i</strong>nterface. APIs are a set of rules which allow us to communicate with computer programs or with servers on the web. GitHub has a <a href="https://developer.github.com/v3/">large API</a> which allows us to find out information about GitHub’s users and repositories. Let’s use <code>curl</code> to look at what programming languages are used by some of my repositories. Let’s start with the repository for this book:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">curl</span> https://api.github.com/repos/seankross/the-unix-workbench/languages</code></pre></div>
+<p>Looks like we got the file! The <code>curl</code> command is also commonly used for
+communicating with <strong>API</strong>s. API stands for <strong>a</strong>pplication
+<strong>p</strong>rogramming <strong>i</strong>nterface. APIs are a set of rules which allow us to
+communicate with computer programs or with servers on the web. GitHub has a
+<a href="https://developer.github.com/v3/">large API</a> which allows us to find out
+information about GitHub’s users and repositories. Let’s use <code>curl</code> to look
+at what programming languages are used by some of my repositories. Let’s start
+with the repository for this book:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">curl</span> https://api.github.com/repos/seankross/the-unix-workbench/languages</code></pre>
 <pre><code>{
   &quot;CSS&quot;: 2615,
   &quot;TeX&quot;: 22
 }</code></pre>
-<p>It looks like most of the repository is dedicated to making the book website look pretty! Take a look at the URL in the <code>curl</code> command above, and let’s dissect it a little bit. The API itself is located at <code>https://api.github.com/</code>. Then each word in the rest of the url acts as a sort of argument. We’re interested in <code>repos</code> in this case, specifically a repo belonging to the username <code>seankross</code> called <code>the-unix-workbench</code>, and we want to know about which <code>languages</code> are used in that repo. Let’s take a look at one more of my repositories just to see how the response can be different:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">curl</span> https://api.github.com/repos/seankross/lego/languages</code></pre></div>
+<p>It looks like most of the repository is dedicated to making the book website
+look pretty! Take a look at the URL in the <code>curl</code> command above, and let’s
+dissect it a little bit. The API itself is located at <code>https://api.github.com/</code>.
+Then each word in the rest of the url acts as a sort of argument. We’re
+interested in <code>repos</code> in this case, specifically a repo belonging to the
+username <code>seankross</code> called <code>the-unix-workbench</code>, and we want to know about
+which <code>languages</code> are used in that repo. Let’s take a look at one more of my
+repositories just to see how the response can be different:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">curl</span> https://api.github.com/repos/seankross/lego/languages</code></pre>
 <pre><code>{
   &quot;R&quot;: 4197,
   &quot;Shell&quot;: 442
 }</code></pre>
-<p>Use of <code>curl</code>, especially when coupled with using APIs can become very complicated and much more advanced content has been written on the subject. Let’s get a little more in depth by looking through some of the examples from <a href="http://httpbin.org/">httpbin.org</a>. This website allows us to send requests to it with <code>curl</code>, and it will return to us a structured version of whatever information we sent. This is useful for debugging our <code>curl</code> commands. First let’s send a request which should return our IP address:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">curl</span> http://httpbin.org/ip</code></pre></div>
+<p>Use of <code>curl</code>, especially when coupled with using APIs can become very
+complicated and much more advanced content has been written on the subject.
+Let’s get a little more in depth by looking through some of the examples from
+<a href="http://httpbin.org/">httpbin.org</a>. This website allows us to send requests to
+it with <code>curl</code>, and it will return to us a structured version of whatever
+information we sent. This is useful for debugging our <code>curl</code> commands. First
+let’s send a request which should return our IP address:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">curl</span> http://httpbin.org/ip</code></pre>
 <pre><code>{
   &quot;origin&quot;: &quot;159.203.134.88&quot;
 }</code></pre>
-<p>Looks like we’re getting the response we expect. Before we go on I should clarify: <code>curl</code> sends <strong>HTTP requests</strong>. HTTP is a technology for sending information over a network, and HTTP powers much of how the internet works. There are different categories of HTTP requests, and the categories are often called <strong>verbs</strong>. When we use <code>curl</code> without any flags we are sending a <strong>GET</strong> request (GET is an HTTP verb). A GET request is a message that says to a server: “Hi, I live at [IP address]. Would you mind sending some information about yourself to that IP?” In the case above we asked for our own IP address, which httpbin.org knew to just send back to us.</p>
+<p>Looks like we’re getting the response we expect. Before we go on I should
+clarify: <code>curl</code> sends <strong>HTTP requests</strong>. HTTP is a technology for sending
+information over a network, and HTTP powers much of how the internet works.
+There are different categories of HTTP requests, and the categories are often
+called <strong>verbs</strong>. When we use <code>curl</code> without any flags we are sending a
+<strong>GET</strong> request (GET is an HTTP verb). A GET request is a message that says to
+a server: “Hi, I live at [IP address]. Would you mind sending some information
+about yourself to that IP?” In the case above we asked for our own IP address,
+which httpbin.org knew to just send back to us.</p>
 <p>Let’s send a general HTTP GET request to <a href="http://httpbin.org/get" class="uri">http://httpbin.org/get</a>:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">curl</span> http://httpbin.org/get</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">curl</span> http://httpbin.org/get</code></pre>
 <pre><code>{
   &quot;args&quot;: {},
   &quot;headers&quot;: {
@@ -462,9 +584,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   &quot;origin&quot;: &quot;159.203.134.88&quot;,
   &quot;url&quot;: &quot;http://httpbin.org/get&quot;
 }</code></pre>
-<p>The text that we get back from the request specifies four information groups: <code>args</code>, <code>headers</code>, <code>origin</code>, and <code>url</code>. The <code>origin</code> shows our own IP address, and <code>url</code> shows where we sent the request. The <code>headers</code> group shows some interesting information, including the <code>User-Agent</code> which shows that httpbin.org knows that we sent this request with <code>curl</code>. Notice that the <code>args</code> group is empty. The <code>args</code> group is short for <em>arguments</em>, which hints at the fact that we can provide arguments in an HTTP request, just like arguments we would use for a function, or the arguments we used in the GitHub API.</p>
-<p>In the general case we can provide arguments to an HTTP API by putting a question mark (<code>?</code>) after the API’s URL. Let’s try this out:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">curl</span> http://httpbin.org/get?Baltimore</code></pre></div>
+<p>The text that we get back from the request specifies four information groups:
+<code>args</code>, <code>headers</code>, <code>origin</code>, and <code>url</code>. The <code>origin</code> shows our own IP address,
+and <code>url</code> shows where we sent the request. The <code>headers</code> group shows some
+interesting information, including the <code>User-Agent</code> which shows that httpbin.org
+knows that we sent this request with <code>curl</code>. Notice that the <code>args</code> group is
+empty. The <code>args</code> group is short for <em>arguments</em>, which hints at the fact that
+we can provide arguments in an HTTP request, just like arguments we would use
+for a function, or the arguments we used in the GitHub API.</p>
+<p>In the general case we can provide arguments to an HTTP API by putting a
+question mark (<code>?</code>) after the API’s URL. Let’s try this out:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">curl</span> http://httpbin.org/get?Baltimore</code></pre>
 <pre><code>{
   &quot;args&quot;: {
     &quot;Baltimore&quot;: &quot;&quot;
@@ -478,8 +608,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   &quot;origin&quot;: &quot;159.203.134.88&quot;,
   &quot;url&quot;: &quot;http://httpbin.org/get?Baltimore&quot;
 }</code></pre>
-<p>Looks like <code>&quot;Baltimore&quot;</code> showed up in <code>args</code>! For most HTTP APIs we need to give names to our arguments, unlike most arguments in Bash. We can specify an argument’s name with the template <code>[argument name]=[argument value]</code>. Let’s take a look at a simple example:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">curl</span> http://httpbin.org/get?city=Baltimore</code></pre></div>
+<p>Looks like <code>&quot;Baltimore&quot;</code> showed up in <code>args</code>! For most HTTP APIs we need to
+give names to our arguments, unlike most arguments in Bash. We can specify
+an argument’s name with the template <code>[argument name]=[argument value]</code>. Let’s
+take a look at a simple example:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">curl</span> http://httpbin.org/get?city=Baltimore</code></pre>
 <pre><code>{
   &quot;args&quot;: {
     &quot;city&quot;: &quot;Baltimore&quot;
@@ -493,8 +626,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   &quot;origin&quot;: &quot;159.203.134.88&quot;,
   &quot;url&quot;: &quot;http://httpbin.org/get?city=Baltimore&quot;
 }</code></pre>
-<p>Now we can see that in <code>args</code> there’s a correspondence between <code>city</code> and <code>Baltimore</code>. We can add more named arguments by separating them with an ampersand (<code>&amp;</code>):</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;http://httpbin.org/get?city=Baltimore&amp;state=Maryland&quot;</span></code></pre></div>
+<p>Now we can see that in <code>args</code> there’s a correspondence between <code>city</code> and
+<code>Baltimore</code>. We can add more named arguments by separating them with an
+ampersand (<code>&amp;</code>):</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;http://httpbin.org/get?city=Baltimore&amp;state=Maryland&quot;</span></code></pre>
 <pre><code>{
   &quot;args&quot;: {
     &quot;city&quot;: &quot;Baltimore&quot;,
@@ -509,15 +644,28 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   &quot;origin&quot;: &quot;159.203.134.88&quot;,
   &quot;url&quot;: &quot;http://httpbin.org/get?city=Baltimore&amp;state=Maryland&quot;
 }</code></pre>
-<p>Perhaps you could imagine building a server that accepts HTTP requests, and sends back different information depending on what arguments are provided (for example, send back a weather report given a location). Building these kinds of servers is an advanced topic that is outside the scope of this book, but there are lots of resources out there if you’re interested in building your own HTTP API on a web server.</p>
+<p>Perhaps you could imagine building a server that accepts HTTP requests, and
+sends back different information depending on what arguments are provided (for
+example, send back a weather report given a location). Building these kinds of
+servers is an advanced topic that is outside the scope of this book, but there
+are lots of resources out there if you’re interested in building your own HTTP
+API on a web server.</p>
 </div>
 <div id="automating-tasks" class="section level3">
 <h3><span class="header-section-number">7.4.3</span> Automating Tasks</h3>
-<p>One of the most compelling features about any web server is that it’s always powered on and always connected to the internet. This means that we can instruct our server to perform tasks automatically, without us needing to enter a command into a shell. One of the most commonly used programs for executing <em>other programs</em> with a regular frequency is called <code>cron</code>. Let’s take a look at how to use <code>cron</code> to schedule a program to be run.</p>
+<p>One of the most compelling features about any web server is that it’s always
+powered on and always connected to the internet. This means that we can instruct
+our server to perform tasks automatically, without us needing to enter a command
+into a shell. One of the most commonly used programs for executing <em>other programs</em>
+with a regular frequency is called <code>cron</code>. Let’s take a look at how to use
+<code>cron</code> to schedule a program to be run.</p>
 <p>If you’re not already connected to the server use <code>ssh</code> to connect.</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ssh</span> root@159.203.134.88</code></pre></div>
-<p>The <code>cron</code> program is part of a family of programs called <strong>daemons</strong>. A daemon is a program that is always running in the background of our computer. First, let’s see if <code>cron</code> is running. We can get a list of all running programs with the <code>ps</code> command while using the <code>-A</code> flag:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ps</span> -A</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ssh</span> root@159.203.134.88</code></pre>
+<p>The <code>cron</code> program is part of a family of programs called <strong>daemons</strong>. A daemon
+is a program that is always running in the background of our computer. First,
+let’s see if <code>cron</code> is running. We can get a list of all running programs
+with the <code>ps</code> command while using the <code>-A</code> flag:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ps</span> -A</code></pre>
 <pre><code>##  PID TTY          TIME CMD
 ##    1 ?        00:00:13 systemd
 ##    2 ?        00:00:00 kthreadd
@@ -527,11 +675,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ##    8 ?        00:00:00 rcu_bh
 ##    9 ?        00:00:00 migration/0
 ## ...</code></pre>
-<p>You probably have a huge list of programs in your terminal now! Instead of sifting through this listing line-by-line, let’s pipe the output of this command to <code>grep</code> and we’ll look for <code>cron</code>:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ps</span> -A <span class="kw">|</span> <span class="fu">grep</span> <span class="st">&quot;cron&quot;</span></code></pre></div>
+<p>You probably have a huge list of programs in your terminal now! Instead of
+sifting through this listing line-by-line, let’s pipe the output of this command
+to <code>grep</code> and we’ll look for <code>cron</code>:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ps</span> -A <span class="kw">|</span> <span class="fu">grep</span> <span class="st">&quot;cron&quot;</span></code></pre>
 <pre><code>##  1273 ?        00:00:01 cron</code></pre>
-<p>Looks like the <code>cron</code> daemon is running! In order to assign programs to be executed with <code>cron</code> we need to edit a special text file called the <code>cron</code> table. Before we edit the <code>cron</code> table we need to select the default text editor. If you like using <code>nano</code> (the text editor we’ve been using throughout this book) then enter <code>select-editor</code> into the console, type in the number that corresponds to <code>nano</code> (usually <code>2</code>) and then press enter:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">select-editor</span></code></pre></div>
+<p>Looks like the <code>cron</code> daemon is running! In order to assign programs to be
+executed with <code>cron</code> we need to edit a special text file called the <code>cron</code>
+table. Before we edit the <code>cron</code> table we need to select the default text
+editor. If you like using <code>nano</code> (the text editor we’ve been using throughout
+this book) then enter <code>select-editor</code> into the console, type in the number
+that corresponds to <code>nano</code> (usually <code>2</code>) and then press enter:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">select-editor</span></code></pre>
 <pre><code>## Select an editor.  To change later, run &#39;select-editor&#39;.
 ##   1. /bin/ed
 ##   2. /bin/nano        &lt;---- easiest
@@ -539,13 +694,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ##   4. /usr/bin/vim.tiny
 ## 
 ## Choose 1-4 [2]:</code></pre>
-<p>Now that we’ve chosen a text editor we can edit the <code>cron</code> table using the command <code>crontab -e</code> (<strong><code>cron</code></strong> <strong>tab</strong>le <strong>e</strong>dit) which will automatically open <code>nano</code> with the appropriate file.</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">crontab</span> -e</code></pre></div>
+<p>Now that we’ve chosen a text editor we can edit the <code>cron</code> table using the
+command <code>crontab -e</code> (<strong><code>cron</code></strong> <strong>tab</strong>le <strong>e</strong>dit) which will automatically
+open <code>nano</code> with the appropriate file.</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">crontab</span> -e</code></pre>
 <pre><code># Edit this file to introduce tasks to be run by cron.
 #
 # m h  dom mon dow   command
 </code></pre>
-<p>Let’s go over the layout of the <code>cron</code> table. First you should notice that any text after a pound sign (<code>#</code>) is a comment, so it’s not seen by <code>cron</code> (just like bash comments). The <code>cron</code> table has six columns:</p>
+<p>Let’s go over the layout of the <code>cron</code> table. First you should notice that any
+text after a pound sign (<code>#</code>) is a comment, so it’s not seen by <code>cron</code> (just
+like bash comments). The <code>cron</code> table has six columns:</p>
 <ol style="list-style-type: decimal">
 <li>Minute (<code>m</code>)</li>
 <li>Hour (<code>h</code>)</li>
@@ -554,7 +713,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Day of Week (<code>dow</code>)</li>
 <li>Command to be run (<code>command</code>)</li>
 </ol>
-<p>Each column is separated by a single space in the table. The first five columns allow you to specify when you want a particular command to be run. Only certain values are valid in each column:</p>
+<p>Each column is separated by a single space in the table. The first five columns
+allow you to specify when you want a particular command to be run. Only certain
+values are valid in each column:</p>
 <ol style="list-style-type: decimal">
 <li>Minute: <code>00 - 59</code> (A particular minute in an hour)</li>
 <li>Hour: <code>00 - 23</code> (0 is the midnight hour)</li>
@@ -562,22 +723,43 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Month: <code>01 - 12</code> (1 is January)</li>
 <li>Day of Week <code>0 - 6</code> (0 is Sunday)</li>
 </ol>
-<p>There are also a few other characters that are valid in the <code>cron</code> table. The most commonly used character is a star (<code>*</code>) which represents <em>all</em> of the possible values in a column. So a star in the Minute column means “run every minute,” and a star in the Hour column means “run during every hour.” Knowing this let’s make our first entry in the <code>cron</code> table. If we want a command to be executed every minute, during every hour, on every day of the month, during every month, on every day of the week, then we can put stars in all of the first five columns, followed by the command that we want to run. In this case the command that <code>cron</code> will run every minute will be <code>date &gt;&gt; ~/date-file.txt</code>, which will append the date and time when the command is executed to a file in our home directory called <code>date-file.txt</code>. This is what your <code>cron</code> table should look like before you save and exit from <code>nano</code>:</p>
+<p>There are also a few other characters that are valid in the <code>cron</code> table. The
+most commonly used character is a star (<code>*</code>) which represents <em>all</em> of the
+possible values in a column. So a star in the Minute column means “run every
+minute,” and a star in the Hour column means “run during every hour.”
+Knowing this let’s make our first entry in the <code>cron</code> table. If we want a
+command to be executed every minute, during every hour, on every day of the
+month, during every month, on every day of the week, then we can put stars in
+all of the first five
+columns, followed by the command that we want to run. In this case the command
+that <code>cron</code> will run every minute will be <code>date &gt;&gt; ~/date-file.txt</code>, which will
+append the date and time when the command is executed to a file in our home
+directory called <code>date-file.txt</code>. This is what your <code>cron</code> table should look
+like before you save and exit from <code>nano</code>:</p>
 <pre><code># Edit this file to introduce tasks to be run by cron.
 #
 # m h  dom mon dow   command
 * * * * * date &gt;&gt; ~/date-file.txt</code></pre>
-<p>Save and exit <code>nano</code> just like you would for a regular text file and then wait a little bit! After a minute has gone by use <code>cat</code> to look at <code>~/date-file.txt</code>:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span>
-<span class="fu">cat</span> date-file.txt</code></pre></div>
+<p>Save and exit <code>nano</code> just like you would for a regular text file and then wait
+a little bit! After a minute has gone by use <code>cat</code> to look at <code>~/date-file.txt</code>:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span>
+<span class="fu">cat</span> date-file.txt</code></pre>
 <pre><code>## Thu Jun  8 18:50:01 UTC 2017</code></pre>
-<p>Look like our entry in the <code>cron</code> table is working! Wait another minute and then look at the file again:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">cat</span> date-file.txt</code></pre></div>
+<p>Look like our entry in the <code>cron</code> table is working! Wait another minute and then
+look at the file again:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">cat</span> date-file.txt</code></pre>
 <pre><code>## Thu Jun  8 18:50:01 UTC 2017
 ## Thu Jun  8 18:51:01 UTC 2017</code></pre>
-<p>Unless we delete the line that we entered in the <code>cron</code> table, the output from <code>date</code> will be appended to <code>date-file.txt</code> every minute.</p>
-<p>The single line of bash <code>date &gt;&gt; ~/date-file.txt</code> is a much simpler program than we would probably use in a <code>cron</code> table, though it’s good for illustrating how a <code>cron</code> table works. If you want to do more complex tasks with <code>cron</code> it’s better for <code>cron</code> to execute a bash script that you’ve written in advance. That way you can just specify <code>bash /path/to/script.sh</code> in the last column of the table.</p>
-<p>Using stars in all columns is the simplest line of a <code>cron</code> table, so let’s look at some examples of more complex table entries:</p>
+<p>Unless we delete the line that we entered in the <code>cron</code> table, the output from
+<code>date</code> will be appended to <code>date-file.txt</code> every minute.</p>
+<p>The single line of bash <code>date &gt;&gt; ~/date-file.txt</code> is a much simpler program than
+we would probably use in a <code>cron</code> table, though it’s good for illustrating how
+a <code>cron</code> table works. If you want to do more complex tasks with <code>cron</code> it’s
+better for <code>cron</code> to execute a bash script that you’ve written in advance. That
+way you can just specify <code>bash /path/to/script.sh</code> in the last column of the
+table.</p>
+<p>Using stars in all columns is the simplest line of a <code>cron</code> table, so let’s
+look at some examples of more complex table entries:</p>
 <pre><code># m h  dom mon dow   command
 00 * * * * bash /path/to/script.sh     # Runs every hour at the start of the hour
 00 12 * * * bash /path/to/script.sh    # Runs every day at noon
@@ -585,8 +767,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 00 00 05 * * bash /path/to/script.sh   # Runs the 5th day of every month at midnight
 00 00 * 07 * bash /path/to/script.sh   # Runs every day in the month of July at midnight
 00 00 * * 2 bash /path/to/script.sh    # Runs every Tuesday at midnight</code></pre>
-<p>Besides numbers and the star there are a few other characters that you can use in <code>cron</code> table columns including a hyphen (<code>-</code>) for specifying ranges and a comma (<code>,</code>) for specifying lists of items. For example <code>00-29</code> in the Minutes column would specify the first thirty minutes of an hour, while <code>1,5</code> in the Day of Week column would specify Monday and Friday.</p>
-<p>Let’s take a look at another example of a <code>cron</code> table that uses hyphens and ranges so you can get a sense of how each character works.</p>
+<p>Besides numbers and the star there are a few other characters that you can use
+in <code>cron</code> table columns including a hyphen (<code>-</code>) for specifying ranges and a
+comma (<code>,</code>) for specifying lists of items. For example <code>00-29</code> in the Minutes
+column would specify the first thirty minutes of an hour, while <code>1,5</code> in the
+Day of Week column would specify Monday and Friday.</p>
+<p>Let’s take a look at another example of a <code>cron</code> table that uses hyphens and
+ranges so you can get a sense of how each character works.</p>
 <pre><code># m h  dom mon dow   command
 00-04 * * * * bash /path/to/script.sh       # Runs every minute for the first five minutes of every hour
 00 00 * * 0,6 bash /path/to/script.sh       # Runs at midnight every Saturday and Sunday
@@ -594,43 +781,60 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 00,30 * * * * bash /path/to/script.sh       # Runs at the start and middle of every hour
 00 00,12 * * * bash /path/to/script.sh      # Runs every day at midnight and noon
 00 * 01-07 01,06 * bash /path/to/script.sh  # Runs at the start of every hour for the first seven days of the months of January and June</code></pre>
-<p>A program that is being run by <code>cron</code> is only as powerful as your imagination can stretch! If you’re familiar with the social network <a href="https://twitter.com/">Twitter</a> then you might have come across some Twitter accounts which create posts automatically like <a href="https://twitter.com/emojiaquarium">Emoji Aquarium</a>, <a href="https://twitter.com/pomological">Old Fruit Pictures</a>, or <a href="https://twitter.com/infinite_scream">Endless Screaming</a>. Many of these “bot” accounts are powered by <code>cron</code>, which uses Twitter’s HTTP API to post tweets regularly.</p>
+<p>A program that is being run by <code>cron</code> is only as powerful as your imagination
+can stretch! If you’re familiar with the social network
+<a href="https://twitter.com/">Twitter</a> then you might have come across some Twitter
+accounts which create posts automatically like
+<a href="https://twitter.com/emojiaquarium">Emoji Aquarium</a>,
+<a href="https://twitter.com/pomological">Old Fruit Pictures</a>, or
+<a href="https://twitter.com/infinite_scream">Endless Screaming</a>. Many of these “bot”
+accounts are powered by <code>cron</code>, which uses Twitter’s HTTP API to post tweets
+regularly.</p>
 </div>
 <div id="summary-25" class="section level3">
 <h3><span class="header-section-number">7.4.4</span> Summary</h3>
 <ul>
-<li><code>scp</code> copies files between a cloud computer and your personal computer. Use the <code>-r</code> flag in order to copy directories.</li>
-<li><code>curl</code> allows you to send HTTP requests to other servers. Use the <code>-O</code> flag to download files with <code>curl</code>.</li>
+<li><code>scp</code> copies files between a cloud computer and your personal computer. Use
+the <code>-r</code> flag in order to copy directories.</li>
+<li><code>curl</code> allows you to send HTTP requests to other servers. Use the <code>-O</code> flag to
+download files with <code>curl</code>.</li>
 <li><code>ps -A</code> lists all of the programs running in the background of your computer.</li>
-<li><code>cron</code> allows you to schedule when programs are run. Use <code>crontab -e</code> in order to edit the <code>cron</code> table.</li>
+<li><code>cron</code> allows you to schedule when programs are run. Use <code>crontab -e</code> in order
+to edit the <code>cron</code> table.</li>
 </ul>
 </div>
 <div id="exercises-21" class="section level3">
 <h3><span class="header-section-number">7.4.5</span> Exercises</h3>
 <ol style="list-style-type: decimal">
-<li>Write a bash script that takes a file path as an argument and copies that file to a designated folder on your server.</li>
-<li>Find a file online that changes periodically, then write a program to download that file every time it changes.</li>
-<li>Try creating your own Twitter or GitHub bot with the <a href="https://dev.twitter.com/rest/public">Twitter API</a> or the <a href="https://developer.github.com/v3/">GitHub API</a>.</li>
+<li>Write a bash script that takes a file path as an argument and copies that
+file to a designated folder on your server.</li>
+<li>Find a file online that changes periodically, then write a program to
+download that file every time it changes.</li>
+<li>Try creating your own Twitter or GitHub bot with the
+<a href="https://dev.twitter.com/rest/public">Twitter API</a> or the
+<a href="https://developer.github.com/v3/">GitHub API</a>.</li>
 </ol>
 </div>
 </div>
 <div id="shutting-down-a-server" class="section level2">
 <h2><span class="header-section-number">7.5</span> Shutting Down a Server</h2>
-<p>In order to avoid using more DigitalOcean credits than we have to or being charged for using the service make sure to <strong>destroy</strong> any DigitalOcean droplets that you started. When you destroy a droplet all files on the droplet are gone forever, so please be sure that you don’t have any important information on a droplet before you destroy it. If there are files you want to save on your droplet use <code>scp</code> in order to copy them to your local machine. Let’s walk through destroying a droplet. Go back to <a href="https://m.do.co/c/530d6cfa2b37">DigitalOcean</a> and log in. You should then see a listing of all of your droplets:</p>
-<div class="figure">
-<img src="images/do-droplets-list.png" />
-
-</div>
-<p>Click on <strong>More</strong> on the right side of the screen and a menu should appear. Click <strong>Destroy</strong> at the bottom of this menu. Then this screen should appear:</p>
-<div class="figure">
-<img src="images/do-destroy-button.png" />
-
-</div>
-<p>Click the <strong>Destroy</strong> button and then click <strong>Confirm</strong> in the menu that pops up. Your droplet should now be destroyed. If you have no active droplets then the main droplets page should look like this:</p>
-<div class="figure">
-<img src="images/do-fresh.png" />
-
-</div>
+<p>In order to avoid using more DigitalOcean credits than we have to or
+being charged for using the service make sure to <strong>destroy</strong> any DigitalOcean
+droplets that you started. When you destroy a droplet all files
+on the droplet are gone forever, so please be sure that you don’t have any
+important information on a droplet before you destroy it. If there are files
+you want to save on your droplet use <code>scp</code> in order to copy them to your local
+machine. Let’s walk through destroying a droplet. Go back to
+<a href="https://m.do.co/c/530d6cfa2b37">DigitalOcean</a> and log in. You should then see
+a listing of all of your droplets:</p>
+<p><img src="images/do-droplets-list.png" /></p>
+<p>Click on <strong>More</strong> on the right side of the screen and a menu should appear.
+Click <strong>Destroy</strong> at the bottom of this menu. Then this screen should appear:</p>
+<p><img src="images/do-destroy-button.png" /></p>
+<p>Click the <strong>Destroy</strong> button and then click <strong>Confirm</strong> in the menu that pops
+up. Your droplet should now be destroyed. If you have no active droplets then
+the main droplets page should look like this:</p>
+<p><img src="images/do-fresh.png" /></p>
 <p>Congratulations on your new cloud computing skills!</p>
 
 </div>
@@ -659,10 +863,11 @@ gitbook.start({
 "facebook": true,
 "twitter": true,
 "google": false,
+"linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -670,6 +875,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
+"link": null,
+"text": null
+},
+"history": {
 "link": null,
 "text": null
 },

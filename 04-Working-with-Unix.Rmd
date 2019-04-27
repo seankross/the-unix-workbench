@@ -418,6 +418,8 @@ strings, the real power of regular expressions come from using
 **metacharacters**. Remember that metacharacters are characters that can be used
 to represent other characters. To take full advantage of all of the metacharacters
 we should use `grep`'s cousin `egrep`, which just extends `grep`'s capabilities.
+If you're using Ubuntu you should use `grep -P` instead of `egrep` for results
+that are consistent with this chapter.
 The first metacharacter we should discuss is the `"."` (period) metacharacter, 
 which represents *any* character. If for example I wanted to search `states.txt` 
 for the character "i", followed by any character, followed by the character "g" 
@@ -603,7 +605,7 @@ egrep "\s" small.txt
 ```
 
 As you can see in the example above, the `\w` metacharacter matches all letters,
-numbers, and even the underscore character (`_`). We can see the compliment of
+numbers, and even the underscore character (`_`). We can see the complement of
 this grep by adding the `-v` flag to the command:
 
 ```{r, engine='bash', eval=FALSE}
@@ -638,7 +640,7 @@ In addition to general character sets we can also create specific character
 sets using square brackets (`[ ]`) and then including the characters we wish to
 match in the square brackets. For example the regular expression for the set
 of vowels is `[aeiou]`. You can also create a regular expression for the
-compliment of a set by including a caret (`^`) in the beginning of a set. For
+complement of a set by including a caret (`^`) in the beginning of a set. For
 example the regular expression `[^aeiou]` matches all characters that are not
 vowels. Let's test both on small.txt:
 
@@ -886,8 +888,8 @@ a table with several of the metacharacters we've discussed in this chapter:
 |       ?       |       Zero or One of Previous        |
 |    &#124;     | Either the Previous or the Following |
 |      {6}      |        Exactly 6 of Previous         |
-|    {4, 6}     |     Between 4 and 6 or Previous      |
-|     {4, }     |       More than 4 of Previous        |
+|    {4, 6}     |     Between 4 and 6 of Previous      |
+|     {4, }     |        4 or more of Previous         |
 
 If you want to experiment with writing regular expressions before you use them
 I highly recommend playing around with http://regexr.com/.
@@ -1031,7 +1033,7 @@ alias edbp='nano ~/.bash_profile'
 
 The first `alias` creates a new command `docs`. Now entering `docs` into the
 command line is the equivalent of entering `cd ~/Documents` into the comamnd
-line. Open let's edit our `~/.bash_profile` with `nano`. If there's anything
+line. Let's edit our `~/.bash_profile` with `nano`. If there's anything
 in your `~/.bash_profile` already then start adding lines at the end of the
 file. Add the line `alias docs='cd ~/Documents'`, then save the file and quit
 `nano`. In order to make the changes to our `~/.bash_profile` take effect we
@@ -1123,7 +1125,7 @@ There are a few commonly used file hashes but we'll talk about two called MD5
 and SHA-1.
 
 Since hashes are generated based on file contents, then two identical files
-should have the same hash. Let's test this my making a copy of `states.txt`.
+should have the same hash. Let's test this by making a copy of `states.txt`.
 
 ```{r, engine='bash', eval=FALSE}
 cp states.txt states_copy.txt
@@ -1236,7 +1238,7 @@ British Columbia
 Notice that this is the same result we would get from `head -n 5 canada.txt`,
 we just used `cat` to illustrate how the pipe works. The general syntax of the
 pipe is 
-`[program that produces output] | [program uses pipe output as input instead of a file]`.
+`[program that produces output] | [program that uses pipe output as input instead of a file]`.
 
 A more common and useful example where we could use the pipe is answering the
 question: "How many US states end in a vowel?" We could use `grep` and regular
@@ -1254,7 +1256,7 @@ grep "[aeiou]$" states.txt | wc -l
 The pipe can also be used multiple times in one command in order to take
 the output from one piped command and use it as the input to yet another program!
 For example we could use three pipes with `ls`, `grep`, and `less` so that we
-could scroll through the files in out current directory were created in February:
+could scroll through the files in our current directory that were created in February:
 
 ```{r, engine='bash', eval=FALSE}
 ls -al | grep "Feb" | less
@@ -1311,7 +1313,7 @@ draft_journal_entry.txt:
   touch draft_journal_entry.txt
 ```
 
-The simple `makefile` above shows illustrates a **rule** which has the
+The simple `makefile` above illustrates a **rule** which has the
 following general format:
 
 ```
@@ -1506,7 +1508,7 @@ clean:
   rm readme.txt
 ```
 
-Let's save and close our `makefile` then let's test it out first let's clean up
+Let's save and close our `makefile` then let's test it out.  First let's clean up
 our repository:
 
 ```{r, engine='bash', eval=FALSE}

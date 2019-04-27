@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>The Unix Workbench</title>
-  <meta name="description" content="The Unix Workbench">
-  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+  <title>Chapter 3 Command Line Basics | The Unix Workbench</title>
+  <meta name="description" content="Chapter 3 Command Line Basics | The Unix Workbench">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="The Unix Workbench" />
+  <meta property="og:title" content="Chapter 3 Command Line Basics | The Unix Workbench" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://github.com/seankross/the-unix-workbench" />
   <meta property="og:image" content="https://github.com/seankross/the-unix-workbenchimages/cover.png" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="seankross/the-unix-workbench" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="The Unix Workbench" />
+  <meta name="twitter:title" content="Chapter 3 Command Line Basics | The Unix Workbench" />
   
   
   <meta name="twitter:image" content="https://github.com/seankross/the-unix-workbenchimages/cover.png" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Sean Kross">
 
 
-<meta name="date" content="2017-11-21">
+<meta name="date" content="2019-01-22">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="working-with-unix.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -47,44 +48,79 @@
 
 
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-47412721-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-47412721-2');
+</script>
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -221,7 +257,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.3.2" data-path="git-and-github.html"><a href="git-and-github.html#exercises-17"><i class="fa fa-check"></i><b>6.3.2</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="git-and-github.html"><a href="git-and-github.html#important-git-features"><i class="fa fa-check"></i><b>6.4</b> Important Git Features</a><ul>
-<li class="chapter" data-level="6.4.1" data-path="git-and-github.html"><a href="git-and-github.html#gitting-help-logs-and-diffs"><i class="fa fa-check"></i><b>6.4.1</b> Gitting Help, Logs, and Diffs</a></li>
+<li class="chapter" data-level="6.4.1" data-path="git-and-github.html"><a href="git-and-github.html#getting-help-logs-and-diffs"><i class="fa fa-check"></i><b>6.4.1</b> Getting Help, Logs, and Diffs</a></li>
 <li class="chapter" data-level="6.4.2" data-path="git-and-github.html"><a href="git-and-github.html#ignoring-files"><i class="fa fa-check"></i><b>6.4.2</b> Ignoring Files</a></li>
 <li class="chapter" data-level="6.4.3" data-path="git-and-github.html"><a href="git-and-github.html#summary-21"><i class="fa fa-check"></i><b>6.4.3</b> Summary</a></li>
 <li class="chapter" data-level="6.4.4" data-path="git-and-github.html"><a href="git-and-github.html#exercises-18"><i class="fa fa-check"></i><b>6.4.4</b> Exercises</a></li>
@@ -286,32 +322,58 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </blockquote>
 <div id="hello-terminal" class="section level2">
 <h2><span class="header-section-number">3.1</span> Hello Terminal!</h2>
-<p>Once you have opened up Terminal then you should see a window that looks something like this:</p>
-<div class="figure">
-<img src="images/shell1.png" />
-
-</div>
-<p>What you’re looking at is the bash shell! Your shell will surely look different than mine, but all bash shells have the same essential parts. As you can see in my shell it says <code>seans-air:~ sean$</code>. This string of characters is called the <strong>prompt</strong>. You type command line commands after the prompt. The prompt is just there to let you know that the shell is ready for you to type in a command. Press <code>Enter</code> on your keyboard a few times to see what happens with the prompt. Your shell should now look like this:</p>
-<div class="figure">
-<img src="images/shell2.png" />
-
-</div>
-<p>If you don’t type anything after the prompt and you press enter then nothing happens and you get a new prompt under the old prompt. The white rectangle after the prompt is just a cursor that allows you to edit what you’ve typed into the shell. Your cursor might look like a rectangle, a line, or an underscore, but all cursors behave the same way. After typing something into the command line you can move the cursor back and forth with the left and right arrow keys, just like you would when typing an email.</p>
-<p>Don’t you think your shell looks messy with all of those old prompts? Don’t worry, you’re about to learn your first shell command which will clear up your shell! Type <code>clear</code> at the prompt and then hit enter. Voila! Your shell is back to how you started.</p>
-<p>Every command line command is actually a little computer program, even commands as simple as <code>clear</code>. These commands all tend to have the following structure:</p>
+<p>Once you have opened up Terminal then you should see a window that
+looks something like this:</p>
+<p><img src="images/shell1.png" /></p>
+<p>What you are looking at is the bash shell! Your shell will surely look different
+than mine, but all bash shells have the same essential parts. As you can see in
+my shell it says <code>seans-air:~ sean$</code>. This string of characters is called the
+<strong>prompt</strong>. You type command line commands after the prompt. The prompt is just
+there to let you know that the shell is ready for you to type in a command.
+Press <code>Enter</code> on your keyboard a few times to see what happens with the prompt.
+Your shell should now look like this:</p>
+<p><img src="images/shell2.png" /></p>
+<p>If you don’t type anything after the prompt and you press <code>Enter</code> then nothing
+happens and you get a new prompt under the old prompt. The white rectangle
+after the prompt is just a cursor that allows you to edit what you have typed
+into the shell. Your cursor might look like a rectangle, a line, or an
+underscore, but all cursors behave the same way. After typing something into
+the command line you can move the cursor back and forth with the left and right
+arrow keys, just like you would when typing an email.</p>
+<p>Now that we have pressed <code>Enter</code> several times our shell looks messy with all of
+those old prompts! Do not worry, you are about to learn your first shell command
+which will clear all of those old prompts from your shell. Type <code>clear</code> at the
+prompt and then hit <code>Enter</code>. Voila! Your shell now only has the current prompt,
+just like when you first opened the terminal.</p>
+<p>Every command line command is actually a little computer program, even commands
+as simple as <code>clear</code>. These commands all tend to have the following structure:</p>
 <pre><code>[command] [options] [arguments]</code></pre>
-<p>Some simple commands like <code>clear</code> don’t require any options or arguments. Options are usually preceded by a hyphen (<code>-</code>) and they tweak the behavior of the command. Arguments can be names of files, raw data, or other options that the command requires. A simple command that has an argument is <code>echo</code>. The <code>echo</code> command prints a phrase to the console. Enter <code>echo 'Hello World!'</code> into the command line to see what happens:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="st">&#39;Hello World!&#39;</span></code></pre></div>
+<p>Some simple commands like <code>clear</code> do not require any options or arguments.
+Options are usually preceded by a hyphen (<code>-</code>) and they tweak the behavior
+of the command. Arguments can be names of files, raw data, or other options
+that the command requires. A simple command that has an argument is <code>echo</code>.
+The <code>echo</code> command prints a phrase to the console. Enter <code>echo 'Hello World!'</code>
+into the command line to see what happens:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="st">&#39;Hello World!&#39;</span></code></pre>
 <pre><code>## Hello World!</code></pre>
-<p>We’ll be using the above syntax for the rest of the book, where on one line there will be a command that I’ve entered into the command line, and then below that command the console output of the command will appear (if there is any console output). You can use <code>echo</code> to print any phrase surrounded by single quotes (<code>''</code>) to the console.</p>
-<p>If you want to see the last command press the <code>Up</code> arrow key. You can press <code>Up</code> and <code>Down</code> in order to scroll through the history of commands that you’ve entered. If you want to re-execute a past command, you can scroll to that command then press <code>Enter</code>. Try getting back to the <code>echo 'Hello World!'</code> command and execute it again.</p>
+<p>We will be using the above syntax for the rest of the book, where on one line there
+will be a command that I have entered into the command line, and then below that
+command the console output of the command will appear (if there is any
+console output). You can use <code>echo</code> to print any phrase surrounded by single
+quotes (<code>''</code>) to the console.</p>
+<p>If you want to see the last command press the <code>Up</code> arrow key. You can press
+<code>Up</code> and <code>Down</code> in order to scroll through the history of commands that you’ve
+entered. If you want to re-execute a past command, you can scroll to that
+command then press <code>Enter</code>. Try getting back to the <code>echo 'Hello World!'</code>
+command and execute it again.</p>
 <div id="summary" class="section level3">
 <h3><span class="header-section-number">3.1.1</span> Summary</h3>
 <ul>
 <li>You type command line commands after the prompt.</li>
 <li><code>clear</code> will clean up your terminal.</li>
 <li><code>echo</code> prints text to your terminal.</li>
-<li>You can scroll through your command history with the <code>Up</code> and <code>Down</code> arrow keys.</li>
+<li>You can scroll through your command history with the <code>Up</code> and <code>Down</code> arrow
+keys.</li>
 </ul>
 </div>
 <div id="exercises" class="section level3">
@@ -324,79 +386,128 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="navigating-the-command-line" class="section level2">
 <h2><span class="header-section-number">3.2</span> Navigating the Command Line</h2>
-<p>You’ve learned two command line commands (<code>clear</code> and <code>echo</code>) which is pretty good! Before you learn more commands we need to discuss how files and folders are organized on your computer.</p>
-<p>Computers are organized in a hierarchy of folders, where a folder can contain many folders and files. People who use Unix often refer to folders as directories and these terms are interchangeable. This directory hierarchy forms a tree, like the diagram below. You can use the command line to navigate these trees on your computer.</p>
-<div class="figure">
-<img src="images/musictree1.png" />
-
-</div>
-<p>As you can see in the image below, my Debussy directory is contained in my Music directory. This is the simplest case of how directories are structured.</p>
-<div class="figure">
-<img src="images/musictree2.png" />
-
-</div>
-<p>The directory structure on most computers is much more complicated, but the structure on your computer probably looks something like this:</p>
-<div class="figure">
-<img src="images/bigtree1.png" />
-
-</div>
-<p>There are a few special directories that you should be aware of on your computer. The directory at the top of this tree is called the root directory. The root directory contains all other directories, and is represented by a slash (<code>/</code>).</p>
-<p>The home directory is another special directory that is represented by a tilde (<code>~</code>). Your home directory contains your personal files, like your photos, documents, and the contents of your desktop. When you first open up your shell you usually start off in your home directory. Imagine tracing all of the directories from your root directory to the directory you’re currently in. This sequence of directories is called a <strong>path</strong>. The diagram below illustrates the path from a hypothetical root directory to the home directory.</p>
-<div class="figure">
-<img src="images/redtree.png" />
-
-</div>
-<p>This path can be written as <code>/Users/sean</code>.</p>
-<p>Open the command line if you closed it. Your shell starts in your home directory. Whatever directory your shell is in is called the <strong>working directory</strong>. Enter the <code>pwd</code> command into your shell to <strong>p</strong>rint the <strong>w</strong>orking <strong>d</strong>irectory.</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">pwd</span></code></pre></div>
+<p>You have learned two command line commands (<code>clear</code> and <code>echo</code>) which is pretty
+good! Before you learn more commands we need to discuss how files and folders
+are organized on your computer.</p>
+<p>Computers are organized in a hierarchy of folders, where a folder can contain
+many folders and files. People who use Unix often refer to folders as
+directories and these terms are interchangeable. This directory hierarchy forms
+a tree, like the diagram below. You can use the command line to navigate these
+trees on your computer.</p>
+<p><img src="images/musictree1.png" /></p>
+<p>As you can see in the image below, my Debussy directory is contained in my Music
+directory. This is the simplest case of how directories are structured.</p>
+<p><img src="images/musictree2.png" /></p>
+<p>The directory structure on most computers is much more complicated, but the
+structure on your computer probably looks something like this:</p>
+<p><img src="images/ft1.png" /></p>
+<p>There are a few special directories that you should be aware of on your
+computer. The directory at the top of this tree is called the root directory.
+The root directory contains all other directories, and is represented by a
+slash (<code>/</code>). The home directory is another special directory which contains your
+personal files, like your photos, documents, and the contents of your desktop.
+The tilde (<code>~</code>) represents a shorthand for your home directory.</p>
+<p>Imagine tracing all of the directories from your root directory to the
+directory you are currently viewing. This sequence of directories is called a
+<strong>path</strong>. The diagram below illustrates the path from the root
+directory to a directory called <em>sean</em>. This directory happens to be my home
+directory.</p>
+<p><img src="images/ft2.png" /></p>
+<p>This path can be written as <code>/Users/sean</code>. Since this is my home directory, We
+can also use <code>~</code> as a shorter way to refer to the same path. We will see this
+demonstrated soon.</p>
+<p>Open the command line if you closed it. Your shell is always in a directory,
+and the directory that your shell starts in your home directory. Whatever
+directory your shell is in is called the <strong>working directory</strong>. Enter the <code>pwd</code> command into your shell to <strong>p</strong>rint the <strong>w</strong>orking <strong>d</strong>irectory.</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">pwd</span></code></pre>
 <pre><code>## /Users/sean</code></pre>
-<p>You can change your working directory using the <code>cd</code> command. If you use the <code>cd</code> command without any arguments then your working directory is changed to your home directory.</p>
+<p>You can change your working directory using the <code>cd</code> command. If you use the
+<code>cd</code> command without any arguments then your working directory is changed
+to your home directory.</p>
 <p>Enter <code>cd</code> into the command line and then enter <code>pwd</code>.</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span>
-<span class="bu">pwd</span></code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span>
+<span class="bu">pwd</span></code></pre>
 <pre><code>## /Users/sean</code></pre>
-<p>You were in your working directory to start, and by entering <code>cd</code> into the command line you did technically <strong>c</strong>hange <strong>d</strong>irectory, you just changed it to your home directory (the directory you were in to begin with). To use <code>cd</code> to change your working directory to a directory other than your home directory, you need to provide <code>cd</code> with the path to another directory as an argument. You can specify a path as either a path that is <strong>relative</strong> to your current directory, or you can specify the <strong>absolute</strong> path to a directory starting from the root of your computer. Let’s say we simply want to change the working directory to one of the folders that is inside our home directory. First we need to be able to see which folders are in our working directory. You can list the files and folders in a directory using the <code>ls</code> command. Let’s use the <code>ls</code> command in our home directory to list the files and folders contained within it.</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span></code></pre></div>
+<p>You were in your working directory to start, and by entering <code>cd</code> into the
+command line you did technically <strong>c</strong>hange <strong>d</strong>irectory, you just changed it
+to your home directory (the directory you were in to begin with). To use <code>cd</code> to
+change your working directory to a directory other than your home directory, you
+need to provide <code>cd</code> with the path to another directory as an argument. You can
+specify a path as either a path that is <strong>relative</strong> to your current directory,
+or you can specify the <strong>absolute</strong> path to a directory starting from the root
+of your computer. Let’s say we simply want to change the working directory to
+one of the folders that is inside our home directory. First we need to be able to
+see which folders are in our working directory. You can list the files and
+folders in a directory using the <code>ls</code> command. Let’s use the <code>ls</code> command in our
+home directory to list the files and folders contained within it.</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span></code></pre>
 <pre><code>## Desktop
 ## Documents
 ## Photos
 ## Music
 ## todo.txt</code></pre>
-<p>It looks like I have four folders and one text file in my home directory. Now let’s switch into the Music directory:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span> Music</code></pre></div>
+<p>It looks like I have four folders and one text file in my home directory. Now
+let’s switch into the Music directory:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span> Music</code></pre>
 <p>As you can see the path to the current working directory has changed:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">pwd</span></code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">pwd</span></code></pre>
 <pre><code>## /Users/sean/Music</code></pre>
-<p>I specified a <strong>relative</strong> path when I entered <code>cd Music</code>. The path to the Music directory is just <code>Music/</code> relative to my previous working directory. I can go back to <code>/Users/sean/</code> with the command <code>cd ..</code> which changes the working directory to the folder above the current working directory:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span> ..
-<span class="bu">pwd</span></code></pre></div>
+<p>I specified a <strong>relative</strong> path when I entered <code>cd Music</code>. The path to the
+Music directory is just <code>Music/</code> relative to my previous working directory.
+I can go back to <code>/Users/sean/</code> with the command <code>cd ..</code> which changes the
+working directory to the folder above the current working directory:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span> ..
+<span class="bu">pwd</span></code></pre>
 <pre><code>## /Users/sean</code></pre>
-<p>Notice that <code>..</code> is also a relative path, since it specifies the directory above your current working directory. Similarly <code>.</code> is the path to your current working directory. Therefore since my current working directory is <code>/Users/sean</code> then <code>cd Music</code> is the same as <code>cd ./Music</code>.</p>
-<p>I can <code>cd</code> to any folder as long as I know the <strong>absolute</strong> path to that folder. For example I can <code>cd</code> to <code>/Users/sean/Music</code> by entering the following into the shell:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span> ~/Music
-<span class="bu">pwd</span></code></pre></div>
+<p>Notice that <code>..</code> is also a relative path, since it specifies the directory above
+your current working directory. Similarly <code>.</code> is the path to your current
+working directory. Therefore since my current working directory is <code>/Users/sean</code>
+then <code>cd Music</code> is the same as <code>cd ./Music</code>.</p>
+<p>I can <code>cd</code> to any folder as long as I know the <strong>absolute</strong> path to that folder.
+For example I can <code>cd</code> to <code>/Users/sean/Music</code> by entering the following into
+the shell:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span> ~/Music
+<span class="bu">pwd</span></code></pre>
 <pre><code>## /Users/sean/Music</code></pre>
-<p>It doesn’t matter what directory I’m in since I’m using an absolute path, I can jump straight to that directory (Remember that <code>~</code> is a shortcut for the path to your home folder). Of course you shouldn’t expect yourself to have every absolute path on your computer memorized! You can use a terminal feature called <strong>tab completion</strong> in order to speed up typing paths and other commands. Enter the following into your shell, and then try pressing the <code>Tab</code> key (on some machines you need to press it twice):</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span> ~/</code></pre></div>
+<p>It does not matter what directory the shell is in since we are using an
+absolute path. Therefore we can jump straight to a directory as long as we specify
+the absolute path. Notice above that we used <code>~</code> as shortcut for <code>/Users/sean/</code>.</p>
+<p>Of course you should not expect yourself to have every
+absolute path on your computer memorized! You can use a terminal feature called
+<strong>tab completion</strong> in order to speed up typing paths and other commands. Enter
+the following into your shell, and then try pressing the <code>Tab</code> key (on some
+machines you need to press it twice):</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span> ~/</code></pre>
 <p>(press <code>Tab</code>)</p>
 <pre><code>## Desktop
 ## Documents
 ## Photos
 ## Music
 ## todo.txt</code></pre>
-<p>Pressing tab shows you a list of all files and folders inside of the <code>~/</code> directory. Now I’m going to type <code>~/D</code> into my terminal and you can see what happens when I press tab again:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span> ~/D</code></pre></div>
+<p>Pressing tab shows you a list of all files and folders inside of the <code>~/</code>
+directory. Now I’m going to type <code>~/D</code> into my terminal and you can see what
+happens when I press <code>Tab</code> again:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span> ~/D</code></pre>
 <p>(press <code>Tab</code>)</p>
 <pre><code>## Desktop
 ## Documents</code></pre>
-<p>Since I added a “D” to the path, only folders with names that start with a “D” are listed. If I type <code>cd ~/De</code> into the console and then press <code>Tab</code> then the command will autocomplete to <code>cd ~/Desktop/</code>. If I press tab again, the console will list all of the files and folders on my desktop.</p>
-<p>Make sure to pause and try this yourself in your own terminal! You won’t have the same files or folders that I do, but you should try using <code>cd</code> and tab completion with directories and files that start with the same letters.</p>
+<p>Since I added a “D” to the path, only folders with names that start with a “D”
+are listed. If I type <code>cd ~/De</code> into the console and then press <code>Tab</code> then the
+command will autocomplete to <code>cd ~/Desktop/</code>. If I press <code>Tab</code> again, the console
+will list all of the files and folders on my desktop.</p>
+<p>Make sure to pause and try this yourself in your own terminal! You will not have
+the same files or folders that I do, but you should try using <code>cd</code> and tab
+completion with directories and files that start with the same letters.</p>
 <div id="summary-1" class="section level3">
 <h3><span class="header-section-number">3.2.1</span> Summary</h3>
 <ul>
 <li>You can identify a specific file or folder by its path.</li>
-<li>The root directory (<code>/</code>) contains all of the folders and files on your computer.</li>
+<li>The root directory (<code>/</code>) contains all of the folders and files on your
+computer.</li>
 <li>Your home directory (<code>~</code>) is the directory where your terminal always starts.</li>
+<li>Your terminal is always inside of a working directory.</li>
+<li>When you open your terminal your working directory will be set to the home
+directory.</li>
 <li>Use the <code>cd</code> command to <strong>c</strong>hange your working <strong>d</strong>irectory.</li>
 <li>The <code>pwd</code> command will <strong>p</strong>rint the <strong>w</strong>orking <strong>d</strong>irectory.</li>
 <li>The <code>ls</code> command will <strong>l</strong>i<strong>s</strong>t files and folders in a directory.</li>
@@ -406,35 +517,49 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h3><span class="header-section-number">3.2.2</span> Exercises</h3>
 <ol style="list-style-type: decimal">
 <li>Set your working directory to the root directory.</li>
-<li>Set your working directory to your home directory using three different commands.</li>
-<li>Find a folder on your computer using your file and folder browser, and then set your working directory to that folder using the terminal.</li>
+<li>Set your working directory to your home directory using three different
+commands.</li>
+<li>Find a folder on your computer using your file and folder browser, and then
+set your working directory to that folder using the terminal.</li>
 <li>List all of the files and folders in the directory you navigated to in #3.</li>
 </ol>
 </div>
 </div>
 <div id="creation-and-inspection" class="section level2">
 <h2><span class="header-section-number">3.3</span> Creation and Inspection</h2>
-<p>Now that you can fluidly use your terminal to bound between directories all over your computer I’ll show you some actions you can perform on folders and files. One of the first actions you’ll probably want to take when opening up a fresh terminal is to create a new folder or file. You can <strong>m</strong>a<strong>k</strong>e a <strong>dir</strong>ectory with the <code>mkdir</code> command, followed by the path to the new directory. First let’s look at the contents of my home directory:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span>
-<span class="fu">ls</span></code></pre></div>
+<p>Now that you can fluidly use your terminal to bound between directories all
+over your computer, it is time to learn some actions you can perform on folders and
+files. One of the first actions you will probably want to take when opening up a
+fresh terminal is to create a new folder or file. You can <strong>m</strong>a<strong>k</strong>e a
+<strong>dir</strong>ectory with the <code>mkdir</code> command, followed by the path to the new
+directory. First let’s look at the contents of my home directory:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span>
+<span class="fu">ls</span></code></pre>
 <pre><code>## Desktop
 ## Documents
 ## Photos
 ## Music
 ## todo.txt</code></pre>
-<p>I want to create a new directory to store some code files I’m going to write later, so I’ll use <code>mkdir</code> to create a new directory called <code>Code</code>:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">mkdir</span> Code
-<span class="fu">ls</span></code></pre></div>
+<p>Let’s create a new directory to store some code files we am going to write
+later. We can use <code>mkdir</code> to create a new directory called <code>Code</code>:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">mkdir</span> Code
+<span class="fu">ls</span></code></pre>
 <pre><code>## Desktop
 ## Documents
 ## Photos
 ## Music
 ## todo.txt
 ## Code</code></pre>
-<p>It worked! Notice that the argument <code>Code</code> to <code>mkdir</code> is a relative path, however I could have specified an absolute path. In general you should expect Unix tools that take paths as arguments to accept both relative and absolute paths.</p>
-<p>There are a few different ways to create a new file on the command line. The most simple way to create a blank file is to use the <code>touch</code> command, followed by the path to the file you want to create. In this example I’m going to create a new journal entry using touch:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">touch</span> journal-2017-01-24.txt
-<span class="fu">ls</span></code></pre></div>
+<p>It worked! Notice that the argument <code>Code</code> to the command <code>mkdir</code> is a relative
+path, however we could have specified an absolute path. In general you should
+expect Unix tools that take paths as arguments to accept both relative and
+absolute paths.</p>
+<p>There are a few different ways to create a new file on the command line. The
+most simple way to create a blank file is to use the <code>touch</code> command, followed
+by the path to the file you want to create. In this example we are going to create
+a new journal entry using <code>touch</code>:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">touch</span> journal-2017-01-24.txt
+<span class="fu">ls</span></code></pre>
 <pre><code>## Desktop
 ## Documents
 ## Photos
@@ -442,8 +567,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## todo.txt
 ## Code
 ## journal-2017-01-24.txt</code></pre>
-<p>A new file has been created! I’ve been using <code>ls</code> to list the files and folders in the current directory, but using <code>ls</code> alone doesn’t differentiate between which of the listed items are folders and which are files. Thankfully you can use the <code>-l</code> option with <code>ls</code> in order to get a <strong>l</strong>ong listing of files in a directory.</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span> -l</code></pre></div>
+<p>A new file has been created! We have been using <code>ls</code> to list the files and folders
+in the current directory, but using <code>ls</code> alone does not differentiate between
+which of the listed items are folders and which are files. Thankfully you can
+use the <code>-l</code> option with <code>ls</code> in order to get a <strong>l</strong>ong listing of files in
+a directory.</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span> -l</code></pre>
 <pre><code>## drwxr-xr-x  2 sean  staff  68 Jan 24 12:31 Code
 ## drwxr-xr-x  2 sean  staff  94 Jan 20 12:44 Desktop
 ## drwxr-xr-x  2 sean  staff  24 Jan 20 12:44 Documents
@@ -451,17 +580,32 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## drwxr-xr-x  2 sean  staff  68 Jan 20 12:35 Photos
 ## -rw-r--r--  1 sean  staff  90 Jan 24 11:33 journal-2017-01-24.txt
 ## -rw-r--r--  1 sean  staff  70 Jan 24 10:58 todo.txt</code></pre>
-<p>There is a row in the resulting table for each file or folder. If the entry in the first column is a <code>d</code>, then the row in the table corresponds to a <strong>d</strong>irectory, otherwise the information in the row corresponds to a file. As you can see in my home directory there are five directories and two files. The string of characters following the <code>d</code> in the case of a directory or following the first <code>-</code> in the case of a file represent the permissions for that file or directory. We’ll cover permissions in a later section. The columns of this table also show who created the file, the group that the creator of the file belongs to (we’ll cover groups later when we cover permissions), the size of the file, the time and date when the file was last modified, and then finally the name of the file.</p>
-<p>Now that we’ve created a file there are a few different ways that we can inspect and edit this file. First let’s use the <code>wc</code> command to view the <strong>w</strong>ord <strong>c</strong>ount and other information about the file:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">wc</span> todo.txt</code></pre></div>
+<p>There is a row in the resulting table for each file or folder. If the entry in the
+first column is a <code>d</code>, then the row in the table corresponds to a <strong>d</strong>irectory,
+otherwise the information in the row corresponds to a file. As you can see in my
+home directory there are five directories and two files. The string of
+characters following the <code>d</code> in the case of a directory or following the first
+<code>-</code> in the case of a file represent the permissions for that file or directory.
+We will cover permissions in a later section. The columns of this table also show
+who created the file, the group that the creator of the file belongs to (we will
+cover groups later when we cover permissions), the size of the file, the time
+and date when the file was last modified, and then finally the name of the file.</p>
+<p>Now that we have created a file there are a few different ways that we can inspect
+and edit this file. First let’s use the <code>wc</code> command to view the <strong>w</strong>ord
+<strong>c</strong>ount and other information about the file:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">wc</span> todo.txt</code></pre>
 <pre><code>##       3      14      70 todo.txt</code></pre>
-<p>The <code>wc</code> command displays the number of lines in a file followed by the number of words and then the number of characters. Since this file looks pretty small (only three lines) let’s try printing it to the console using the <code>cat</code> command.</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">cat</span> todo.txt</code></pre></div>
+<p>The <code>wc</code> command displays the number of lines in a file followed by the number
+of words and then the number of characters. Since this file looks pretty small
+(only three lines) let’s try printing it to the console using the <code>cat</code> command.</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">cat</span> todo.txt</code></pre>
 <pre><code>## - email Jeff
 ## - write letter to Aunt Marie
 ## - get groceries for Shabbat</code></pre>
-<p>The <code>cat</code> command is often used to print text files to the terminal, despite the fact that it’s really meant to con<strong>cat</strong>enate files. You can see this concatenation in action in the following example:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">cat</span> todo.txt todo.txt</code></pre></div>
+<p>The <code>cat</code> command is often used to print text files to the terminal, despite
+the fact that it is really meant to con<strong>cat</strong>enate files. You can see this
+concatenation in action in the following example:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">cat</span> todo.txt todo.txt</code></pre>
 <pre><code>## - email Jeff
 ## - write letter to Aunt Marie
 ## - get groceries for Shabbat
@@ -469,14 +613,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## - write letter to Aunt Marie
 ## - get groceries for Shabbat</code></pre>
 <p>The <code>cat</code> command will combine every text file that is provided as an argument.</p>
-<p>Let’s take a look at how we could view a larger file. There’s a file inside the Documents directory:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span> Documents</code></pre></div>
+<p>Let’s take a look at how we could view a larger file. There is a file inside
+the Documents directory:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span> Documents</code></pre>
 <pre><code>## a-tale-of-two-cities.txt</code></pre>
-<p>Let’s examine this file to see if it’s reasonable to read it with <code>cat</code>:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">wc</span> Documents/a-tale-of-two-cities.txt</code></pre></div>
+<p>Let’s examine this file to see if it is reasonable to read it with <code>cat</code>:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">wc</span> Documents/a-tale-of-two-cities.txt</code></pre>
 <pre><code>##      17    1005    5799 Documents/a-tale-of-two-cities.txt</code></pre>
-<p>Wow, over 1000 words! If we use <code>cat</code> on this file it’s liable to take up our entire terminal. Instead of using <code>cat</code> for this large file we should use <code>less</code>, which is a program designed for viewing multi-page files. Let’s try using <code>less</code>:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">less</span> Documents/a-tale-of-two-cities.txt</code></pre></div>
+<p>Wow, over 1000 words! If we use <code>cat</code> on this file it is liable to take up our
+entire terminal. Instead of using <code>cat</code> for this large file we should use
+<code>less</code>, which is a program designed for viewing multi-page files. Let’s try
+using <code>less</code>:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">less</span> Documents/a-tale-of-two-cities.txt</code></pre>
 <pre><code>I. The Period
 
 It was the best of times,
@@ -491,10 +639,17 @@ it was the spring of hope,
 it was the winter of despair,
 we had everything before us, we had nothing before us, we were all going direct
 Documents/a-tale-of-two-cities.txt</code></pre>
-<p>You can scroll up and down the file line-by-line using the up and down arrow keys, and if you want to scroll faster you can use the <code>spacebar</code> to go to the next page and the <code>b</code> key to go to the previous page. In order to quit <code>less</code> and go back to the prompt press the <code>q</code> key.</p>
-<p>As you can see the <code>less</code> program is a kind of Unix tool with behavior that we haven’t seen before because it “takes over” your terminal. There are a few programs like this that we’ll discuss throughout this book.</p>
-<p>There are also two easy to remember programs for glimpsing the beginning or end of a text file: <code>head</code> and <code>tail</code>. Let’s quickly use <code>head</code> and <code>tail</code> on <code>a-tale-of-two-cities.txt</code>:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">head</span> Documents/a-tale-of-two-cities.txt</code></pre></div>
+<p>You can scroll up and down the file line-by-line using the up and down arrow
+keys, and if you want to scroll faster you can use the <code>spacebar</code> to go to the
+next page and the <code>b</code> key to go to the previous page. In order to quit <code>less</code>
+and go back to the prompt press the <code>q</code> key.</p>
+<p>As you can see the <code>less</code> program is a kind of Unix tool with behavior that we
+have not seen before because it “takes over” your terminal. There are a few
+programs like this that we will discuss throughout this book.</p>
+<p>There are also two easy to remember programs for glimpsing the beginning or end
+of a text file: <code>head</code> and <code>tail</code>. Let’s quickly use <code>head</code> and <code>tail</code> on
+<code>a-tale-of-two-cities.txt</code>:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">head</span> Documents/a-tale-of-two-cities.txt</code></pre>
 <pre><code>## I. The Period
 ## 
 ## It was the best of times,
@@ -505,14 +660,16 @@ Documents/a-tale-of-two-cities.txt</code></pre>
 ## it was the epoch of incredulity,
 ## it was the season of Light,
 ## it was the season of Darkness,</code></pre>
-<p>As you can see <code>head</code> prints the first ten lines of the file to the terminal. You can specify the number of lines printed with the <code>-n</code> option followed by the number of lines you’d like to see:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">head</span> -n 4 Documents/a-tale-of-two-cities.txt</code></pre></div>
+<p>As you can see <code>head</code> prints the first ten lines of the file to the terminal.
+You can specify the number of lines printed with the <code>-n</code> option followed by
+the number of lines you would like to see:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">head</span> -n 4 Documents/a-tale-of-two-cities.txt</code></pre>
 <pre><code>## I. The Period
 ## 
 ## It was the best of times,
 ## it was the worst of times,</code></pre>
 <p>The <code>tail</code> program works exactly the same way:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">tail</span> Documents/a-tale-of-two-cities.txt</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">tail</span> Documents/a-tale-of-two-cities.txt</code></pre>
 <pre><code>of an atrocious murderer, and to-morrow of a wretched pilferer who had robbed a
 farmer’s boy of sixpence.
 All these things, and a thousand like them, came to pass in and close upon the
@@ -523,12 +680,21 @@ and carried their divine rights with a high hand. Thus did the year one
 thousand seven hundred and seventy-five conduct their Greatnesses, and myriads
 of small creatures—the creatures of this chronicle among the rest—along the
 roads that lay before them.</code></pre>
-<p>We’ve now gone over a few tools for inspecting files, folders, and their contents including <code>ls</code>, <code>wc</code>, <code>cat</code>, <code>less</code>, <code>head</code>, and <code>tail</code>. Before the end of this section we should discuss a few more techniques for creating and also editing files. One easy way to create a file is using <strong>output redirection</strong>. Output redirection stores text that would be normally printed to the command line in a text file. You can use output redirection by typing the greater-than sign (<code>&gt;</code>) at the end of a command followed by the name of the new file that will contain the output from the proceeding command. Let’s try an example using <code>echo</code>:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="st">&quot;I&#39;m in the terminal.&quot;</span></code></pre></div>
+<p>We have now gone over a few tools for inspecting files, folders, and their
+contents including <code>ls</code>, <code>wc</code>, <code>cat</code>, <code>less</code>, <code>head</code>, and <code>tail</code>. Before the
+end of this section
+we should discuss a few more techniques for creating and also editing files. One
+easy way to create a file is using <strong>output redirection</strong>. Output redirection
+stores text that would be normally printed to the command line in a text file.
+You can use output redirection by typing the greater-than sign (<code>&gt;</code>) at the end
+of a command followed by the name of the new file that will contain the output
+from the proceeding command. Let’s try an example using <code>echo</code>:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="st">&quot;I&#39;m in the terminal.&quot;</span></code></pre>
 <pre><code>## I&#39;m in the terminal.</code></pre>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="st">&quot;I&#39;m in the file.&quot;</span> <span class="op">&gt;</span> echo-out.txt</code></pre></div>
-<p>Only the first command printed output to the terminal. Let’s see if the second command worked:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span></code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="st">&quot;I&#39;m in the file.&quot;</span> <span class="op">&gt;</span> echo-out.txt</code></pre>
+<p>Only the first command printed output to the terminal. Let’s see if the second
+command worked:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span></code></pre>
 <pre><code>## Desktop
 ## Documents
 ## Photos
@@ -537,20 +703,39 @@ roads that lay before them.</code></pre>
 ## Code
 ## journal-2017-01-24.txt
 ## echo-out.txt</code></pre>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">cat</span> echo-out.txt</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">cat</span> echo-out.txt</code></pre>
 <pre><code>## I&#39;m in the file.</code></pre>
-<p>Looks like it worked! You can also <strong>append</strong> text to the end of a file using two greater-than signs (<code>&gt;&gt;</code>). Let’s try this feature out:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="st">&quot;I have been appended.&quot;</span> <span class="op">&gt;&gt;</span> echo-out.txt
-<span class="fu">cat</span> echo-out.txt</code></pre></div>
+<p>It worked! You can also <strong>append</strong> text to the end of a file using
+two greater-than signs (<code>&gt;&gt;</code>). Let’s try this feature out:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="st">&quot;I have been appended.&quot;</span> <span class="op">&gt;&gt;</span> echo-out.txt
+<span class="fu">cat</span> echo-out.txt</code></pre>
 <pre><code>## I&#39;m in the file.
 ## I have been appended.</code></pre>
-<p>Now for a <strong>word of warning</strong>. Imagine that I want to append another line to the end of <code>echo-out.txt</code>, so typed <code>echo &quot;A third line.&quot; &gt; echo-out.txt</code> into the terminal when really I meant to type <code>echo &quot;A third line.&quot; &gt;&gt; echo-out.txt</code> (notice I used <code>&gt;</code> when I meant to use <code>&gt;&gt;</code>). Let’s see what happens:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="st">&quot;A third line.&quot;</span> <span class="op">&gt;</span> echo-out.txt
-<span class="fu">cat</span> echo-out.txt</code></pre></div>
+<p>Now for a <strong>word of warning</strong>. Imagine that I want to append another line to
+the end of <code>echo-out.txt</code>, so typed <code>echo &quot;A third line.&quot; &gt; echo-out.txt</code> into
+the terminal when really I meant to type <code>echo &quot;A third line.&quot; &gt;&gt; echo-out.txt</code>
+(notice I used <code>&gt;</code> when I meant to use <code>&gt;&gt;</code>). Let’s see what happens:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="st">&quot;A third line.&quot;</span> <span class="op">&gt;</span> echo-out.txt
+<span class="fu">cat</span> echo-out.txt</code></pre>
 <pre><code>## A third line.</code></pre>
-<p>Unfortunately I have unintentionally overwritten what was already contained in <code>echo-out.txt</code>. There’s no undo button in Unix so I’ll have to live with this mistake. This is the first of several lessons demonstrating the damage that you should try to avoid inflicting with Unix. Make sure to take extra care when executing commands that can modify or delete a file, a typo in the command can be potentially devastating. Thankfully there are a few strategies for protecting yourself from mistakes, including managing permissions for files, and tracking versions of your files with Git, which we will discuss thoroughly in a later chapter.</p>
-<p>Finally we should discuss how to edit text files. There are several file editors that are available for your terminal including <a href="https://en.wikipedia.org/wiki/Vim_(text_editor)"><code>vim</code></a> and <a href="https://en.wikipedia.org/wiki/Emacs"><code>emacs</code></a>. Entire books have been written about how to use both of these text editors, and if you’re interested in one of them you should look for resources online about how to use them. The one text editor we will discuss using is called <code>nano</code>. Just like <code>less</code>, <code>nano</code> uses your entire terminal window. Let’s edit <code>todo.txt</code> using <code>nano</code>:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">nano</span> todo.txt</code></pre></div>
+<p>Unfortunately we have unintentionally overwritten what was already contained in
+<code>echo-out.txt</code>. There is no undo button in Unix so we will have to live with this
+mistake. This is the first of several lessons demonstrating the damage that you
+should try to avoid inflicting with Unix. Make sure to take extra care when
+executing commands that can modify or delete a file, a typo in the command can
+be potentially devastating. Thankfully there are a few strategies for protecting
+yourself from mistakes, including managing permissions for files, and tracking
+versions of your files with Git, which we will discuss thoroughly in a later
+chapter.</p>
+<p>Finally we should discuss how to edit text files. There are several file editors
+that are available for your terminal including
+<a href="https://en.wikipedia.org/wiki/Vim_(text_editor)"><code>vim</code></a>
+and <a href="https://en.wikipedia.org/wiki/Emacs"><code>emacs</code></a>. Entire books have been
+written about how to use both of these text editors, and if you are interested
+in one of them you should look for resources online about how to use them. The
+one text editor we will discuss using is called <code>nano</code>. Just like <code>less</code>, <code>nano</code>
+uses your entire terminal window. Let’s edit <code>todo.txt</code> using <code>nano</code>:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">nano</span> todo.txt</code></pre>
 <pre><code>  GNU nano 2.0.6                File: todo.txt
 
 - email Jeff
@@ -561,8 +746,17 @@ roads that lay before them.</code></pre>
 
 ^G Get Help   ^O WriteOut   ^R Read File  ^Y Prev Page  ^K Cut Text   ^C Cur Pos
 ^X Exit       ^J Justify    ^W Where Is   ^V Next Page  ^U UnCut Text ^T To Spell</code></pre>
-<p>Once you’ve started <code>nano</code> you can start editing the text file. The top line of the <code>nano</code> editor shows the file you’re currently working on, and the bottom two lines show a few commands that you can use in <code>nano</code>. The caret character (<code>^</code>) represents the <code>Control</code> key on your keyboard, so you can for example type <code>Control</code> + <code>O</code> in order to save the changes you’ve made to the text file, or <code>Control</code> + <code>X</code> in order to exit <code>nano</code> and go back to the prompt.</p>
-<p><code>nano</code> is a good editor for beginners because it works similarly to word processors you’ve used before. You can use the arrow keys in order to move your cursor around the file, and the rest of the keys on your keyboard work as expected. Let’s add an item to my to-do list and then I’ll save and exit <code>nano</code> by typing <code>Control</code> + <code>O</code> followed by <code>Control</code> + <code>X</code>.</p>
+<p>Once you have started <code>nano</code> you can start editing the text file. The top line of
+the <code>nano</code> editor shows the file you are currently working on, and the bottom two
+lines show a few commands that you can use in <code>nano</code>. The caret character (<code>^</code>)
+represents the <code>Control</code> key on your keyboard, so you can for example type
+<code>Control</code> + <code>O</code> in order to save the changes you have made to the text file, or
+<code>Control</code> + <code>X</code> in order to exit <code>nano</code> and go back to the prompt.</p>
+<p><code>nano</code> is a good editor for beginners because it works similarly to word
+processors you have used before. You can use the arrow keys in order to move your
+cursor around the file, and the rest of the keys on your keyboard work as
+expected. Let’s add an item to the to-do list and then we will save and exit <code>nano</code>
+by typing <code>Control</code> + <code>O</code> followed by <code>Control</code> + <code>X</code>.</p>
 <pre><code>  GNU nano 2.0.6                File: todo.txt
 
 - email Jeff
@@ -574,12 +768,14 @@ roads that lay before them.</code></pre>
 ^G Get Help   ^O WriteOut   ^R Read File  ^Y Prev Page  ^K Cut Text   ^C Cur Pos
 ^X Exit       ^J Justify    ^W Where Is   ^V Next Page  ^U UnCut Text ^T To Spell</code></pre>
 <p>Now let’s quickly check if those changes were saved correctly:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">cat</span> todo.txt</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">cat</span> todo.txt</code></pre>
 <pre><code>## - email Jeff
 ## - write letter to Aunt Marie
 ## - get groceries for Shabbat
 ## - write final section of &quot;command line basics&quot;</code></pre>
-<p>You can also create new text files with <code>nano</code>. Instead of using an existing path to a file as the argument to <code>nano</code>, use a path to a file that does not yet exist and then save your changes to that file.</p>
+<p>You can also create new text files with <code>nano</code>. Instead of using an existing
+path to a file as the argument to <code>nano</code>, use a path to a file that does not
+yet exist and then save your changes to that file.</p>
 <div id="summary-2" class="section level3">
 <h3><span class="header-section-number">3.3.1</span> Summary</h3>
 <ul>
@@ -598,18 +794,23 @@ roads that lay before them.</code></pre>
 <h3><span class="header-section-number">3.3.2</span> Exercises</h3>
 <ol style="list-style-type: decimal">
 <li>Create a new directory called <code>workbench</code> in your home directory.</li>
-<li>Without changing directories create a file called <code>readme.txt</code> inside of <code>workbench</code>.</li>
-<li>Append the numbers 1, 2, and 3 to <code>readme.txt</code> so that each number appears on it’s own line.</li>
+<li>Without changing directories create a file called <code>readme.txt</code> inside of
+<code>workbench</code>.</li>
+<li>Append the numbers 1, 2, and 3 to <code>readme.txt</code> so that each number appears on
+it’s own line.</li>
 <li>Print <code>readme.txt</code> to the command line.</li>
-<li>Use output redirection to create a new file in the <code>workbench</code> directory called <code>list.txt</code> which lists the files and folders in your home directory.</li>
-<li>Find out how many characters are in <code>list.txt</code> without opening the file or printing it to the command line.</li>
+<li>Use output redirection to create a new file in the <code>workbench</code> directory called
+<code>list.txt</code> which lists the files and folders in your home directory.</li>
+<li>Find out how many characters are in <code>list.txt</code> without opening the file or
+printing it to the command line.</li>
 </ol>
 </div>
 </div>
 <div id="migration-and-destruction" class="section level2">
 <h2><span class="header-section-number">3.4</span> Migration and Destruction</h2>
-<p>In this section we’ll discuss moving, renaming, copying, and deleting files and folders. First let’s revisit the contents of our current working directory:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span></code></pre></div>
+<p>In this section we will discuss moving, renaming, copying, and deleting files and
+folders. First let’s revisit the contents of our current working directory:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span></code></pre>
 <pre><code>Code
 Documents
 Photos
@@ -618,11 +819,16 @@ Music
 echo-out.txt
 journal-2017-01-24.txt
 todo.txt</code></pre>
-<p>It’s gotten a little sloppy, so let’s clean this directory up. First I want to make a new directory to store all of my journal entries in called <code>Journal</code>. We already know how to do that:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">mkdir</span> Journal</code></pre></div>
-<p>Now I want to move my journal entry <code>journal-2017-01-24.txt</code> into the <code>Journal</code> directory. We can <strong>m</strong>o<strong>v</strong>e it using the <code>mv</code> command. <code>mv</code> takes two arguments: first the path to the file or folder that you wish to move followed by the destination folder. Let’s try using <code>mv</code> now:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">mv</span> journal-2017-01-24.txt Journal
-<span class="fu">ls</span></code></pre></div>
+<p>It’s gotten a little sloppy, so let’s clean this directory up. First we will
+make a new directory to store all of the journal entries in called <code>Journal</code>. We
+already know how to do that:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">mkdir</span> Journal</code></pre>
+<p>Now we want to move the journal entry <code>journal-2017-01-24.txt</code> into the <code>Journal</code>
+directory. We can <strong>m</strong>o<strong>v</strong>e it using the <code>mv</code> command. <code>mv</code> takes two
+arguments: first the path to the file or folder that you wish to move followed
+by the destination folder. Let’s try using <code>mv</code> now:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">mv</span> journal-2017-01-24.txt Journal
+<span class="fu">ls</span></code></pre>
 <pre><code>Code
 Documents
 Journal
@@ -631,9 +837,11 @@ Desktop
 Music
 echo-out.txt
 todo.txt</code></pre>
-<p>Looks like it worked! I just realized however that I want to move the <code>Journal</code> directory into the <code>Documents</code> folder. Thankfully we can do this with <code>mv</code> in the same way:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">mv</span> Journal Documents
-<span class="fu">ls</span></code></pre></div>
+<p>Looks like it worked! I just realized however that we should move the <code>Journal</code>
+directory into the <code>Documents</code> folder. Thankfully we can do this with <code>mv</code> in
+the same way:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">mv</span> Journal Documents
+<span class="fu">ls</span></code></pre>
 <pre><code>Code
 Documents
 Photos
@@ -642,12 +850,15 @@ Music
 echo-out.txt
 todo.txt</code></pre>
 <p>Let’s just make sure it ended up in the right place:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span> Documents</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span> Documents</code></pre>
 <pre><code>Journal
 a-tale-of-two-cities.txt</code></pre>
-<p>Looks good! Another hidden use of the <code>mv</code> command is that you can use it to rename files and folders. The first argument is the path to the folder or file that you want to rename, and the second argument is a path with the new name for the file or folder. Let’s rename <code>todo.txt</code> so it includes today’s date:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">mv</span> todo.txt todo-2017-01-24.txt
-<span class="fu">ls</span></code></pre></div>
+<p>Looks good! Another hidden use of the <code>mv</code> command is that you can use it to
+rename files and folders. The first argument is the path to the folder or file
+that you want to rename, and the second argument is a path with the new name
+for the file or folder. Let’s rename <code>todo.txt</code> so it includes today’s date:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">mv</span> todo.txt todo-2017-01-24.txt
+<span class="fu">ls</span></code></pre>
 <pre><code>Code
 Documents
 Photos
@@ -655,9 +866,13 @@ Desktop
 Music
 echo-out.txt
 todo-2017-01-24.txt</code></pre>
-<p>Looks like it worked nicely. Similar to the <code>mv</code> command, the <code>cp</code> command <strong>c</strong>o<strong>p</strong>ies a file or folder from one location to another. As you can see <code>cp</code> is used exactly like <code>mv</code> when copying files, the file or folder you wish to copy is the first argument, followed by the path to the folder where you want the copy to be made:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">cp</span> echo-out.txt Desktop
-<span class="fu">ls</span></code></pre></div>
+<p>Looks like it worked nicely. Similar to the <code>mv</code> command, the <code>cp</code> command
+<strong>c</strong>o<strong>p</strong>ies a file or folder from one location to another. As you can see <code>cp</code> is
+used exactly like <code>mv</code> when copying files, the file or folder you wish to copy
+is the first argument, followed by the path to the folder where you want the
+copy to be made:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">cp</span> echo-out.txt Desktop
+<span class="fu">ls</span></code></pre>
 <pre><code>Code
 Documents
 Photos
@@ -665,17 +880,37 @@ Desktop
 Music
 echo-out.txt
 todo-2017-01-24.txt</code></pre>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span> Desktop</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span> Desktop</code></pre>
 <pre><code>echo-out.txt</code></pre>
-<p>Be aware that there is one difference between copying files and folders, when copying folders you need to specify the <code>-r</code> option, which is short for <em>recursive</em>. This ensures that the underlying directory structure of the directory you wish to copy remains intact. Let’s try copying my <code>Documents</code> directory into the <code>Desktop</code> directory:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">cp</span> -r Documents Desktop
-<span class="fu">ls</span> Desktop</code></pre></div>
+<p>Be aware that there is one difference between copying files and folders, when
+copying folders you need to specify the <code>-r</code> option, which is short for
+<em>recursive</em>. This ensures that the underlying directory structure of the
+directory you wish to copy remains intact. Let’s try copying my <code>Documents</code>
+directory into the <code>Desktop</code> directory:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">cp</span> -r Documents Desktop
+<span class="fu">ls</span> Desktop</code></pre>
 <pre><code>Documents
 echo-out.txt</code></pre>
-<p>Finally, let’s discuss how to delete files and folders with the command line. <strong>A word of extreme caution:</strong> in general I don’t recommend deleting files or folders on the command line because as we’ve discussed before there is <strong><em>no undo button</em></strong> on the command line. If you delete a file that is critical to your computer functioning you may cause irreparable damage. I <em>highly</em> recommend moving files or folders to a designated trash folder and then deleting them the way you would normally delete files and folders outside of the command line (The path to the Trash Bin is <code>~/.Trash</code> on Mac and <code>~/.local/share/Trash</code> on Ubuntu). If you decide to delete a file or folder on your computer make absolutely sure that the command you’ve typed is correct before you press <code>Enter</code>. If you do delete a file or folder by accident stop using your computer immediately and consult with a computer professional or your IT department so they can try to recover the file.</p>
-<p>Now that you’ve been warned, let’s discuss <code>rm</code>, the <a href="https://en.wikipedia.org/wiki/Magic_in_Harry_Potter#Unforgivable_Curses">Avada Kedavra</a> of command line programs. When <strong>r</strong>e<strong>m</strong>oving files <code>rm</code> only requires the path to a file in order to delete it. Let’s test its destructive power on <code>echo-out.txt</code>:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">rm</span> echo-out.txt
-<span class="fu">ls</span></code></pre></div>
+<p>Finally, let’s discuss how to delete files and folders with the command line.
+<strong>A word of extreme caution:</strong> in general I do not recommend deleting files or
+folders on the command line because as we have discussed before there is
+<strong><em>no undo button</em></strong> on the command line. If you delete a file that is critical
+to your computer functioning you may cause irreparable damage. I <em>highly</em>
+recommend moving files or folders to a designated trash folder and then deleting
+them the way you would normally delete files and folders outside of the command
+line (The path to the Trash Bin is <code>~/.Trash</code> on Mac and <code>~/.local/share/Trash</code>
+on Ubuntu). If you decide to delete
+a file or folder on your computer make absolutely
+sure that the command you have typed is correct before you press <code>Enter</code>. If you do
+delete a file or folder by accident stop using your computer immediately and
+consult with a computer professional or your IT department so they can try to
+recover the file.</p>
+<p>Now that you have been warned, let’s discuss <code>rm</code>, the
+<a href="https://en.wikipedia.org/wiki/Magic_in_Harry_Potter#Unforgivable_Curses">Avada Kedavra</a>
+of command line programs. When <strong>r</strong>e<strong>m</strong>oving files <code>rm</code> only requires the path to a
+file in order to delete it. Let’s test its destructive power on <code>echo-out.txt</code>:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">rm</span> echo-out.txt
+<span class="fu">ls</span></code></pre>
 <pre><code>Code
 Documents
 Photos
@@ -685,14 +920,19 @@ todo-2017-01-24.txt</code></pre>
 <blockquote>
 <p>I felt a great disturbance in the Force, as if millions of voices suddenly cried out in terror, and were suddenly silenced. - <em>Obi-wan Kenobi</em></p>
 </blockquote>
-<p>The file <code>echo-out.txt</code> is gone forever. Remember when we copied the entire <code>Documents</code> directory into <code>Desktop</code>? Let’s get rid of that directory now. Just like when we were using <code>cp</code> the <code>rm</code> command requires you to use the <code>-r</code> option when deleting entire directories. Let’s test this battle station:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span> Desktop</code></pre></div>
+<p>The file <code>echo-out.txt</code> is gone forever. Remember when we copied the entire
+<code>Documents</code> directory into <code>Desktop</code>? Let’s get rid of that directory now. Just
+like when we were using <code>cp</code> the <code>rm</code> command requires you to use the <code>-r</code>
+option when deleting entire directories. Let’s test this battle station:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span> Desktop</code></pre>
 <pre><code>Documents
 echo-out.txt</code></pre>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">rm</span> -r Desktop/Documents
-<span class="fu">ls</span> Desktop</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">rm</span> -r Desktop/Documents
+<span class="fu">ls</span> Desktop</code></pre>
 <pre><code>echo-out.txt</code></pre>
-<p>Now that the awesome destructive power of <code>rm</code> is on your side, you’ve learned the basics of the command line! See you in the next chapter for a discussion of more advanced command line topics.</p>
+<p>Now that the awesome destructive power of <code>rm</code> is on your side, you have learned
+the basics of the command line! See you in the next chapter for a discussion of
+more advanced command line topics.</p>
 <div id="summary-3" class="section level3">
 <h3><span class="header-section-number">3.4.1</span> Summary</h3>
 <ul>
@@ -704,7 +944,8 @@ echo-out.txt</code></pre>
 <div id="exercises-3" class="section level3">
 <h3><span class="header-section-number">3.4.2</span> Exercises</h3>
 <ol style="list-style-type: decimal">
-<li>Create a file called <code>message.txt</code> in your home directory and move it into another directory.</li>
+<li>Create a file called <code>message.txt</code> in your home directory and move it into
+another directory.</li>
 <li>Copy the <code>message.txt</code> you just moved into your home directory.</li>
 <li>Delete both copies of <code>message.txt</code>. Try to do this without using <code>rm</code>.</li>
 </ol>
@@ -736,10 +977,11 @@ gitbook.start({
 "facebook": true,
 "twitter": true,
 "google": false,
+"linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -747,6 +989,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
+"link": null,
+"text": null
+},
+"history": {
 "link": null,
 "text": null
 },

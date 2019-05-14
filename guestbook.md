@@ -475,5 +475,6 @@
 - Muhammed Sidibeh
 - Irina Borozdina
 - zch4
--Rohit Jayanti
+- Rohit Jayanti
+- josujean
 - Sawyer Prestwood

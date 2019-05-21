@@ -479,3 +479,4 @@
 - josujean
 - Sawyer Prestwood
 - sudodjl
+- Notto J. W. Thelle

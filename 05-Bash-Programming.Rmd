@@ -123,7 +123,7 @@ Notice that when one number is completely divisible by another number then the
 result of the modulus is zero.
 
 If you want to do more complex math, for example math with fractions and numbers
-with decimals then I highly suggest combining `echo` and the **b**ench **c**alculator
+with decimals, then I highly suggest combining `echo` and the **b**ench **c**alculator
 program called `bc`. Open up a new file called `bigmath.sh` and type in the
 following:
 

@@ -1191,9 +1191,6 @@ features. Copy the plain text below, create a new file called `README.md` with
 
     ![This is an image.](https://github.com/yihui/xaringan/releases/download/v0.0.2/karl-moustache.jpg)
 
-```{r, engine='bash', eval=FALSE}
-nano README.md
-```
 
 Now let's add our changes, make a commit, and push those changes to our remote
 repository:

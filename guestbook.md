@@ -481,4 +481,7 @@
 - sudodjl
 - Notto J. W. Thelle
 - Darius Tamasauskas
+- Ben Bracey
+- Anscharius Linitextor
+- Michael Cunningham
 - Patrick Still

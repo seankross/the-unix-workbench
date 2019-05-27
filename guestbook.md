@@ -481,3 +481,4 @@
 - sudodjl
 - Notto J. W. Thelle
 - Darius Tamasauskas
+- Patrick Still

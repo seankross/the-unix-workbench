@@ -486,3 +486,4 @@
 - Michael Cunningham
 - Patrick Still
 - Ritwik Agarwal
+- Damir Paripovic

@@ -488,3 +488,4 @@
 - Ritwik Agarwal
 - Damir Paripovic
 - Nilesh Jain
+-Jeevan Sapkota

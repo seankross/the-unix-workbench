@@ -488,6 +488,7 @@
 - Ritwik Agarwal
 - Damir Paripovic
 - Nilesh Jain
--Jeevan Sapkota
+- Jeevan Sapkota
 - Jakub Majer
 - Carles Garcia
+- Param Parikh

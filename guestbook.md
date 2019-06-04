@@ -492,3 +492,4 @@
 - Jakub Majer
 - Carles Garcia
 - Param Parikh
+- Mica Pictor

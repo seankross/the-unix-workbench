@@ -502,3 +502,4 @@
 - Kumar Rahul
 - Isaiah Duncan
 - DJ Pringle
+- Hassan

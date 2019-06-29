@@ -504,3 +504,4 @@
 - DJ Pringle
 - Hassan
 - Evgenii Klt
+- Alexandru Patulea

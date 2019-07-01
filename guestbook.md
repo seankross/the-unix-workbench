@@ -505,3 +505,4 @@
 - Hassan
 - Evgenii Klt
 - Alexandru Patulea
+- VASYAN

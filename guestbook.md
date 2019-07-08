@@ -506,3 +506,4 @@
 - Evgenii Klt
 - Alexandru Patulea
 - VASYAN
+- Heine Elias Husdal

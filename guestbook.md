@@ -509,3 +509,4 @@
 - Heine Elias Husdal
 - Tim Thomas
 - Tatsuya Hayashi
+- Paweł Krakowiak

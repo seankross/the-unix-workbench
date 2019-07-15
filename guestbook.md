@@ -508,3 +508,4 @@
 - VASYAN
 - Heine Elias Husdal
 - Tim Thomas
+- Tatsuya Hayashi

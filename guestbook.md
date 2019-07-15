@@ -510,3 +510,4 @@
 - Tim Thomas
 - Tatsuya Hayashi
 - Paweł Krakowiak
+- Claire Wu

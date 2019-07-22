@@ -511,5 +511,7 @@
 - Tatsuya Hayashi
 - Paweł Krakowiak
 - Claire Wu
-S.M.Al Mahin
+- S.M.Al Mahin
+- erika 6
+- Raunak Ranjan
 - Agustin Beceyro Ferran

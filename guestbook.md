@@ -515,3 +515,4 @@
 - erika 6
 - Raunak Ranjan
 - Agustin Beceyro Ferran
+- Nataliya A. Logvina

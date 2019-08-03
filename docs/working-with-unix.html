@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>The Unix Workbench</title>
-  <meta name="description" content="The Unix Workbench">
-  <meta name="generator" content="bookdown 0.6 and GitBook 2.6.7">
+  <title>Chapter 4 Working with Unix | The Unix Workbench</title>
+  <meta name="description" content="Chapter 4 Working with Unix | The Unix Workbench">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="The Unix Workbench" />
+  <meta property="og:title" content="Chapter 4 Working with Unix | The Unix Workbench" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://github.com/seankross/the-unix-workbench" />
   <meta property="og:image" content="https://github.com/seankross/the-unix-workbenchimages/cover.png" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="seankross/the-unix-workbench" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="The Unix Workbench" />
+  <meta name="twitter:title" content="Chapter 4 Working with Unix | The Unix Workbench" />
   
   
   <meta name="twitter:image" content="https://github.com/seankross/the-unix-workbenchimages/cover.png" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Sean Kross">
 
 
-<meta name="date" content="2018-03-21">
+<meta name="date" content="2019-01-22">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="bash-programming.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -59,41 +60,67 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -295,8 +322,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </blockquote>
 <div id="self-help" class="section level2">
 <h2><span class="header-section-number">4.1</span> Self-Help</h2>
-<p>Each of the commands that we’ve discussed so far are thoroughly documented, and you can view their documentation using the <code>man</code> command, where the first argument to <code>man</code> is the command you’re curious about. Let’s take a look at the documentation for <code>ls</code>:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">man</span> ls</code></pre></div>
+<p>Each of the commands that we’ve discussed so far are thoroughly documented, and
+you can view their documentation using the <code>man</code> command, where the first
+argument to <code>man</code> is the command you’re curious about. Let’s take a look at the
+documentation for <code>ls</code>:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">man</span> ls</code></pre>
 <pre><code>LS(1)                     BSD General Commands Manual                    LS(1)
 
 NAME
@@ -309,24 +339,42 @@ DESCRIPTION
      For each operand that names a file of a type other than directory, ls
      displays its name as well as any requested, associated information.  For
 :</code></pre>
-<p>The controls for navigating <code>man</code> pages are the same as they are for <code>less</code>. I often use <code>man</code> pages for quickly searching for an option that I’ve forgotten. Let’s say that I forgot how to get <code>ls</code> to print a long list. After typing <code>man ls</code> to open the page, type <code>/</code> in order to start a search. Then type the word or phrase that you’re searching for, in this case type in <code>long list</code> and then press <code>Enter</code>. The page jumps to this entry:</p>
+<p>The controls for navigating <code>man</code> pages are the same as they are for <code>less</code>.
+I often use <code>man</code> pages for quickly searching for an option that I’ve forgotten.
+Let’s say that I forgot how to get <code>ls</code> to print a long list. After typing
+<code>man ls</code> to open the page, type <code>/</code> in order to start a search. Then type the
+word or phrase that you’re searching for, in this case type in <code>long list</code> and
+then press <code>Enter</code>. The page jumps to this entry:</p>
 <pre><code>     -l      (The lowercase letter ``ell&#39;&#39;.)  List in long format.  (See below.)
              If the output is to a terminal, a total sum for all the file sizes is
              output on a line before the long listing.</code></pre>
-<p>Press the <code>n</code> key in order to search for the next occurrence of the word, and if you want to go to the previous occurrence type <code>Shift</code> + <code>n</code>. This method of searching also works with <code>less</code>. When you’re finished looking at a <code>man</code> page type <code>q</code> to get back to the prompt.</p>
-<p>The <code>man</code> command works wonderfully when you know which command you want to look up, but what if you’ve forgotten the name of the command you’re looking for? You can use <code>apropos</code> to search all of the available commands and their descriptions. For example let’s pretend that I forgot the name of my favorite command line text editor. You could type <code>apropos editor</code> into the command line which will print a list of results:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">apropos</span> editor</code></pre></div>
+<p>Press the <code>n</code> key in order to search for the next occurrence of the word, and if
+you want to go to the previous occurrence type <code>Shift</code> + <code>n</code>. This method of
+searching also works with <code>less</code>. When you’re finished looking at a <code>man</code> page
+type <code>q</code> to get back to the prompt.</p>
+<p>The <code>man</code> command works wonderfully when you know which command you want to look
+up, but what if you’ve forgotten the name of the command you’re looking for? You
+can use <code>apropos</code> to search all of the available commands and their
+descriptions. For example let’s pretend that I forgot the name of my favorite
+command line text editor. You could type <code>apropos editor</code> into the command line
+which will print a list of results:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">apropos</span> editor</code></pre>
 <pre><code>## ed(1), red(1)            - text editor
 ## nano(1)                  - Nano&#39;s ANOther editor, an enhanced free Pico clone
 ## sed(1)                   - stream editor
 ## vim(1)                   - Vi IMproved, a programmers text editor</code></pre>
-<p>The second result is <code>nano</code> which was just on the tip of my tongue! Both <code>man</code> and <code>apropos</code> are useful when a search is only a few keystrokes away, but if you’re looking for detailed examples and explanations you’re better off using a search engine if you have access to a web browser.</p>
+<p>The second result is <code>nano</code> which was just on the tip of my tongue! Both <code>man</code>
+and <code>apropos</code> are useful when a search is only a few keystrokes away, but if
+you’re looking for detailed examples and explanations you’re better off using
+a search engine if you have access to a web browser.</p>
 <div id="summary-4" class="section level3">
 <h3><span class="header-section-number">4.1.1</span> Summary</h3>
 <ul>
 <li>Use <code>man</code> to look up the documentation for a command.</li>
-<li>If you can’t think of the name of a command use <code>apropos</code> to search for a word associated with that command.</li>
-<li>If you have access to a web browser, using a search engine might be better than <code>man</code> or <code>apropos</code>.</li>
+<li>If you can’t think of the name of a command use <code>apropos</code> to search for a word
+associated with that command.</li>
+<li>If you have access to a web browser, using a search engine might be better
+than <code>man</code> or <code>apropos</code>.</li>
 </ul>
 </div>
 <div id="exercises-4" class="section level3">
@@ -334,24 +382,25 @@ DESCRIPTION
 <ol style="list-style-type: decimal">
 <li>Use <code>man</code> to look up the flag for human-readable output from <code>ls</code>.</li>
 <li>Get help with <code>man</code> by typing <code>man man</code> into the console.</li>
-<li>Wouldn’t it be nice if there was a calendar command? Use <code>apropos</code> to look for such a command, then use <code>man</code> to read about how that command works.</li>
+<li>Wouldn’t it be nice if there was a calendar command? Use <code>apropos</code> to look
+for such a command, then use <code>man</code> to read about how that command works.</li>
 </ol>
 </div>
 </div>
 <div id="get-wild" class="section level2">
 <h2><span class="header-section-number">4.2</span> Get Wild</h2>
 <p>Let’s go into my <code>Photos</code> folder in my home directory and take a look around:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">pwd</span></code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">pwd</span></code></pre>
 <pre><code>## /Users/sean</code></pre>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span></code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span></code></pre>
 <pre><code>## Code
 ## Documents
 ## Photos
 ## Desktop
 ## Music
 ## todo-2017-01-24.txt</code></pre>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span> Photos
-<span class="fu">ls</span></code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span> Photos
+<span class="fu">ls</span></code></pre>
 <pre><code>## 2016-06-20-datasci01.png
 ## 2016-06-20-datasci02.png
 ## 2016-06-20-datasci03.png
@@ -361,41 +410,65 @@ DESCRIPTION
 ## 2017-01-02-hiking02.jpg
 ## 2017-02-10-hiking01.jpg
 ## 2017-02-10-hiking02.jpg</code></pre>
-<p>I’ve just been dumping pictures and figures into this folder without organizing them at all! Thankfully (in the words of Dr. Jenny Bryan) <a href="https://twitter.com/JennyBryan/status/816143967695687684">I have an unwavering commitment to the ISO 8601 date standard</a> so at least I know when these photos were taken. Instead of using <code>mv</code> to move around each individual photo I can select groups of photos using the <code>*</code> wildcard. A <strong>wildcard</strong> is a character that represents other characters, much like how joker in a deck of cards can represent other cards in the deck. Wildcards are a subset of metacharacters, a topic which we will discuss in detail later on in this chapter. The <code>*</code> (“star”) wildcard represents <em>zero or more of any character</em>, and it can be used to match names of files and folders in the command line. For example if I wanted to list all of the files in my Photos directory which have a name that starts with “2017” I could do the following:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span> 2017*</code></pre></div>
+<p>I’ve just been dumping pictures and figures into this folder without organizing
+them at all! Thankfully (in the words of Dr. Jenny Bryan) <a href="https://twitter.com/JennyBryan/status/816143967695687684">I have an unwavering
+commitment to the ISO 8601 date
+standard</a> so at least
+I know when these photos were taken. Instead of using <code>mv</code> to move around each
+individual photo I can select groups of photos using the <code>*</code> wildcard. A
+<strong>wildcard</strong> is a character that represents other characters, much like how
+joker in a deck of cards can represent other cards in the deck. Wildcards are
+a subset of metacharacters, a topic which we will discuss in detail later on in
+this chapter. The <code>*</code> (“star”) wildcard represents <em>zero or more of any
+character</em>, and it can be used to match names of files and folders in the
+command line. For example if I wanted to list all of the files in my Photos
+directory which have a name that starts with “2017” I could do the following:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span> 2017*</code></pre>
 <pre><code>## 2017-01-02-hiking01.jpg
 ## 2017-01-02-hiking02.jpg
 ## 2017-02-10-hiking01.jpg
 ## 2017-02-10-hiking02.jpg</code></pre>
-<p>Only the files starting with “2017” are listed! The command <code>ls 2017*</code> literally means: list the files that start with “2017” followed by zero or more of any character. As you can imagine using wildcards is a powerful tool for working with groups of files that are similarly named.</p>
-<p>Let’s walk through a few other examples of using the star wildcard. We could only list the photos starting with “2016”:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span> 2016*</code></pre></div>
+<p>Only the files starting with “2017” are listed! The command <code>ls 2017*</code> literally
+means: list the files that start with “2017” followed by zero or more of any
+character. As you can imagine using wildcards is a powerful tool for working
+with groups of files that are similarly named.</p>
+<p>Let’s walk through a few other examples of using the star wildcard. We could
+only list the photos starting with “2016”:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span> 2016*</code></pre>
 <pre><code>## 2016-06-20-datasci01.png
 ## 2016-06-20-datasci02.png
 ## 2016-06-20-datasci03.png
 ## 2016-06-21-lab01.jpg
 ## 2016-06-21-lab02.jpg</code></pre>
 <p>We could list only the files with names ending in <code>.jpg</code>:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span> *.jpg</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span> *.jpg</code></pre>
 <pre><code>## 2016-06-21-lab01.jpg
 ## 2016-06-21-lab02.jpg
 ## 2017-01-02-hiking01.jpg
 ## 2017-01-02-hiking02.jpg
 ## 2017-02-10-hiking01.jpg
 ## 2017-02-10-hiking02.jpg</code></pre>
-<p>In the case above the file name can start with a sequence of zero or more of any character, but the file name must end in <code>.jpg</code>. Or we could also list only the first photos from each set of photos:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span> *01.*</code></pre></div>
+<p>In the case above the file name can start with a sequence of zero or more of
+any character, but the file name must end in <code>.jpg</code>.
+Or we could also list only the first photos from each set of photos:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span> *01.*</code></pre>
 <pre><code>## 2016-06-20-datasci01.png
 ## 2016-06-21-lab01.jpg
 ## 2017-01-02-hiking01.jpg
 ## 2017-02-10-hiking01.jpg</code></pre>
-<p>All of the files above have names that are composed of a sequence of characters, followed by the adjacent characters <code>01.</code>, followed by another sequence of characters. Notice that if I had entered <code>ls *01*</code> into the console every file would have been listed since <code>01</code> is a part of all of the file names in my Photos directory.</p>
-<p>Let’s organize these photos by year. First let’s create one directory for each year of photos:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">mkdir</span> 2016
-<span class="fu">mkdir</span> 2017</code></pre></div>
+<p>All of the files above have names that are composed of a sequence of characters,
+followed by the adjacent characters <code>01.</code>, followed by another sequence of
+characters.
+Notice that if I had entered <code>ls *01*</code> into the console every file would have
+been listed since <code>01</code> is a part of all of the file names in my Photos
+directory.</p>
+<p>Let’s organize these photos by year. First let’s create one directory for
+each year of photos:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">mkdir</span> 2016
+<span class="fu">mkdir</span> 2017</code></pre>
 <p>Now we can move the photos using wildcards:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">mv</span> 2017-* 2017/
-<span class="fu">ls</span></code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">mv</span> 2017-* 2017/
+<span class="fu">ls</span></code></pre>
 <pre><code>## 2016
 ## 2016-06-20-datasci01.png
 ## 2016-06-20-datasci02.png
@@ -403,38 +476,46 @@ DESCRIPTION
 ## 2016-06-21-lab01.jpg
 ## 2016-06-21-lab02.jpg
 ## 2017</code></pre>
-<p>Notice that I’ve moved all files that start with “2017-” into the 2017 folder! Now let’s do the same thing for files with names starting with “2016-”:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">mv</span> 2016-* 2016/
-<span class="fu">ls</span></code></pre></div>
+<p>Notice that I’ve moved all files that start with “2017-” into the 2017 folder!
+Now let’s do the same thing for files with names starting with “2016-”:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">mv</span> 2016-* 2016/
+<span class="fu">ls</span></code></pre>
 <pre><code>## 2016
 ## 2017</code></pre>
-<p>Finally my photos are somewhat organized! Let’s list the files in each directory just to make sure all was moved as planned:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span> 2016/</code></pre></div>
+<p>Finally my photos are somewhat organized! Let’s list the files in each directory
+just to make sure all was moved as planned:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span> 2016/</code></pre>
 <pre><code>## 2016-06-20-datasci01.png
 ## 2016-06-20-datasci02.png
 ## 2016-06-20-datasci03.png
 ## 2016-06-21-lab01.jpg
 ## 2016-06-21-lab02.jpg</code></pre>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span> 2017/</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span> 2017/</code></pre>
 <pre><code>## 2017-01-02-hiking01.jpg
 ## 2017-01-02-hiking02.jpg
 ## 2017-02-10-hiking01.jpg
 ## 2017-02-10-hiking02.jpg</code></pre>
-<p>Looks good! There are a few more wildcards beyond the star wildcard which we’ll discuss in the next section where searching file names gets a little more advanced.</p>
+<p>Looks good! There are a few more wildcards beyond the star wildcard which we’ll
+discuss in the next section where searching file names gets a little more
+advanced.</p>
 <div id="summary-5" class="section level3">
 <h3><span class="header-section-number">4.2.1</span> Summary</h3>
 <ul>
 <li>Wildcards can represent many kinds and numbers of characters.</li>
 <li>The star wildcard (<code>*</code>) represents zero or more of any character.</li>
-<li>You can use wildcards on the command line in order to work with multiple files and folders.</li>
+<li>You can use wildcards on the command line in order to work with multiple files
+and folders.</li>
 </ul>
 </div>
 <div id="exercises-5" class="section level3">
 <h3><span class="header-section-number">4.2.2</span> Exercises</h3>
 <ol style="list-style-type: decimal">
-<li>Before I organized the photos by year, what command would have listed all of the photos of type <code>.png</code>?</li>
-<li>Before I organized the photos by year, what command would have deleted all of my hiking photos?</li>
-<li>What series of commands would you use in order to put my figures for a data science course and the pictures I took in the lab into their own folders?</li>
+<li>Before I organized the photos by year, what command would have listed all of
+the photos of type <code>.png</code>?</li>
+<li>Before I organized the photos by year, what command would have deleted all of
+my hiking photos?</li>
+<li>What series of commands would you use in order to put my figures for a data
+science course and the pictures I took in the lab into their own folders?</li>
 </ol>
 </div>
 </div>
@@ -442,15 +523,20 @@ DESCRIPTION
 <h2><span class="header-section-number">4.3</span> Search</h2>
 <div id="regular-expressions" class="section level3">
 <h3><span class="header-section-number">4.3.1</span> Regular Expressions</h3>
-<p>The ability to search through files and folders can greatly improve your productivity using Unix. First we’ll cover searching through text files. I recently downloaded a list of the names of the states in the US which you can find <a href="http://seankross.com/notes/states.txt">here</a>. Let’s take a look at this file:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span> ~/Documents
-<span class="fu">ls</span></code></pre></div>
+<p>The ability to search through files and folders can greatly improve your
+productivity using Unix. First we’ll cover searching through text files.
+I recently downloaded a list of the names of the states in the US which you
+can find <a href="http://seankross.com/notes/states.txt">here</a>. Let’s take a look at
+this file:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span> ~/Documents
+<span class="fu">ls</span></code></pre>
 <pre><code>## canada.txt
 ## states.txt</code></pre>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">wc</span> states.txt</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">wc</span> states.txt</code></pre>
 <pre><code>## 50      60     472 states.txt</code></pre>
-<p>It makes sense that there are 50 lines, but it’s interesting that there are 60 total words. Let’s a take a peak at the beginning of the file:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">head</span> states.txt</code></pre></div>
+<p>It makes sense that there are 50 lines, but it’s interesting that there are 60
+total words. Let’s a take a peak at the beginning of the file:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">head</span> states.txt</code></pre>
 <pre><code>## Alabama
 ## Alaska
 ## Arizona
@@ -461,21 +547,45 @@ DESCRIPTION
 ## Delaware
 ## Florida
 ## Georgia</code></pre>
-<p>This file looks basically how you would expect it to look! You may recall from Chapter 3 that the kind of shell that we’re using is the bash shell. Bash treats different kinds of data differently, and we’ll dive deeper into data types in Chapter 5. For now all you need to know is that text data are called <strong>strings</strong>. A string could be a word, a sentence, a book, or a file or folder name. One of the most effective ways to search through strings is to use <strong>regular expressions</strong>. Regular expressions are strings that define patterns in other strings. You can use regular expressions to search for a sub-string contained within a larger string, or to replace one part of a string with another string.</p>
-<p>One of the most popular tools for searching through text files is <code>grep</code>. The simplest use of <code>grep</code> requires two arguments: a regular expression and a text file to search. Let’s see a simple example of <code>grep</code> in action and then I’ll explain how it works:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">grep</span> <span class="st">&quot;x&quot;</span> states.txt</code></pre></div>
+<p>This file looks basically how you would expect it to look! You may recall from
+Chapter 3 that the kind of shell that we’re using is the bash shell. Bash
+treats different kinds of data differently, and we’ll dive deeper into data
+types in Chapter 5. For now all you need to know is that text data are
+called <strong>strings</strong>. A string could be a word, a sentence, a book, or a file or
+folder name. One of the most effective ways to search through strings is to use
+<strong>regular expressions</strong>. Regular expressions are strings that define patterns
+in other strings. You can use regular expressions to search for a sub-string
+contained within a larger string, or to replace one part of a string with
+another string.</p>
+<p>One of the most popular tools for searching through text files is <code>grep</code>. The
+simplest use of <code>grep</code> requires two arguments: a regular expression and a text
+file to search. Let’s see a simple example of <code>grep</code> in action and then I’ll
+explain how it works:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">grep</span> <span class="st">&quot;x&quot;</span> states.txt</code></pre>
 <pre><code>## New Mexico
 ## Texas</code></pre>
-<p>In the command above, the first argument to <code>grep</code> is the regular expression <code>&quot;x&quot;</code>. The <code>&quot;x&quot;</code> regular expression represents one instance of the letter “x”. Every line of the <code>states.txt</code> file that contains at least one instance of the letter “x” is printed to the console. As you can see New Mexico and Texas are the only two state names that contain the letter “x”. Let’s try searching for the letter “q” in all of the state names using <code>grep</code>:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">grep</span> <span class="st">&quot;q&quot;</span> states.txt</code></pre></div>
-<p>Nothing is printed to the console because the letter “q” isn’t in any of the state names. We can search for more than individual characters though. For example the following command will search for the state names that contain the word “New”:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">grep</span> <span class="st">&quot;New&quot;</span> states.txt</code></pre></div>
+<p>In the command above, the first argument to <code>grep</code> is the regular expression
+<code>&quot;x&quot;</code>. The <code>&quot;x&quot;</code> regular expression represents one instance of the letter “x”.
+Every line of the <code>states.txt</code> file that contains at least one instance of the
+letter “x” is printed to the console. As you can see New Mexico and Texas are
+the only two state names that contain the letter “x”. Let’s try searching for
+the letter “q” in all of the state names using <code>grep</code>:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">grep</span> <span class="st">&quot;q&quot;</span> states.txt</code></pre>
+<p>Nothing is printed to the console because the letter “q” isn’t in any of the
+state names. We can search for more than individual characters though. For
+example the following command will search for the state names that contain the
+word “New”:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">grep</span> <span class="st">&quot;New&quot;</span> states.txt</code></pre>
 <pre><code>## New Hampshire
 ## New Jersey
 ## New Mexico
 ## New York</code></pre>
-<p>In the previous case the regular expression we used was simply <code>&quot;New&quot;</code>, which represents an occurrence of the string “New”. Regular expressions are not limited to just being individual characters or words, they can also represent parts of words. For example I could search all of the state names that contain the string “nia” with the following command:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">grep</span> <span class="st">&quot;nia&quot;</span> states.txt</code></pre></div>
+<p>In the previous case the regular expression we used was simply <code>&quot;New&quot;</code>, which
+represents an occurrence of the string “New”. Regular expressions are not
+limited to just being individual characters or words, they can also represent
+parts of words. For example I could search all of the state names that contain
+the string “nia” with the following command:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">grep</span> <span class="st">&quot;nia&quot;</span> states.txt</code></pre>
 <pre><code>## California
 ## Pennsylvania
 ## Virginia
@@ -484,19 +594,44 @@ DESCRIPTION
 </div>
 <div id="metacharacters" class="section level3">
 <h3><span class="header-section-number">4.3.2</span> Metacharacters</h3>
-<p>Regular expressions aren’t just limited to searching with characters and strings, the real power of regular expressions come from using <strong>metacharacters</strong>. Remember that metacharacters are characters that can be used to represent other characters. To take full advantage of all of the metacharacters we should use <code>grep</code>’s cousin <code>egrep</code>, which just extends <code>grep</code>’s capabilities. If you’re using Ubuntu you should use <code>grep -P</code> instead of <code>egrep</code> for results that are consistent with this chapter. The first metacharacter we should discuss is the <code>&quot;.&quot;</code> (period) metacharacter, which represents <em>any</em> character. If for example I wanted to search <code>states.txt</code> for the character “i”, followed by any character, followed by the character “g” I could do so with the following command:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;i.g&quot;</span> states.txt</code></pre></div>
+<p>Regular expressions aren’t just limited to searching with characters and
+strings, the real power of regular expressions come from using
+<strong>metacharacters</strong>. Remember that metacharacters are characters that can be used
+to represent other characters. To take full advantage of all of the metacharacters
+we should use <code>grep</code>’s cousin <code>egrep</code>, which just extends <code>grep</code>’s capabilities.
+If you’re using Ubuntu you should use <code>grep -P</code> instead of <code>egrep</code> for results
+that are consistent with this chapter.
+The first metacharacter we should discuss is the <code>&quot;.&quot;</code> (period) metacharacter,
+which represents <em>any</em> character. If for example I wanted to search <code>states.txt</code>
+for the character “i”, followed by any character, followed by the character “g”
+I could do so with the following command:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;i.g&quot;</span> states.txt</code></pre>
 <pre><code>## Virginia
 ## Washington
 ## West Virginia
 ## Wyoming</code></pre>
-<p>The regular expression “i.g” matches the sub-string “irg” in V<em>irg</em>inia, and West V<em>irg</em>inia, and it matches the sub-string “ing” in Wash<em>ing</em>ton and Wyom<em>ing</em>. The period metacharacter is a stand-in for the “r” in “irg” and the “n” in “ing” in the example above. The period metacharacter is extremely liberal, for example the command <code>egrep &quot;.&quot; states.txt</code> would return every line of states.txt since the regular expression <code>&quot;.&quot;</code> would match one occurrence of any character on every line (there’s at least one character on every line).</p>
-<p>Besides characters that can represent other characters, there are also metacharacters called <strong>quantifiers</strong> which allow you to specify the number of times a particular regular expression should appear in a string. One of the most basic quantifiers is <code>&quot;+&quot;</code> (plus) which represents one or more occurrences of the proceeding expression. For example the regular expression “s+as” means: one or more “s” followed by “as”. Let’s see if any of the state names match this expression:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;s+as&quot;</span> states.txt</code></pre></div>
+<p>The regular expression “i.g” matches the sub-string “irg” in V<em>irg</em>inia, and
+West V<em>irg</em>inia, and it matches the sub-string “ing” in Wash<em>ing</em>ton and
+Wyom<em>ing</em>. The period metacharacter is a stand-in for the “r” in “irg” and the
+“n” in “ing” in the example above. The period metacharacter is extremely liberal,
+for example the command <code>egrep &quot;.&quot; states.txt</code> would return every line of
+states.txt since the regular expression <code>&quot;.&quot;</code> would match one occurrence of any
+character on every line (there’s at least one character on every line).</p>
+<p>Besides characters that can represent other
+characters, there are also metacharacters called <strong>quantifiers</strong> which allow you
+to specify the number of times a particular regular expression should appear in
+a string. One of the most basic quantifiers is <code>&quot;+&quot;</code> (plus) which represents one
+or more occurrences of the proceeding expression. For example the regular
+expression “s+as” means: one or more “s” followed by “as”. Let’s see if any of
+the state names match this expression:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;s+as&quot;</span> states.txt</code></pre>
 <pre><code>## Arkansas
 ## Kansas</code></pre>
-<p>Both Arkan<em>sas</em> and Kan<em>sas</em> match the regular expression <code>&quot;s+as&quot;</code>. Besides the plus metacharacter there’s also the <code>&quot;*&quot;</code> (star) metacharacter which represents zero or more occurrences of the preceding expression. Let’s see what happens if we change <code>&quot;s+as&quot;</code> to <code>&quot;s*as&quot;</code>:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;s*as&quot;</span> states.txt</code></pre></div>
+<p>Both Arkan<em>sas</em> and Kan<em>sas</em> match the regular expression <code>&quot;s+as&quot;</code>. Besides the
+plus metacharacter there’s also the <code>&quot;*&quot;</code> (star) metacharacter which represents
+zero or more occurrences of the preceding expression. Let’s see what happens if
+we change <code>&quot;s+as&quot;</code> to <code>&quot;s*as&quot;</code>:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;s*as&quot;</span> states.txt</code></pre>
 <pre><code>## Alaska
 ## Arkansas
 ## Kansas
@@ -504,31 +639,48 @@ DESCRIPTION
 ## Nebraska
 ## Texas
 ## Washington</code></pre>
-<p>As you can see the star metacharacter is much more liberal with respect to matching since many more state names are matched by <code>&quot;s*as&quot;</code>. There are more specific quantifies you can use beyond “zero or more” or “one or more” occurrences of an expression. You can use curly brackets (<code>{ }</code>) to specify an exact number of occurrences of an expression. For example the regular expression <code>&quot;s{2}&quot;</code> specifies exactly two occurrences of the character “s”. Let’s try using this regular expression:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;s{2}&quot;</span> states.txt</code></pre></div>
+<p>As you can see the star metacharacter is much more liberal with respect to
+matching since many more state names are matched by <code>&quot;s*as&quot;</code>. There are more
+specific quantifies you can use beyond “zero or more” or “one or more”
+occurrences of an expression. You can use curly brackets (<code>{ }</code>) to specify an
+exact number of occurrences of an expression. For example the regular expression
+<code>&quot;s{2}&quot;</code> specifies exactly two occurrences of the character “s”. Let’s try using
+this regular expression:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;s{2}&quot;</span> states.txt</code></pre>
 <pre><code>## Massachusetts
 ## Mississippi
 ## Missouri
 ## Tennessee</code></pre>
-<p>Take note that the regular expression <code>&quot;s{2}&quot;</code> is equivalent to the regular expression <code>&quot;ss&quot;</code>. We could also search for state names that have between two and three adjacent occurrences of the letter “s” with the regular expression <code>&quot;s{2,3}&quot;</code>:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;s{2,3}&quot;</span> states.txt</code></pre></div>
+<p>Take note that the regular expression <code>&quot;s{2}&quot;</code> is equivalent to the regular
+expression <code>&quot;ss&quot;</code>. We could also search for state names that have between two
+and three adjacent occurrences of the letter “s” with the regular expression
+<code>&quot;s{2,3}&quot;</code>:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;s{2,3}&quot;</span> states.txt</code></pre>
 <pre><code>## Massachusetts
 ## Mississippi
 ## Missouri
 ## Tennessee</code></pre>
-<p>Of course the results are the same because there aren’t any states that have “s” repeated three times.</p>
-<p>You can use a <strong>capturing group</strong> in order to search for multiple occurrences of a string. You can create capturing groups within regular expressions by using parentheses (<code>&quot;( )&quot;</code>). For example if I wanted to search states.txt for the string “iss” occurring twice in a state name I could use a capturing group and a quantifier like so:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;(iss){2}&quot;</span> states.txt</code></pre></div>
+<p>Of course the results are the same because there aren’t any states that have “s”
+repeated three times.</p>
+<p>You can use a <strong>capturing group</strong> in order to search for multiple occurrences of
+a string. You can create capturing groups within regular expressions by using
+parentheses (<code>&quot;( )&quot;</code>). For example if I wanted to search states.txt for the
+string “iss” occurring twice in a state name I could use a capturing group and
+a quantifier like so:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;(iss){2}&quot;</span> states.txt</code></pre>
 <pre><code>## Mississippi</code></pre>
-<p>We could combine more quantifiers and capturing groups to dream up even more complicated regular expressions. For example, the following regular expression describes three occurrences of an “i” followed by two of any character:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;(i.{2}){3}&quot;</span> states.txt</code></pre></div>
+<p>We could combine more quantifiers and capturing groups to dream up even more
+complicated regular expressions. For example, the following regular expression
+describes three occurrences of an “i” followed by two of any character:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;(i.{2}){3}&quot;</span> states.txt</code></pre>
 <pre><code>## Mississippi</code></pre>
 <p>The complex regular expression above still only matches “Mississippi”.</p>
 </div>
 <div id="character-sets" class="section level3">
 <h3><span class="header-section-number">4.3.3</span> Character Sets</h3>
-<p>For the next couple of examples we’re going to need some text data beyond the names of the states. Let’s just create a short text file from the console:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">touch</span> small.txt
+<p>For the next couple of examples we’re going to need some text data beyond the
+names of the states. Let’s just create a short text file from the console:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">touch</span> small.txt
 <span class="bu">echo</span> <span class="st">&quot;abcdefghijklmnopqrstuvwxyz&quot;</span> <span class="op">&gt;&gt;</span> small.txt
 <span class="bu">echo</span> <span class="st">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;</span> <span class="op">&gt;&gt;</span> small.txt
 <span class="bu">echo</span> <span class="st">&quot;0123456789&quot;</span> <span class="op">&gt;&gt;</span> small.txt
@@ -538,9 +690,13 @@ DESCRIPTION
 <span class="bu">echo</span> <span class="st">&quot;abc&quot;</span> <span class="op">&gt;&gt;</span> small.txt
 <span class="bu">echo</span> <span class="st">&quot;tragedy + time = humor&quot;</span> <span class="op">&gt;&gt;</span> small.txt
 <span class="bu">echo</span> <span class="st">&quot;http://www.jhsph.edu/&quot;</span> <span class="op">&gt;&gt;</span> small.txt
-<span class="bu">echo</span> <span class="st">&quot;#%&amp;-=***=-&amp;%#&quot;</span> <span class="op">&gt;&gt;</span> small.txt</code></pre></div>
-<p>In addition to quantifiers there are also regular expressions for describing sets of characters. The <code>\w</code> metacharacter corresponds to all “word” characters, the <code>\d</code> metacharacter corresponds to all “number” characters, and the <code>\s</code> metacharacter corresponds to all “space” characters. Let’s take a look at using each of these metacharacters on small.txt:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;\w&quot;</span> small.txt</code></pre></div>
+<span class="bu">echo</span> <span class="st">&quot;#%&amp;-=***=-&amp;%#&quot;</span> <span class="op">&gt;&gt;</span> small.txt</code></pre>
+<p>In addition to quantifiers there are also regular expressions for describing
+sets of characters. The <code>\w</code> metacharacter corresponds to all “word” characters,
+the <code>\d</code> metacharacter corresponds to all “number” characters, and the <code>\s</code>
+metacharacter corresponds to all “space” characters. Let’s take a look at using
+each of these metacharacters on small.txt:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;\w&quot;</span> small.txt</code></pre>
 <pre><code>## abcdefghijklmnopqrstuvwxyz
 ## ABCDEFGHIJKLMNOPQRSTUVWXYZ
 ## 0123456789
@@ -550,30 +706,44 @@ DESCRIPTION
 ## abc
 ## tragedy + time = humor
 ## http://www.jhsph.edu/</code></pre>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;\d&quot;</span> small.txt</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;\d&quot;</span> small.txt</code></pre>
 <pre><code>## 0123456789</code></pre>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;\s&quot;</span> small.txt</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;\s&quot;</span> small.txt</code></pre>
 <pre><code>## aa bb cc
 ## tragedy + time = humor</code></pre>
-<p>As you can see in the example above, the <code>\w</code> metacharacter matches all letters, numbers, and even the underscore character (<code>_</code>). We can see the compliment of this grep by adding the <code>-v</code> flag to the command:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> -v <span class="st">&quot;\w&quot;</span> small.txt</code></pre></div>
+<p>As you can see in the example above, the <code>\w</code> metacharacter matches all letters,
+numbers, and even the underscore character (<code>_</code>). We can see the complement of
+this grep by adding the <code>-v</code> flag to the command:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> -v <span class="st">&quot;\w&quot;</span> small.txt</code></pre>
 <pre><code>## #%&amp;-=***=-&amp;%#</code></pre>
-<p>The <code>-v</code> flag (which stands for in<strong>v</strong>ert match) makes <code>grep</code> return all of the lines not matched by the regular expression. Note that the character sets for regular expressions also have their inverse sets: <code>\W</code> for non-words, <code>\D</code> for non-digits, and <code>\S</code> for non-spaces. Let’s take a look at using <code>\W</code>:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;\W&quot;</span> small.txt</code></pre></div>
+<p>The <code>-v</code> flag (which stands for in<strong>v</strong>ert match) makes <code>grep</code> return all of the
+lines not matched by the regular expression. Note that the character sets for
+regular expressions also have their inverse sets: <code>\W</code> for non-words, <code>\D</code> for
+non-digits, and <code>\S</code> for non-spaces. Let’s take a look at using <code>\W</code>:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;\W&quot;</span> small.txt</code></pre>
 <pre><code>## aa bb cc
 ## tragedy + time = humor
 ## http://www.jhsph.edu/
 ## #%&amp;-=***=-&amp;%#</code></pre>
-<p>The returned strings all contain non-word characters. Note the difference between the results of using the invert flag <code>-v</code> versus using an inverse set regular expression.</p>
-<p>In addition to general character sets we can also create specific character sets using square brackets (<code>[ ]</code>) and then including the characters we wish to match in the square brackets. For example the regular expression for the set of vowels is <code>[aeiou]</code>. You can also create a regular expression for the compliment of a set by including a caret (<code>^</code>) in the beginning of a set. For example the regular expression <code>[^aeiou]</code> matches all characters that are not vowels. Let’s test both on small.txt:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;[aeiou]&quot;</span> small.txt</code></pre></div>
+<p>The returned strings all contain non-word characters. Note the difference between
+the results of using the invert flag <code>-v</code> versus using an inverse set regular
+expression.</p>
+<p>In addition to general character sets we can also create specific character
+sets using square brackets (<code>[ ]</code>) and then including the characters we wish to
+match in the square brackets. For example the regular expression for the set
+of vowels is <code>[aeiou]</code>. You can also create a regular expression for the
+complement of a set by including a caret (<code>^</code>) in the beginning of a set. For
+example the regular expression <code>[^aeiou]</code> matches all characters that are not
+vowels. Let’s test both on small.txt:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;[aeiou]&quot;</span> small.txt</code></pre>
 <pre><code>## abcdefghijklmnopqrstuvwxyz
 ## aa bb cc
 ## abc
 ## tragedy + time = humor
 ## http://www.jhsph.edu/</code></pre>
-<p>Notice that the word “rhythms” does not appear in the result (it’s the longest word without any vowels that I could think of).</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;[^aeiou]&quot;</span> small.txt</code></pre></div>
+<p>Notice that the word “rhythms” does not appear in the result (it’s the longest
+word without any vowels that I could think of).</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;[^aeiou]&quot;</span> small.txt</code></pre>
 <pre><code>## abcdefghijklmnopqrstuvwxyz
 ## ABCDEFGHIJKLMNOPQRSTUVWXYZ
 ## 0123456789
@@ -584,15 +754,25 @@ DESCRIPTION
 ## tragedy + time = humor
 ## http://www.jhsph.edu/
 ## #%&amp;-=***=-&amp;%#</code></pre>
-<p>Every line in the file is printed, because every line contains at least one non-vowel! If you want to specify a range of characters you can use a hyphen (<code>-</code>) inside of the square brackets. For example the regular expression <code>[e-q]</code> matches all of the lowercase letters between “e” and “q” in the alphabet inclusively. Case matters when you’re specifying character sets, so if you wanted to only match uppercase characters you’d need to use <code>[E-Q]</code>. To ignore the case of your match you could combine the character sets with the <code>[e-qE-Q]</code> regex (short for regular expression), or you could use the <code>-i</code> flag with <code>grep</code> to <strong>i</strong>gnore the case. Note that the <code>-i</code> flag will work for any provided regular expression, not just character sets. Let’s take a look at some examples using the regular expressions that we just described:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;[e-q]&quot;</span> small.txt</code></pre></div>
+<p>Every line in the file is printed, because every line contains at least one
+non-vowel! If you want to specify a range of characters you can use a hyphen
+(<code>-</code>) inside of the square brackets. For example the regular expression <code>[e-q]</code>
+matches all of the lowercase letters between “e” and “q” in the alphabet
+inclusively. Case matters when you’re specifying character sets, so if you
+wanted to only match uppercase characters you’d need to use <code>[E-Q]</code>. To ignore
+the case of your match you could combine the character sets with the <code>[e-qE-Q]</code>
+regex (short for regular expression), or you could use the <code>-i</code> flag with <code>grep</code>
+to <strong>i</strong>gnore the case. Note that the <code>-i</code> flag will work for any provided regular
+expression, not just character sets. Let’s take a look at some examples using
+the regular expressions that we just described:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;[e-q]&quot;</span> small.txt</code></pre>
 <pre><code>## abcdefghijklmnopqrstuvwxyz
 ## rhythms
 ## tragedy + time = humor
 ## http://www.jhsph.edu/</code></pre>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;[E-Q]&quot;</span> small.txt</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;[E-Q]&quot;</span> small.txt</code></pre>
 <pre><code>## ABCDEFGHIJKLMNOPQRSTUVWXYZ</code></pre>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;[e-qE-Q]&quot;</span> small.txt</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;[e-qE-Q]&quot;</span> small.txt</code></pre>
 <pre><code>## abcdefghijklmnopqrstuvwxyz
 ## ABCDEFGHIJKLMNOPQRSTUVWXYZ
 ## rhythms
@@ -601,13 +781,24 @@ DESCRIPTION
 </div>
 <div id="escaping-anchors-odds-and-ends" class="section level3">
 <h3><span class="header-section-number">4.3.4</span> Escaping, Anchors, Odds, and Ends</h3>
-<p>One issue you may have thought about during our little exploration of regular expressions is how to search for certain punctuation marks in text considering that those same symbols are used as metacharacters! For example, how would you find a plus sign (<code>+</code>) in a line of text since the plus sign is <strong>also</strong> a metacharacter? The answer is simply using a backslash (<code>\</code>) before the plus sign in a regex, in order to “escape” the metacharacter functionality. Here are a few examples:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;\+&quot;</span> small.txt</code></pre></div>
+<p>One issue you may have thought about during our little exploration of regular
+expressions is how to search for certain punctuation marks in text considering
+that those same symbols are used as metacharacters! For example, how would you
+find a plus sign (<code>+</code>) in a line of text since the plus sign is <strong>also</strong> a
+metacharacter? The answer is simply using a backslash (<code>\</code>) before the plus sign
+in a regex, in order to “escape” the metacharacter functionality. Here are a few
+examples:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;\+&quot;</span> small.txt</code></pre>
 <pre><code>## tragedy + time = humor</code></pre>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;\.&quot;</span> small.txt</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;\.&quot;</span> small.txt</code></pre>
 <pre><code>## http://www.jhsph.edu/</code></pre>
-<p>There are three more metacharacters that we should discuss, and two of them come as a pair: the caret (<code>^</code>), which represents the start of a line, and the dollar sign (<code>$</code>) which represents the end of line. These “anchor characters” only match the beginning and ends of lines when coupled with other regular expressions. For example, going back to looking at states.txt, I could search for all of the state names that begin with “M” with the following command:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;^M&quot;</span> states.txt</code></pre></div>
+<p>There are three more metacharacters that we should discuss, and two of them come
+as a pair: the caret (<code>^</code>), which represents the start of a line, and the dollar
+sign (<code>$</code>) which represents the end of line. These “anchor characters” only
+match the beginning and ends of lines when coupled with other regular
+expressions. For example, going back to looking at states.txt, I could search
+for all of the state names that begin with “M” with the following command:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;^M&quot;</span> states.txt</code></pre>
 <pre><code>## Maine
 ## Maryland
 ## Massachusetts
@@ -617,40 +808,52 @@ DESCRIPTION
 ## Missouri
 ## Montana</code></pre>
 <p>Or we could search for all of the states that end in “s”:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;s$&quot;</span> states.txt</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;s$&quot;</span> states.txt</code></pre>
 <pre><code>## Arkansas
 ## Illinois
 ## Kansas
 ## Massachusetts
 ## Texas</code></pre>
-<p>There’s a mnemonic that I love for remembering which metacharacter to use for each anchor: “First you get the <strong>power</strong>, then you get the <strong>money</strong>.” The caret character is used for exponentiation in many programming languages, so “power” (<code>^</code>) is used for the beginning of a line and “money” (<code>$</code>) is used for the end of a line.</p>
-<p>Finally, let’s talk about the “or” metacharacter (<code>|</code>), which is also called the “pipe” character. This metacharacter allows you to match either the regex on the right or on the left side of the pipe. Let’s take a look at a small example:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;North|South&quot;</span> states.txt</code></pre></div>
+<p>There’s a mnemonic that I love for remembering which metacharacter to use for
+each anchor: “First you get the <strong>power</strong>, then you get the <strong>money</strong>.” The
+caret character is used for exponentiation in many programming languages, so
+“power” (<code>^</code>) is used for the beginning of a line and “money” (<code>$</code>) is used for
+the end of a line.</p>
+<p>Finally, let’s talk about the “or” metacharacter (<code>|</code>), which is also called the
+“pipe” character. This metacharacter allows you to match either the regex on
+the right or on the left side of the pipe. Let’s take a look at a small example:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;North|South&quot;</span> states.txt</code></pre>
 <pre><code>## North Carolina
 ## North Dakota
 ## South Carolina
 ## South Dakota</code></pre>
-<p>In the example above we’re searching for lines of text that contain the words “North” or “South”. You can also use multiple pipe characters to, for example, search for lines that contain the words for all of the cardinal directions:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;North|South|East|West&quot;</span> states.txt</code></pre></div>
+<p>In the example above we’re searching for lines of text that contain the words
+“North” or “South”. You can also use multiple pipe characters to, for example,
+search for lines that contain the words for all of the cardinal directions:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;North|South|East|West&quot;</span> states.txt</code></pre>
 <pre><code>## North Carolina
 ## North Dakota
 ## South Carolina
 ## South Dakota
 ## West Virginia</code></pre>
-<p>Just two more notes on <code>grep</code>: you can display the line number that a match occurs on using the <code>-n</code> flag:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> -n <span class="st">&quot;t$&quot;</span> states.txt</code></pre></div>
+<p>Just two more notes on <code>grep</code>: you can display the line number that a match
+occurs on using the <code>-n</code> flag:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> -n <span class="st">&quot;t$&quot;</span> states.txt</code></pre>
 <pre><code>## 7:Connecticut
 ## 45:Vermont</code></pre>
-<p>And you can also <code>grep</code> multiple files at once by providing multiple file arguments:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;New&quot;</span> states.txt canada.txt</code></pre></div>
+<p>And you can also <code>grep</code> multiple files at once by providing multiple file
+arguments:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;New&quot;</span> states.txt canada.txt</code></pre>
 <pre><code>## states.txt:New Hampshire
 ## states.txt:New Jersey
 ## states.txt:New Mexico
 ## states.txt:New York
 ## canada.txt:Newfoundland and Labrador
 ## canada.txt:New Brunswick</code></pre>
-<p>You now have the power to do some pretty complicated string searching using regular expressions! Imagine you wanted to search for all of the state names that both begin and end with a vowel. Now you can:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;^[AEIOU]{1}.+[aeiou]{1}$&quot;</span> states.txt</code></pre></div>
+<p>You now have the power to do some pretty complicated string searching using
+regular expressions! Imagine you wanted to search for all of the state names
+that both begin and end with a vowel. Now you can:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">egrep</span> <span class="st">&quot;^[AEIOU]{1}.+[aeiou]{1}$&quot;</span> states.txt</code></pre>
 <pre><code>## Alabama
 ## Alaska
 ## Arizona
@@ -659,7 +862,8 @@ DESCRIPTION
 ## Iowa
 ## Ohio
 ## Oklahoma</code></pre>
-<p>I know there a many metacharacters to keep track of here so below I’ve included a table with several of the metacharacters we’ve discussed in this chapter:</p>
+<p>I know there a many metacharacters to keep track of here so below I’ve included
+a table with several of the metacharacters we’ve discussed in this chapter:</p>
 <table>
 <thead>
 <tr class="header">
@@ -742,27 +946,36 @@ DESCRIPTION
 </tr>
 <tr class="odd">
 <td align="right">{4, 6}</td>
-<td align="left">Between 4 and 6 or Previous</td>
+<td align="left">Between 4 and 6 of Previous</td>
 </tr>
 <tr class="even">
 <td align="right">{4, }</td>
-<td align="left">More than 4 of Previous</td>
+<td align="left">4 or more of Previous</td>
 </tr>
 </tbody>
 </table>
-<p>If you want to experiment with writing regular expressions before you use them I highly recommend playing around with <a href="http://regexr.com/" class="uri">http://regexr.com/</a>.</p>
+<p>If you want to experiment with writing regular expressions before you use them
+I highly recommend playing around with <a href="http://regexr.com/" class="uri">http://regexr.com/</a>.</p>
 </div>
 <div id="find" class="section level3">
 <h3><span class="header-section-number">4.3.5</span> <code>find</code></h3>
-<p>If you want to find the location of a file or the location of a group of files you can use the <code>find</code> command. This command has a specific structure where the first argument is the directory where you want to begin the search, and all directories contained within that directory will also be searched. The first argument is then followed by a flag that describes the method you want to use to search. In this case we’ll only be searching for a file by its name, so we’ll use the <code>-name</code> flag. The <code>-name</code> flag itself then takes an argument, the name of the file that you’re looking for. Let’s go back to the home directory and look for some files from there:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span>
-<span class="bu">pwd</span></code></pre></div>
+<p>If you want to find the location of a file or the location of a group of files
+you can use the <code>find</code> command. This command has a specific structure where
+the first argument is the directory where you want to begin the search, and all
+directories contained within that directory will also be searched. The first
+argument is then followed by a flag that describes the method you want to use to
+search. In this case we’ll only be searching for a file by its name, so we’ll
+use the <code>-name</code> flag. The <code>-name</code> flag itself then takes an argument, the name
+of the file that you’re looking for. Let’s go back to the home directory and
+look for some files from there:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span>
+<span class="bu">pwd</span></code></pre>
 <pre><code>## /Users/sean</code></pre>
 <p>Let’s start by looking for a file called states.txt:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">find</span> . -name <span class="st">&quot;states.txt&quot;</span></code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">find</span> . -name <span class="st">&quot;states.txt&quot;</span></code></pre>
 <pre><code>## ./Documents/states.txt</code></pre>
 <p>Right where we expected it to be! Now let’s try searching for all <code>.jpg</code> files:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">find</span> . -name <span class="st">&quot;*.jpg&quot;</span></code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">find</span> . -name <span class="st">&quot;*.jpg&quot;</span></code></pre>
 <pre><code>## ./Photos/2016-06-21-lab01.jpg
 ## ./Photos/2016-06-21-lab02.jpg
 ## ./Photos/2017/2017-01-02-hiking01.jpg
@@ -774,8 +987,10 @@ DESCRIPTION
 <div id="summary-6" class="section level3">
 <h3><span class="header-section-number">4.3.6</span> Summary</h3>
 <ul>
-<li><code>grep</code> and <code>egrep</code> can be used along with regular expressions to search for patterns of text in a file.</li>
-<li>Metacharacters are used in regular expressions to describe patterns of characters.</li>
+<li><code>grep</code> and <code>egrep</code> can be used along with regular expressions to search for
+patterns of text in a file.</li>
+<li>Metacharacters are used in regular expressions to describe patterns of
+characters.</li>
 <li><code>find</code> can be used to search for the names of files in a directory.</li>
 </ul>
 </div>
@@ -783,8 +998,10 @@ DESCRIPTION
 <h3><span class="header-section-number">4.3.7</span> Exercises</h3>
 <ol style="list-style-type: decimal">
 <li>Search <code>states.txt</code> and <code>canada.txt</code> for lines that contain the word “New”.</li>
-<li>Make five text files containing the names of states that don’t contain one of each of the five vowels.</li>
-<li>Download the GitHub repository for this book and find out how many <code>.html</code> files it contains.</li>
+<li>Make five text files containing the names of states that don’t contain one of
+each of the five vowels.</li>
+<li>Download the GitHub repository for this book and find out how many <code>.html</code>
+files it contains.</li>
 </ol>
 </div>
 </div>
@@ -792,8 +1009,12 @@ DESCRIPTION
 <h2><span class="header-section-number">4.4</span> Configure</h2>
 <div id="history" class="section level3">
 <h3><span class="header-section-number">4.4.1</span> History</h3>
-<p>Near the start of this book we discussed how you can browse the commands that you recently entered into the prompt using the <code>Up</code> and <code>Down</code> arrow keys. Bash keeps track of all of your recent commands, and you can browse your command history two different ways. The commands that we’ve used since opening our terminal can be accessed via the <code>history</code> command. Let’s try it out:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">history</span></code></pre></div>
+<p>Near the start of this book we discussed how you can browse the commands
+that you recently entered into the prompt using the <code>Up</code> and <code>Down</code> arrow keys.
+Bash keeps track of all of your recent commands, and you can browse your command
+history two different ways. The commands that we’ve used since opening our
+terminal can be accessed via the <code>history</code> command. Let’s try it out:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">history</span></code></pre>
 <pre><code>## ...
 ## 48 egrep &quot;^M&quot; states.txt
 ## 49 egrep &quot;s$&quot; states.txt
@@ -807,90 +1028,138 @@ DESCRIPTION
 ## 57 find . -name &quot;states.txt&quot;
 ## 58 find . -name &quot;*.jpg&quot;
 ## 59 history</code></pre>
-<p>We’ve had our terminal open for a while so there are tons of commands in our history! Whenever we close a terminal our recent commands are written to the <code>~/.bash_history</code> file. Let’s a take a look at the beginning of this file:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">head</span> -n 5 ~/.bash_history</code></pre></div>
+<p>We’ve had our terminal open for a while so there are tons of commands in our
+history! Whenever we close a terminal our recent commands are written to the
+<code>~/.bash_history</code> file. Let’s a take a look at the beginning of this file:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">head</span> -n 5 ~/.bash_history</code></pre>
 <pre><code>## echo &quot;Hello World!&quot;
 ## pwd
 ## cd
 ## pwd
 ## ls</code></pre>
-<p>Looks like the very first commands we entered into the terminal! Searching your <code>~/.bash_history</code> file can be particularly useful if you’re trying to recall a command you’ve used in the past. The <code>~/.bash_history</code> file is just a regular text file, so you can search it with <code>grep</code>. Here’s a simple example:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">grep</span> <span class="st">&quot;canada&quot;</span> ~/.bash_history</code></pre></div>
+<p>Looks like the very first commands we entered into the terminal! Searching your
+<code>~/.bash_history</code> file can be particularly useful if you’re trying to recall
+a command you’ve used in the past. The <code>~/.bash_history</code> file is just a regular
+text file, so you can search it with <code>grep</code>. Here’s a simple example:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">grep</span> <span class="st">&quot;canada&quot;</span> ~/.bash_history</code></pre>
 <pre><code>## egrep &quot;New&quot; states.txt canada.txt</code></pre>
 </div>
 <div id="customizing-bash" class="section level3">
 <h3><span class="header-section-number">4.4.2</span> Customizing Bash</h3>
-<p>Besides <code>~/.bash_history</code>, another text file in our home directory that we should be aware of is <code>~/.bash_profile</code>. The <code>~/.bash_profile</code> is a list of Unix commands that are run every time we open our terminal, usually with a different command on every line. One of the most common commands used in a <code>~/.bash_profile</code> is the <code>alias</code> command, which creates a shorter name for a command. Let’s take a look at a <code>~/.bash_profile</code>:</p>
+<p>Besides <code>~/.bash_history</code>, another text file in our home directory that we
+should be aware of is <code>~/.bash_profile</code>. The <code>~/.bash_profile</code> is a list of
+Unix commands that are run every time we open our terminal, usually with a
+different command on every line. One of the most common commands used in a
+<code>~/.bash_profile</code> is the <code>alias</code> command, which creates a shorter name for a
+command. Let’s take a look at a <code>~/.bash_profile</code>:</p>
 <pre><code>alias docs=&#39;cd ~/Documents&#39;
 alias edbp=&#39;nano ~/.bash_profile&#39;</code></pre>
-<p>The first <code>alias</code> creates a new command <code>docs</code>. Now entering <code>docs</code> into the command line is the equivalent of entering <code>cd ~/Documents</code> into the comamnd line. Open let’s edit our <code>~/.bash_profile</code> with <code>nano</code>. If there’s anything in your <code>~/.bash_profile</code> already then start adding lines at the end of the file. Add the line <code>alias docs='cd ~/Documents'</code>, then save the file and quit <code>nano</code>. In order to make the changes to our <code>~/.bash_profile</code> take effect we need to run <code>source ~/.bash_profile</code> in the console:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">source</span> ~/.bash_profile</code></pre></div>
+<p>The first <code>alias</code> creates a new command <code>docs</code>. Now entering <code>docs</code> into the
+command line is the equivalent of entering <code>cd ~/Documents</code> into the comamnd
+line. Let’s edit our <code>~/.bash_profile</code> with <code>nano</code>. If there’s anything
+in your <code>~/.bash_profile</code> already then start adding lines at the end of the
+file. Add the line <code>alias docs='cd ~/Documents'</code>, then save the file and quit
+<code>nano</code>. In order to make the changes to our <code>~/.bash_profile</code> take effect we
+need to run <code>source ~/.bash_profile</code> in the console:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">source</span> ~/.bash_profile</code></pre>
 <p>Now let’s try using <code>docs</code>:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">docs</span>
-<span class="bu">pwd</span></code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">docs</span>
+<span class="bu">pwd</span></code></pre>
 <pre><code>## /Users/sean/Documents</code></pre>
-<p>It works! Setting different <code>alias</code>es allows you to save time if there are long commands that you use often. In the example <code>~/.bash_profile</code> above, the second line, <code>alias edbp='nano ~/.bash_profile'</code> creates the command <code>edbp</code> (<strong>ed</strong>it <strong>b</strong>ash <strong>p</strong>rofile) so that you can quickly add <code>alias</code>es. Try adding it to your <code>~/.bash_profile</code> and take your new command for a spin!</p>
-<p>There are a few other details about the <code>~/.bash_profile</code> that are important when you’re writing software which we’ll discuss in the Bash Programming chapter.</p>
+<p>It works! Setting different <code>alias</code>es allows you to save time if there are long
+commands that you use often. In the example <code>~/.bash_profile</code> above, the second
+line, <code>alias edbp='nano ~/.bash_profile'</code> creates the command <code>edbp</code> (<strong>ed</strong>it
+<strong>b</strong>ash <strong>p</strong>rofile) so that you can quickly add <code>alias</code>es. Try adding it to
+your <code>~/.bash_profile</code> and take your new command for a spin!</p>
+<p>There are a few other details about the <code>~/.bash_profile</code> that are important
+when you’re writing software which we’ll discuss in the Bash Programming
+chapter.</p>
 </div>
 <div id="summary-7" class="section level3">
 <h3><span class="header-section-number">4.4.3</span> Summary</h3>
 <ul>
-<li><code>history</code> displays what commands we’ve entered into the console since opening our current terminal.</li>
+<li><code>history</code> displays what commands we’ve entered into the console
+since opening our current terminal.</li>
 <li>The <code>~/.bash_history</code> file lists commands we’ve used in the past.</li>
-<li><code>alias</code> creates a command that can be used as a substitute for a longer command that we use often.</li>
-<li>The <code>~/.bash_profile</code> is a text file that is run every time we start a shell, and it’s the best place to assign <code>alias</code>es.</li>
+<li><code>alias</code> creates a command that can be used as a substitute for a longer
+command that we use often.</li>
+<li>The <code>~/.bash_profile</code> is a text file that is run every time we start a shell,
+and it’s the best place to assign <code>alias</code>es.</li>
 </ul>
 </div>
 </div>
 <div id="differentiate" class="section level2">
 <h2><span class="header-section-number">4.5</span> Differentiate</h2>
-<p>It’s important to be able to examine differences between files. First let’s make two small simple text files in the Documents directory.</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span> ~/Documents
+<p>It’s important to be able to examine differences between files. First let’s
+make two small simple text files in the Documents directory.</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span> ~/Documents
 <span class="fu">head</span> -n 4 states.txt <span class="op">&gt;</span> four.txt
-<span class="fu">head</span> -n 6 states.txt <span class="op">&gt;</span> six.txt</code></pre></div>
-<p>If we want to look at which lines in these files are different we can use the <code>diff</code> command:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">diff</span> four.txt six.txt</code></pre></div>
+<span class="fu">head</span> -n 6 states.txt <span class="op">&gt;</span> six.txt</code></pre>
+<p>If we want to look at which lines in these files are different we can use the
+<code>diff</code> command:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">diff</span> four.txt six.txt</code></pre>
 <pre><code>## 4a5,6
 ## &gt; California
 ## &gt; Colorado</code></pre>
-<p>Only the differing lines are printed to the console. We could also compare differing lines in a side-by-side comparison using <code>sdiff</code>:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">sdiff</span> four.txt six.txt</code></pre></div>
+<p>Only the differing lines are printed to the console. We could also compare
+differing lines in a side-by-side comparison using <code>sdiff</code>:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">sdiff</span> four.txt six.txt</code></pre>
 <pre><code>## Alabama              Alabama
 ## Alaska               Alaska
 ## Arizona              Arizona
 ## Arkansas             Arkansas
 ##                    &gt; California
 ##                    &gt; Colorado</code></pre>
-<p>In a common situation you might be sent a file, or you might download a file from the internet that comes with code known as a <strong>checksum</strong> or a <strong>hash</strong>. Hashing programs generate a unique code based on the contents of a file. People distribute hashes with files so that we can be sure that the file we think we’ve downloaded is the genuine file. One way we can prevent malicious individuals from sending us harmful files is to check to make sure the computed hash matches the provided hash. There are a few commonly used file hashes but we’ll talk about two called MD5 and SHA-1.</p>
-<p>Since hashes are generated based on file contents, then two identical files should have the same hash. Let’s test this my making a copy of <code>states.txt</code>.</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">cp</span> states.txt states_copy.txt</code></pre></div>
+<p>In a common situation you might be sent a file, or you might download a file from the
+internet that comes with code known as a <strong>checksum</strong> or a <strong>hash</strong>. Hashing
+programs generate a unique code based on the contents of a file. People
+distribute hashes with files so that we can be sure that the file we think
+we’ve downloaded is the genuine file. One way we can prevent malicious
+individuals from sending us harmful files is to check to make sure the computed
+hash matches the provided hash.
+There are a few commonly used file hashes but we’ll talk about two called MD5
+and SHA-1.</p>
+<p>Since hashes are generated based on file contents, then two identical files
+should have the same hash. Let’s test this my making a copy of <code>states.txt</code>.</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">cp</span> states.txt states_copy.txt</code></pre>
 <p>To compute the MD5 hash of a file we can use the <code>md5</code> command:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">md5</span> states.txt</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">md5</span> states.txt</code></pre>
 <pre><code>## MD5 (states.txt) = 8d7dd71ff51614e69339b03bd1cb86ac</code></pre>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">md5</span> states_copy.txt</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">md5</span> states_copy.txt</code></pre>
 <pre><code>## MD5 (states_copy.txt) = 8d7dd71ff51614e69339b03bd1cb86ac</code></pre>
-<p>As we expected they’re the same! We can compute the SHA-1 hash using the <code>shasum</code> command:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">shasum</span> states.txt</code></pre></div>
+<p>As we expected they’re the same! We can compute the SHA-1 hash using the
+<code>shasum</code> command:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">shasum</span> states.txt</code></pre>
 <pre><code>## 588e9de7ffa97268b2448927df41760abd3369a9  states.txt</code></pre>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">shasum</span> states_copy.txt</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">shasum</span> states_copy.txt</code></pre>
 <pre><code>## 588e9de7ffa97268b2448927df41760abd3369a9  states_copy.txt</code></pre>
-<p>Once again, both copies produce the same hash. Let’s make a change to one of the files, just to illustrate the fact that the hash changes if file contents are different:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">head</span> -n 5 states_copy.txt <span class="op">&gt;</span> states_copy.txt
-<span class="ex">shasum</span> states_copy.txt</code></pre></div>
+<p>Once again, both copies produce the same hash. Let’s make a change to one of the
+files, just to illustrate the fact that the hash changes if file contents are
+different:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">head</span> -n 5 states_copy.txt <span class="op">&gt;</span> states_copy.txt
+<span class="ex">shasum</span> states_copy.txt</code></pre>
 <pre><code>## b1c1c805f123f31795c77f78dd15c9f7ac5732d4  states_copy.txt</code></pre>
 <div id="summary-8" class="section level3">
 <h3><span class="header-section-number">4.5.1</span> Summary</h3>
 <ul>
-<li>The <code>md5</code> and <code>shasum</code> commands use different algorithms to create codes (called hashes or checksums) that are unique to the contents of a file.</li>
+<li>The <code>md5</code> and <code>shasum</code> commands use different algorithms to create codes
+(called hashes or checksums) that are unique to the contents of a file.</li>
 <li>These hashes can be used to ensure that a file is genuine.</li>
 </ul>
 </div>
 </div>
 <div id="pipes" class="section level2">
 <h2><span class="header-section-number">4.6</span> Pipes</h2>
-<p>One of the most powerful features of the command line is skilled use of the <strong>pipe</strong> (<code>|</code>) which you can usually find above the backslash (<code>\</code>) on your keyboard. The pipe allows us to take the output of a command, which would normally be printed to the console, and use it as the input to another command. It’s like fitting an actual pipe between the end of one program and connecting it to the top of another program! Let’s take a look at a basic example. We know the <code>cat</code> command takes the contents of a text file and prints it to the console:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span> ~/Documents
-<span class="fu">cat</span> canada.txt</code></pre></div>
+<p>One of the most powerful features of the command line is skilled use of the
+<strong>pipe</strong> (<code>|</code>) which you can usually find above the backslash (<code>\</code>) on your
+keyboard. The pipe allows us to take the output of a command, which would
+normally be printed to the console, and use it as the input to another command.
+It’s like fitting an actual pipe between the end of one program and connecting
+it to the top of another program!
+Let’s take a look at a basic example. We know the <code>cat</code> command takes the
+contents of a text file and prints it to the console:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span> ~/Documents
+<span class="fu">cat</span> canada.txt</code></pre>
 <pre><code>## Nunavut
 ## Quebec
 ## Northwest Territories
@@ -904,99 +1173,156 @@ alias edbp=&#39;nano ~/.bash_profile&#39;</code></pre>
 ## New Brunswick
 ## Nova Scotia
 ## Prince Edward Island</code></pre>
-<p>This output from <code>cat canada.txt</code> will go into our pipe, and we’ll attach the dispensing end of the pipe to <code>head</code>, which we use to look at the first few lines of a file:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">cat</span> canada.txt <span class="kw">|</span> <span class="fu">head</span> -n 5</code></pre></div>
+<p>This output from <code>cat canada.txt</code> will go into our pipe, and we’ll attach the
+dispensing end of the pipe to <code>head</code>, which we use to look at the first few
+lines of a file:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">cat</span> canada.txt <span class="kw">|</span> <span class="fu">head</span> -n 5</code></pre>
 <pre><code>Nunavut
 Quebec
 Northwest Territories
 Ontario
 British Columbia</code></pre>
-<p>Notice that this is the same result we would get from <code>head -n 5 canada.txt</code>, we just used <code>cat</code> to illustrate how the pipe works. The general syntax of the pipe is <code>[program that produces output] | [program uses pipe output as input instead of a file]</code>.</p>
-<p>A more common and useful example where we could use the pipe is answering the question: “How many US states end in a vowel?” We could use <code>grep</code> and regular expressions to list all of the state names that end with a vowel, then we could use <code>wc</code> to count all of the matching state names:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">grep</span> <span class="st">&quot;[aeiou]$&quot;</span> states.txt <span class="kw">|</span> <span class="fu">wc</span> -l</code></pre></div>
+<p>Notice that this is the same result we would get from <code>head -n 5 canada.txt</code>,
+we just used <code>cat</code> to illustrate how the pipe works. The general syntax of the
+pipe is
+<code>[program that produces output] | [program that uses pipe output as input instead of a file]</code>.</p>
+<p>A more common and useful example where we could use the pipe is answering the
+question: “How many US states end in a vowel?” We could use <code>grep</code> and regular
+expressions to list all of the state names that end with a vowel, then we could
+use <code>wc</code> to count all of the matching state names:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">grep</span> <span class="st">&quot;[aeiou]$&quot;</span> states.txt <span class="kw">|</span> <span class="fu">wc</span> -l</code></pre>
 <pre><code>## 32</code></pre>
-<p>The pipe can also be used multiple times in one command in order to take the output from one piped command and use it as the input to yet another program! For example we could use three pipes with <code>ls</code>, <code>grep</code>, and <code>less</code> so that we could scroll through the files in out current directory were created in February:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span> -al <span class="kw">|</span> <span class="fu">grep</span> <span class="st">&quot;Feb&quot;</span> <span class="kw">|</span> <span class="fu">less</span></code></pre></div>
+<p>The pipe can also be used multiple times in one command in order to take
+the output from one piped command and use it as the input to yet another program!
+For example we could use three pipes with <code>ls</code>, <code>grep</code>, and <code>less</code> so that we
+could scroll through the files in our current directory that were created in February:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span> -al <span class="kw">|</span> <span class="fu">grep</span> <span class="st">&quot;Feb&quot;</span> <span class="kw">|</span> <span class="fu">less</span></code></pre>
 <pre><code>-rw-r--r--   1 sean  staff   472 Feb 22 13:47 states.txt</code></pre>
 <p>Remember you can use the <code>Q</code> key to quit <code>less</code> and return to the prompt.</p>
 <div id="summary-9" class="section level3">
 <h3><span class="header-section-number">4.6.1</span> Summary</h3>
 <ul>
-<li>The pipe (<code>|</code>) takes the output of the program on its left side and directs the output to be the input for the program on its right side.</li>
+<li>The pipe (<code>|</code>) takes the output of the program on its left side and directs
+the output to be the input for the program on its right side.</li>
 </ul>
 </div>
 <div id="exercises-7" class="section level3">
 <h3><span class="header-section-number">4.6.2</span> Exercises</h3>
 <ol style="list-style-type: decimal">
 <li>Use pipes to figure out how many US states contain the word “New.”</li>
-<li>Examine your <code>~/.bash_history</code> to try to figure out how many unique commands you’ve ever used. (You may need to look up how to use the <code>uniq</code> and <code>sort</code> commands).</li>
+<li>Examine your <code>~/.bash_history</code> to try to figure out how many unique commands
+you’ve ever used. (You may need to look up how to use the <code>uniq</code> and <code>sort</code>
+commands).</li>
 </ol>
 </div>
 </div>
 <div id="make" class="section level2">
 <h2><span class="header-section-number">4.7</span> Make</h2>
-<p>Once upon a time there were no web browsers, file browsers, start menus, or search bars. When somebody booted up a computer all they got a was a shell prompt, and all of the work they did started from that prompt. Back then people still loved to share software, but there was always the problem of how software should be installed. The <code>make</code> program is the best attempt at solving this problem, and <code>make</code>’s elegance has carried it so far that it is still in wide use today. The guiding design goal of <code>make</code> is that in order to install some new piece of software one would:</p>
+<p>Once upon a time there were no web browsers, file browsers, start menus, or
+search bars. When somebody booted up a computer all they got a was a shell
+prompt, and all of the work they did started from that prompt. Back then people
+still loved to share software, but there was always the problem of how software
+should be installed. The <code>make</code> program is the best attempt at solving this
+problem, and <code>make</code>’s elegance has carried it so far that it is still in wide
+use today. The guiding design goal of <code>make</code> is that in order to
+install some new piece of software one would:</p>
 <ol style="list-style-type: decimal">
 <li>Download all of the files required for installation into a directory.</li>
 <li><code>cd</code> into that directory.</li>
 <li>Run <code>make</code>.</li>
 </ol>
-<p>This is accomplished by specifying a file called <code>makefile</code>, which describes the relationships between different files and programs. In addition to installing programs, <code>make</code> is also useful for creating documents automatically. Let’s build up a <code>makefile</code> that creates a <code>readme.txt</code> file which is automatically populated with some information about our current directory.</p>
+<p>This is accomplished by specifying a file called <code>makefile</code>, which describes the
+relationships between different files and programs. In addition to installing
+programs, <code>make</code> is also useful for creating documents automatically. Let’s build
+up a <code>makefile</code> that creates a <code>readme.txt</code> file which is automatically
+populated with some information about our current directory.</p>
 <p>Let’s start by creating a very basic <code>makefile</code> with <code>nano</code>:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span> ~/Documents/Journal
-<span class="fu">nano</span> makefile</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span> ~/Documents/Journal
+<span class="fu">nano</span> makefile</code></pre>
 <pre><code>draft_journal_entry.txt:
   touch draft_journal_entry.txt</code></pre>
-<p>The simple <code>makefile</code> above shows illustrates a <strong>rule</strong> which has the following general format:</p>
+<p>The simple <code>makefile</code> above illustrates a <strong>rule</strong> which has the
+following general format:</p>
 <pre><code>[target]: [dependencies...]
   [commands...]</code></pre>
-<p>In the simple example we created <code>draft_journal_entry.txt</code> is the <strong>target</strong>, a file which is created as the result of the <strong>command(s)</strong>. It’s very important to note that any commands under a target <strong>must be indented with a <code>Tab</code></strong>. If we don’t use <code>Tab</code>s to indent the commands then <code>make</code> will fail. Let’s save and close the <code>makefile</code>, then we can run the following in the console:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span></code></pre></div>
+<p>In the simple example we created <code>draft_journal_entry.txt</code> is the <strong>target</strong>, a
+file which is created as the result of the <strong>command(s)</strong>. It’s very important
+to note that any commands under a target <strong>must be indented with a <code>Tab</code></strong>. If
+we don’t use <code>Tab</code>s to indent the commands then <code>make</code> will fail.
+Let’s save and close the <code>makefile</code>, then we can run the following in the
+console:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span></code></pre>
 <pre><code>## makefile</code></pre>
-<p>Let’s use the <code>make</code> command with the target we want to be “made” as the only argument:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">make</span> draft_journal_entry.txt</code></pre></div>
+<p>Let’s use the <code>make</code> command with the target we want to be “made” as the only
+argument:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">make</span> draft_journal_entry.txt</code></pre>
 <pre><code>## touch draft_journal_entry.txt</code></pre>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span></code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span></code></pre>
 <pre><code>## draft_journal_entry.txt
 ## makefile</code></pre>
-<p>The commands that are indented under our definition of the rule for the <code>draft_journal_entry.txt</code> target were executed, so now <code>draft_journal_entry.txt</code> exists! Let’s try running the same <code>make</code> command again:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">make</span> draft_journal_entry.txt</code></pre></div>
+<p>The commands that are indented under our definition of the rule for the
+<code>draft_journal_entry.txt</code> target were executed, so now <code>draft_journal_entry.txt</code>
+exists! Let’s try running the same <code>make</code> command again:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">make</span> draft_journal_entry.txt</code></pre>
 <pre><code>## make: &#39;draft_journal_entry.txt&#39; is up to date.</code></pre>
-<p>Since the target file already exists no action is taken, and instead we’re informed that the rule for <code>draft_journal_entry.txt</code> is “up to date” (there’s nothing to be done).</p>
-<p>If we look at the general rule format we previously sketched out, we can see that we didn’t specify any dependencies for this rule. A <strong>dependency</strong> is a file that the target depends on in order to be built. If a dependency has been updated since the last time <code>make</code> was run for a target then the target is not “up to date.” This means that the commands for that target will be run the next time <code>make</code> is run for that target. This way, the changes to the dependency are incorporated into the target. The commands are only run when the dependencies change, or when the target doesn’t exist at all, in order to avoid running commands unnecessarily.</p>
-<p>Let’s update our <code>makefile</code> to include a <code>readme.txt</code> that is built automatically. First, let’s add a table of contents for our journal:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="st">&quot;1. 2017-06-15-In-Boston&quot;</span> <span class="op">&gt;</span> toc.txt</code></pre></div>
-<p>Now let’s update our <code>makefile</code> with <code>nano</code> to automatically generate a <code>readme.txt</code>:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">nano</span> makefile</code></pre></div>
+<p>Since the target file already exists no action is taken, and instead we’re
+informed that the rule for <code>draft_journal_entry.txt</code> is “up to date” (there’s
+nothing to be done).</p>
+<p>If we look at the general rule format we previously sketched out, we can see
+that we didn’t specify any dependencies for this rule. A <strong>dependency</strong> is a
+file that the target depends on in order to be built. If a dependency has
+been updated since the last time <code>make</code> was run for a target then the target is
+not “up to date.” This means that the commands for that target will be run the
+next time <code>make</code> is run for that target. This way, the changes to the dependency
+are incorporated into the target. The commands are only run when the dependencies
+change, or when the target doesn’t exist at all, in order to avoid running
+commands unnecessarily.</p>
+<p>Let’s update our <code>makefile</code> to include a <code>readme.txt</code> that is built
+automatically. First, let’s add a table of contents for our journal:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="st">&quot;1. 2017-06-15-In-Boston&quot;</span> <span class="op">&gt;</span> toc.txt</code></pre>
+<p>Now let’s update our <code>makefile</code> with <code>nano</code> to automatically generate a
+<code>readme.txt</code>:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">nano</span> makefile</code></pre>
 <pre><code>draft_journal_entry.txt:
   touch draft_journal_entry.txt
   
 readme.txt: toc.txt
   echo &quot;This journal contains the following number of entries:&quot; &gt; readme.txt
   wc -l toc.txt | egrep -o &quot;[0-9]+&quot; &gt;&gt; readme.txt</code></pre>
-<p>Take note that the <code>-o</code> flag provided to <code>egrep</code> above extracts the regular expression match from the matching line, so that only the number of lines is appended to <code>readme.txt</code>. Now let’s run <code>make</code> with <code>readme.txt</code> as the target:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">make</span> readme.txt</code></pre></div>
+<p>Take note that the <code>-o</code> flag provided to <code>egrep</code> above extracts the regular
+expression match from the matching line, so that only the number of lines is
+appended to <code>readme.txt</code>. Now let’s run <code>make</code> with <code>readme.txt</code> as the target:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">make</span> readme.txt</code></pre>
 <pre><code>## echo &quot;This journal contains the following number of entries:&quot; &gt; readme.txt
 ## wc -l toc.txt | egrep -o &quot;[0-9]+&quot; &gt;&gt; readme.txt</code></pre>
 <p>Now let’s take a look at <code>readme.txt</code>:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">cat</span> readme.txt</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">cat</span> readme.txt</code></pre>
 <pre><code>## This journal contains the following number of entries:
 ## 1</code></pre>
-<p>Looks like it worked! What do you think will happen if we run <code>make readme.txt</code> again?</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">make</span> readme.txt</code></pre></div>
+<p>Looks like it worked! What do you think will happen if we run <code>make readme.txt</code>
+again?</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">make</span> readme.txt</code></pre>
 <pre><code>## make: &#39;readme.txt&#39; is up to date.</code></pre>
-<p>You guessed it: nothing happened! Since the <code>readme.txt</code> file still exists and no changes were made to any of the dependencies for <code>readme.txt</code> (<code>toc.txt</code> is the only dependency) <code>make</code> doesn’t run the commands for the <code>readme.txt</code> rule. Now let’s modify <code>toc.txt</code> then we’ll try running <code>make</code> again.</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="st">&quot;2. 2017-06-16-IQSS-Talk&quot;</span> <span class="op">&gt;&gt;</span> toc.txt
-<span class="fu">make</span> readme.txt</code></pre></div>
+<p>You guessed it: nothing happened! Since the <code>readme.txt</code> file still exists and
+no changes were made to any of the dependencies for <code>readme.txt</code> (<code>toc.txt</code> is
+the only dependency) <code>make</code> doesn’t run the commands for the <code>readme.txt</code> rule.
+Now let’s modify <code>toc.txt</code> then we’ll try running <code>make</code> again.</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="st">&quot;2. 2017-06-16-IQSS-Talk&quot;</span> <span class="op">&gt;&gt;</span> toc.txt
+<span class="fu">make</span> readme.txt</code></pre>
 <pre><code>## echo &quot;This journal contains the following number of entries:&quot; &gt; readme.txt
 ## wc -l toc.txt | egrep -o &quot;[0-9]+&quot; &gt;&gt; readme.txt</code></pre>
 <p>Looks like it ran! Let’s check readme.txt to make sure.</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">cat</span> readme.txt</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">cat</span> readme.txt</code></pre>
 <pre><code>## This journal contains the following number of entries:
 ## 2</code></pre>
-<p>It looks like <code>make</code> successfully updated <code>readme.txt</code>! With every change to <code>toc.txt</code>, running <code>make readme.txt</code> will <em>programmatically</em> update <code>readme.txt</code>.</p>
-<p>In order to simplify the <code>make</code> experience, we can create a rule at the top of our <code>makefile</code> called <code>all</code> where we can list all of the files that are built by the <code>makefile</code>. By adding the <code>all</code> target we can simply run <code>make</code> without any arguments in order to build all of the targets in the <code>makefile</code>. Let’s open up <code>nano</code> and add this rule:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">nano</span> makefile</code></pre></div>
+<p>It looks like <code>make</code> successfully updated <code>readme.txt</code>! With every change to
+<code>toc.txt</code>, running <code>make readme.txt</code> will <em>programmatically</em> update <code>readme.txt</code>.</p>
+<p>In order to simplify the <code>make</code> experience, we can create a rule at the top of
+our <code>makefile</code> called <code>all</code> where we can list all of the files that are built
+by the <code>makefile</code>. By adding the <code>all</code> target we can simply run <code>make</code> without
+any arguments in order to build all of the targets in the <code>makefile</code>. Let’s
+open up <code>nano</code> and add this rule:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">nano</span> makefile</code></pre>
 <pre><code>all: draft_journal_entry.txt readme.txt
 
 draft_journal_entry.txt:
@@ -1005,7 +1331,8 @@ draft_journal_entry.txt:
 readme.txt: toc.txt
   echo &quot;This journal contains the following number of entries:&quot; &gt; readme.txt
   wc -l toc.txt | egrep -o &quot;[0-9]+&quot; &gt;&gt; readme.txt</code></pre>
-<p>While we have <code>nano</code> open let’s add another special rule at the end of our <code>makefile</code> called <code>clean</code> which destroys the files created by our <code>makefile</code>:</p>
+<p>While we have <code>nano</code> open let’s add another special rule at the end of our
+<code>makefile</code> called <code>clean</code> which destroys the files created by our <code>makefile</code>:</p>
 <pre><code>all: draft_journal_entry.txt readme.txt
 
 draft_journal_entry.txt:
@@ -1018,15 +1345,16 @@ readme.txt: toc.txt
 clean:
   rm draft_journal_entry.txt
   rm readme.txt</code></pre>
-<p>Let’s save and close our <code>makefile</code> then let’s test it out first let’s clean up our repository:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">make</span> clean
-<span class="fu">ls</span></code></pre></div>
+<p>Let’s save and close our <code>makefile</code> then let’s test it out. First let’s clean up
+our repository:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">make</span> clean
+<span class="fu">ls</span></code></pre>
 <pre><code>## rm draft_journal_entry.txt
 ## rm readme.txt
 ## makefile
 ## toc.txt</code></pre>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">make</span>
-<span class="fu">ls</span></code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">make</span>
+<span class="fu">ls</span></code></pre>
 <pre><code>## touch draft_journal_entry.txt
 ## echo &quot;This journal contains the following number of entries:&quot; &gt; readme.txt
 ## wc -l toc.txt | egrep -o &quot;[0-9]+&quot; &gt;&gt; readme.txt
@@ -1034,13 +1362,21 @@ clean:
 ## readme.txt
 ## makefile
 ## toc.txt</code></pre>
-<p>Looks like our <code>makefile</code> works! The <code>make</code> command is extremely powerful, and this section is meant to just be an introduction. For more in-depth reading about <code>make</code> I recommend <a href="https://twitter.com/kwbroman">Karl Broman</a>’s <a href="http://kbroman.org/minimal_make/">tutorial</a> or <a href="http://chaselambda.com">Chase Lambert</a>’s <a href="http://makefiletutorial.com">makefiletutorial.com</a>.</p>
+<p>Looks like our <code>makefile</code> works! The <code>make</code> command is extremely powerful, and
+this section is meant to just be an introduction. For more in-depth reading
+about <code>make</code> I recommend <a href="https://twitter.com/kwbroman">Karl Broman</a>’s
+<a href="http://kbroman.org/minimal_make/">tutorial</a> or
+<a href="http://chaselambda.com">Chase Lambert</a>’s
+<a href="http://makefiletutorial.com">makefiletutorial.com</a>.</p>
 <div id="summary-10" class="section level3">
 <h3><span class="header-section-number">4.7.1</span> Summary</h3>
 <ul>
-<li><code>make</code> is a tool for creating relationships between files and programs, so that files that depend on other files can be automatically rebuilt.</li>
+<li><code>make</code> is a tool for creating relationships between files and programs, so
+that files that depend on other files can be automatically rebuilt.</li>
 <li><code>makefiles</code> are text files that contain a list of rules.</li>
-<li>Rules are made up of targets (files to be built), commands (a list of bash commands that build the target), and dependencies (files that the target depends on to be built).</li>
+<li>Rules are made up of targets (files to be built), commands (a list of bash
+commands that build the target), and dependencies (files that the target depends
+on to be built).</li>
 </ul>
 
 </div>
@@ -1070,10 +1406,11 @@ gitbook.start({
 "facebook": true,
 "twitter": true,
 "google": false,
+"linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -1081,6 +1418,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
+"link": null,
+"text": null
+},
+"history": {
 "link": null,
 "text": null
 },

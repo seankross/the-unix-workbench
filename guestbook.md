@@ -386,7 +386,7 @@
 - Filippo Corri
 - Mudassar Raza
 - Bernhard S
-- Sako 
+- Sako
 - Jake SR
 - Vic Harkness
 - Amir Yariv
@@ -402,7 +402,7 @@
 - Cindy Flórez
 - Patrick Hennessey
 - Ravi Rathore
-- Sanjay 
+- Sanjay
 - Mitch Edmunds
 - Iris Zimmermann
 - Nick Antonogiannis
@@ -525,3 +525,4 @@
 - Josie Everatt
 - René Salas
 - Amy Nguyen
+- Ben Bonner

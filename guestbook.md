@@ -526,3 +526,4 @@
 - René Salas
 - Amy Nguyen
 - Ben Bonner
+- Daniel Santos

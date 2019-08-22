@@ -527,3 +527,4 @@
 - Amy Nguyen
 - Ben Bonner
 - Daniel Santos
+- Sean Kross

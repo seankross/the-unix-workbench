@@ -37,7 +37,7 @@ offers many other useful features which we will discuss at length.
 Before setting up Git, go to [GitHub](https://github.com/) and create a free
 account. Take note of which email address you use and which username you choose.
 
-To see if you have Git installed open up your terminal and enter the following:
+To see if you have Git installed, open up your terminal and enter the following:
 
 ```{r, engine='bash'}
 git --version

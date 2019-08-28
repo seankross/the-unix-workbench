@@ -531,4 +531,6 @@
 - Valentin Corelj
 - Alberto Gutierrez
 - Ali Abolhassanzadeh Mahani
-"- Rahul Tarte" 
+- Shi Wen
+- Maria-Anna Klironomou
+- Rahul Tarte

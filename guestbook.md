@@ -543,3 +543,4 @@
 - Jose Luis
 - Aaron Schlichting
 -Shreyansh Pathak
+- Knut Husdal

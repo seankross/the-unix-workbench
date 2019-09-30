@@ -545,8 +545,9 @@
 - Shreyansh Pathak
 - Knut Husdal
 - Michael Lim
-- #tejas
+- tejas 
 - Manish Meena
 Vishal Singh
 -Claire Volleman 
 - Konstheo
+

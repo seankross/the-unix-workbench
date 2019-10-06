@@ -547,6 +547,7 @@
 - Michael Lim
 - #tejas
 - Manish Meena
-Vishal Singh
--Claire Volleman 
+- Vishal Singh
+- Claire Volleman 
 - Konstheo
+- Shyam Deo

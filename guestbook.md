@@ -551,3 +551,4 @@
 - Claire Volleman 
 - Konstheo
 - Shyam Deo
+- Tare

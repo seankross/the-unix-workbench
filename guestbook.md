@@ -552,3 +552,4 @@
 - Konstheo
 - Shyam Deo
 - Tare
+- Sean Kross

@@ -574,3 +574,4 @@
 - Nyasha Chambwe
 - Carles Hilario
 - Fuhad Olatunbosun
+- Artem Smirnov

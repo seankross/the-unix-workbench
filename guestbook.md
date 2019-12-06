@@ -569,4 +569,15 @@
 - Uttam Dey
 - Navy
 - Miguel Ramirez (mik315)
+- Raymond Calderon
+- Ruhi D.
+- Nyasha Chambwe
+- Carles Hilario
+- Fuhad Olatunbosun
+- John Donne Sr
+- Artem Smirnov
+- Mark Wentowski
+- PB
+- Andres Thomas
+- Kelly Christensen
 - Steve B

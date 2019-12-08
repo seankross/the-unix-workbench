@@ -585,3 +585,4 @@
 - CHIA LUNG NI
 - Mohan Govindasamy
 - Ghazaleh Kazeminejad
+- Simon Larose

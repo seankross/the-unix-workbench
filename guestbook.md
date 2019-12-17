@@ -589,4 +589,6 @@
 - xiaobo
 - Lucas
 - Jaz Edebeli
+- Vadim Azalov
+- Sukanta Das
 - Bilal Khan

@@ -594,3 +594,4 @@
 - Bilal Khan
 - Mehedi Hasan
 - Ravi Kalia
+- Sean Kross

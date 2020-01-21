@@ -1800,7 +1800,7 @@ fib 10
 
 ### The Unix Philosophy
 
-Perhaps there are some design patters that you've been noticing since we started
+Perhaps there are some design patterns that you've been noticing since we started
 talking about Unix tools, and now we're going to discuss them explicitly. Unix
 tools were designed along a set of guidelines which are best summarized by
 [Ken Thompson](https://en.wikipedia.org/wiki/Ken_Thompson)'s idea that each Unix

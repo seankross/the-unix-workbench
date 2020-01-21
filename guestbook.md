@@ -609,3 +609,4 @@ Arun Pathak
 - Sarah Gratton
 - Olga Klipa
 - Raghav Gade
+- Michael Collins

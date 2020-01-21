@@ -598,15 +598,16 @@
 - Kashish Mittal
 - Akshar
 - Yan Xie
--Pavel Nedyalkov
-Arun Pathak
--Iftah Tsdaka
+- Pavel Nedyalkov
+- Arun Pathak
+- Iftah Tsdaka
 - Johannes Ranalletta
 - B. Heitner
 - Luis Talavera
 - Daniil Udobnyj
- - MuratTuz 
+- MuratTuz 
 - Sarah Gratton
 - Olga Klipa
 - Raghav Gade
+- Andreas Rockert
 - Michael Collins

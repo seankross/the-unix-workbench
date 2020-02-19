@@ -625,3 +625,4 @@
 - Alexander
 - Jerrod Nelson
 - Rachel Zhande
+- Rohit Aggarwal

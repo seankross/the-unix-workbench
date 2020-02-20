@@ -626,3 +626,4 @@
 - Jerrod Nelson
 - Rachel Zhande
 - Rohit Aggarwal
+- Tlegen Kamidollayev

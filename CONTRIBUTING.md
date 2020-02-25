@@ -14,3 +14,9 @@ committed, and pushed your changes you should
 If you're new to Git and GitHub you should read the
 [chapter of this book](http://seankross.com/the-unix-workbench/git-and-github.html)
 which explains how to use both.
+
+## Adding Your Name to the Guestbook
+
+You are strongly encouraged to add your name to `guestbook.md` via pull request 
+after reading the Git and GitHub section of this book. If you would like to
+add other edits to the book, please make them in a separate pull request.

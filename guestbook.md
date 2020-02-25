@@ -628,3 +628,4 @@
 - Rohit Aggarwal
 - Tlegen Kamidollayev
 - Fedor Baulin
+- Kai Wang

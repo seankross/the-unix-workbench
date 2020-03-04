@@ -632,3 +632,4 @@
 - Isaac Myers
 - Marina Markantoni
 - Homayoun
+- Triratna Manandhar

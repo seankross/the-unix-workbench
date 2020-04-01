@@ -347,7 +347,7 @@ If you're making Bash programs for you or for others to use one way you can get
 user input is to specify arguments for users to provide to your program, as we
 discussed in the previous section. You could also ask users to type in a string
 on the command line by temporarily stopping the execution of your program using
-the `read` command. Let's a write a small script where you can see how the read
+the `read` command. Let's write a small script where you can see how the read
 command works:
 
 ```
@@ -1800,7 +1800,7 @@ fib 10
 
 ### The Unix Philosophy
 
-Perhaps there are some design patters that you've been noticing since we started
+Perhaps there are some design patterns that you've been noticing since we started
 talking about Unix tools, and now we're going to discuss them explicitly. Unix
 tools were designed along a set of guidelines which are best summarized by
 [Ken Thompson](https://en.wikipedia.org/wiki/Ken_Thompson)'s idea that each Unix

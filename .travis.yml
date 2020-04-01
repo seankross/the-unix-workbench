@@ -1,5 +1,7 @@
 language: r
 cache: packages
-
 script:
-  - Rscript -e 'bookdown::render_book("index.rmd")'
+- Rscript -e 'bookdown::render_book("index.rmd")'
+env:
+  global:
+    secure: pvgYZfGz3xiuiyGBMcjlIGcjYtVMc1/Gpg5UGSxkZTbTxaIEB+e6q5QWsYwltgy7nyOs4VUm0tm5KIZGjj9tWU7GUPqR8P3EeSaFJDKgulcxbF1T+oN+rrEg6pvpUqvpLESFghGlRVAx55ht9X4/pV5yHSTxC3Z207Ux5KifCn4OTGgkOcKx6KJ9YEZ5vXMwkwtuvX55Pca7Or7HJ2ZV/gk0Y1cB+t1UYnjDZukYBHs2gIml2i2sEixuBxKk4Isv33YMTFno4Hm/gdgsrZBrAmfTYe9DrAsdIoZfm6SsE8ElTKFWvAlbC/sxQryJg5eioBnDzgN0z7117YBcTbHMwVliwzOLNxk0zgQWYbIzrt7mk0JtJkFYN9EaBFWnqzCQCmpzR7w43WRQVFa6jMytu+z2dXstY+iMdV091dxw7pUQdi7Mwxabln6Fy/HJVo9YcJYv5rtbYiri955eMyQi2ygI3MEcPhdtTQorTI1J8wdgAFLVAVLERlupOs6/RTDW1rUq1UOFb4fqJHksU4EuRT3rV1hg8cVr5bBr7NMkOJrjRwbxGywrFlbq1EwZgAkHgZ/kUwdcvnZCHLcAvvOQMBQzowVdT3mZnzK9VWNK+jxzfnb3Gbw+m0tndSzlpy+dd2CW/DxMMTHxrGu4QAync7Xj/jcoBtpNGkrAwcq+cn4=

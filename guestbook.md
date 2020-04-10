@@ -670,3 +670,4 @@
 - Sierra Corban
 - Illia Krystal
 - Jean De Vour
+- Kinga Farkas

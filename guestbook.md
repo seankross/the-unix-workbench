@@ -665,4 +665,5 @@
 - Adamantios Sigiorgis
 - Steve Carr
 - David Peter
-Asaf Dahan
+- Asaf Dahan
+- Jatin Rathee

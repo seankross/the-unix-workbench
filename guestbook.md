@@ -671,3 +671,4 @@
 - Illia Krystal
 - Jean De Vour
 - Kinga Farkas
+- David Arturo

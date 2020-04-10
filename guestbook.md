@@ -665,5 +665,10 @@
 - Adamantios Sigiorgis
 - Steve Carr
 - David Peter
-Asaf Dahan
+- Asaf Dahan
+- Leonardo Sanches
+- Sierra Corban
+- Illia Krystal
+- Jean De Vour
+- Kinga Farkas
 - David Arturo

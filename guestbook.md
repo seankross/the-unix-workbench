@@ -669,3 +669,4 @@
 - Leonardo Sanches
 - Sierra Corban
 - Illia Krystal
+- Jean De Vour

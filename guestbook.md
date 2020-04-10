@@ -666,4 +666,8 @@
 - Steve Carr
 - David Peter
 - Asaf Dahan
+- Leonardo Sanches
+- Sierra Corban
+- Illia Krystal
+- Jean De Vour
 - Jatin Rathee

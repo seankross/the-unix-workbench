@@ -669,5 +669,7 @@
 - Leonardo Sanches
 - Sierra Corban
 - Illia Krystal
-- Jean De Vour
+- Jean De Vo
+- Kinga Farkas
+- David Arturo
 - Jatin Rathee

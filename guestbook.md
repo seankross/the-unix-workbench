@@ -674,3 +674,4 @@
 - David Arturo
 - Dor Avraham
 - Charlie Fenwick
+- Carlos Soliz

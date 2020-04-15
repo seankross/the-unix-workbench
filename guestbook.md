@@ -669,7 +669,10 @@
 - Leonardo Sanches
 - Sierra Corban
 - Illia Krystal
-- Jean De Vo
+- Jean De Vour
 - Kinga Farkas
 - David Arturo
+- Dor Avraham
+- Charlie Fenwick
+- Carlos Soliz
 - Jatin Rathee

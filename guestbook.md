@@ -676,3 +676,5 @@
 - Charlie Fenwick
 - Carlos Soliz
 - Jatin Rathee
+- Loïc Borcard
+- Frey Norden

@@ -675,4 +675,9 @@
 - Dor Avraham
 - Charlie Fenwick
 - Carlos Soliz
-aswin raj
+- Jatin Rathee
+- Loïc Borcard
+- Frey Norden
+- Francesco Lorenzelli
+- Rahul Rajesh
+- Aswin Raj

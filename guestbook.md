@@ -678,4 +678,8 @@
 - Jatin Rathee
 - Loïc Borcard
 - Frey Norden
+- Francesco Lorenzelli
+- Rahul Rajesh
+- Aswin Raj
+- Andrei Karanko
 - Mike Pete

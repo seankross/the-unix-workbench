@@ -678,3 +678,4 @@
 - Jatin Rathee
 - Loïc Borcard
 - Frey Norden
+- Francesco Lorenzelli

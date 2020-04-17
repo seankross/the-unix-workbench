@@ -683,3 +683,4 @@
 - Aswin Raj
 - Andrei Karanko
 - Mike Pete
+- Patrick Harley Semples

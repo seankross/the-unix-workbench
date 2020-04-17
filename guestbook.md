@@ -683,3 +683,4 @@
 - Aswin Raj
 - Andrei Karanko
 - Mike Pete
+- Sturgeon (Osetr)

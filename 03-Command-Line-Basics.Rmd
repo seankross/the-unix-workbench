@@ -198,6 +198,10 @@ pwd
 ## /Users/sean
 ```
 
+You can also climb several directories up with `cd (../){[a number of parent 
+directories to climb up]}`. So if you start in `/Users/sean/Music` and there's a 
+directory `/Users/mike/Pictures`, you can go to it with `cd ../../mike/Pictures`.
+
 Notice that `..` is also a relative path, since it specifies the directory above
 your current working directory. Similarly `.` is the path to your current
 working directory. Therefore since my current working directory is `/Users/sean`

@@ -888,8 +888,8 @@ a table with several of the metacharacters we've discussed in this chapter:
 |       ?       |       Zero or One of Previous        |
 |    &#124;     | Either the Previous or the Following |
 |      {6}      |        Exactly 6 of Previous         |
-|    {4, 6}     |     Between 4 and 6 of Previous      |
-|     {4, }     |        4 or more of Previous         |
+|    {4,6}     |     Between 4 and 6 of Previous      |
+|     {4,}     |        4 or more of Previous         |
 
 If you want to experiment with writing regular expressions before you use them
 I highly recommend playing around with http://regexr.com/.

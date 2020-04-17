@@ -406,6 +406,10 @@ cat todo.txt
 ## - write letter to Aunt Marie
 ## - get groceries for Shabbat
 ```
+cat can also be used as 
+```{r, engine='bash', eval=FALSE}
+cat < todo.txt
+```
 
 The `cat` command is often used to print text files to the terminal, despite
 the fact that it is really meant to con**cat**enate files. You can see this

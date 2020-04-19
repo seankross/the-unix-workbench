@@ -21,7 +21,7 @@
 - Franco Iovi
 - John Oliver
 - Tracy Nash
-- Tatiana Itzcovich  
+- Tatiana Itzcovich
 - Data and Drones
 - Vineet Bhat
 - Emily Grossman
@@ -548,7 +548,7 @@
 - #tejas
 - Manish Meena
 - Vishal Singh
-- Claire Volleman 
+- Claire Volleman
 - Konstheo
 - Shyam Deo
 - Tare
@@ -561,7 +561,7 @@
 - Hassan el Hassan
 - Christina Canavati
 - Krishna Desabhotla
-- Tinatin Baratashvili 
+- Tinatin Baratashvili
 - Soo Liew
 - Andrés Morales Reyes
 - Nico Ca
@@ -605,7 +605,7 @@
 - B. Heitner
 - Luis Talavera
 - Daniil Udobnyj
-- MuratTuz 
+- MuratTuz
 - Sarah Gratton
 - Olga Klipa
 - Raghav Gade
@@ -686,3 +686,4 @@
 - Patrick Harley Semples
 - Vikalp Rusia
 - Halim S
+- Matthew Oppenheim

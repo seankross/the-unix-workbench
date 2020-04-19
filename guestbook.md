@@ -689,3 +689,5 @@
 - Srinandan P
 - Janin
 - Leonardo Castro
+- Alessandro Centola
+- Chris Miller

@@ -691,3 +691,4 @@
 - Alessandro Centola
 - Chris Miller
 - Satish Thuwal
+- Vitaly Stepanyants

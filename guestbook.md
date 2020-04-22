@@ -695,4 +695,6 @@
 - Vitaly Stepanyants
 - Matthew Oppenheim
 - Joachim Koch
+- Kate McCluskey
+- MJ is here
 - Brendan Schroeder

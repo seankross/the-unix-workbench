@@ -704,3 +704,4 @@
 - Rahul Dangi
 - Simo Leppälä
 - Shubham Kumar
+- Bruno Mendes

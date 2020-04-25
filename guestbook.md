@@ -707,3 +707,4 @@
 - Nil Garcia
 - Susmita Roy
 - JZstats
+- Bruno Mendes

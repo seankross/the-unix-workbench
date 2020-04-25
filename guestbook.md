@@ -704,4 +704,7 @@
 - Rahul Dangi
 - Simo Leppälä
 - Shubham Kumar
+- Nil Garcia
+- Susmita Roy
+- JZstats
 - Bruno Mendes

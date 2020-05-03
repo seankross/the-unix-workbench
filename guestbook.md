@@ -21,7 +21,7 @@
 - Franco Iovi
 - John Oliver
 - Tracy Nash
-- Tatiana Itzcovich  
+- Tatiana Itzcovich
 - Data and Drones
 - Vineet Bhat
 - Emily Grossman
@@ -548,7 +548,7 @@
 - #tejas
 - Manish Meena
 - Vishal Singh
-- Claire Volleman 
+- Claire Volleman
 - Konstheo
 - Shyam Deo
 - Tare
@@ -561,7 +561,7 @@
 - Hassan el Hassan
 - Christina Canavati
 - Krishna Desabhotla
-- Tinatin Baratashvili 
+- Tinatin Baratashvili
 - Soo Liew
 - Andrés Morales Reyes
 - Nico Ca
@@ -605,7 +605,7 @@
 - B. Heitner
 - Luis Talavera
 - Daniil Udobnyj
-- MuratTuz 
+- MuratTuz
 - Sarah Gratton
 - Olga Klipa
 - Raghav Gade
@@ -659,4 +659,71 @@
 - Severine Bonnechere
 - Marco Pandolfi
 - Hung En Lai
+- Lokman GALAL
+- Lilia Hausmann
+- Matthias Brandtner
+- Adamantios Sigiorgis
+- Steve Carr
+- David Peter
+- Asaf Dahan
+- Leonardo Sanches
+- Sierra Corban
+- Illia Krystal
+- Jean De Vour
+- Kinga Farkas
+- David Arturo
+- Dor Avraham
+- Charlie Fenwick
+- Carlos Soliz
+- Jatin Rathee
+- Loïc Borcard
+- Frey Norden
+- Francesco Lorenzelli
+- Rahul Rajesh
+- Aswin Raj
+- Andrei Karanko
+- Mike Pete
+- Patrick Harley Semples
+- Vikalp Rusia
+- Halim S
+- Srinandan P
+- Janin
+- Leonardo Castro
+- Alessandro Centola
+- Chris Miller
+- Satish Thuwal
+- Vitaly Stepanyants
+- Matthew Oppenheim
+- Joachim Koch
+- Mario Cabrera
+- Kate McCluskey
+- MJ is here
+- Brendan Schroeder
+- Juan Reyes
+- Gin Seow
+- Rahul Dangi
+- Simo Leppälä
+- Shubham Kumar
+- Nil Garcia
+- Susmita Roy
+- JZstats
+- Bruno Mendes
+- Joaquin Gajardo
+- Kateryna Perebaieva
+- Anmol Kalra
+- Sofia Kiriakidi
+- nekobito
+- Shivangi Tomar
+- Akhilesh Mishra
+- C Lu
+- Sophie Wang
+- Breno Tiburcio
+- Julia Hitschfel
+- Dasara Shullani
+- Gabriel George Silvas
+- Erdinger Pinto
+- Elizabeth Dossett
+- Aswin S
+- ashu
+- Yuri Miguel
 - Roy Natian

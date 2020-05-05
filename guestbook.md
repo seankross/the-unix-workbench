@@ -732,5 +732,6 @@
 - Steve Aston
 - Jacinto Alvarez
 - HBX
-- Sean Kross
-- KSK - 
+- KSK
+- Aart Spek
+- Thomas Bucaioni

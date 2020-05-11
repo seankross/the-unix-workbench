@@ -738,4 +738,9 @@
 - Laura King
 - Chahat Chawla
 - Snir Israeli
+- Jenna LaBelle
+- Rita SR
+- Bruce Wayne
+- Mitika Surana
+- Ayman EL Mouss
 - A. Luna

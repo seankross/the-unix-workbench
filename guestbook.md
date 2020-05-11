@@ -740,3 +740,4 @@
 - Snir Israeli
 - Jenna LaBelle
 - Rita SR
+- Bruce Wayne

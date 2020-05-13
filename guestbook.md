@@ -751,3 +751,4 @@
 - Keenal Shah
 - Vishal B.
 - Jahan
+- Daniel Paz

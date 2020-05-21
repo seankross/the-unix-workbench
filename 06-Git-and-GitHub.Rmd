@@ -4,9 +4,9 @@
 
 ## What are Git and GitHub?
 
-Git is a command line program which allows you to track versions of any code or
+Git is a command line program that allows you to track versions of any code or
 plain text documents that you create. Like the "track changes" feature of
-a word processor Git keeps track of who made particular changes, the time and
+a word processor, Git keeps track of who made particular changes, the time and
 date of those changes, and where the changes were made. If a critical file gets
 deleted by accident, or if you make a breaking change to your code and you want
 to try to figure out where the breaking change was made, you can use Git to
@@ -25,34 +25,34 @@ GitHub allows you to create public remote repositories for free, and anyone can
 see your code in these public repositories. If you want to keep your code private
 then you can pay GitHub for private remote repositories.
 
-If you're working
-on code together with a friend GitHub can help you sync changes to code files
-between you and your friend. There's also a social and community aspect to
-GitHub, since you can watch other programmers develop their projects. GitHub
-also makes it easy to jump in and help somebody with their project. GitHub
-offers many other useful features which we will discuss at length.
+If you're working on code together with a friend, GitHub can help you sync changes 
+to code files between you and your friend.
+There's also a social and community aspect to GitHub, since you can watch other 
+programmers develop their projects. GitHub also makes it easy to jump in and help
+somebody with their project. GitHub offers many other useful features that we will 
+discuss at length.
 
 ## Setting Up Git and GitHub
 
 Before setting up Git, go to [GitHub](https://github.com/) and create a free
-account. Take note of which email address you use and which username you choose.
+account. Take note of which email address you used and which username you chose.
 
-To see if you have Git installed open up your terminal and enter the following:
+To see if you have Git installed, open up your terminal and enter the following:
 
 ```{r, engine='bash'}
 git --version
 ```
 
 If you don't get a response back telling you the version of Git that you have
-installed then you need to install Git. You can find instructions for installing
+installed, then you need to install Git. You can find instructions for installing
 Git on your operating system
 [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
 Open up your shell once you have git installed and run `git --version` again to
 make sure that installation succeeded (you may need to restart your shell or
-your computer). After Git is installed we need to set up two environmental
+your computer). After Git is installed, we need to set up two environmental
 variables, but we only need to do this once. The first variable we need to set
-up with Git is your GitHub user name, and the second variable is the email
+up with Git is your GitHub username, and the second variable is the email
 address that you used to create your GitHub account:
 
 ```{r, engine='bash', eval=FALSE}
@@ -60,10 +60,9 @@ git config --global user.name "myUserName"
 git config --global user.email myName@email.com
 ```
 
-
 ## Getting Started with Git
 
-Let's create our first Git repository. First we need to create a directory:
+Let's create our first Git repository. First, we need to create a directory:
 
 ```{r, engine='bash', eval=FALSE}
 cd
@@ -72,7 +71,7 @@ cd my-first-repo
 ```
 
 "Repo" in this case is just shorthand for "repository." To start tracking files
-with Git in a directory enter `git init` into the command line:
+with Git in a directory, enter `git init` into the command line:
 
 ```{r, engine='bash', eval=FALSE}
 git init
@@ -111,8 +110,8 @@ git status
 ## nothing added to commit but untracked files present (use "git add" to track)
 ```
 
-As you can see `readme.txt` is listed as an untracked file. In order to let Git
-know that you want to track this file we need to use `git add` with the name of
+As you can see, `readme.txt` is listed as an untracked file. In order to let Git
+know that you want to track this file, we need to use `git add` with the name of
 the file that we want to track. Let's start tracking `readme.txt`:
 
 ```{r, engine='bash', eval=FALSE}
@@ -139,7 +138,7 @@ git status
 ```
 
 Git is now tracking `readme.txt`, or in Git-specific language `readme.txt` is
-now **staged**. Between the parentheses in the message above you can see that
+now **staged**. Between the parentheses in the message above, you can see that
 `git status` is giving us a tip about how to unstage (or un-track) this file,
 which we could do with `git rm --cached readme.txt`. Let's unstage this file
 just to see what happens:
@@ -176,12 +175,12 @@ cooler Git features.
 git add readme.txt
 ```
 
-Now that Git is tracking `readme.txt` we need to create a milestone to indicate
-the changes that we made to `readme.txt`. In this case, the changes that we made
+Now that Git is tracking `readme.txt`, we need to create a milestone to indicate
+the changes that we made to it. In this case, the changes that we made
 were creating the file in the first place! This milestone is called a **commit**
 in Git. A commit logs the content of all of the currently staged files. Right
-now we only have `readme.txt` staged so let's commit the creation of this file.
-When making a Git commit, we need to write a commit message which is specified
+now we only have `readme.txt` staged, so let's commit the creation of this file.
+When making a Git commit, we need to write a commit message, which is specified
 after the `-m` flag. The message should briefly describe what changes you've
 made since the last commit.
 
@@ -195,8 +194,8 @@ git commit -m "added readme.txt"
 ##  create mode 100644 readme.txt
 ```
 
-The message above confirms that the commit succeeded and it summarizes the
-changes that took place since the last commit. As you can see in the message we
+The message above confirms that the commit succeeded, and it summarizes the
+changes that took place since the last commit. As you can see in the message, we
 only changed one file, and we only changed one line in that file. Let's run
 `git status` again to see the state of our repository after we've made the first
 commit:
@@ -225,13 +224,13 @@ ls
 ## readme.txt
 ```
 
-While we're at it let's also add a new line of text to `readme.txt`:
+While we're at it, let's also add a new line of text to `readme.txt`:
 
 ```{r, engine='bash', eval=FALSE}
 echo "Learning Git is going well so far." >> readme.txt
 ```
 
-Now that we've added two more files and we've made changes to one file let's
+Now that we've added two more files and we've made changes to one file, let's
 take a look at the state of this repository.
 
 ```{r, engine='bash', eval=FALSE}
@@ -255,13 +254,13 @@ git status
 ## no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
-We can see that Git has detected that one file has been modified, and that there
+We can see Git has detected that one file has been modified, and that there
 are two files in this directory that it is not tracking. Now we need to tell
 Git to track the changes to these files. We could tell Git to track changes to
 each file using `git add`, or since all of the files in this repository are
-`.txt` files we could use a wildcard and enter `git add *.txt` into the
-console. However if we want to track all of the changes to all of the files in
-our directory we should use the command `git add -A`.
+`.txt` files, we could use a wildcard and enter `git add *.txt` into the
+console. However, if we want to track all of the changes to all of the files in
+our directory, we should use the command `git add -A`.
 
 ```{r, engine='bash', eval=FALSE}
 git add -A
@@ -280,7 +279,7 @@ git status
 ```
 
 Now the changes to all of the files in this repository are being tracked.
-Finally let's commit these changes:
+Finally, let's commit these changes:
 
 ```{r, engine='bash', eval=FALSE}
 git commit -m "added two files"
@@ -386,8 +385,9 @@ That looks much better.
 repository.
 - Change your working directory, then run `git init` to start a repository.
 - You can track changes to a file using `git add [names of files]`.
-- You can create a milestone about the state of your files using `git commit -m "message about changes since the last commit"`.
-- To examine the state of files in your repository use `git status`.
+- You can create a milestone about the state of your files using 
+`git commit -m "message about changes since the last commit"`.
+- To examine the state of files in your repository, use `git status`.
 
 ### Exercises
 
@@ -404,7 +404,7 @@ the status of your repository after the commit?
 ### Getting Help, Logs, and Diffs
 
 Git commands have their own `man` pages. You can access them with
-`git help [name of command]`. For example here's the start of the help page
+`git help [name of command]`. For example, here's the start of the help page
 for `git status`:
 
 ```{r, engine='bash', eval=FALSE}
@@ -451,7 +451,7 @@ git log
 ##     added readme.txt
 ```
 
-If you've made many commits to a repository you might need to press the `Q` key
+If you've made many commits to a repository, you might need to press the `Q` key
 in order to get back to the prompt. Each commit has its time, date, and commit
 message recorded, along with a SHA-1 hash that uniquely identifies the commit.
 
@@ -474,7 +474,7 @@ git diff readme.txt
 ## +I added a line.
 ```
 
-As you can see a plus sign shows up next to the added line. Now let's open up
+As you can see, a plus sign shows up next to the added line. Now let's open up
 this file in a text editor so we can delete the second line.
 
 ```{r, engine='bash', eval=FALSE}
@@ -512,12 +512,13 @@ git status
 ## no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
-If you read the results from `git status` carefully you can see that we can take
+If you read the results from `git status` carefully, you can see that we can take
 this repository in one of two directions at this point. We can either `git add`
 the files we've made changes to in order to track those changes, or we can
 use `git checkout` in order to remove all of the changes we've made to a file
-to restore its content to what was present in the last commit. Let's remove
-our changes to see how this works.
+to restore its content to what was present in the last commit. (For Ubuntu on Windows,
+this use of `git checkout` is now accomplished with `git restore`.)
+Let's remove our changes to see how this works:
 
 ```{r, engine='bash', eval=FALSE}
 cat readme.txt
@@ -538,15 +539,15 @@ cat readme.txt
 ## Learning Git is going well so far.
 ```
 
-And as you can see the changes we made to `readme.txt` have been undone.
+And as you can see, the changes we made to `readme.txt` have been undone.
 
 ### Ignoring Files
 
-Sometimes you might have files that you never want Git to track, for example
+Sometimes you might have files that you never want Git to track. For example,
 binary files that are generated as by-products of running code (PDFs or images),
 or secrets like passwords or API keys. A file in your Git repository called
 `.gitignore` can list names of files and sub-folders, or simple regular
-expressions (whatever you can use with `ls`) in order to specify files which
+expressions (whatever you can use with `ls`) in order to specify files that
 should never be tracked. Each line of a `.gitignore` file should specify a file
 or group of files that should not be tracked by Git. Let's make a `.gitignore`
 file to make sure that we never track image files in this repository:
@@ -662,7 +663,7 @@ that is created is always called *master*. Usually people use this branch as the
 working version of the software that they are writing, while they develop new and
 potentially unstable features on other branches.
 
-To add a branch we'll also use the `git branch` command, followed the name of
+To add a branch we'll also use the `git branch` command, followed by the name of
 the branch we want to create:
 
 ```{r, engine='bash', eval=FALSE}
@@ -700,7 +701,7 @@ git branch
 ## * my-new-feature
 ```
 
-If we look at `git status` we can also see that it will tell us which branch
+If we look at `git status`, we can also see that it will tell us which branch
 we're on:
 
 ```{r, engine='bash', eval=FALSE}
@@ -764,7 +765,7 @@ git checkout -b update-readme
 ```
 
 Now that we've created and switched to a new branch, let's make some changes to
-a file. As you might be expecting right now we'll add a new line to
+a file. As you might be expecting right now, we'll add a new line to
 `readme.txt`:
 
 ```{r, engine='bash', eval=FALSE}
@@ -778,7 +779,7 @@ cat readme.txt
 ## I added this line in the update-readme branch.
 ```
 
-Now that we've added a new line let's commit these changes:
+Now that we've added a new line, let's commit these changes:
 
 ```{r, engine='bash', eval=FALSE}
 git add -A
@@ -801,7 +802,7 @@ git checkout master
 ## Switched to branch 'master'
 ```
 
-Now that we're on the `master` branch let's quickly glance at `readme.txt`:
+Now that we're on the `master` branch, let's quickly glance at `readme.txt`:
 
 ```{r, engine='bash', eval=FALSE}
 cat readme.txt
@@ -866,7 +867,7 @@ git checkout master
 ## Switched to branch 'master'
 ```
 
-To merge in the changes from another branch we need to use `git merge` and the
+To merge in the changes from another branch, we need to use `git merge` and the
 name of the branch:
 
 ```{r, engine='bash', eval=FALSE}
@@ -892,12 +893,12 @@ cat readme.txt
 ```
 
 It looks like you've merged your first branch in Git! Branching is part of what
-makes Git so powerful since it enables parallel developments on the same code
+makes Git so powerful, since it enables parallel developments on the same code
 base. But what if there are two commits in two separate branches that make
-different edits to the same line of text? When this occurs it is called a
+different edits to the same line of text? When this occurs, it is called a
 **conflict**. Let's create a conflict so we can learn how they can be resolved.
 
-First we'll switch to the `update-readme` branch. Use `nano` to edit the last
+First, we'll switch to the `update-readme` branch. Use `nano` to edit the last
 line of `readme.txt`, then commit your changes:
 
 ```{r, engine='bash', eval=FALSE}
@@ -949,8 +950,8 @@ git commit -m "changed sunny to windy"
 ```
 
 We've now created two commits that directly conflict with each other. On the
-`update-readme` branch the last line says `It's cloudy outside today.`, while
-on the `master` branch the last line says `It's windy outside today.`. Let's
+`update-readme` branch, the last line says `It's cloudy outside today.`, while
+on the `master` branch, the last line says `It's windy outside today.`. Let's
 see what happens when we try to merge `update-readme` into `master`.
 
 ```{r, engine='bash', eval=FALSE}
@@ -1005,12 +1006,12 @@ cat readme.txt
 
 The first three lines of this file look normal, then things get interesting!
 The line between `<<<<<<< HEAD` and `=======` shows the version of the
-conflicted line on the current branch. In Git terminology the `HEAD`
-represents the most recent commit on the branch which is currently checked out
+conflicted line on the current branch. In Git terminology, the `HEAD`
+represents the most recent commit on the branch that is currently checked out
 (which is `master` in this case). The line between `=======` and
 `>>>>>>> update-readme` shows the version of the line on the `update-readme`
 branch. In order to resolve this conflict, all we need to do is open `readme.txt`
-with `nano` so we can delete the lines we want to get rid of. In this case let's
+with `nano` so we can delete the lines we want to get rid of. In this case, let's
 keep the "cloudy" version.
 
 ```{r, engine='bash', eval=FALSE}
@@ -1032,15 +1033,15 @@ git add -A
 git commit -m "resolved conflict"
 ```
 
-You're now familiar with this basics of Git! If you want to go into further
-depth with your study of Git I highly recommend the free and open source book
+You're now familiar with the basics of Git! If you want to go into further
+depth with your study of Git, I highly recommend the free and open-source book
 [Pro Git](https://git-scm.com/book/).
 
 ### Summary
 
 - Git branching allows you and others to work on the same code base together.
 - You can create a branch with the command `git branch [name of branch]`.
-- To switch to a branch use `git checkout [name of branch]`.
+- To switch to a branch, use `git checkout [name of branch]`.
 - You can combine a branch with your current branch by using `git merge`.
 
 ### Exercises
@@ -1055,22 +1056,23 @@ then merge the new branch into your current branch.
 Now that you know the basics of using Git, let's talk about how you can share
 your work and start collaborating online using GitHub. As an added bonus, by
 the end of this chapter you will have created your very own website!
-To get started go to [GitHub](https://github.com/) and sign in with the
-credentials we set up at the beginning of the chapter. After you sign in you
+To get started, go to [GitHub](https://github.com/) and sign in with the
+credentials we set up at the beginning of the chapter. After you sign in, you
 should see a plus-sign near the top-right corner of your web browser. Click the
 plus-sign and a little menu should appear, then click "New repository." You
 should now see a screen that looks like this:
 
 ![](images/new-repo.png)
 
-In the text box under **Repository name** type `my-first-repo` and then click
+In the text box under **Repository name**, type `my-first-repo` and then click
 the green **Create repository** button. Now you should see a page like this:
 
 ![](images/quick-setup.png)
+
 GitHub offers a few suggestions about what to do with our new remote repository.
 We've already been using a local Git repository, and what GitHub provides is a
 **remote** Git repository. A remote Git repository is just a Git repository
-stored on a computer is that always turned on and connected to the internet, so
+stored on a computer that is always turned on and connected to the internet, so
 it can act as a central point where we can share and sync our changes to files
 with our friends and colleagues. We can see which remote repositories our local
 repository is connected to with the `git remote` command while we have our
@@ -1080,18 +1082,18 @@ working directory set to `my-first-repo`:
 git remote
 ```
 
-Nothing is printed to the console since you haven't set any remotes up yet!
+Nothing is printed to the console, since you haven't set any remotes up yet!
 Now let's add your new GitHub repository as a remote in your local repository:
 
 ```{r, engine='bash', eval=FALSE}
 git remote add origin https://github.com/seankross/my-first-repo.git
 ```
 
-In the command above `git remote add` adds a new remote to your local repository,
+In the command above, `git remote add` adds a new remote to your local repository,
 `origin` is the name we're assigning to this remote repository, and
 `https://github.com/seankross/my-first-repo.git`
 is the URL of the remote repository. You should of course substitute `seankross`
-for your GitHub user name so that it corresponds to your remote repository URL.
+for your GitHub username, so that it corresponds to your remote repository URL.
 Later I'll explain why "origin" is the name we chose for this remote.
 Let's run `git remote` again to confirm that we added the `origin` remote
 successfully:
@@ -1109,9 +1111,9 @@ Git push updates a remote repository with all of the commits that we've made to
 our local Git repository. This first Git push you do when setting up a remote
 on GitHub with a local repository is a little different from future Git pushes.
 We'll need to use the `-u` flag in order to set `origin` as the default remote
-repository so we don't have to provide its name every time we want to interact
+repository, so we don't have to provide its name every time we want to interact
 with it. Enter the following command, modified so that you're using your GitHub
-user name:
+username:
 
 ```{r, engine='bash', eval=FALSE}
 git push -u origin master
@@ -1151,7 +1153,7 @@ small, intuitive, and readable when it's written as plain text. GitHub
 transforms Markdown files (which end in the file extension `.md`) into simple
 HTML web pages in your repository. If there is a file called `README.md` in any
 folder in your repository, then that file is rendered to HTML and displayed on
-GitHub. Let's create a `README.md` file for our repository. First we'll destroy
+GitHub. Let's create a `README.md` file for our repository. First, we'll destroy
 the plain text readme file we already have:
 
 ```{r, engine='bash', eval=FALSE}
@@ -1239,15 +1241,15 @@ Personally I really enjoy writing with Markdown, to the point where I wrote
 in Markdown! We're going to be using Markdown for the rest of this chapter, so
 I suggest that you take a few minutes to play around with the syntax in
 [this in-browser Markdown editor](https://jbt.github.io/markdown-editor/#TVFLbtwwDN3rFCxm0xgTOU133WXXA2QXFDDHYizWEmlIctzZ9Rq9Xk9SetqZFNCCIt97/LwDPEeuYA8hYZkIImFgmZw7HP6r1YwpUXmvPkkArNB1nHFiwcYqXQcnDUwVXrW0eHTPkfYwV9BXaNGIxlhlFt2kO1qGYFFqv3/+qrCQGGEtUvd8hqZQIy4mhtZq4jeLLIdcziB6ETu6J0g6YoIu4onb3yEueLTJBDN1nXfu/rqIRSiwipZAhYJ9E9fm3Cd/Qzz6HXIFfPb/EF/tu19iqJoJRg00AMtlg8whJNo3tDORNJKRrOkwDO4qinCyOWdnmJ16qd0ko25w1hUyzgQvZgPL/O1jbG2pX/p+2za/8cwLBUavZervTPzDy80agd0B8u+UiVtcT37U3J85rtz/wGLXQukLJcJKtQ9mQFIM/duDf/CP/Ywl3Wdda8Mxkv++THd/AA==).
-For more information about Markdown see GitHub's helpful
+For more information about Markdown, see GitHub's helpful
 [*Mastering Markdown*](https://guides.github.com/features/mastering-markdown/)
 guide.
 
 ### Pull Requests
 
-The next two features of GitHub we're going to discuss - **pull requests** and
-**forking** - are what make GitHub so great. A pull request allows you to
-interactively compare two different branches before you merge them so you can
+The next two features of GitHub we're going to discuss — **pull requests** and
+**forking** — are what make GitHub so great. A pull request allows you to
+interactively compare two different branches before you merge them, so you can
 either go ahead with the merge or provide feedback to whoever opened the pull
 request. Essentially a pull request allows a person to ask another person if
 they're willing to incorporate changes on one branch into another branch. This
@@ -1255,9 +1257,9 @@ social coding transaction may involve you and a collaborator, you and a
 stranger, or you might open a pull request on your own repository just as a
 method of staying organized.
 
-Since I can't guarantee that you have a collaborator I'll show you how to open
-a pull request on your own repository. First in your local `my-first-repo`
-repository let's switch over to the `update-readme` branch.
+Since I can't guarantee that you have a collaborator, I'll show you how to open
+a pull request on your own repository. First, in your local `my-first-repo`
+repository, let's switch over to the `update-readme` branch.
 
 ```{r, engine='bash', eval=FALSE}
 git checkout update-readme
@@ -1299,7 +1301,7 @@ git merge master
 ```
 
 Now the `master` and `update-readme` branches are identical. Let's clean up this
-directory so that you can make a little personalized Markdown project. First
+directory so that you can make a little personalized Markdown project. First,
 let's delete all of the files in this directory that we don't really need,
 meaning everything except `README.md`.
 
@@ -1313,9 +1315,9 @@ ls
 ## README.md
 ```
 
-Now that we've cleaned up our repository let's open up `README.md` with `nano`.
+Now that we've cleaned up our repository, let's open up `README.md` with `nano`.
 Delete everything that's written there and write a few lines about yourself.
-In the block of text below you can see what I've written in `README.md`.
+In the block of text below, you can see what I've written in `README.md`.
 
 ```
 # Sean Kross
@@ -1371,7 +1373,7 @@ git push origin update-readme
 ##  * [new branch]      update-readme -> update-readme
 ```
 
-Notice that we needed to specify which remote we were pushing to since GitHub
+Notice that we needed to specify which remote we were pushing to, since GitHub
 didn't previously know about the existence of the `update-readme` branch.
 When you perform a `git push`, only the commits on the current branch are sent
 to the remote repository. That way you can create local branches that cannot be
@@ -1389,14 +1391,14 @@ forth between looking at branches using this menu.
 
 Now that you've pushed an updated branch to GitHub, let's open a pull request.
 A pull request is like a guided `git merge` that is facilitated by GitHub. To
-start the pull request click the "New pull request" button next to the branch
+start the pull request, click the "New pull request" button next to the branch
 button (see the upper left corner of the image above). That button should take
 you to a page like this:
 
 ![](images/create-pr.png)
 
 There are a few important details on this page, so let's go through them. First
-under the "Open a pull request" heading you can see the names of two branches.
+under the "Open a pull request" heading, you can see the names of two branches.
 The branch name after "base:" shows the branch that changes are being merged
 into (in this case the `master` branch), and the branch name after "compare:"
 shows the branch that has the changes (in this case the `update-readme` branch).
@@ -1404,12 +1406,12 @@ shows the branch that has the changes (in this case the `update-readme` branch).
 In the text boxes below you can write a title for your pull request (the default
 title in this case is the name of the last commit) and you can write comments
 about the pull request which you can format with Markdown. If you're
-collaborating with somebody else on a project it's important to write good
+collaborating with somebody else on a project, it's important to write good
 comments so that your collaborators know what changes you made in the branch
 you are requesting to merge. If you scroll down
 the page you can see a line-by-line comparison of the changes in the "compare"
-branch compared to the "base" branch. When you've finished going over these
-changes click the green "Create pull request" button in order to open the pull
+branch relative to the "base" branch. When you've finished going over these
+changes, click the green "Create pull request" button in order to open the pull
 request. You should now see a screen like this:
 
 ![](images/opened-pr.png)
@@ -1419,10 +1421,10 @@ happening on this page. Below the title of the pull request we can see three
 tabs called **Conversation**, **Commits**, and **Files changed**. In the
 **Conversation** tab we can add comments to the pull request which can be
 formatted with Markdown. The **Commits** tab lists the commits that have been
-made to the "compare" branch in this pull request. Finally the **Files changed**
+made to the "compare" branch in this pull request. Finally, the **Files changed**
 tab shows the same line-by-line comparison we saw before.
 
-Usually when you're working with collaborators there's a great deal of
+Usually when you're working with collaborators, there's a great deal of
 discussion that occurs after you open a pull request. Git commits that are
 pushed to the "compare" branch (`update-readme` in the case) of the GitHub
 repository will be reflected in a pull request even after the request has been
@@ -1440,7 +1442,7 @@ requests and merges can happen without you being involved at all if the commits
 affect parts of the code that you're not working on. Still it's important to
 keep your local repository up to date with the latest changes in the remote
 repository. Let's go back to your terminal where you have `my-first-repo` set
-as the current working directory. First let's switch to the `master` branch.
+as the current working directory. First, let's switch to the `master` branch.
 
 ```{r, engine='bash', eval=FALSE}
 git checkout master
@@ -1470,9 +1472,9 @@ git pull
 ##  delete mode 100644 file2.txt
 ```
 
-With `git pull` Git finds the `master` branch on the `origin` remote repository
+With `git pull`, Git finds the `master` branch on the `origin` remote repository
 and updates our local repository with the new commits. You've now completed the
-full pull request life cycle! In the **Forking** section of this chapter we'll
+full pull request life cycle! In the **Forking** section of this chapter, we'll
 come back to discussing how GitHub super-charges pull requests in order to
 foster a greater coding community.
 
@@ -1496,16 +1498,16 @@ and you should see your very own website!
 ![](images/my-website.png)
 
 How cool is that!? If you want to change your new website all you need to do
-is edit your `README.md` then commit and push the changes! Websites like these
+is edit your `README.md`, then commit and push the changes! Websites like these
 are great for showing off projects, providing software documentation, creating
 online resumes, or writing a blog! GitHub pages websites can be as simple as a
-few Markdown documents, or if you know some web programming you can turn
-them into complex websites. For more information about GitHub Pages you can
+few Markdown documents, or if you know some web programming, you can turn
+them into complex websites. For more information about GitHub Pages, you can
 check out the [documentation here](https://pages.github.com/).
 
 ### Forking
 
-If you're reading this book it's fairly safe to say that you probably interact
+If you're reading this book, it's fairly safe to say that you probably interact
 with software every day. Software powers your computer, the internet, your
 phone, and this book. Considering all of the software you use, have you ever
 thought about modifying that software? Perhaps you could write some code to add
@@ -1514,7 +1516,7 @@ GitHub makes modifying other people's software easy through the process of
 **forking**. Forking a GitHub repository copies somebody else's GitHub
 repository into your GitHub account. You can then modify this copy of their
 software however you like. After you've added some commits to your copy of the
-repository you can keep the new commits to yourself, share them with
+repository, you can keep the new commits to yourself, share them with
 others, or you can open up a **pull request** for your new commits to be merged
 into the original source repository. This original source repository (the
 repository you forked) is often called the *upstream* repository.
@@ -1523,10 +1525,10 @@ Let's try forking a repository now. Go to
 https://github.com/seankross/the-unix-workbench and click the **Fork** button
 in the upper right corner. GitHub will then ask you what account you want to
 use to fork the repository. If you're a new GitHub user then you only have one
-account, so select that account. After a brief "please wait" screen you should
+account, so select that account. After a brief "please wait" screen, you should
 then see the forked repository at the URL
 https://github.com/[your-github-username]/the-unix-workbench. You've now forked
-the repository for this book! In order to get a local copy of the repository 
+the repository for this book! In order to get a local copy of the repository, 
 you'll need to use the `git clone` command. Cloning a repository copies a Git 
 repository to your computer while keeping track of the remote repository that 
 it originated from. Let's clone your fork of my repository now. On the right 
@@ -1535,7 +1537,7 @@ download**. Click that button and the following menu should appear:
 
 ![](images/clone-wb.png)
 
-Click on the little clipboard icon which will copy the Git URL. Now go back to
+Click on the little clipboard icon, which will copy the Git URL. Now go back to
 the terminal and change your working directory to your home directory.
 
 ```{r, engine='bash', eval=FALSE}
@@ -1563,7 +1565,7 @@ git clone https://github.com/[your-github-username]/the-unix-workbench.git
 ## Resolving deltas: 100% (510/510), done.
 ```
 
-Now `cd` into your cloned repository.
+Now `cd` into your cloned repository:
 
 ```{r, engine='bash', eval=FALSE}
 cd the-unix-workbench
@@ -1584,7 +1586,7 @@ git remote -v
 ```
 
 As you can see the default name of the remote repository after you clone that
-repository is `origin`. Now that you've cloned your fork you should add a
+repository is `origin`. Now that you've cloned your fork, you should add a
 commit! One change that I suggest is adding your name to `guestbook.md`. Let's
 do this now:
 
@@ -1607,16 +1609,16 @@ git commit -m "added my name to guestbook.md"
 git push
 ```
 
-Now that you've added your name to the guest book you can merge your change into
+Now that you've added your name to the guest book, you can merge your change into
 my version of the guest book by opening up a new pull request as described in
 the previous section. If your pull request to the guest book is merged into the
-upstream repository (by me) then you will have completed the full GitHub
+upstream repository (by me), then you will have completed the full GitHub
 lifecycle!
 
 The process of forking a repository, making changes, and then opening a pull
 request is a very powerful workflow for seeing changes that you want made in
 the software world. Many large and important software projects have repositories
-on GitHub including [operating systems](https://github.com/torvalds/linux),
+on GitHub, including [operating systems](https://github.com/torvalds/linux),
 [programming languages](https://github.com/golang/go),
 and even [Git itself](https://github.com/git/git)! If there's a change you want
 to see in a public GitHub repository, fork that repository and make the change!
@@ -1630,7 +1632,7 @@ internet.
 - Add remote repositories with `git remote add [name-of-remote] https://github.com/[username]/[repo-name].git`
 - Add commits to your remote repository with `git push [name-of-remote] [name-of-branch]`
 or just `git push` if you've set up a default remote and branch.
-- To merge commits on a remote repository into your local repository use
+- To merge commits on a remote repository into your local repository, use
 `git pull [name-of-remote] [name-of-branch]` or just `git pull` if you've set
 up a default remote and branch.
 - A pull request allows you to interactively compare two different branches

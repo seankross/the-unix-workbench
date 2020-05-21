@@ -6,47 +6,48 @@
 
 Nephology is the study of clouds. Few modern technology concepts (other than
 maybe data science and artificial intelligence) have been hyped as loudly as "the
-cloud." The cloud is simply a computer which we can access over the internet.
-In this chapter we'll set up a cloud computer and we'll learn the basics of
+cloud." The cloud is simply a computer that we can access over the internet.
+In this chapter, we'll set up a cloud computer and we'll learn the basics of
 interacting with one.
 
-To get the most out of this chapter you're going to need your credit or
+To get the most out of this chapter, you're going to need your credit or
 debit card, or a [PayPal](https://www.paypal.com) account. We're going to be
-using [DigitalOcean](https://m.do.co/c/530d6cfa2b37), a company which we
-can rent cloud computers from. Throughout this chapter I might refer to cloud
+using [DigitalOcean](https://m.do.co/c/530d6cfa2b37), a company that we
+can rent cloud computers from. Throughout this chapter, I might refer to cloud
 computers as **servers** (computers connected to the internet) or as
 **droplets**, which is a marketing term DigitalOcean uses to refer to their
 servers (a droplet is *not* a technical term). Renting from DigitalOcean won't
-cost you any money since I'm giving you a coupon for two free months of service!
+cost you any money since I'm giving you a coupon for free promotional credit!
 There are several companies that offer similar services compared to
 DigitalOcean, but in my opinion they have the best user interface and the most
 transparent pricing model.
 
-**Warning:** *At the end of this chapter we will discuss how to shut down any
+**Warning:** *At the end of this chapter, we will discuss how to shut down any
 servers we've started on DigitalOcean. If you don't shut down your server
-after two months then your account will be charged real money for using
+after two months, then your account will be charged real money for using
 DigitalOcean. Please be sure to shut down any servers you start after you are
 finished using them.*
 
 ## Setting Up DigitalOcean
 
-To get started with DigitalOcean we need to rent a server from their website.
+To get started with DigitalOcean, we need to rent a server from their website.
 [Click this link](https://m.do.co/c/530d6cfa2b37) to sign up for DigitalOcean
-in order to get two free months of server use. (If you don't use this link then
-you don't get two free months). Click **Sign Up** in the upper right corner,
-then enter your email address and choose your password.
+in order to set up a server for free. (If you don't use this link, then
+you don't get promotional credit). Click **Sign Up** in the upper right corner,
+then enter your email address and choose your password. (The screenshots below 
+are slightly different from DigitalOcean's current website layout.)
 
 ![](images/do-main.png)
 
 Check your email for a message from DigitalOcean and click the enclosed link to
 confirm your email. Then you'll need to enter your credit or debit card
 information, or your Paypal account details. As long as you close down all of
-your servers less than two months after you start them you will not be charged.
-After entering in your payment information you should see this screen:
+your servers less than two months after you start them, you will not be charged.
+After entering in your payment information, you should see this screen:
 
 ![](images/do-create-drop.png)
 
-Click the big blue **Create a new Droplet** button which should then bring you
+Click the big blue **Create a new Droplet** button, which should then bring you
 to a screen where you can customize the server you're going to be renting. Make
 sure you have Ubuntu chosen as your distribution, and select the $5 per month
 size option:
@@ -54,31 +55,30 @@ size option:
 ![](images/do-distro-size.png)
 
 Scroll down the page and then select the region that is geographically closest
-to you. Some regions have multiple data centers, it doesn't matter which data
+to you. Some regions have multiple data centers; it doesn't matter which data
 center you pick. Currently I'm in Baltimore, Maryland, USA, so I'm going to pick
 the number 1 data center in New York:
 
 ![](images/do-region.png)
 
-Finally at the bottom of the page click the big green **Create** button in order
+Create a password that you will need to connect to your server.
+Finally, at the bottom of the page, click the big green **Create** button in order
 to start your server!
 
 ![](images/do-create-confirm.png)
 
 It will take a minute to launch the server, but once launched
-you should receive an email from Digital Ocean with the details about your
-new server. Included in this email you should find the IP address of your
-server, the default username (which should be `root`) and a
-randomly generated password that you will need to connect to
-your server for the first time. Once you've received this email open up a new
-terminal.
+you should receive an email from Digital Ocean with best practices for setting up your
+new server. On the droplet page, you should also be able to find the IP address of your
+server. The default username should be `root`. Once you've gathered this information, 
+open up a new terminal.
 
 ## Connecting to the Cloud
 
 We can connect to computers on the internet with the `ssh` program, which
 stands for **S**ecure **Sh**ell. The `ssh` command provides a command line
 interface to whichever computer we point it to. A computer that is connected to
-the internet has an address (just like a house has an address) which is
+the internet has an address (just like a house has an address), which is
 specified by an **IP address**. The command for connecting to a computer with
 `ssh` generally looks like this:
 
@@ -87,8 +87,8 @@ ssh [username]@[IP address]
 ```
 
 Let's connect to our DigitalOcean server using `ssh`. Enter the following
-command in the terminal substituting the IP address you received from
-DigitalOcean for the IP address I'm using in this example:
+command in the terminal, substituting the IP address of your
+DigitalOcean droplet for the IP address I'm using in this example:
 
 ```{r, engine='bash', eval=FALSE}
 ssh root@159.203.134.88
@@ -107,8 +107,8 @@ Type `yes` and then press Enter.
 ## root@159.203.134.88's password:
 ```
 
-This password should be in the email you received from DigitalOcean. Copy and
-paste the password into the terminal, then press Enter.
+This password should be the one you set up for your DigitalOcean droplet. Type 
+the password into the terminal, then press Enter.
 
 ```
 ## You are required to change your password immediately (root enforced)
@@ -132,16 +132,10 @@ paste the password into the terminal, then press Enter.
 ## 
 ## Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
 ## applicable law.
-## 
-## Changing password for root.
-## (current) UNIX password:
 ```
 
-We now need to create a new password for this server. First paste in the old
-password and press Enter. Then think of a new, strong password and enter it into
-the console. Then enter the new password again to confirm. After entering in the
-new password we should have a prompt! Press enter a few times to make sure that
-you get the prompt back each time. We're in!
+After entering the correct password, we should have a prompt! Press enter 
+a few times to make sure that you get the prompt back each time. We're in!
 
 Now we have access to all of the Unix commands we would normally have:
 
@@ -153,7 +147,7 @@ pwd
 ## /root
 ```
 
-In order to disconnect from the server and return to your machine use `logout`.
+In order to disconnect from the server and return to your machine, use `logout`.
 
 ```{r, engine='bash', eval=FALSE}
 logout
@@ -163,7 +157,7 @@ logout
 ## Connection to 159.203.134.88 closed.
 ```
 
-To reconnect to the server use `ssh` again:
+To reconnect to the server, use `ssh` again:
 
 ```{r, engine='bash', eval=FALSE}
 ssh root@159.203.134.88
@@ -179,7 +173,7 @@ Enter your password and you should get the prompt back for your cloud server.
 
 - `ssh` connects you to computers that are connected to the internet. The
 template for the command to connect is `ssh [username]@[IP address]`.
-- To disconnect from an `ssh` session use the `logout` command.
+- To disconnect from an `ssh` session, use the `logout` command.
 
 ## Cloud Computing Basics
 
@@ -187,7 +181,7 @@ template for the command to connect is `ssh [username]@[IP address]`.
 
 So now that we have a cloud computer, what can we do with it? One thing we
 can do is store and retrieve files from a cloud computer. The program `scp`
-allows us to copy local files to a server and it allows us to copy files on
+allows us to copy local files to a server, and it allows us to copy files on
 a server to our local computer. First let's connect to our server so we can
 create a file there:
 
@@ -210,7 +204,7 @@ logout
 ## Connection to 159.203.134.88 closed.
 ```
 
-Now that we're back at the prompt on our local machine let's try getting
+Now that we're back at the prompt on our local machine, let's try getting
 `server-file.txt` from our server. The arguments for copying files from a server
 with `scp` have the following general structure:
 
@@ -219,7 +213,7 @@ scp [username]@[IP address]:path/to/file/on/server path/on/my/computer
 ```
 
 This copies the file located on the server at `path/to/file/on/server` to a
-local path at `path/on/my/computer`. In the same way we can copy an entire
+local path at `path/on/my/computer`. In the same way, we can copy an entire
 folder from a server using the `-r` flag:
 
 ```{r, engine='bash', eval=FALSE}
@@ -332,9 +326,9 @@ head -n 5 docs/01-What-is-Unix.md
 
 Looks like we got the file! The `curl` command is also commonly used for
 communicating with **API**s. API stands for **a**pplication
-**p**rogramming **i**nterface. APIs are a set of rules which allow us to
+**p**rogramming **i**nterface. APIs are a set of rules that allow us to
 communicate with computer programs or with servers on the web. GitHub has a
-[large API](https://developer.github.com/v3/) which allows us to find out
+[large API](https://developer.github.com/v3/), which allows us to find out
 information about GitHub's users and repositories. Let's use `curl` to look 
 at what programming languages are used by some of my repositories. Let's start
 with the repository for this book:
@@ -353,7 +347,7 @@ curl https://api.github.com/repos/seankross/the-unix-workbench/languages
 It looks like most of the repository is dedicated to making the book website
 look pretty! Take a look at the URL in the `curl` command above, and let's
 dissect it a little bit. The API itself is located at `https://api.github.com/`.
-Then each word in the rest of the url acts as a sort of argument. We're
+Then each word in the rest of the URL acts as a sort of argument. We're
 interested in `repos` in this case, specifically a repo belonging to the
 username `seankross` called `the-unix-workbench`, and we want to know about
 which `languages` are used in that repo. Let's take a look at one more of my
@@ -370,13 +364,13 @@ curl https://api.github.com/repos/seankross/lego/languages
 }
 ```
 
-Use of `curl`, especially when coupled with using APIs can become very
-complicated and much more advanced content has been written on the subject.
+Use of `curl`, especially when coupled with using APIs, can become very
+complicated, and much more advanced content has been written on the subject.
 Let's get a little more in depth by looking through some of the examples from
 [httpbin.org](http://httpbin.org/). This website allows us to send requests to
 it with `curl`, and it will return to us a structured version of whatever
-information we sent. This is useful for debugging our `curl` commands. First
-let's send a request which should return our IP address:
+information we sent. This is useful for debugging our `curl` commands. First,
+let's send a request that should return our IP address:
 
 ```{r, engine='bash', eval=FALSE}
 curl http://httpbin.org/ip
@@ -388,14 +382,14 @@ curl http://httpbin.org/ip
 }
 ```
 
-Looks like we're getting the response we expect. Before we go on I should
+Looks like we're getting the response we expect. Before we go on, I should
 clarify: `curl` sends **HTTP requests**. HTTP is a technology for sending
 information over a network, and HTTP powers much of how the internet works.
 There are different categories of HTTP requests, and the categories are often
-called **verbs**. When we use `curl` without any flags we are sending a
+called **verbs**. When we use `curl` without any flags, we are sending a
 **GET** request (GET is an HTTP verb). A GET request is a message that says to
 a server: "Hi, I live at [IP address]. Would you mind sending some information
-about yourself to that IP?" In the case above we asked for our own IP address,
+about yourself to that IP?" In the case above, we asked for our own IP address,
 which httpbin.org knew to just send back to us.
 
 Let's send a general HTTP GET request to http://httpbin.org/get:
@@ -421,13 +415,13 @@ curl http://httpbin.org/get
 The text that we get back from the request specifies four information groups:
 `args`, `headers`, `origin`, and `url`. The `origin` shows our own IP address,
 and `url` shows where we sent the request. The `headers` group shows some
-interesting information, including the `User-Agent` which shows that httpbin.org
+interesting information, including the `User-Agent`, which shows that httpbin.org
 knows that we sent this request with `curl`. Notice that the `args` group is
 empty. The `args` group is short for *arguments*, which hints at the fact that
 we can provide arguments in an HTTP request, just like arguments we would use
 for a function, or the arguments we used in the GitHub API.
 
-In the general case we can provide arguments to an HTTP API by putting a
+In the general case, we can provide arguments to an HTTP API by putting a
 question mark (`?`) after the API's URL. Let's try this out:
 
 ```{r, engine='bash', eval=FALSE}
@@ -450,7 +444,7 @@ curl http://httpbin.org/get?Baltimore
 }
 ```
 
-Looks like `"Baltimore"` showed up in `args`! For most HTTP APIs we need to
+Looks like `"Baltimore"` showed up in `args`! For most HTTP APIs, we need to
 give names to our arguments, unlike most arguments in Bash. We can specify
 an argument's name with the template `[argument name]=[argument value]`. Let's
 take a look at a simple example:
@@ -475,7 +469,7 @@ curl http://httpbin.org/get?city=Baltimore
 }
 ```
 
-Now we can see that in `args` there's a correspondence between `city` and
+Now we can see that, in `args`, there's a correspondence between `city` and
 `Baltimore`. We can add more named arguments by separating them with an 
 ampersand (`&`):
 
@@ -518,7 +512,7 @@ into a shell. One of the most commonly used programs for executing *other progra
 with a regular frequency is called `cron`. Let's take a look at how to use
 `cron` to schedule a program to be run.
 
-If you're not already connected to the server use `ssh` to connect.
+If you're not already connected to the server, use `ssh` to connect.
 
 ```{r, engine='bash', eval=FALSE}
 ssh root@159.203.134.88
@@ -546,8 +540,8 @@ ps -A
 ```
 
 You probably have a huge list of programs in your terminal now! Instead of
-sifting through this listing line-by-line, let's pipe the output of this command
-to `grep` and we'll look for `cron`:
+sifting through this listing line by line, let's pipe the output of this command
+to `grep` and look for `cron`:
 
 ```{r, engine='bash', eval=FALSE}
 ps -A | grep "cron"
@@ -558,11 +552,11 @@ ps -A | grep "cron"
 ```
 
 Looks like the `cron` daemon is running! In order to assign programs to be
-executed with `cron` we need to edit a special text file called the `cron`
-table. Before we edit the `cron` table we need to select the default text
+executed with `cron`, we need to edit a special text file called the `cron`
+table. Before we edit the `cron` table, we need to select the default text
 editor. If you like using `nano` (the text editor we've been using throughout
-this book) then enter `select-editor` into the console, type in the number
-that corresponds to `nano` (usually `2`) and then press enter:
+this book), then enter `select-editor` into the console, type in the number
+that corresponds to `nano` (usually `2`), and then press enter:
 
 ```{r, engine='bash', eval=FALSE}
 select-editor
@@ -578,8 +572,8 @@ select-editor
 ## Choose 1-4 [2]:
 ```
 
-Now that we've chosen a text editor we can edit the `cron` table using the
-command `crontab -e` (**`cron`** **tab**le **e**dit) which will automatically
+Now that we've chosen a text editor, we can edit the `cron` table using the
+command `crontab -e` (**`cron`** **tab**le **e**dit), which will automatically
 open `nano` with the appropriate file.
 
 ```{r, engine='bash', eval=FALSE}
@@ -615,14 +609,14 @@ values are valid in each column:
 5. Day of Week `0 - 6` (0 is Sunday)
 
 There are also a few other characters that are valid in the `cron` table. The
-most commonly used character is a star (`*`) which represents *all* of the
+most commonly used character is a star (`*`), which represents *all* of the
 possible values in a column. So a star in the Minute column means "run every
 minute," and a star in the Hour column means "run during every hour."
-Knowing this let's make our first entry in the `cron` table. If we want a
+Knowing this, let's make our first entry in the `cron` table. If we want a
 command to be executed every minute, during every hour, on every day of the
 month, during every month, on every day of the week, then we can put stars in
 all of the first five
-columns, followed by the command that we want to run. In this case the command
+columns, followed by the command that we want to run. In this case, the command
 that `cron` will run every minute will be `date >> ~/date-file.txt`, which will
 append the date and time when the command is executed to a file in our home
 directory called `date-file.txt`. This is what your `cron` table should look
@@ -647,7 +641,7 @@ cat date-file.txt
 ## Thu Jun  8 18:50:01 UTC 2017
 ```
 
-Look like our entry in the `cron` table is working! Wait another minute and then
+Looks like our entry in the `cron` table is working! Wait another minute and then
 look at the file again:
 
 ```{r, engine='bash', eval=FALSE}
@@ -664,7 +658,7 @@ Unless we delete the line that we entered in the `cron` table, the output from
 
 The single line of bash `date >> ~/date-file.txt` is a much simpler program than
 we would probably use in a `cron` table, though it's good for illustrating how
-a `cron` table works. If you want to do more complex tasks with `cron` it's
+a `cron` table works. If you want to do more complex tasks with `cron`, it's
 better for `cron` to execute a bash script that you've written in advance. That
 way you can just specify `bash /path/to/script.sh` in the last column of the
 table.
@@ -682,14 +676,14 @@ look at some examples of more complex table entries:
 00 00 * * 2 bash /path/to/script.sh    # Runs every Tuesday at midnight
 ```
 
-Besides numbers and the star there are a few other characters that you can use
-in `cron` table columns including a hyphen (`-`) for specifying ranges and a
-comma (`,`) for specifying lists of items. For example `00-29` in the Minutes
+Besides numbers and the star, there are a few other characters that you can use
+in `cron` table columns, including a hyphen (`-`) for specifying ranges and a
+comma (`,`) for specifying lists of items. For example, `00-29` in the Minutes
 column would specify the first thirty minutes of an hour, while `1,5` in the
 Day of Week column would specify Monday and Friday.
 
 Let's take a look at another example of a `cron` table that uses hyphens and 
-ranges so you can get a sense of how each character works.
+ranges, so you can get a sense of how each character works.
 
 ```
 # m h  dom mon dow   command
@@ -703,8 +697,8 @@ ranges so you can get a sense of how each character works.
 
 A program that is being run by `cron` is only as powerful as your imagination
 can stretch! If you're familiar with the social network
-[Twitter](https://twitter.com/) then you might have come across some Twitter
-accounts which create posts automatically like
+[Twitter](https://twitter.com/), then you might have come across some Twitter
+accounts that create posts automatically, like
 [Emoji Aquarium](https://twitter.com/emojiaquarium),
 [Old Fruit Pictures](https://twitter.com/pomological), or
 [Endless Screaming](https://twitter.com/infinite_scream). Many of these "bot"
@@ -734,11 +728,11 @@ download that file every time it changes.
 ## Shutting Down a Server
 
 In order to avoid using more DigitalOcean credits than we have to or
-being charged for using the service make sure to **destroy** any DigitalOcean
-droplets that you started. When you destroy a droplet all files
-on the droplet are gone forever, so please be sure that you don't have any
+being charged for using the service, make sure to **destroy** any DigitalOcean
+droplets that you started. When you destroy a droplet, all files
+on it are gone forever, so please be sure that you don't have any
 important information on a droplet before you destroy it. If there are files
-you want to save on your droplet use `scp` in order to copy them to your local
+you want to save on your droplet, use `scp` in order to copy them to your local
 machine. Let's walk through destroying a droplet. Go back to 
 [DigitalOcean](https://m.do.co/c/530d6cfa2b37) and log in. You should then see
 a listing of all of your droplets:
@@ -751,7 +745,7 @@ Click **Destroy** at the bottom of this menu. Then this screen should appear:
 ![](images/do-destroy-button.png)
 
 Click the **Destroy** button and then click **Confirm** in the menu that pops
-up. Your droplet should now be destroyed. If you have no active droplets then
+up. Your droplet should now be destroyed. If you have no active droplets, then
 the main droplets page should look like this:
 
 ![](images/do-fresh.png)

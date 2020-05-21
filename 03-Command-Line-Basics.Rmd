@@ -4,14 +4,14 @@
 
 ## Hello Terminal!
 
-Once you have opened up Terminal then you should see a window that 
+Once you have opened up Terminal, then you should see a window that 
 looks something like this:
 
 ![](images/shell1.png)
 
 What you are looking at is the bash shell! Your shell will surely look different 
 than mine, but all bash shells have the same essential parts. As you can see in
-my shell it says `seans-air:~ sean$`. This string of characters is called the
+my shell, it says `seans-air:~ sean$`. This string of characters is called the
 **prompt**. You type command line commands after the prompt. The prompt is just
 there to let you know that the shell is ready for you to type in a command.
 Press `Enter` on your keyboard a few times to see what happens with the prompt.
@@ -19,16 +19,16 @@ Your shell should now look like this:
 
 ![](images/shell2.png)
 
-If you don't type anything after the prompt and you press `Enter` then nothing
+If you don't type anything after the prompt and you press `Enter`, then nothing
 happens and you get a new prompt under the old prompt. The white rectangle 
 after the prompt is just a cursor that allows you to edit what you have typed
 into the shell. Your cursor might look like a rectangle, a line, or an
 underscore, but all cursors behave the same way. After typing something into
-the command line you can move the cursor back and forth with the left and right
+the command line, you can move the cursor back and forth with the left and right
 arrow keys, just like you would when typing an email.
 
-Now that we have pressed `Enter` several times our shell looks messy with all of 
-those old prompts! Do not worry, you are about to learn your first shell command 
+Now that we have pressed `Enter` several times, our shell looks messy with all of 
+those old prompts! Do not worry, you are about to learn your first shell command, 
 which will clear all of those old prompts from your shell. Type `clear` at the 
 prompt and then hit `Enter`. Voila! Your shell now only has the current prompt,
 just like when you first opened the terminal.
@@ -57,10 +57,10 @@ command the console output of the command will appear (if there is any
 console output). You can use `echo` to print any phrase surrounded by single
 quotes (`''`) to the console.
 
-If you want to see the last command press the `Up` arrow key. You can press
+If you want to see the last command, press the `Up` arrow key. You can press
 `Up` and `Down` in order to scroll through the history of commands that you've
 entered. If you want to re-execute a past command, you can scroll to that
-command then press `Enter`. Try getting back to the `echo 'Hello World!'`
+command, then press `Enter`. Try getting back to the `echo 'Hello World!'`
 command and execute it again.
 
 ### Summary
@@ -78,13 +78,13 @@ keys.
 
 ## Navigating the Command Line
 
-You have learned two command line commands (`clear` and `echo`) which is pretty
-good! Before you learn more commands we need to discuss how files and folders 
+You have learned two command line commands (`clear` and `echo`), which is pretty
+good! Before you learn more commands, we need to discuss how files and folders 
 are organized on your computer.
 
 Computers are organized in a hierarchy of folders, where a folder can contain 
 many folders and files. People who use Unix often refer to folders as 
-directories and these terms are interchangeable. This directory hierarchy forms 
+directories, and these terms are interchangeable. This directory hierarchy forms 
 a tree, like the diagram below. You can use the command line to navigate these
 trees on your computer.
 
@@ -120,8 +120,9 @@ can also use `~` as a shorter way to refer to the same path. We will see this
 demonstrated soon.
 
 Open the command line if you closed it. Your shell is always in a directory,
-and the directory that your shell starts in your home directory. Whatever 
-directory your shell is in is called the **working directory**. Enter the `pwd` command into your shell to **p**rint the **w**orking **d**irectory.
+and the directory that your shell starts in is your home directory. Whatever 
+directory your shell is in is called the **working directory**. Enter the `pwd` 
+command into your shell to **p**rint the **w**orking **d**irectory.
 
 ```{r, engine='bash', eval=FALSE}
 pwd
@@ -132,7 +133,7 @@ pwd
 ```
 
 You can change your working directory using the `cd` command. If you use the
-`cd` command without any arguments then your working directory is changed
+`cd` command without any arguments, then your working directory is changed
 to your home directory.
 
 Enter `cd` into the command line and then enter `pwd`.
@@ -143,7 +144,7 @@ pwd
 ```
 
 You were in your working directory to start, and by entering `cd` into the
-command line you did technically **c**hange **d**irectory, you just changed it
+command line, you did technically **c**hange **d**irectory; you just changed it
 to your home directory (the directory you were in to begin with). To use `cd` to
 change your working directory to a directory other than your home directory, you
 need to provide `cd` with the path to another directory as an argument. You can
@@ -186,7 +187,7 @@ pwd
 
 I specified a **relative** path when I entered `cd Music`. The path to the 
 Music directory is just `Music/` relative to my previous working directory.
-I can go back to `/Users/sean/` with the command `cd ..` which changes the
+I can go back to `/Users/sean/` with the command `cd ..`, which changes the
 working directory to the folder above the current working directory:
 
 ```{r, engine='bash', eval=FALSE}
@@ -204,7 +205,7 @@ working directory. Therefore since my current working directory is `/Users/sean`
 then `cd Music` is the same as `cd ./Music`.
 
 I can `cd` to any folder as long as I know the **absolute** path to that folder.
-For example I can `cd` to `/Users/sean/Music` by entering the following into 
+For example, I can `cd` to `/Users/sean/Music` by entering the following into 
 the shell:
 
 ```{r, engine='bash', eval=FALSE}
@@ -216,8 +217,8 @@ pwd
 ## /Users/sean/Music
 ```
 
-It does not matter what directory the shell is in since we are using an 
-absolute path. Therefore we can jump straight to a directory as long as we specify
+It does not matter what directory the shell is in, since we are using an 
+absolute path. Therefore, we can jump straight to a directory as long as we specify
 the absolute path. Notice above that we used `~` as shortcut for `/Users/sean/`. 
 
 Of course you should not expect yourself to have every
@@ -256,13 +257,15 @@ cd ~/D
 ```
 
 Since I added a "D" to the path, only folders with names that start with a "D"
-are listed. If I type `cd ~/De` into the console and then press `Tab` then the
+are listed. If I type `cd ~/De` into the console and press `Tab`, then the
 command will autocomplete to `cd ~/Desktop/`. If I press `Tab` again, the console
 will list all of the files and folders on my desktop.
 
 Make sure to pause and try this yourself in your own terminal! You will not have
 the same files or folders that I do, but you should try using `cd` and tab 
-completion with directories and files that start with the same letters.
+completion with directories and files that start with the same letters. (If you installed
+Ubuntu on Windows, you can find your C drive at the following location in the Bash
+environment: `/mnt/c/Users/[your-user-name]`. Tab completion will not work here.)
 
 ### Summary
 
@@ -271,7 +274,7 @@ completion with directories and files that start with the same letters.
 computer.
 - Your home directory (`~`) is the directory where your terminal always starts.
 - Your terminal is always inside of a working directory.
-- When you open your terminal your working directory will be set to the home
+- When you open your terminal, your working directory will be set to the home
 directory.
 - Use the `cd` command to **c**hange your working **d**irectory.
 - The `pwd` command will **p**rint the **w**orking **d**irectory.
@@ -308,7 +311,7 @@ ls
 ## todo.txt
 ```
 
-Let's create a new directory to store some code files we am going to write
+Let's create a new directory to store some code files we are going to write
 later. We can use `mkdir` to create a new directory called `Code`:
 
 ```{r, engine='bash', eval=FALSE}
@@ -326,7 +329,7 @@ ls
 ```
 
 It worked! Notice that the argument `Code` to the command `mkdir` is a relative 
-path, however we could have specified an absolute path. In general you should
+path. However, we could have specified an absolute path. In general you should
 expect Unix tools that take paths as arguments to accept both relative and
 absolute paths.
 
@@ -373,7 +376,7 @@ ls -l
 There is a row in the resulting table for each file or folder. If the entry in the
 first column is a `d`, then the row in the table corresponds to a **d**irectory,
 otherwise the information in the row corresponds to a file. As you can see in my
-home directory there are five directories and two files. The string of
+home directory, there are five directories and two files. The string of
 characters following the `d` in the case of a directory or following the first
 `-` in the case of a file represent the permissions for that file or directory.
 We will cover permissions in a later section. The columns of this table also show
@@ -381,8 +384,8 @@ who created the file, the group that the creator of the file belongs to (we will
 cover groups later when we cover permissions), the size of the file, the time
 and date when the file was last modified, and then finally the name of the file.
 
-Now that we have created a file there are a few different ways that we can inspect
-and edit this file. First let's use the `wc` command to view the **w**ord
+Now that we have created a file, there are a few different ways that we can inspect
+and edit it. First let's use the `wc` command to view the **w**ord
 **c**ount and other information about the file:
 
 ```{r, engine='bash', eval=FALSE}
@@ -395,7 +398,7 @@ wc todo.txt
 
 The `wc` command displays the number of lines in a file followed by the number
 of words and then the number of characters. Since this file looks pretty small
-(only three lines) let's try printing it to the console using the `cat` command.
+(only three lines), let's try printing it to the console using the `cat` command.
 
 ```{r, engine='bash', eval=FALSE}
 cat todo.txt
@@ -447,8 +450,8 @@ wc Documents/a-tale-of-two-cities.txt
 ##      17    1005    5799 Documents/a-tale-of-two-cities.txt
 ```
 
-Wow, over 1000 words! If we use `cat` on this file it is liable to take up our
-entire terminal. Instead of using `cat` for this large file we should use
+Wow, over 1000 words! If we use `cat` on this file, it is liable to take up our
+entire terminal. Instead of using `cat` for this large file, we should use
 `less`, which is a program designed for viewing multi-page files. Let's try
 using `less`:
 
@@ -474,11 +477,11 @@ Documents/a-tale-of-two-cities.txt
 ```
 
 You can scroll up and down the file line-by-line using the up and down arrow 
-keys, and if you want to scroll faster you can use the `spacebar` to go to the
-next page and the `b` key to go to the previous page. In order to quit `less`
-and go back to the prompt press the `q` key.
+keys, and if you want to scroll faster, you can use the `spacebar` to go to the
+next page or the `b` key to go to the previous page. In order to quit `less`
+and go back to the prompt, press the `q` key.
 
-As you can see the `less` program is a kind of Unix tool with behavior that we
+As you can see, the `less` program is a kind of Unix tool with behavior that we
 have not seen before because it "takes over" your terminal. There are a few
 programs like this that we will discuss throughout this book.
 
@@ -503,7 +506,7 @@ head Documents/a-tale-of-two-cities.txt
 ## it was the season of Darkness,
 ```
 
-As you can see `head` prints the first ten lines of the file to the terminal.
+As you can see, `head` prints the first ten lines of the file to the terminal.
 You can specify the number of lines printed with the `-n` option followed by
 the number of lines you would like to see:
 
@@ -538,14 +541,13 @@ roads that lay before them.
 ```
 
 We have now gone over a few tools for inspecting files, folders, and their
-contents including `ls`, `wc`, `cat`, `less`, `head`, and `tail`. Before the 
-end of this section
-we should discuss a few more techniques for creating and also editing files. One
-easy way to create a file is using **output redirection**. Output redirection
-stores text that would be normally printed to the command line in a text file.
-You can use output redirection by typing the greater-than sign (`>`) at the end
-of a command followed by the name of the new file that will contain the output
-from the proceeding command. Let's try an example using `echo`:
+contents, including `ls`, `wc`, `cat`, `less`, `head`, and `tail`. Before the 
+end of this section, we should discuss a few more techniques for creating
+and also editing files. One easy way to create a file is using **output redirection**. 
+Output redirection stores text that would be normally printed to the command line
+in a text file. You can use output redirection by typing the greater-than sign (`>`)
+at the end of a command, followed by the name of the new file that will contain 
+the output from the proceeding command. Let's try an example using `echo`:
 
 ```{r, engine='bash', eval=FALSE}
 echo "I'm in the terminal."
@@ -598,9 +600,9 @@ cat echo-out.txt
 ## I have been appended.
 ```
 
-Now for a **word of warning**. Imagine that I want to append another line to 
-the end of `echo-out.txt`, so typed `echo "A third line." > echo-out.txt` into
-the terminal when really I meant to type `echo "A third line." >> echo-out.txt`
+Now for a **word of warning**: Imagine that I want to append another line to 
+the end of `echo-out.txt`, so I typed `echo "A third line." > echo-out.txt` into
+the terminal, when really I meant to type `echo "A third line." >> echo-out.txt`
 (notice I used `>` when I meant to use `>>`). Let's see what happens:
 
 ```{r, engine='bash', eval=FALSE}
@@ -612,22 +614,22 @@ cat echo-out.txt
 ## A third line.
 ```
 
-Unfortunately we have unintentionally overwritten what was already contained in
-`echo-out.txt`. There is no undo button in Unix so we will have to live with this
+Unfortunately, we have unintentionally overwritten what was already contained in
+`echo-out.txt`. There is no undo button in Unix, so we will have to live with this
 mistake. This is the first of several lessons demonstrating the damage that you
 should try to avoid inflicting with Unix. Make sure to take extra care when
-executing commands that can modify or delete a file, a typo in the command can
+executing commands that can modify or delete a file; a typo in the command can
 be potentially devastating. Thankfully there are a few strategies for protecting
 yourself from mistakes, including managing permissions for files, and tracking
 versions of your files with Git, which we will discuss thoroughly in a later
 chapter.
 
-Finally we should discuss how to edit text files. There are several file editors
-that are available for your terminal including 
+Finally, we should discuss how to edit text files. There are several file editors
+that are available for your terminal, including 
 [`vim`](https://en.wikipedia.org/wiki/Vim_(text_editor)) 
 and [`emacs`](https://en.wikipedia.org/wiki/Emacs). Entire books have been
 written about how to use both of these text editors, and if you are interested
-in one of them you should look for resources online about how to use them. The
+in one of them, you should look for resources online about how to use them. The
 one text editor we will discuss using is called `nano`. Just like `less`, `nano`
 uses your entire terminal window. Let's edit `todo.txt` using `nano`:
 
@@ -648,7 +650,7 @@ nano todo.txt
 ^X Exit       ^J Justify    ^W Where Is   ^V Next Page  ^U UnCut Text ^T To Spell
 ```
 
-Once you have started `nano` you can start editing the text file. The top line of
+Once you have started `nano`, you can begin editing the text file. The top line of
 the `nano` editor shows the file you are currently working on, and the bottom two
 lines show a few commands that you can use in `nano`. The caret character (`^`)
 represents the `Control` key on your keyboard, so you can for example type
@@ -658,7 +660,7 @@ represents the `Control` key on your keyboard, so you can for example type
 `nano` is a good editor for beginners because it works similarly to word 
 processors you have used before. You can use the arrow keys in order to move your
 cursor around the file, and the rest of the keys on your keyboard work as
-expected. Let's add an item to the to-do list and then we will save and exit `nano`
+expected. Let's add an item to the to-do list, and then we will save and exit `nano`
 by typing `Control` + `O` followed by `Control` + `X`.
 
 ```
@@ -701,24 +703,24 @@ yet exist and then save your changes to that file.
 - Inspect properties of a text file with `wc`.
 - Peak at the beginning and end of a text file with `head` and `tail`.
 - Scroll through a large text file with `less`.
-- `nano` is simple text editor.
+- `nano` is a simple text editor.
 
 ### Exercises
 
 1. Create a new directory called `workbench` in your home directory.
-2. Without changing directories create a file called `readme.txt` inside of 
+2. Without changing directories, create a file called `readme.txt` inside of 
 `workbench`.
 3. Append the numbers 1, 2, and 3 to `readme.txt` so that each number appears on
-it's own line.
+its own line.
 4. Print `readme.txt` to the command line.
 5. Use output redirection to create a new file in the `workbench` directory called 
-`list.txt` which lists the files and folders in your home directory.
+`list.txt`, which lists the files and folders in your home directory.
 6. Find out how many characters are in `list.txt` without opening the file or
 printing it to the command line.
 
 ## Migration and Destruction
 
-In this section we will discuss moving, renaming, copying, and deleting files and
+In this section, we will discuss moving, renaming, copying, and deleting files and
 folders. First let's revisit the contents of our current working directory:
 
 ```{r, engine='bash', eval=FALSE}
@@ -746,7 +748,7 @@ mkdir Journal
 
 Now we want to move the journal entry `journal-2017-01-24.txt` into the `Journal`
 directory. We can **m**o**v**e it using the `mv` command. `mv` takes two
-arguments: first the path to the file or folder that you wish to move followed
+arguments: first the path to the file or folder that you wish to move, followed
 by the destination folder. Let's try using `mv` now:
 
 ```{r, engine='bash', eval=FALSE}
@@ -765,7 +767,7 @@ echo-out.txt
 todo.txt
 ```
 
-Looks like it worked! I just realized however that we should move the `Journal`
+Looks like it worked! I just realized, however, that we should move the `Journal`
 directory into the `Documents` folder. Thankfully we can do this with `mv` in
 the same way:
 
@@ -816,7 +818,7 @@ todo-2017-01-24.txt
 ```
 
 Looks like it worked nicely. Similar to the `mv` command, the `cp` command
-**c**o**p**ies a file or folder from one location to another. As you can see `cp` is
+**c**o**p**ies a file or folder from one location to another. As you can see, `cp` is
 used exactly like `mv` when copying files, the file or folder you wish to copy
 is the first argument, followed by the path to the folder where you want the
 copy to be made:
@@ -844,7 +846,7 @@ ls Desktop
 echo-out.txt
 ```
 
-Be aware that there is one difference between copying files and folders, when
+Be aware that there is one difference between copying files and folders: when
 copying folders you need to specify the `-r` option, which is short for
 *recursive*. This ensures that the underlying directory structure of the
 directory you wish to copy remains intact. Let's try copying my `Documents`
@@ -862,22 +864,21 @@ echo-out.txt
 
 Finally, let's discuss how to delete files and folders with the command line.
 **A word of extreme caution:** in general I do not recommend deleting files or
-folders on the command line because as we have discussed before there is 
+folders on the command line because, as we have discussed before, there is 
 ***no undo button*** on the command line. If you delete a file that is critical
-to your computer functioning you may cause irreparable damage. I *highly* 
-recommend moving files or folders to a designated trash folder and then deleting
+to your computer functioning, you may cause irreparable damage. I *highly* 
+recommend moving files or folders to a designated trash folder, and then deleting
 them the way you would normally delete files and folders outside of the command
 line (The path to the Trash Bin is `~/.Trash` on Mac and `~/.local/share/Trash`
-on Ubuntu). If you decide to delete 
-a file or folder on your computer make absolutely
+on Ubuntu). If you decide to delete a file or folder on your computer, make absolutely
 sure that the command you have typed is correct before you press `Enter`. If you do
-delete a file or folder by accident stop using your computer immediately and
+delete a file or folder by accident, stop using your computer immediately and
 consult with a computer professional or your IT department so they can try to
 recover the file.
 
 Now that you have been warned, let's discuss `rm`, the
 [Avada Kedavra](https://en.wikipedia.org/wiki/Magic_in_Harry_Potter#Unforgivable_Curses)
-of command line programs. When **r**e**m**oving files `rm` only requires the path to a
+of command line programs. When **r**e**m**oving files, `rm` only requires the path to a
 file in order to delete it. Let's test its destructive power on `echo-out.txt`:
 
 ```{r, engine='bash', eval=FALSE}
@@ -898,7 +899,7 @@ todo-2017-01-24.txt
 
 The file `echo-out.txt` is gone forever. Remember when we copied the entire
 `Documents` directory into `Desktop`? Let's get rid of that directory now. Just
-like when we were using `cp` the `rm` command requires you to use the `-r`
+like when we were using `cp`, the `rm` command requires you to use the `-r`
 option when deleting entire directories. Let's test this battle station:
 
 ```{r, engine='bash', eval=FALSE}
@@ -927,7 +928,7 @@ more advanced command line topics.
 
 - `mv` can be used for moving or renaming files or folders.
 - `cp` can copy files or folders.
-- You should try to avoid using `rm` which permanently removes files or folders.
+- You should try to avoid using `rm`, which permanently removes files or folders.
 
 ### Exercises
 

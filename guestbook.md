@@ -758,5 +758,4 @@
 - MuckT
 - Brandyn Ryan
 - Vladislav Pisanenko
-- Sean Kross
 - Ravi Shankar

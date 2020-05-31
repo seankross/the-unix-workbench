@@ -56,9 +56,6 @@ Now that you have `math.sh` open in your preferred text editor type the followin
 into your text editor:
 
 ```
-#!/usr/bin/env bash
-# File: math.sh
-
 expr 5 + 2
 expr 5 - 2
 expr 5 \* 2

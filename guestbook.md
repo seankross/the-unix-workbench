@@ -776,7 +776,7 @@
 - Diego
 - Sean Kross
 - Abanob Medhat
-Antonis Christou
--Ambika
+- Antonis Christou
+- Ambika
 - Karen Parente
 - Wouter Mulder

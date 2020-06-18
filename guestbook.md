@@ -774,6 +774,7 @@
 - Daniel Donoso
 - Ziv Zerr
 - Diego
+- Dominique Ng
 - Nghi Dang
 - Antonios M.
 - Piyush

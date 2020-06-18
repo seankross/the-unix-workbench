@@ -781,6 +781,7 @@
 - Antonis Christou
 - Ambika
 - Karen Parente
+- Souvik Chandra
 - Sai Teja V
 - Jorge González
 - Fanzhao Meng

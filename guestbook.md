@@ -798,3 +798,5 @@
 - Elena Radchenko
 - Apoorv Dankar
 - Ilmars Rauda
+- Sean Kross
+- Lauren Todd

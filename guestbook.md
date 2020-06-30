@@ -799,5 +799,6 @@
 - Apoorv Dankar
 - Ilmars Rauda
 - Ruby K.
+- Juan García
 - Abbie Byford
 - Alex Muhr

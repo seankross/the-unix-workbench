@@ -800,3 +800,6 @@
 - Ilmars Rauda
 - Ruby K.
 - smserge
+- Juan García
+- Abbie Byford
+- Alex Muhr

@@ -799,3 +799,8 @@
 - Apoorv Dankar
 - Ilmars Rauda
 - Simon Villadsen
+- Ruby K.
+- smserge
+- Juan García
+- Abbie Byford
+- Alex Muhr

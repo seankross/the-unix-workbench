@@ -774,6 +774,7 @@
 - Daniel Donoso
 - Ziv Zerr
 - Diego
+- Yvon D'Amours
 - Dmitriy Biryuchkov
 - Dominique Ng
 - Nghi Dang

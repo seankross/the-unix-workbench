@@ -774,6 +774,7 @@
 - Daniel Donoso
 - Ziv Zerr
 - Diego
+- Rex
 - Muralidhara
 - Roman Tarasov
 - Kseniia Soloveva

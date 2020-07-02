@@ -774,6 +774,7 @@
 - Daniel Donoso
 - Ziv Zerr
 - Diego
+- Roman Tarasov
 - Kseniia Soloveva
 - Yvon D'Amours
 - Dmitriy Biryuchkov

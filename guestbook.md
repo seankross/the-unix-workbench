@@ -774,6 +774,7 @@
 - Daniel Donoso
 - Ziv Zerr
 - Diego
+- Darshankumar Hosamani
 - Bojan631
 - Rex
 - Muralidhara

@@ -820,4 +820,4 @@
 - Sarah Teeters
 - MuAZ Modak
 - beerded
-Lars-Johan Brannmark
+- Lars-Johan Brannmark

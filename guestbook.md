@@ -774,6 +774,8 @@
 - Daniel Donoso
 - Ziv Zerr
 - Diego
+- Ilya Demidov
+- Carolina Duque
 - Darshankumar Hosamani
 - Bojan631
 - Rex

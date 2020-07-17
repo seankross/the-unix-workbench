@@ -838,7 +838,8 @@
 - Ilias Sabirov
 - Janakinath
 - Catherine Serova
--Amanita Muscarito
--Shakthivel
+- Amanita Muscarito
+- Shakthivel
 - Richard H
 - Andrew M
+- HS

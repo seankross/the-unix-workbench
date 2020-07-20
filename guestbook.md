@@ -719,6 +719,7 @@
 - Sophie Wang
 - Breno Tiburcio
 - Julia Hitschfel
+- Manish Bharti
 - Dasara Shullani
 - Gabriel George Silvas
 - Erdinger Pinto
@@ -758,6 +759,8 @@
 - MuckT
 - Brandyn Ryan
 - Vladislav Pisanenko
+- Ravi Shankar
+- Manish Gowd
 - Anna Blashkina
 - Marcus Richardson
 - Anubhav Kumar
@@ -766,6 +769,8 @@
 - Geetanjan Roy
 - Carlos Anrés Vélez González
 - Artem Vorobyev
+- Deepak Kumar
+- Oussama Braydi
 - Achuthan Raja Venkatesh
 - Mei S.
 - sagiraldogu 
@@ -803,6 +808,7 @@
 - Jorge González
 - Fanzhao Meng
 - Ruwaa I. Mohamed
+- Julsen
 - Rowan Liu
 - aatish uniyal
 - Eric Lumsden
@@ -844,3 +850,4 @@
 - Andrew M
 - HS
 - Gerardo Lorenzo 
+- Akhil Ajithkumar

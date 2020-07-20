@@ -759,6 +759,7 @@
 - MuckT
 - Brandyn Ryan
 - Vladislav Pisanenko
+- Manish Gowd
 - Anna Blashkina
 - Marcus Richardson
 - Anubhav Kumar

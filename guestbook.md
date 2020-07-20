@@ -719,6 +719,7 @@
 - Sophie Wang
 - Breno Tiburcio
 - Julia Hitschfel
+- Manish Bharti
 - Dasara Shullani
 - Gabriel George Silvas
 - Erdinger Pinto

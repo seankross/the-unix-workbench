@@ -767,6 +767,7 @@
 - Geetanjan Roy
 - Carlos Anrés Vélez González
 - Artem Vorobyev
+- Deepak Kumar
 - Oussama Braydi
 - Achuthan Raja Venkatesh
 - Mei S.

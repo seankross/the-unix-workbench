@@ -719,6 +719,7 @@
 - Sophie Wang
 - Breno Tiburcio
 - Julia Hitschfel
+- Manish Bharti
 - Dasara Shullani
 - Gabriel George Silvas
 - Erdinger Pinto
@@ -759,3 +760,92 @@
 - Brandyn Ryan
 - Vladislav Pisanenko
 - Manish Gowd
+- Anna Blashkina
+- Marcus Richardson
+- Anubhav Kumar
+- prabhabharabi
+- Peter Obishchenko
+- Geetanjan Roy
+- Carlos Anrés Vélez González
+- Artem Vorobyev
+- Deepak Kumar
+- Oussama Braydi
+- Achuthan Raja Venkatesh
+- Mei S.
+- sagiraldogu 
+- Nataly
+- Prasang G
+- Sona Pisova
+- Christy Henderson
+- Alejandro
+- Daniel Donoso
+- Ziv Zerr
+- Diego
+- Ilya Demidov
+- Carolina Duque
+- Darshankumar Hosamani
+- Bojan631
+- Rex
+- Muralidhara
+- Roman Tarasov
+- Kseniia Soloveva
+- Yvon D'Amours
+- Dmitriy Biryuchkov
+- Dominique Ng
+- Nghi Dang
+- Antonios M.
+- Piyush
+- Abanob Medhat
+- Antonis Christou
+- Ambika
+- Karen Parente
+- Tim Kuhlow
+- Olivier Roncalez
+- Wouter Mulder
+- Souvik Chandra
+- Sai Teja V
+- Jorge González
+- Fanzhao Meng
+- Ruwaa I. Mohamed
+- Julsen
+- Rowan Liu
+- aatish uniyal
+- Eric Lumsden
+- LEE
+- Ahmed Elgamal
+- Suruchi Walekar
+- Yauheni Mardan
+- Tomomi
+- Brian Allen
+- Elena Radchenko
+- Apoorv Dankar
+- Ilmars Rauda
+- Simon Villadsen
+- Ruby K.
+- smserge
+- Juan García
+- Abbie Byford
+- Alex Muhr
+- Ananya Agrawal
+- Kalpan Shah
+- Mayank Panwar
+- Fotis Baltoumas
+- Sarah Teeters
+- MuAZ Modak
+- beerded
+- Lars-Johan Brannmark
+- Lotachukwu Ibe
+- Dwain Perkins
+- Jason Eid
+- Jimmy Phan :)
+- Alejandro Lemus
+- Marc Ponchon
+- Ilias Sabirov
+- Janakinath
+- Catherine Serova
+- Amanita Muscarito
+- Shakthivel
+- Richard H
+- Andrew M
+- HS
+- Akhil Ajithkumar

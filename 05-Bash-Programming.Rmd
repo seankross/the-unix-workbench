@@ -1470,7 +1470,7 @@ Take a look at the `man` page for `yes` to learn more about the program.
 ### Writing Functions
 
 A function is a small piece of code that has a name. Writing functions allows
-us to re-use the same code multiple times across programs. Functions have the
+us to re-use the same code multiple times across programs. Functions have
 the following syntax:
 
 ```

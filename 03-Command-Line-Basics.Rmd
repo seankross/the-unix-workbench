@@ -864,14 +864,14 @@ Finally, let's discuss how to delete files and folders with the command line.
 **A word of extreme caution:** in general I do not recommend deleting files or
 folders on the command line because as we have discussed before there is 
 ***no undo button*** on the command line. If you delete a file that is critical
-to your computer functioning you may cause irreparable damage. I *highly* 
+to your computer functioning, you may cause irreparable damage. I *highly* 
 recommend moving files or folders to a designated trash folder and then deleting
 them the way you would normally delete files and folders outside of the command
 line (The path to the Trash Bin is `~/.Trash` on Mac and `~/.local/share/Trash`
 on Ubuntu). If you decide to delete 
-a file or folder on your computer make absolutely
+a file or folder on your computer, make absolutely
 sure that the command you have typed is correct before you press `Enter`. If you do
-delete a file or folder by accident stop using your computer immediately and
+delete a file or folder by accident, stop using your computer immediately and
 consult with a computer professional or your IT department so they can try to
 recover the file.
 

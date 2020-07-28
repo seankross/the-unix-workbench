@@ -862,3 +862,4 @@
 - Vlad Ienceanu
 - Linus Bergman
 - Mahmoud Hamdy
+- Alberto Miranda

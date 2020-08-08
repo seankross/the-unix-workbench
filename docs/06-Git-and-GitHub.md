@@ -488,7 +488,7 @@ compared to the last commit. Let's add a new line of text to `readme.txt`:
 
 
 ```bash
-echo "The third line." >> readme.txt
+echo "I added a line." >> readme.txt
 git diff readme.txt
 ```
 

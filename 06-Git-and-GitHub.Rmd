@@ -515,7 +515,7 @@ git status
 If you read the results from `git status` carefully you can see that we can take
 this repository in one of two directions at this point. We can either `git add`
 the files we've made changes to in order to track those changes, or we can
-use `git checkout` in order to remove all of the changes we've made to a file
+use `git checkout` (on Ubuntu may be `git restore`) in order to remove all of the changes we've made to a file
 to restore its content to what was present in the last commit. Let's remove
 our changes to see how this works.
 

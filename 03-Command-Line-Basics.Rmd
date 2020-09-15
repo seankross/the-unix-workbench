@@ -7,7 +7,7 @@
 Once you have opened up Terminal then you should see a window that 
 looks something like this:
 
-![](images/shell1.png)
+![A newly opened shell](images/shell1.png)
 
 What you are looking at is the bash shell! Your shell will surely look different 
 than mine, but all bash shells have the same essential parts. As you can see in
@@ -17,7 +17,7 @@ there to let you know that the shell is ready for you to type in a command.
 Press `Enter` on your keyboard a few times to see what happens with the prompt.
 Your shell should now look like this:
 
-![](images/shell2.png)
+![A shell with 3 times pressed "Enter" button without any command](images/shell2.png)
 
 If you don't type anything after the prompt and you press `Enter` then nothing
 happens and you get a new prompt under the old prompt. The white rectangle 
@@ -88,12 +88,12 @@ directories and these terms are interchangeable. This directory hierarchy forms
 a tree, like the diagram below. You can use the command line to navigate these
 trees on your computer.
 
-![](images/musictree1.png)
+![A tree of a music folder](images/musictree1.png)
 
 As you can see in the image below, my Debussy directory is contained in my Music 
 directory. This is the simplest case of how directories are structured.
 
-![](images/musictree2.png)
+![A tree of a music folder & showing debussy folder](images/musictree2.png)
 
 The directory structure on most computers is much more complicated, but the 
 structure on your computer probably looks something like this:

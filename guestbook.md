@@ -874,5 +874,5 @@
 - Swarnava Ghosh
 - Adam X
 - Musta User
-- Siddhantha Bangalore
+- Siddanth
 - Sean Kross

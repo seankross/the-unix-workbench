@@ -1527,7 +1527,7 @@ account, so select that account. After a brief "please wait" screen you should
 then see the forked repository at the URL
 https://github.com/[your-github-username]/the-unix-workbench. You've now forked
 the repository for this book! In order to get a local copy of the repository 
-you'll need to use the `git clone` command. Cloning a repository copies a Git 
+you'll need to use the `git clone`  command. Cloning a repository copies a Git 
 repository to your computer while keeping track of the remote repository that 
 it originated from. Let's clone your fork of my repository now. On the right 
 side of the repository page you should see a green button that says **Clone or 

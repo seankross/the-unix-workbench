@@ -777,7 +777,7 @@
 - Oussama Braydi
 - Achuthan Raja Venkatesh
 - Mei S.
-- sagiraldogu 
+- sagiraldogu
 - Nataly
 - Prasang G
 - Sona Pisova
@@ -853,7 +853,7 @@
 - Richard H
 - Andrew M
 - HS
-- Gerardo Lorenzo 
+- Gerardo Lorenzo
 - Akhil Ajithkumar
 - G H Giri
 - Sreejan Bandyopadhyay
@@ -874,3 +874,4 @@
 - Swarnava Ghosh
 - Adam X
 - Musta User
+- Marc Gagnon

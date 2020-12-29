@@ -874,4 +874,4 @@
 - Swarnava Ghosh
 - Adam X
 - Musta User
-- aris-sk
+- Aris Sk.

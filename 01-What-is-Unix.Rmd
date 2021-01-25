@@ -18,4 +18,5 @@ havoc on yourself and on others. Like
 said: "With great power comes great responsibility."
 
 There are several popular shell programs but in this book we'll be using a shell 
-called Bash because it is the default shell program on Mac and Ubuntu.
+called *Bash* [more info](https://en.wikipedia.org/wiki/Bash_(Unix_shell)) because 
+it is the default shell program on Mac and Ubuntu.

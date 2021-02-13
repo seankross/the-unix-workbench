@@ -1032,7 +1032,7 @@ alias edbp='nano ~/.bash_profile'
 ```
 
 The first `alias` creates a new command `docs`. Now entering `docs` into the
-command line is the equivalent of entering `cd ~/Documents` into the comamnd
+command line is the equivalent of entering `cd ~/Documents` into the command
 line. Let's edit our `~/.bash_profile` with `nano`. If there's anything
 in your `~/.bash_profile` already then start adding lines at the end of the
 file. Add the line `alias docs='cd ~/Documents'`, then save the file and quit

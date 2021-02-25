@@ -1,3 +1,5 @@
+NG edits: The paragraph at the end "when working.." apprer twice on webpage. 
+
 # Git and GitHub
 
 > Proof rather than argument. - Japanese proverb

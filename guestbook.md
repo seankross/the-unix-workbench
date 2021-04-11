@@ -874,4 +874,3 @@
 - Swarnava Ghosh
 - Adam X
 - Musta User
--Hannah Will

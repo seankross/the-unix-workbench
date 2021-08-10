@@ -630,6 +630,7 @@
 - Fedor Baulin
 - Kai Wang
 - Isaac Myers
+<<<<<<< HEAD
 - Marina Markantoni
 - Homayoun
 - Triratna Manandhar
@@ -874,3 +875,4 @@
 - Swarnava Ghosh
 - Adam X
 - Musta User
+- Erica Green

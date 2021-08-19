@@ -8,6 +8,3 @@ An introduction to Unix for everyone.
 
 This work by [Sean Kross](http://seankross.com) is licensed
 [CC0](https://creativecommons.org/publicdomain/zero/1.0/). Zero rights reserved.
-
-
-Testing changes: @amandaguglieri

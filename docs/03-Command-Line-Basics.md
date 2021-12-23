@@ -978,6 +978,7 @@ more advanced command line topics.
 
 - `mv` can be used for moving or renaming files or folders.
 - `cp` can copy files or folders.
+- `wc` count characters,words and lines in a file.
 - You should try to avoid using `rm` which permanently removes files or folders.
 
 ### Exercises

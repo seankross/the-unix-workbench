@@ -1482,8 +1482,8 @@ For now we're going to take a little detour to discuss
 [GitHub Pages](https://pages.github.com/). GitHub Pages allows you to create
 and host a website on GitHub using only Git and Markdown. Go back to your
 `my-first-repo` repository page on GitHub on click the *Settings* tab at the
-top. Scroll down the page until you see a box that says **GitHub Pages**. Then
-click on the drop-down menu that says **None**. You should see a screen like
+top. Scroll down the page until you see a box that says **GitHub Pages**. You will see the following words: Pages settings now has its own dedicated tab! **Check it out here!**". Click **Check it out here**. Alternatively, you could click the **Pages** tab in the list of tabs to the right. On the following page, in the **Source** subheading, click on the drop-down menu that says **None**.
+Then click on the drop-down menu that says **None**. You should see a screen like
 this:
 
 ![](images/select-pages.png)

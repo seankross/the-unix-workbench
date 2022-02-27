@@ -1649,3 +1649,4 @@ for this repository.
 and try to identify something valuable you could contribute. Make changes or
 additions to that repository, then open a pull request.
 3. Read through [GitHub's Guides](https://guides.github.com/).
+4. Go through man pull and man fetch pages and try to understand the diffrence

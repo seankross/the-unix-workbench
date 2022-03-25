@@ -874,3 +874,5 @@
 - Swarnava Ghosh
 - Adam X
 - Musta User
+- Sean Kross
+- 0xkingmonke

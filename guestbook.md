@@ -1,7 +1,8 @@
 # Guest Book
+- Sean Kross
+- Vinay Machave
 - Kanye Stephen
 - Mark Havens
-- Sean Kross
 - Jonathan Leslie
 - Jose M Salan
 - David Ranzolin

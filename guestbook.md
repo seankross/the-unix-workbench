@@ -548,7 +548,6 @@
 - #tejas
 - Manish Meena
 - Vishal Singh
-- Claire Volleman
 - Konstheo
 - Shyam Deo
 - Tare

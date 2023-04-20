@@ -719,6 +719,7 @@
 - Sophie Wang
 - Breno Tiburcio
 - Julia Hitschfel
+- Manish Bharti
 - Dasara Shullani
 - Gabriel George Silvas
 - Erdinger Pinto
@@ -758,6 +759,12 @@
 - MuckT
 - Brandyn Ryan
 - Vladislav Pisanenko
+- Julio Cesar
+- HARSH THAKKAR
+- Alan Kong
+- Dharamraj
+- Ravi Shankar
+- Manish Gowd
 - Anna Blashkina
 - Marcus Richardson
 - Anubhav Kumar
@@ -766,6 +773,8 @@
 - Geetanjan Roy
 - Carlos Anrés Vélez González
 - Artem Vorobyev
+- Deepak Kumar
+- Oussama Braydi
 - Achuthan Raja Venkatesh
 - Mei S.
 - sagiraldogu 
@@ -844,4 +853,24 @@
 - Richard H
 - Andrew M
 - HS
+- Gerardo Lorenzo 
 - Akhil Ajithkumar
+- G H Giri
+- Sreejan Bandyopadhyay
+- youssef k
+- 4M.1N3
+- Vlad Ienceanu
+- Linus Bergman
+- Mahmoud Hamdy
+- Alberto Miranda
+- Vachan Gowda
+- Andrew Younkers
+-Yevhen Movenko
+- Mike Younkers
+- Minxin
+- Ernesto
+- Manav Aswani
+- Mohammad Anwar Shah
+- Swarnava Ghosh
+- Adam X
+- Musta User

@@ -865,7 +865,7 @@
 - Alberto Miranda
 - Vachan Gowda
 - Andrew Younkers
--Yevhen Movenko
+- Yevhen Movenko
 - Mike Younkers
 - Minxin
 - Ernesto

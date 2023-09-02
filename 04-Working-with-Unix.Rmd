@@ -1131,7 +1131,8 @@ should have the same hash. Let's test this by making a copy of `states.txt`.
 cp states.txt states_copy.txt
 ```
 
-To compute the MD5 hash of a file we can use the `md5` command:
+To compute the MD5 hash of a file we can use the `md5` command
+(or `md5sum` command in most of modern GNU/Linux systems):
 
 ```{r, engine='bash', eval=FALSE}
 md5 states.txt

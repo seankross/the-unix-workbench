@@ -874,3 +874,4 @@
 - Swarnava Ghosh
 - Adam X
 - Musta User
+- Bernhard (Bernie) Joachim Helmut May from the great province of British Columbia

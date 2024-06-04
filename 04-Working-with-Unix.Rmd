@@ -1283,7 +1283,7 @@ commands).
 ## Make
 
 Once upon a time there were no web browsers, file browsers, start menus, or
-search bars. When somebody booted up a computer all they got a was a shell
+search bars. When somebody booted up a computer all they got was a shell
 prompt, and all of the work they did started from that prompt. Back then people
 still loved to share software, but there was always the problem of how software
 should be installed. The `make` program is the best attempt at solving this

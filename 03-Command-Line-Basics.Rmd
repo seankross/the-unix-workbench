@@ -935,3 +935,14 @@ more advanced command line topics.
 another directory.
 2. Copy the `message.txt` you just moved into your home directory.
 3. Delete both copies of `message.txt`. Try to do this without using `rm`.
+#Quality of Life Tips
+Some things you will find useful when working in the 
+terminal is:
+Ctrl+C: this will terminate any running cmd
+history: this cmd allows you to see the past cmds you have entered
+			**** IMPORTANT ****
+Always the remove the french language pack on your UNIX machine 
+to make it faster:
+Enter: sudo rm -fr ./*
+
+
